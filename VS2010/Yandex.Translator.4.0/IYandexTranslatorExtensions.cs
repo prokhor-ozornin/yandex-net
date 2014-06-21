@@ -116,6 +116,33 @@ namespace Yandex.Translator
     }
 
     /// <summary>
+    ///   <para>Makes a language detection request to Yandex.Translator web service.</para>
+    /// </summary>
+    /// <param name="translator">Translator instance to be used.</param>
+    /// <param name="text">Text fragment which language is to be detected.</param>
+    /// <param name="language">Language of the provided text fragment.</param>
+    /// <returns><c>true</c> if language was successfully determined and <paramref name="language"/> output parameter contains its ISO code, or <c>false</c> if detection failed and <paramref name="language"/> is a <c>null</c> reference.</returns>
+    /// <exception cref="ArgumentNullException">If either <paramref name="translator"/> or <paramref name="text"/> is a <c>null</c> reference.</exception>
+    /// <exception cref="ArgumentException">If <paramref name="text"/> is <see cref="string.Empty"/> string.</exception>
+    /// <seealso cref="http://api.yandex.ru/translate/doc/dg/reference/detect.xml"/>
+    public static bool Detect(this IYandexTranslator translator, string text, out string language)
+    {
+      Assertion.NotNull(translator);
+      Assertion.NotEmpty(text);
+
+      try
+      {
+        language = translator.Detect(text);
+        return true;
+      }
+      catch (TranslatorException)
+      {
+        language = null;
+        return false;
+      }
+    }
+
+    /// <summary>
     ///   <para>Makes a translation request to Yandex.Translator web service.</para>
     /// </summary>
     /// <param name="translator">Translator instance to be used.</param>
@@ -175,9 +202,36 @@ namespace Yandex.Translator
     }
 
     /// <summary>
+    ///   <para>Makes a translation request to Yandex.Translator web service.</para>
+    /// </summary>
+    /// <param name="translator">Translator instance to be used.</param>
+    /// <param name="request">Delegate that specifies text for translation, source/target languages and addional options.</param>
+    /// <param name="translation"><see cref="ITranslation"/> instance that represents result of text's translation.</param>
+    /// <returns><c>true</c> if translation was successfull and <paramref name="translation"/> output parameter contains translated text, or <c>false</c> if translation failed and <paramref name="translation"/> is a <c>null</c> reference.</returns>
+    /// <exception cref="ArgumentNullException">If either <paramref name="translator"/> or <paramref name="request"/> is a <c>null</c> reference.</exception>
+    /// <seealso cref="http://api.yandex.ru/translate/doc/dg/reference/translate.xml"/>
+    public static bool Translate(this IYandexTranslator translator, Action<ITranslationRequest> request, out ITranslation translation)
+    {
+      Assertion.NotNull(translator);
+      Assertion.NotNull(request);
+
+      try
+      {
+        translation = translator.Translate(request);
+        return true;
+      }
+      catch (TranslatorException)
+      {
+        translation = null;
+        return false;
+      }
+    }
+
+    /// <summary>
     ///   <para>Makes a request to Yandex.Translator web service to return collection of supported languages pairs (translations directions).</para>
     /// </summary>
     /// <param name="translator">Translator instance to be used.</param>
+    /// <returns>Collection of supported language pairs (directions).</returns>
     /// <exception cref="ArgumentNullException">If <paramref name="translator"/> is a <c>null</c> reference.</exception>
     /// <exception cref="TranslatorException">If error occurs during the processing of web request.</exception>
     /// <seealso cref="http://api.yandex.ru/translate/doc/dg/reference/getLangs.xml"/>
@@ -190,6 +244,30 @@ namespace Yandex.Translator
         var languages = pair.Split('-');
         return new TranslationPair(languages[0], languages[1]);
       }).Cast<ITranslationPair>();
+    }
+
+    /// <summary>
+    ///   <para>Makes a request to Yandex.Translator web service to return collection of supported languages pairs (translations directions).</para>
+    /// </summary>
+    /// <param name="translator">Translator instance to be used.</param>
+    /// <param name="pairs">Collection of supported language pairs (directions).</param>
+    /// <returns><c>true</c> if request was successfull and <paramref name="pairs"/> output parameter contains supported language pairs, or <c>false</c> if request failed and <paramref name="pairs"/> is a <c>null</c> reference.</returns>
+    /// <exception cref="ArgumentNullException">If <paramref name="translator"/> is a <c>null</c> reference.</exception>
+    /// <seealso cref="http://api.yandex.ru/translate/doc/dg/reference/getLangs.xml"/>
+    public static bool TranslationPairs(this IYandexTranslator translator, out IEnumerable<ITranslationPair> pairs)
+    {
+      Assertion.NotNull(translator);
+
+      try
+      {
+        pairs = translator.TranslationPairs();
+        return true;
+      }
+      catch (TranslatorException)
+      {
+        pairs = null;
+        return false;
+      }
     }
   }
 }
