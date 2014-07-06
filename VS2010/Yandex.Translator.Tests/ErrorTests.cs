@@ -63,7 +63,7 @@ namespace Yandex.Translator
     }
 
     /// <summary>
-    ///   <para>Performs testing of <see cref="Error.CompareTo(Error)"/> method.</para>
+    ///   <para>Performs testing of <see cref="Error.CompareTo(IError)"/> method.</para>
     /// </summary>
     [Fact]
     public void CompareTo_Method()
@@ -74,7 +74,7 @@ namespace Yandex.Translator
     /// <summary>
     ///   <para>Performs testing of following methods :</para>
     ///   <list type="bullet">
-    ///     <item><description><see cref="Error.Equals(Error)"/></description></item>
+    ///     <item><description><see cref="Error.Equals(IError)"/></description></item>
     ///     <item><description><see cref="Error.Equals(object)"/></description></item>
     ///   </list>
     /// </summary>

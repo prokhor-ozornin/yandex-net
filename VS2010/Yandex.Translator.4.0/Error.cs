@@ -9,7 +9,7 @@ namespace Yandex.Translator
   ///   <para>Yandex Translator API call error.</para>
   /// </summary>
   [XmlType("Error")]
-  public sealed class Error : IComparable<Error>, IEquatable<Error>
+  public sealed class Error : IComparable<IError>, IEquatable<IError>, IError
   {
     /// <summary>
     ///   <para>Creates new error.</para>
@@ -48,21 +48,21 @@ namespace Yandex.Translator
     public string Text { get; set; }
 
     /// <summary>
-    ///   <para>Compares the current error with another.</para>
+    ///   <para>Compares the current <see cref="IError"/> instance with another.</para>
     /// </summary>
-    /// <returns>A value that indicates the relative order of the objects being compared.</returns>
-    /// <param name="other">The <see cref="Error"/> to compare with this instance.</param>
-    public int CompareTo(Error other)
+    /// <returns>A value that indicates the relative order of the instances being compared.</returns>
+    /// <param name="other">The <see cref="IError"/> to compare with this instance.</param>
+    public int CompareTo(IError other)
     {
       return this.Code.CompareTo(other.Code);
     }
 
     /// <summary>
-    ///   <para>Determines whether two errors instances are equal.</para>
+    ///   <para>Determines whether two <see cref="IError"/> instances are equal.</para>
     /// </summary>
-    /// <param name="other">The error to compare with the current one.</param>
-    /// <returns><c>true</c> if specified error is equal to the current, <c>false</c> otherwise.</returns>
-    public bool Equals(Error other)
+    /// <param name="other">The instance to compare with the current one.</param>
+    /// <returns><c>true</c> if specified instance is equal to the current, <c>false</c> otherwise.</returns>
+    public bool Equals(IError other)
     {
       return this.Equality(other, error => error.Code);
     }
@@ -74,7 +74,7 @@ namespace Yandex.Translator
     /// <returns><c>true</c> if the specified object is equal to the current object, <c>false</c>.</returns>
     public override bool Equals(object other)
     {
-      return this.Equals(other as Error);
+      return this.Equals(other as IError);
     }
 
     /// <summary>
@@ -87,9 +87,9 @@ namespace Yandex.Translator
     }
 
     /// <summary>
-    ///   <para>Returns a <see cref="string"/> that represents the current entity.</para>
+    ///   <para>Returns a <see cref="string"/> that represents the current <see cref="IError"/> instance.</para>
     /// </summary>
-    /// <returns>A string that represents the current entity.</returns>
+    /// <returns>A string that represents the current <see cref="IError"/>.</returns>
     public override string ToString()
     {
       return this.Text;

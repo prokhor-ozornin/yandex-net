@@ -31,7 +31,7 @@ namespace Yandex.Translator
     /// <summary>
     ///   <para>Performs testing of following methods :</para>
     ///   <list type="bullet">
-    ///     <item><description><see cref="Translation.Equals(Translation)"/></description></item>
+    ///     <item><description><see cref="Translation.Equals(ITranslation)"/></description></item>
     ///     <item><description><see cref="Translation.Equals(object)"/></description></item>
     ///   </list>
     /// </summary>

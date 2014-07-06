@@ -60,6 +60,7 @@
     <Compile Include="DetectedLanguageResult.cs" />
     <Compile Include="Error.cs" />
     <Compile Include="IApiConfigurator.cs" />
+    <Compile Include="IError.cs" />
     <Compile Include="IRequest.cs" />
     <Compile Include="ITranslation.cs" />
     <Compile Include="IYandexTranslator.cs" />

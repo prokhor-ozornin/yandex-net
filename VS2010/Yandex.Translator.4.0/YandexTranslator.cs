@@ -73,7 +73,7 @@ namespace Yandex.Translator
         throw new TranslatorException(new Error((int) response.StatusCode, response.ErrorMessage ?? response.StatusDescription), response.ErrorException);
       }
 
-      Error error = null;
+      IError error = null;
       try
       {
         switch (request.RequestFormat)
@@ -112,7 +112,7 @@ namespace Yandex.Translator
         throw new TranslatorException(new Error((int) response.StatusCode, response.ErrorMessage ?? response.StatusDescription), response.ErrorException);
       }
 
-      Error error = null;
+      IError error = null;
       try
       {
         switch (request.RequestFormat)

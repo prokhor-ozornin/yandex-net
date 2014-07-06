@@ -8,7 +8,7 @@ namespace Yandex.Translator
   /// </summary>
   public sealed class TranslatorException : Exception
   {
-    private readonly Error error;
+    private readonly IError error;
 
     /// <summary>
     ///   <para>Initializes a new instance exception with a specified error message and a reference to the inner exception that is the cause of this exception.</para>
@@ -16,7 +16,7 @@ namespace Yandex.Translator
     /// <param name="error">Detailed error information.</param>
     /// <param name="innerException">The exception that is the cause of the current exception, or a <c>null</c> reference.</param>
     /// <exception cref="ArgumentNullException">If <paramref name="error"/> is a <c>null</c> reference.</exception>
-    public TranslatorException(Error error, Exception innerException = null) : base(error != null ? error.Text : string.Empty, innerException)
+    public TranslatorException(IError error, Exception innerException = null) : base(error != null ? error.Text : string.Empty, innerException)
     {
       Assertion.NotNull(error);
 
@@ -26,7 +26,7 @@ namespace Yandex.Translator
     /// <summary>
     ///   <para>Detailed error information</para>
     /// </summary>
-    public Error Error
+    public IError Error
     {
       get { return this.error; }
     }

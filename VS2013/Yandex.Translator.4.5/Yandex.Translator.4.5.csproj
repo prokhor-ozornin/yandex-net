@@ -65,6 +65,9 @@
     <Compile Include="..\..\VS2010\Yandex.Translator.4.0\IApiConfigurator.cs">
       <Link>IApiConfigurator.cs</Link>
     </Compile>
+    <Compile Include="..\..\VS2010\Yandex.Translator.4.0\IError.cs">
+      <Link>IError.cs</Link>
+    </Compile>
     <Compile Include="..\..\VS2010\Yandex.Translator.4.0\IRequest.cs">
       <Link>IRequest.cs</Link>
     </Compile>

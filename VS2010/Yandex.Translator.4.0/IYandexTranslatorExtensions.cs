@@ -135,7 +135,7 @@ namespace Yandex.Translator
         language = translator.Detect(text);
         return true;
       }
-      catch (TranslatorException)
+      catch
       {
         language = null;
         return false;
@@ -220,7 +220,7 @@ namespace Yandex.Translator
         translation = translator.Translate(request);
         return true;
       }
-      catch (TranslatorException)
+      catch
       {
         translation = null;
         return false;
@@ -263,7 +263,7 @@ namespace Yandex.Translator
         pairs = translator.TranslationPairs();
         return true;
       }
-      catch (TranslatorException)
+      catch
       {
         pairs = null;
         return false;

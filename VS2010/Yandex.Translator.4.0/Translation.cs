@@ -3,7 +3,7 @@ using Catharsis.Commons;
 
 namespace Yandex.Translator
 {
-  internal sealed class Translation : IEquatable<Translation>, ITranslation
+  internal sealed class Translation : IEquatable<ITranslation>, ITranslation
   {
     private readonly string fromLanguage;
     private readonly string text;
@@ -35,14 +35,14 @@ namespace Yandex.Translator
       get { return this.toLanguage; }
     }
 
-    public bool Equals(Translation other)
+    public bool Equals(ITranslation other)
     {
       return this.Equality(other, x => x.FromLanguage, x => x.Text, x => x.ToLanguage);
     }
 
     public override bool Equals(object other)
     {
-      return this.Equals(other as Translation);
+      return this.Equals(other as ITranslation);
     }
 
     public override int GetHashCode()
