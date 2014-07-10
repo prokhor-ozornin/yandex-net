@@ -8,7 +8,7 @@ namespace Yandex.Translator
   {
     public T Deserialize<T>(IRestResponse response)
     {
-      return response.Content.Xml<T>();
+      return response.Content.AsXml<T>();
     }
 
     public string RootElement { get; set; }

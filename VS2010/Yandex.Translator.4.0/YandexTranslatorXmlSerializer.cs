@@ -7,7 +7,7 @@ namespace Yandex.Translator
   {
     public string Serialize(object subject)
     {
-      return subject.Xml();
+      return subject.ToXml();
     }
 
     public string RootElement { get; set; }
