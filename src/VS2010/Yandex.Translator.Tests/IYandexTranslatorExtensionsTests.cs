@@ -103,7 +103,7 @@ namespace Yandex.Translator
 
       Assert.Equal("ru", translation.FromLanguage);
       Assert.Equal("en", translation.ToLanguage);
-      Assert.Equal("Hello, world", translation.Text);
+      Assert.Equal("Hello world", translation.Text);
     }
     
     private void TestTranslationPairsResult(IEnumerable<ITranslationPair> result)
