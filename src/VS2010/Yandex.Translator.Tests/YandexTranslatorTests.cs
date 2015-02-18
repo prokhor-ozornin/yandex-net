@@ -32,7 +32,7 @@ namespace Yandex.Translator
       Assert.True(translator.Field("xmlDeserializer").To<IDeserializer>() is YandexTranslatorXmlDeserializer);
 
       var client = translator.Field("restClient").To<RestClient>();
-      Assert.Equal("https://translate.yandex.net/api/v1.5/tr", client.BaseUrl);
+      Assert.Equal("https://translate.yandex.net/api/v1.5/tr", client.BaseUrl.ToString());
       var key = client.DefaultParameters.FirstOrDefault(x => x.Name == "key");
       Assert.NotNull(key);
       Assert.Equal("apiKey", key.Value);

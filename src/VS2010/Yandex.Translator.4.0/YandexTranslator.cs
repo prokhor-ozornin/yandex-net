@@ -40,11 +40,11 @@ namespace Yandex.Translator
       switch (format)
       {
         case ApiDataFormat.Json :
-          this.restClient.BaseUrl = EndpointUrl.FormatSelf(".json");
+          this.restClient.BaseUrl = EndpointUrl.FormatSelf(".json").ToUri();
           break;
 
         case ApiDataFormat.Xml :
-          this.restClient.BaseUrl = EndpointUrl.FormatSelf(string.Empty);
+          this.restClient.BaseUrl = EndpointUrl.FormatSelf(string.Empty).ToUri();
           break;
       }
       
