@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yandex.Translator.3.5", "Yandex.Translator.3.5\Yandex.Translator.3.5.csproj", "{787904E9-5283-45A6-A87A-0CE9FA91390B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yandex.Translator.3.5.CP", "Yandex.Translator.3.5.CP\Yandex.Translator.3.5.CP.csproj", "{A22F56D0-EFC1-4EBF-A96C-0E92354BA926}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yandex.Translator.4.0", "Yandex.Translator.4.0\Yandex.Translator.4.0.csproj", "{A62AA18E-73DE-4831-94DB-44156504C163}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yandex.Translator.Tests", "Yandex.Translator.Tests\Yandex.Translator.Tests.csproj", "{0BFA6335-3974-42BC-AF1F-D35AE8EFA06E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yandex.Translator.4.0.CP", "Yandex.Translator.4.0.CP\Yandex.Translator.4.0.CP.csproj", "{428EED89-0889-4B8B-859E-4D53348B469E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yandex.Translator.4.5", "Yandex.Translator.4.5\Yandex.Translator.4.5.csproj", "{C52CA2FF-5D8B-4CD0-A3CB-AF105DEFE390}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yandex.Translator.4.6", "Yandex.Translator.4.6\Yandex.Translator.4.6.csproj", "{AE5F607C-E288-44DB-8C44-0636D9AD49EA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{787904E9-5283-45A6-A87A-0CE9FA91390B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{787904E9-5283-45A6-A87A-0CE9FA91390B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{787904E9-5283-45A6-A87A-0CE9FA91390B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{787904E9-5283-45A6-A87A-0CE9FA91390B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A22F56D0-EFC1-4EBF-A96C-0E92354BA926}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A22F56D0-EFC1-4EBF-A96C-0E92354BA926}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A22F56D0-EFC1-4EBF-A96C-0E92354BA926}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A22F56D0-EFC1-4EBF-A96C-0E92354BA926}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A62AA18E-73DE-4831-94DB-44156504C163}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A62AA18E-73DE-4831-94DB-44156504C163}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A62AA18E-73DE-4831-94DB-44156504C163}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A62AA18E-73DE-4831-94DB-44156504C163}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0BFA6335-3974-42BC-AF1F-D35AE8EFA06E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0BFA6335-3974-42BC-AF1F-D35AE8EFA06E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0BFA6335-3974-42BC-AF1F-D35AE8EFA06E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0BFA6335-3974-42BC-AF1F-D35AE8EFA06E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{428EED89-0889-4B8B-859E-4D53348B469E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{428EED89-0889-4B8B-859E-4D53348B469E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{428EED89-0889-4B8B-859E-4D53348B469E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{428EED89-0889-4B8B-859E-4D53348B469E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C52CA2FF-5D8B-4CD0-A3CB-AF105DEFE390}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C52CA2FF-5D8B-4CD0-A3CB-AF105DEFE390}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C52CA2FF-5D8B-4CD0-A3CB-AF105DEFE390}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C52CA2FF-5D8B-4CD0-A3CB-AF105DEFE390}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE5F607C-E288-44DB-8C44-0636D9AD49EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE5F607C-E288-44DB-8C44-0636D9AD49EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE5F607C-E288-44DB-8C44-0636D9AD49EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE5F607C-E288-44DB-8C44-0636D9AD49EA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{AE5F607C-E288-44DB-8C44-0636D9AD49EA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Yandex.Translator</RootNamespace>
+    <AssemblyName>Yandex.Translator</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\Yandex.Translator.XML</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Catharsis.Commons, Version=2.8.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Catharsis.Commons.2.8.2\lib\net45\Catharsis.Commons.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="RestSharp, Version=105.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.105.1.0\lib\net452\RestSharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\Yandex.Translator.4.0\ApiConfigurator.cs">
+      <Link>ApiConfigurator.cs</Link>
+    </Compile>
+    <Compile Include="..\Yandex.Translator.4.0\ApiDataFormat.cs">
+      <Link>ApiDataFormat.cs</Link>
+    </Compile>
+    <Compile Include="..\Yandex.Translator.4.0\DetectedLanguageResult.cs">
+      <Link>DetectedLanguageResult.cs</Link>
+    </Compile>
+    <Compile Include="..\Yandex.Translator.4.0\Error.cs">
+      <Link>Error.cs</Link>
+    </Compile>
+    <Compile Include="..\Yandex.Translator.4.0\ErrorType.cs">
+      <Link>ErrorType.cs</Link>
+    </Compile>
+    <Compile Include="..\Yandex.Translator.4.0\IApiConfigurator.cs">
+      <Link>IApiConfigurator.cs</Link>
+    </Compile>
+    <Compile Include="..\Yandex.Translator.4.0\IError.cs">
+      <Link>IError.cs</Link>
+    </Compile>
+    <Compile Include="..\Yandex.Translator.4.0\IRequest.cs">
+      <Link>IRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\Yandex.Translator.4.0\ITranslation.cs">
+      <Link>ITranslation.cs</Link>
+    </Compile>
+    <Compile Include="..\Yandex.Translator.4.0\ITranslationPair.cs">
+      <Link>ITranslationPair.cs</Link>
+    </Compile>
+    <Compile Include="..\Yandex.Translator.4.0\ITranslationRequest.cs">
+      <Link>ITranslationRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\Yandex.Translator.4.0\ITranslationRequestExtensions.cs">
+      <Link>ITranslationRequestExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\Yandex.Translator.4.0\IYandexTranslator.cs">
+      <Link>IYandexTranslator.cs</Link>
+    </Compile>
+    <Compile Include="..\Yandex.Translator.4.0\IYandexTranslatorExtensions.cs">
+      <Link>IYandexTranslatorExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\Yandex.Translator.4.0\JsonDefaultSettings.cs">
+      <Link>JsonDefaultSettings.cs</Link>
+    </Compile>
+    <Compile Include="..\Yandex.Translator.4.0\JsonEntityOrderedContractResolver.cs">
+      <Link>JsonEntityOrderedContractResolver.cs</Link>
+    </Compile>
+    <Compile Include="..\Yandex.Translator.4.0\ObjectExtensions.cs">
+      <Link>ObjectExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\Yandex.Translator.4.0\Request.cs">
+      <Link>Request.cs</Link>
+    </Compile>
+    <Compile Include="..\Yandex.Translator.4.0\StringExtensions.cs">
+      <Link>StringExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\Yandex.Translator.4.0\Translation.cs">
+      <Link>Translation.cs</Link>
+    </Compile>
+    <Compile Include="..\Yandex.Translator.4.0\TranslationPair.cs">
+      <Link>TranslationPair.cs</Link>
+    </Compile>
+    <Compile Include="..\Yandex.Translator.4.0\TranslationPairsResult.cs">
+      <Link>TranslationPairsResult.cs</Link>
+    </Compile>
+    <Compile Include="..\Yandex.Translator.4.0\TranslationRequest.cs">
+      <Link>TranslationRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\Yandex.Translator.4.0\TranslationResult.cs">
+      <Link>TranslationResult.cs</Link>
+    </Compile>
+    <Compile Include="..\Yandex.Translator.4.0\TranslatorException.cs">
+      <Link>TranslatorException.cs</Link>
+    </Compile>
+    <Compile Include="..\Yandex.Translator.4.0\Yandex.cs">
+      <Link>Yandex.cs</Link>
+    </Compile>
+    <Compile Include="..\Yandex.Translator.4.0\YandexTranslator.cs">
+      <Link>YandexTranslator.cs</Link>
+    </Compile>
+    <Compile Include="..\Yandex.Translator.4.0\YandexTranslatorJsonDeserializer.cs">
+      <Link>YandexTranslatorJsonDeserializer.cs</Link>
+    </Compile>
+    <Compile Include="..\Yandex.Translator.4.0\YandexTranslatorJsonSerializer.cs">
+      <Link>YandexTranslatorJsonSerializer.cs</Link>
+    </Compile>
+    <Compile Include="..\Yandex.Translator.4.0\YandexTranslatorXmlDeserializer.cs">
+      <Link>YandexTranslatorXmlDeserializer.cs</Link>
+    </Compile>
+    <Compile Include="..\Yandex.Translator.4.0\YandexTranslatorXmlSerializer.cs">
+      <Link>YandexTranslatorXmlSerializer.cs</Link>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
