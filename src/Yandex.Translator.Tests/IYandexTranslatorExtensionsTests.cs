@@ -110,7 +110,7 @@ namespace Yandex.Translator
     {
       Assertion.NotNull(result);
 
-      Assert.True(result.Any());
+      Assert.NotEmpty(result);
       Assert.Contains(result, pair => pair.FromLanguage == "en" && pair.ToLanguage == "ru");
       Assert.Contains(result, pair => pair.FromLanguage == "ru" && pair.ToLanguage == "en");
     }

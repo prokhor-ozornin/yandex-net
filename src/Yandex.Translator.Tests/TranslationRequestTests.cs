@@ -17,7 +17,7 @@ namespace Yandex.Translator
     public void Constructors()
     {
       var request = new TranslationRequest();
-      Assert.False(request.Parameters.Any());
+      Assert.Empty(request.Parameters);
     }
 
     /// <summary>

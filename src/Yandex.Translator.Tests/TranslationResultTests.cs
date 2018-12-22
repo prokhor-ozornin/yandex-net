@@ -20,7 +20,7 @@ namespace Yandex.Translator
       var result = new TranslationResult();
       Assert.Equal(0, result.Code);
       Assert.Null(result.Language);
-      Assert.False(result.Lines.Any());
+      Assert.Empty(result.Lines);
 
       result = new TranslationResult(1, "language", "text");
       Assert.Equal(1, result.Code);
@@ -53,11 +53,11 @@ namespace Yandex.Translator
     public void Lines_Property()
     {
       var result = new TranslationResult();
-      Assert.False(result.Lines.Any());
+      Assert.Empty(result.Lines);
       result.Lines.Add("line");
       Assert.Equal("line", result.Lines.Single());
       result.Lines.Remove("line");
-      Assert.False(result.Lines.Any());
+      Assert.Empty(result.Lines);
     }
 
     /// <summary>
