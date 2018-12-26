@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
-
-namespace Yandex.Translator
+﻿namespace Yandex.Translator
 {
+  using System;
+  using System.Collections.Generic;
+  using System.Linq;
+  using Newtonsoft.Json;
+  using Newtonsoft.Json.Serialization;
+
   /// <summary>
   ///   <para>Custom JSON <see cref="IContractResolver"/> that orders serialized properties alphabetically, as well as placing property named "id" (case-insensitive), if it exists, at the top.</para>
   /// </summary>

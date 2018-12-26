@@ -1,7 +1,7 @@
-﻿using Newtonsoft.Json;
-
-namespace Yandex.Translator
+﻿namespace Yandex.Translator
 {
+  using Newtonsoft.Json;
+
   /// <summary>
   ///   <para>Default settings for <see cref="JsonConverter"/>.</para>
   /// </summary>

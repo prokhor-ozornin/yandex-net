@@ -1,9 +1,9 @@
-﻿using System;
-using System.Globalization;
-using Catharsis.Commons;
-
-namespace Yandex.Translator
+﻿namespace Yandex.Translator
 {
+  using System;
+  using System.Globalization;
+  using Catharsis.Commons;
+
   /// <summary>
   ///   <para>Set of extension methods for interface <see cref="ITranslationRequest"/>.</para>
   /// </summary>

@@ -1,39 +1,26 @@
-﻿using System;
-using Catharsis.Commons;
-
-namespace Yandex.Translator
+﻿namespace Yandex.Translator
 {
+  using System;
+  using Catharsis.Commons;
+
   internal sealed class Translation : IEquatable<ITranslation>, ITranslation
   {
-    private readonly string fromLanguage;
-    private readonly string text;
-    private readonly string toLanguage;
-
     public Translation(string fromLanguage, string toLanguage, string text)
     {
       Assertion.NotEmpty(fromLanguage);
       Assertion.NotEmpty(toLanguage);
       Assertion.NotEmpty(text);
 
-      this.fromLanguage = fromLanguage;
-      this.toLanguage = toLanguage;
-      this.text = text;
+      FromLanguage = fromLanguage;
+      ToLanguage = toLanguage;
+      Text = text;
     }
 
-    public string FromLanguage
-    {
-      get { return this.fromLanguage; }
-    }
+    public string FromLanguage { get; private set; }
 
-    public string Text
-    {
-      get { return this.text; }
-    }
+    public string Text { get; private set; }
 
-    public string ToLanguage
-    {
-      get { return this.toLanguage; }
-    }
+    public string ToLanguage { get; private set; }
 
     public bool Equals(ITranslation other)
     {
@@ -42,7 +29,7 @@ namespace Yandex.Translator
 
     public override bool Equals(object other)
     {
-      return this.Equals(other as ITranslation);
+      return Equals(other as ITranslation);
     }
 
     public override int GetHashCode()
@@ -52,7 +39,7 @@ namespace Yandex.Translator
 
     public override string ToString()
     {
-      return this.Text;
+      return Text;
     }
   }
 }

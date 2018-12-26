@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Xml.Serialization;
-using Newtonsoft.Json;
-
-namespace Yandex.Translator
+﻿namespace Yandex.Translator
 {
+  using System.Collections.Generic;
+  using System.Xml.Serialization;
+  using Newtonsoft.Json;
+
   /// <summary>
   ///   <para>Represents a result of call to Yandex.Translator service's operation of retrieving supported translations pairs.</para>
   /// </summary>
@@ -23,7 +23,7 @@ namespace Yandex.Translator
     /// </summary>
     public TranslationPairsResult()
     {
-      this.Pairs = new List<string>();
+      Pairs = new List<string>();
     }
   }
 }

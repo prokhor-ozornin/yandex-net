@@ -1,9 +1,9 @@
-﻿using Catharsis.Commons;
-using RestSharp;
-using RestSharp.Deserializers;
-
-namespace Yandex.Translator
+﻿namespace Yandex.Translator
 {
+  using Catharsis.Commons;
+  using RestSharp;
+  using RestSharp.Deserializers;
+
   internal sealed class YandexTranslatorXmlDeserializer : IDeserializer
   {
     public T Deserialize<T>(IRestResponse response)

@@ -1,7 +1,7 @@
-﻿using Catharsis.Commons;
-
-namespace Yandex.Translator
+﻿namespace Yandex.Translator
 {
+  using Catharsis.Commons;
+
   internal sealed class ApiConfigurator : IApiConfigurator
   {
     private ApiDataFormat format = ApiDataFormat.Json;
@@ -23,12 +23,12 @@ namespace Yandex.Translator
 
     public string GetApiKey()
     {
-      return this.apiKey;
+      return apiKey;
     }
 
     public ApiDataFormat GetFormat()
     {
-      return this.format;
+      return format;
     }
   }
 }

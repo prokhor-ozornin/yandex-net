@@ -1,10 +1,10 @@
-﻿using System;
-using System.Xml.Serialization;
-using Catharsis.Commons;
-using Newtonsoft.Json;
-
-namespace Yandex.Translator
+﻿namespace Yandex.Translator
 {
+  using System;
+  using System.Xml.Serialization;
+  using Catharsis.Commons;
+  using Newtonsoft.Json;
+
   /// <summary>
   ///   <para>Yandex Translator API call error.</para>
   /// </summary>
@@ -29,8 +29,8 @@ namespace Yandex.Translator
     {
       Assertion.NotEmpty(text);
 
-      this.Code = code;
-      this.Text = text;
+      Code = code;
+      Text = text;
     }
 
     /// <summary>
@@ -54,7 +54,7 @@ namespace Yandex.Translator
     /// <param name="other">The <see cref="IError"/> to compare with this instance.</param>
     public int CompareTo(IError other)
     {
-      return this.Code.CompareTo(other.Code);
+      return Code.CompareTo(other.Code);
     }
 
     /// <summary>
@@ -74,7 +74,7 @@ namespace Yandex.Translator
     /// <returns><c>true</c> if the specified object is equal to the current object, <c>false</c>.</returns>
     public override bool Equals(object other)
     {
-      return this.Equals(other as IError);
+      return Equals(other as IError);
     }
 
     /// <summary>
@@ -92,7 +92,7 @@ namespace Yandex.Translator
     /// <returns>A string that represents the current <see cref="IError"/>.</returns>
     public override string ToString()
     {
-      return this.Text;
+      return Text;
     }
   }
 }

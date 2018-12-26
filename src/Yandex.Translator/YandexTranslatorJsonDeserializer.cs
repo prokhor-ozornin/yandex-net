@@ -1,8 +1,8 @@
-﻿using RestSharp;
-using RestSharp.Deserializers;
-
-namespace Yandex.Translator
+﻿namespace Yandex.Translator
 {
+  using RestSharp;
+  using RestSharp.Deserializers;
+
   internal sealed class YandexTranslatorJsonDeserializer : IDeserializer
   {
     public T Deserialize<T>(IRestResponse response)

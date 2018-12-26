@@ -1,10 +1,9 @@
-﻿using Catharsis.Commons;
-
-namespace Yandex.Translator
+﻿namespace Yandex.Translator
 {
-    using System.Globalization;
+  using System.Globalization;
+  using Catharsis.Commons;
 
-    internal sealed class TranslationRequest : Request, ITranslationRequest
+  internal sealed class TranslationRequest : Request, ITranslationRequest
   {
     private string from;
     private string to;
@@ -13,7 +12,7 @@ namespace Yandex.Translator
     {
       Assertion.NotEmpty(format);
 
-      this.Parameters["format"] = format;
+      Parameters["format"] = format;
       return this;
     }
 
@@ -21,8 +20,8 @@ namespace Yandex.Translator
     {
       Assertion.NotEmpty(language);
 
-      this.from = language;
-      this.Parameters["lang"] = this.Language;
+      from = language;
+      Parameters["lang"] = Language;
       return this;
     }
 
@@ -30,7 +29,7 @@ namespace Yandex.Translator
     {
       Assertion.NotEmpty(text);
 
-      this.Parameters["text"] = text;
+      Parameters["text"] = text;
       return this;
     }
 
@@ -38,8 +37,8 @@ namespace Yandex.Translator
     {
       Assertion.NotEmpty(language);
 
-      this.to = language;
-      this.Parameters["lang"] = this.Language;
+      to = language;
+      Parameters["lang"] = Language;
       return this;
     }
 
@@ -47,22 +46,22 @@ namespace Yandex.Translator
     {
       get
       {
-        if (this.from.IsEmpty() && this.to.IsEmpty())
+        if (from.IsEmpty() && to.IsEmpty())
         {
           return null;
         }
         
-        if (this.from.IsEmpty())
+        if (from.IsEmpty())
         {
-          return this.to;
+          return to;
         }
         
-        if (this.to.IsEmpty())
+        if (to.IsEmpty())
         {
-          return this.from;
+          return from;
         }
 
-        return string.Format(CultureInfo.InvariantCulture, "{0}-{1}", this.from, this.to);
+        return string.Format(CultureInfo.InvariantCulture, "{0}-{1}", from, to);
       }
     }
   }

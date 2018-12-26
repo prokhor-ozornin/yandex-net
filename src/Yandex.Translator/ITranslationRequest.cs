@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace Yandex.Translator
+﻿namespace Yandex.Translator
 {
+  using System;
+
   /// <summary>
   ///   <para>Representation of a text translation request to Yandex.Translator web service.</para>
   /// </summary>

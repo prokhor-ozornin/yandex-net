@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-
-namespace Yandex.Translator
+﻿namespace Yandex.Translator
 {
+  using System.Collections.Generic;
+
   /// <summary>
   ///   <para>Representation of a custom web request to Yandex.Translator web service.</para>
   /// </summary>

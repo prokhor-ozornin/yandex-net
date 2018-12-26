@@ -1,33 +1,23 @@
-﻿using System;
-using Catharsis.Commons;
-
-namespace Yandex.Translator
+﻿namespace Yandex.Translator
 {
-    using System.Globalization;
+  using System;
+  using System.Globalization;
+  using Catharsis.Commons;
 
-    internal sealed class TranslationPair : IEquatable<ITranslationPair>, ITranslationPair
+  internal sealed class TranslationPair : IEquatable<ITranslationPair>, ITranslationPair
   {
-    private readonly string fromLanguage;
-    private readonly string toLanguage;
-
     public TranslationPair(string fromLanguage, string toLanguage)
     {
       Assertion.NotEmpty(fromLanguage);
       Assertion.NotEmpty(toLanguage);
 
-      this.fromLanguage = fromLanguage;
-      this.toLanguage = toLanguage;
+      FromLanguage = fromLanguage;
+      ToLanguage = toLanguage;
     }
 
-    public string FromLanguage
-    {
-      get { return this.fromLanguage; }
-    }
+    public string FromLanguage { get; private set; }
 
-    public string ToLanguage
-    {
-      get { return this.toLanguage; }
-    }
+    public string ToLanguage { get; }
 
     public bool Equals(ITranslationPair other)
     {
@@ -36,7 +26,7 @@ namespace Yandex.Translator
 
     public override bool Equals(object other)
     {
-      return this.Equals(other as ITranslationPair);
+      return Equals(other as ITranslationPair);
     }
 
     public override int GetHashCode()
@@ -46,7 +36,7 @@ namespace Yandex.Translator
 
     public override string ToString()
     {
-      return string.Format(CultureInfo.InvariantCulture, "{0}-{1}", this.FromLanguage, this.ToLanguage);
+      return string.Format(CultureInfo.InvariantCulture, "{0}-{1}", FromLanguage, ToLanguage);
     }
   }
 }

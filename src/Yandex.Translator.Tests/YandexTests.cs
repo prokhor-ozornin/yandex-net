@@ -20,11 +20,11 @@ namespace Yandex.Translator
 
       var translator = Yandex.Translator(x => x.ApiKey("apiKey"));
       Assert.Equal("apiKey", translator.ApiKey);
-      Assert.Equal(ApiDataFormat.Json, translator.Field("format").To<ApiDataFormat>());
+      Assert.Equal(ApiDataFormat.Json, translator.Property("Format").To<ApiDataFormat>());
 
       translator = Yandex.Translator(x => x.ApiKey("apiKey").Format(ApiDataFormat.Xml));
       Assert.Equal("apiKey", translator.ApiKey);
-      Assert.Equal(ApiDataFormat.Xml, translator.Field("format").To<ApiDataFormat>());
+      Assert.Equal(ApiDataFormat.Xml, translator.Property("Format").To<ApiDataFormat>());
     }
   }
 }

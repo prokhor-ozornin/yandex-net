@@ -1,7 +1,7 @@
-﻿using RestSharp.Serializers;
-
-namespace Yandex.Translator
+﻿namespace Yandex.Translator
 {
+  using RestSharp.Serializers;
+
   internal sealed class YandexTranslatorJsonSerializer : ISerializer
   {
     public string Serialize(object subject)

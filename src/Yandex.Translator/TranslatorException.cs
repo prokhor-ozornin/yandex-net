@@ -1,15 +1,13 @@
-﻿using System;
-using Catharsis.Commons;
-
-namespace Yandex.Translator
+﻿namespace Yandex.Translator
 {
+  using System;
+  using Catharsis.Commons;
+
   /// <summary>
   ///   <para>Represent error that occurs during execution of request to Yandex.Translator service.</para>
   /// </summary>
   public sealed class TranslatorException : Exception
   {
-    private readonly IError error;
-
     /// <summary>
     ///   <para>Initializes a new instance exception with a specified error message and a reference to the inner exception that is the cause of this exception.</para>
     /// </summary>
@@ -20,15 +18,12 @@ namespace Yandex.Translator
     {
       Assertion.NotNull(error);
 
-      this.error = error;
+      Error = error;
     }
 
     /// <summary>
     ///   <para>Detailed error information</para>
     /// </summary>
-    public IError Error
-    {
-      get { return this.error; }
-    }
+    public IError Error { get; private set; }
   }
 }

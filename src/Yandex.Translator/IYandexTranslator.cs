@@ -1,9 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using RestSharp;
-
-namespace Yandex.Translator
+﻿namespace Yandex.Translator
 {
+  using System;
+  using System.Collections.Generic;
+  using RestSharp;
+
   /// <summary>
   ///   <para>Represents a client for making requests to Yandex.Translator web service.</para>
   /// </summary>

@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using Catharsis.Commons;
-using RestSharp;
-
-namespace Yandex.Translator
+﻿namespace Yandex.Translator
 {
+  using System;
+  using System.Collections.Generic;
+  using System.Linq;
+  using System.Net;
+  using Catharsis.Commons;
+  using RestSharp;
+
   /// <summary>
   ///   <para>Set of extension methods for interface <see cref="IYandexTranslator"/>.</para>
   /// </summary>

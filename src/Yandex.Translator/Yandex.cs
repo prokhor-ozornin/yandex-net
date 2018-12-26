@@ -1,8 +1,8 @@
-﻿using System;
-using Catharsis.Commons;
-
-namespace Yandex.Translator
+﻿namespace Yandex.Translator
 {
+  using System;
+  using Catharsis.Commons;
+
   /// <summary>
   ///   <para>Entry point to access Yandex.Translator web service.</para>
   /// </summary>

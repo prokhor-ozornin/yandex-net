@@ -1,10 +1,10 @@
-﻿using System;
-using System.Xml.Serialization;
-using Catharsis.Commons;
-using Newtonsoft.Json;
-
-namespace Yandex.Translator
+﻿namespace Yandex.Translator
 {
+  using System;
+  using System.Xml.Serialization;
+  using Catharsis.Commons;
+  using Newtonsoft.Json;
+
   /// <summary>
   ///   <para>Represents a result of call to Yandex.Translator service's operation of language detection.</para>
   /// </summary>
@@ -43,8 +43,8 @@ namespace Yandex.Translator
     {
       Assertion.NotEmpty(language);
 
-      this.Code = code;
-      this.Language = language;
+      Code = code;
+      Language = language;
     }
   }
 }

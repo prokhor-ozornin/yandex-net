@@ -1,22 +1,18 @@
-﻿using System.Collections.Generic;
-using System.IO;
-using System.Net;
-using System.Xml.Serialization;
-using Catharsis.Commons;
-using RestSharp;
-using RestSharp.Deserializers;
-using RestSharp.Serializers;
-
-namespace Yandex.Translator
+﻿namespace Yandex.Translator
 {
-    using System.Globalization;
+  using System.Collections.Generic;
+  using System.Globalization;
+  using System.IO;
+  using System.Net;
+  using System.Xml.Serialization;
+  using Catharsis.Commons;
+  using RestSharp;
+  using RestSharp.Deserializers;
+  using RestSharp.Serializers;
 
-    internal sealed class YandexTranslator : IYandexTranslator
+  internal sealed class YandexTranslator : IYandexTranslator
   {
     private const string EndpointUrl = "https://translate.yandex.net/api/v1.5/tr{0}";
-
-    private readonly string apiKey;
-    private readonly ApiDataFormat format;
     private readonly RestClient restClient;
     private readonly ISerializer jsonSerializer = new YandexTranslatorJsonSerializer();
     private readonly IDeserializer jsonDeserializer = new YandexTranslatorJsonDeserializer();
@@ -27,48 +23,42 @@ namespace Yandex.Translator
     {
       Assertion.NotEmpty(apiKey);
 
-      this.format = format;
-      this.apiKey = apiKey;
+      Format = format;
+      ApiKey = apiKey;
 
-      this.restClient = new RestClient(EndpointUrl);
-      this.restClient.AddHandler("application/xml", this.xmlDeserializer);
-      this.restClient.AddHandler("text/xml", this.xmlDeserializer);
-      this.restClient.AddHandler("application/json", this.jsonDeserializer);
-      this.restClient.AddHandler("text/json", this.jsonDeserializer);
-      this.restClient.AddHandler("text/x-json", this.jsonDeserializer);
-      this.restClient.AddHandler("text/javascript", this.jsonDeserializer);
-      this.restClient.AddHandler("*", this.xmlDeserializer);
+      restClient = new RestClient(EndpointUrl);
+      restClient.AddHandler("application/xml", xmlDeserializer);
+      restClient.AddHandler("text/xml", xmlDeserializer);
+      restClient.AddHandler("application/json", jsonDeserializer);
+      restClient.AddHandler("text/json", jsonDeserializer);
+      restClient.AddHandler("text/x-json", jsonDeserializer);
+      restClient.AddHandler("text/javascript", jsonDeserializer);
+      restClient.AddHandler("*", xmlDeserializer);
 
       switch (format)
       {
         case ApiDataFormat.Json:
-          this.restClient.BaseUrl = string.Format(CultureInfo.InvariantCulture, EndpointUrl, ".json").ToUri();
+          restClient.BaseUrl = string.Format(CultureInfo.InvariantCulture, EndpointUrl, ".json").ToUri();
           break;
 
         case ApiDataFormat.Xml:
-          this.restClient.BaseUrl = string.Format(CultureInfo.InvariantCulture, EndpointUrl, string.Empty).ToUri();
+          restClient.BaseUrl = string.Format(CultureInfo.InvariantCulture, EndpointUrl, string.Empty).ToUri();
           break;
       }
       
-      this.restClient.AddDefaultParameter("key", apiKey);
+      restClient.AddDefaultParameter("key", apiKey);
     }
 
-    public string ApiKey
-    {
-      get { return this.apiKey; }
-    }
+    public string ApiKey { get; private set; }
 
-    public ApiDataFormat Format
-    {
-      get { return this.format; }
-    }
+    public ApiDataFormat Format { get; private set; }
 
     public IRestResponse Call(string resource, IDictionary<string, object> parameters = null, IDictionary<string, object> headers = null)
     {
       Assertion.NotEmpty(resource);
 
-      var request = this.CreateRequest(resource, parameters);
-      var response = this.restClient.Post(request);
+      var request = CreateRequest(resource, parameters);
+      var response = restClient.Post(request);
 
       if (response.ErrorException != null || response.StatusCode != HttpStatusCode.OK)
       {
@@ -106,8 +96,8 @@ namespace Yandex.Translator
 
     public IRestResponse<T> Call<T>(string resource, IDictionary<string, object> parameters = null, IDictionary<string, object> headers = null) where T : new()
     {
-      var request = this.CreateRequest(resource, parameters);
-      var response = this.restClient.Get<T>(request);
+      var request = CreateRequest(resource, parameters);
+      var response = restClient.Get<T>(request);
 
       if (response.ErrorException != null || response.StatusCode != HttpStatusCode.OK)
       {
@@ -149,16 +139,16 @@ namespace Yandex.Translator
 
       var request = new RestRequest(resource);
 
-      switch (this.format)
+      switch (Format)
       {
         case ApiDataFormat.Json:
           request.RequestFormat = DataFormat.Json;
-          request.JsonSerializer = this.jsonSerializer;
+          request.JsonSerializer = jsonSerializer;
           break;
 
         case ApiDataFormat.Xml:
           request.RequestFormat = DataFormat.Xml;
-          request.XmlSerializer = this.xmlSerializer;
+          request.XmlSerializer = xmlSerializer;
           break;
       }
 

@@ -1,8 +1,8 @@
-﻿using Catharsis.Commons;
-using RestSharp.Serializers;
-
-namespace Yandex.Translator
+﻿namespace Yandex.Translator
 {
+  using Catharsis.Commons;
+  using RestSharp.Serializers;
+
   internal sealed class YandexTranslatorXmlSerializer : IXmlSerializer
   {
     public string Serialize(object subject)

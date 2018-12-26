@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Xml.Serialization;
-using Catharsis.Commons;
-using Newtonsoft.Json;
-
-namespace Yandex.Translator
+﻿namespace Yandex.Translator
 {
+  using System;
+  using System.Collections.Generic;
+  using System.Xml.Serialization;
+  using Catharsis.Commons;
+  using Newtonsoft.Json;
+
   /// <summary>
   ///   <para>Represents a result of call to Yandex.Translator service's operation of retrieving supported translations pairs.</para>
   /// </summary>
@@ -40,7 +40,7 @@ namespace Yandex.Translator
     [XmlIgnore]
     public string Text
     {
-      get { return this.Lines.Join(string.Empty); }
+      get { return Lines.Join(string.Empty); }
     }
 
     /// <summary>
@@ -48,7 +48,7 @@ namespace Yandex.Translator
     /// </summary>
     public TranslationResult()
     {
-      this.Lines = new List<string>();
+      Lines = new List<string>();
     }
 
     /// <summary>
@@ -61,9 +61,9 @@ namespace Yandex.Translator
     /// <exception cref="ArgumentException">If either <paramref name="language"/> or <paramref name="text"/> is <see cref="string.Empty"/> string.</exception>
     public TranslationResult(int code, string language, string text) : this()
     {
-      this.Code = code;
-      this.Language = language;
-      this.Lines.Add(text);
+      Code = code;
+      Language = language;
+      Lines.Add(text);
     }
 
     /// <summary>
@@ -72,7 +72,7 @@ namespace Yandex.Translator
     /// <returns>A string that represents the current <see cref="TranslationResult"/>.</returns>
     public override string ToString()
     {
-      return this.Text;
+      return Text;
     }
   }
 }
