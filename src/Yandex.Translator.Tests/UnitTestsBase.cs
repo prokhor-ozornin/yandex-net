@@ -68,7 +68,7 @@ namespace Yandex.Translator
         }
         else if (value is DateTime)
         {
-          value = @"""{0}""".FormatSelf(value.To<DateTime>().ISO8601());
+          value = string.Format(CultureInfo.InvariantCulture, @"""{0}""", value.To<DateTime>().ISO8601());
         }
         else if (value.GetType().IsPrimitive)
         {
@@ -76,17 +76,18 @@ namespace Yandex.Translator
         }
         else if (value is string)
         {
-          value = @"""{0}""".FormatSelf(value);
+          value = string.Format(CultureInfo.InvariantCulture, @"""{0}""", value);
         }
         else
         {
           var jsonValue = value.Json();
           value = jsonValue.Substring(0, jsonValue.Length);
         }
-        return @"""{0}"":{1}".FormatSelf(property.Name, value);
+
+        return string.Format(CultureInfo.InvariantCulture, @"""{0}"":{1}", property.Name, value);
       }).Join(",");
 
-      Assert.Equal(attributes == null ? "{}" : @"{{{0}}}".FormatSelf(json), instance.Json());
+      Assert.Equal(attributes == null ? "{}" : string.Format(CultureInfo.InvariantCulture, @"{{{0}}}", json), instance.Json());
     }
 
     protected void TestXml(T instance, string root, object attributes)
@@ -111,18 +112,18 @@ namespace Yandex.Translator
       });
 
       var xml = instance.ToXml();
-      Assert.True(xml.Contains(@"<?xml version=""1.0"" encoding=""utf-16""?>"));
+      Assert.Contains(@"<?xml version=""1.0"" encoding=""utf-16""?>", xml);
       if (attributes == null)
       {
-        Assert.True(xml.Contains(@"<{0} ".FormatSelf(root)));
+        Assert.Contains(string.Format(CultureInfo.InvariantCulture, @"<{0} ", root), xml);
       }
       else
       {
-        Assert.True(xml.Contains(@"<{0} ".FormatSelf(root)));
-        Assert.True(xml.Contains("</{0}>".FormatSelf(root)));
+        Assert.Contains(string.Format(CultureInfo.InvariantCulture, @"<{0} ", root), xml);
+        Assert.Contains(string.Format("</{0}>", root), xml);
         foreach (var tag in tags)
         {
-          Assert.True(xml.Contains(tag));
+          Assert.Contains(tag, xml);
         }
       }
     }

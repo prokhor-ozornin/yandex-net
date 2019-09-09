@@ -10,8 +10,6 @@ This project needs your support for further developments ! Please consider donat
 
 - _Yandex.Money_ : 41001577953208
 
-- _WebMoney (WMR)_ : R399275865890
-
 [![Image](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=APHM8MU9N76V8 "Donate")
 
 ***

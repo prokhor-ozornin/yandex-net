@@ -13,8 +13,8 @@ namespace Yandex.Translator
     [Fact]
     public void Json()
     {
-      this.TestJson(new Error(), new { code = 0 });
-      this.TestJson(new Error(1, "text"), new { code = 1, text = "text" });
+      TestJson(new Error(), new { code = 0 });
+      TestJson(new Error(1, "text"), new { code = 1, text = "text" });
     }
 
     /// <summary>
@@ -23,8 +23,8 @@ namespace Yandex.Translator
     [Fact]
     public void Xml()
     {
-      this.TestXml(new Error(), "Error", new { code = 0 });
-      this.TestXml(new Error(1, "text"), "Error", new { code = 1, text = "text" });
+      TestXml(new Error(), "Error", new { code = 0 });
+      TestXml(new Error(1, "text"), "Error", new { code = 1, text = "text" });
     }
 
     /// <summary>
@@ -68,7 +68,7 @@ namespace Yandex.Translator
     [Fact]
     public void CompareTo_Method()
     {
-      this.TestCompareTo("Code", 1, 2);
+      TestCompareTo("Code", 1, 2);
     }
 
     /// <summary>
@@ -81,7 +81,7 @@ namespace Yandex.Translator
     [Fact]
     public void Equals_Methods()
     {
-      this.TestEquality("Code", 1, 2);
+      TestEquality("Code", 1, 2);
     }
 
     /// <summary>
@@ -90,7 +90,7 @@ namespace Yandex.Translator
     [Fact]
     public void GetHashCode_Method()
     {
-      this.TestHashCode("Code", 1, 2);
+      TestHashCode("Code", 1, 2);
     }
 
     /// <summary>

@@ -26,26 +26,26 @@ namespace Yandex.Translator
     public void Detect_Method()
     {
       Assert.Throws<ArgumentNullException>(() => IYandexTranslatorExtensions.Detect(null, "text"));
-      Assert.Throws<ArgumentNullException>(() => this.xmlTranslator.Detect(null));
-      Assert.Throws<ArgumentException>(() => this.xmlTranslator.Detect(string.Empty));
+      Assert.Throws<ArgumentNullException>(() => xmlTranslator.Detect(null));
+      Assert.Throws<ArgumentException>(() => xmlTranslator.Detect(string.Empty));
 
       string language;
       Assert.Throws<ArgumentNullException>(() => IYandexTranslatorExtensions.Detect(null, "text", out language));
-      Assert.Throws<ArgumentNullException>(() => this.xmlTranslator.Detect(null, out language));
-      Assert.Throws<ArgumentException>(() => this.xmlTranslator.Detect(string.Empty, out language));
+      Assert.Throws<ArgumentNullException>(() => xmlTranslator.Detect(null, out language));
+      Assert.Throws<ArgumentException>(() => xmlTranslator.Detect(string.Empty, out language));
 
-      Assert.Equal("en", this.xmlTranslator.Detect("Hello, world"));
-      Assert.Equal("ru", this.xmlTranslator.Detect("Привет, мир"));
-      Assert.True(this.xmlTranslator.Detect("Hello, world", out language));
+      Assert.Equal("en", xmlTranslator.Detect("Hello, world"));
+      Assert.Equal("ru", xmlTranslator.Detect("Привет, мир"));
+      Assert.True(xmlTranslator.Detect("Hello, world", out language));
       Assert.Equal("en", language);
-      Assert.True(this.xmlTranslator.Detect("Привет, мир", out language));
+      Assert.True(xmlTranslator.Detect("Привет, мир", out language));
       Assert.Equal("ru", language);
 
-      Assert.Equal("en", this.jsonTranslator.Detect("Hello, world"));
-      Assert.Equal("ru", this.jsonTranslator.Detect("Привет, мир"));
-      Assert.True(this.jsonTranslator.Detect("Hello, world", out language));
+      Assert.Equal("en", jsonTranslator.Detect("Hello, world"));
+      Assert.Equal("ru", jsonTranslator.Detect("Привет, мир"));
+      Assert.True(jsonTranslator.Detect("Hello, world", out language));
       Assert.Equal("en", language);
-      Assert.True(this.jsonTranslator.Detect("Привет, мир", out language));
+      Assert.True(jsonTranslator.Detect("Привет, мир", out language));
       Assert.Equal("ru", language);
     }
 
@@ -56,24 +56,24 @@ namespace Yandex.Translator
     public void Translate_Method()
     {
       Assert.Throws<ArgumentNullException>(() => IYandexTranslatorExtensions.Translate(null, "language", "text"));
-      Assert.Throws<ArgumentNullException>(() => this.xmlTranslator.Translate(null, "text"));
-      Assert.Throws<ArgumentNullException>(() => this.xmlTranslator.Translate("language", null));
-      Assert.Throws<ArgumentException>(() => this.xmlTranslator.Translate(string.Empty, "text"));
-      Assert.Throws<ArgumentException>(() => this.xmlTranslator.Translate("language", string.Empty));
+      Assert.Throws<ArgumentNullException>(() => xmlTranslator.Translate(null, "text"));
+      Assert.Throws<ArgumentNullException>(() => xmlTranslator.Translate("language", null));
+      Assert.Throws<ArgumentException>(() => xmlTranslator.Translate(string.Empty, "text"));
+      Assert.Throws<ArgumentException>(() => xmlTranslator.Translate("language", string.Empty));
 
       ITranslation translation;
       Assert.Throws<ArgumentNullException>(() => IYandexTranslatorExtensions.Translate(null, request => { }, out translation));
-      Assert.Throws<ArgumentNullException>(() => this.xmlTranslator.Translate(null, out translation));
+      Assert.Throws<ArgumentNullException>(() => xmlTranslator.Translate(null, out translation));
 
-      this.TestTranslationResult(this.xmlTranslator.Translate("ru-en", "Привет, мир"));
-      this.TestTranslationResult(this.xmlTranslator.Translate(t => t.From("ru").To("en").Text("Привет, мир")));
-      Assert.True(this.xmlTranslator.Translate(t => t.From("ru").To("en").Text("Привет, мир"), out translation));
-      this.TestTranslationResult(translation);
+      TestTranslationResult(xmlTranslator.Translate("ru-en", "Привет, мир"));
+      TestTranslationResult(xmlTranslator.Translate(t => t.From("ru").To("en").Text("Привет, мир")));
+      Assert.True(xmlTranslator.Translate(t => t.From("ru").To("en").Text("Привет, мир"), out translation));
+      TestTranslationResult(translation);
 
-      this.TestTranslationResult(this.jsonTranslator.Translate("ru-en", "Привет, мир"));
-      this.TestTranslationResult(this.jsonTranslator.Translate(t => t.From("ru").To("en").Text("Привет, мир")));
-      Assert.True(this.jsonTranslator.Translate(t => t.From("ru").To("en").Text("Привет, мир"), out translation));
-      this.TestTranslationResult(translation);
+      TestTranslationResult(jsonTranslator.Translate("ru-en", "Привет, мир"));
+      TestTranslationResult(jsonTranslator.Translate(t => t.From("ru").To("en").Text("Привет, мир")));
+      Assert.True(jsonTranslator.Translate(t => t.From("ru").To("en").Text("Привет, мир"), out translation));
+      TestTranslationResult(translation);
     }
 
     /// <summary>
@@ -88,13 +88,13 @@ namespace Yandex.Translator
       Assert.Throws<ArgumentNullException>(() => IYandexTranslatorExtensions.TranslationPairs(null, out pairs));
 
 
-      this.TestTranslationPairsResult(this.xmlTranslator.TranslationPairs());
-      Assert.True(this.xmlTranslator.TranslationPairs(out pairs));
-      this.TestTranslationPairsResult(pairs);
+      TestTranslationPairsResult(xmlTranslator.TranslationPairs());
+      Assert.True(xmlTranslator.TranslationPairs(out pairs));
+      TestTranslationPairsResult(pairs);
 
-      this.TestTranslationPairsResult(this.jsonTranslator.TranslationPairs());
-      Assert.True(this.jsonTranslator.TranslationPairs(out pairs));
-      this.TestTranslationPairsResult(pairs);
+      TestTranslationPairsResult(jsonTranslator.TranslationPairs());
+      Assert.True(jsonTranslator.TranslationPairs(out pairs));
+      TestTranslationPairsResult(pairs);
     }
 
     private void TestTranslationResult(ITranslation translation)
@@ -110,9 +110,9 @@ namespace Yandex.Translator
     {
       Assertion.NotNull(result);
 
-      Assert.True(result.Any());
-      Assert.True(result.Any(pair => pair.FromLanguage == "en" && pair.ToLanguage == "ru"));
-      Assert.True(result.Any(pair => pair.FromLanguage == "ru" && pair.ToLanguage == "en"));
+      Assert.NotEmpty(result);
+      Assert.Contains(result, pair => pair.FromLanguage == "en" && pair.ToLanguage == "ru");
+      Assert.Contains(result, pair => pair.FromLanguage == "ru" && pair.ToLanguage == "en");
     }
   }
 }

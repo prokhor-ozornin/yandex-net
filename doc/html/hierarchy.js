@@ -6,10 +6,10 @@ var hierarchy =
     [ "Exception", null, [
       [ "Yandex.Translator.TranslatorException", "class_yandex_1_1_translator_1_1_translator_exception.html", null ]
     ] ],
-    [ "IComparable< IError >", null, [
+    [ "IComparable", null, [
       [ "Yandex.Translator.Error", "class_yandex_1_1_translator_1_1_error.html", null ]
     ] ],
-    [ "IEquatable< IError >", null, [
+    [ "IEquatable", null, [
       [ "Yandex.Translator.Error", "class_yandex_1_1_translator_1_1_error.html", null ]
     ] ],
     [ "Yandex.Translator.DetectedLanguageResult", "class_yandex_1_1_translator_1_1_detected_language_result.html", null ],

@@ -1,0 +1,627 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Yandex.Translator</name>
+    </assembly>
+    <members>
+        <member name="T:Yandex.Translator.ApiDataFormat">
+            <summary>
+              <para>Format of Yandex.Translator API data exchange.</para>
+            </summary>
+        </member>
+        <member name="F:Yandex.Translator.ApiDataFormat.Json">
+            <summary>
+              <para>JSON format.</para>
+            </summary>
+        </member>
+        <member name="F:Yandex.Translator.ApiDataFormat.Xml">
+            <summary>
+              <para>XML format.</para>
+            </summary>
+        </member>
+        <member name="T:Yandex.Translator.DetectedLanguageResult">
+            <summary>
+              <para>Represents a result of call to Yandex.Translator service's operation of language detection.</para>
+            </summary>
+        </member>
+        <member name="P:Yandex.Translator.DetectedLanguageResult.Code">
+            <summary>
+              <para>HTTP result status code.</para>
+            </summary>
+        </member>
+        <member name="P:Yandex.Translator.DetectedLanguageResult.Language">
+            <summary>
+              <para>Detected text's language.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Translator.DetectedLanguageResult.#ctor">
+            <summary>
+              <para>Creates new result instance.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Translator.DetectedLanguageResult.#ctor(System.Int32,System.String)">
+            <summary>
+              <para>Creates new result instance.</para>
+            </summary>
+            <param name="code">HTTP status code.</param>
+            <param name="language">Detected text's language.</param>
+            <exception cref="T:System.ArgumentNullException">If <paramref name="language"/> is a <c>null</c> reference.</exception>
+            <exception cref="T:System.ArgumentException">If <paramref name="language"/> is <see cref="F:System.String.Empty"/> string.</exception>
+        </member>
+        <member name="T:Yandex.Translator.Error">
+            <summary>
+              <para>Yandex Translator API call error.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Translator.Error.#ctor">
+            <summary>
+              <para>Creates new error.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Translator.Error.#ctor(System.Int32,System.String)">
+            <summary>
+              <para>Creates new error.</para>
+            </summary>
+            <param name="code">Numeric code of error.</param>
+            <param name="text">Text description of error.</param>
+            <exception cref="T:System.ArgumentNullException">If <paramref name="text"/> is a <c>null</c> reference.</exception>
+            <exception cref="T:System.ArgumentException">If <paramref name="text"/> is <see cref="F:System.String.Empty"/> string.</exception>
+        </member>
+        <member name="P:Yandex.Translator.Error.Code">
+            <summary>
+              <para>Numeric code of error.</para>
+            </summary>
+        </member>
+        <member name="P:Yandex.Translator.Error.Text">
+            <summary>
+              <para>Text description of error.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Translator.Error.CompareTo(Yandex.Translator.IError)">
+            <summary>
+              <para>Compares the current <see cref="T:Yandex.Translator.IError"/> instance with another.</para>
+            </summary>
+            <returns>A value that indicates the relative order of the instances being compared.</returns>
+            <param name="other">The <see cref="T:Yandex.Translator.IError"/> to compare with this instance.</param>
+        </member>
+        <member name="M:Yandex.Translator.Error.Equals(Yandex.Translator.IError)">
+            <summary>
+              <para>Determines whether two <see cref="T:Yandex.Translator.IError"/> instances are equal.</para>
+            </summary>
+            <param name="other">The instance to compare with the current one.</param>
+            <returns><c>true</c> if specified instance is equal to the current, <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:Yandex.Translator.Error.Equals(System.Object)">
+            <summary>
+              <para>Determines whether the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>.</para>
+            </summary>
+            <param name="other">The object to compare with the current object.</param>
+            <returns><c>true</c> if the specified object is equal to the current object, <c>false</c>.</returns>
+        </member>
+        <member name="M:Yandex.Translator.Error.GetHashCode">
+            <summary>
+              <para>Returns hash code for the current object.</para>
+            </summary>
+            <returns>Hash code of current instance.</returns>
+        </member>
+        <member name="M:Yandex.Translator.Error.ToString">
+            <summary>
+              <para>Returns a <see cref="T:System.String"/> that represents the current <see cref="T:Yandex.Translator.IError"/> instance.</para>
+            </summary>
+            <returns>A string that represents the current <see cref="T:Yandex.Translator.IError"/>.</returns>
+        </member>
+        <member name="T:Yandex.Translator.ErrorType">
+            <summary>
+              <para>Type of errors, corresponding to HTTP status codes.</para>
+            </summary>
+        </member>
+        <member name="F:Yandex.Translator.ErrorType.ApiKeyInvalid">
+            <summary>
+              <para>Invalid API key.</para>
+            </summary>
+        </member>
+        <member name="F:Yandex.Translator.ErrorType.ApiKeyBlocked">
+            <summary>
+              <para>API key is blocked.</para>
+            </summary>
+        </member>
+        <member name="F:Yandex.Translator.ErrorType.DailyRequestsLimitExceeded">
+            <summary>
+              <para>Exceeded daily requests limit.</para>
+            </summary>
+        </member>
+        <member name="F:Yandex.Translator.ErrorType.DailyCharactersLimitExceeded">
+            <summary>
+              <para>Daily characters limit was exceeded</para>
+            </summary>
+        </member>
+        <member name="F:Yandex.Translator.ErrorType.TextTooLong">
+            <summary>
+              <para>Translation text is too long.</para>
+            </summary>
+        </member>
+        <member name="F:Yandex.Translator.ErrorType.UnprocessableText">
+            <summary>
+              <para>Translation text is unprocessable.</para>
+            </summary>
+        </member>
+        <member name="F:Yandex.Translator.ErrorType.LanguageNotSupported">
+            <summary>
+              <para>Translation language is not supported.</para>
+            </summary>
+        </member>
+        <member name="T:Yandex.Translator.IApiConfigurator">
+            <summary>
+              <para>Configurator of basic parameters that are used when making requests to Yandex.Translator web service.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Translator.IApiConfigurator.Format(Yandex.Translator.ApiDataFormat)">
+            <summary>
+              <para>Specifies data exchange format to use.</para>
+            </summary>
+            <param name="format">Data format.</param>
+            <returns>Back reference to the current configurator instance.</returns>
+        </member>
+        <member name="M:Yandex.Translator.IApiConfigurator.ApiKey(System.String)">
+            <summary>
+              <para>Specifies API key to use.</para>
+            </summary>
+            <param name="key">API key.</param>
+            <returns>Back reference to the current configurator instance.</returns>
+            <exception cref="T:System.ArgumentNullException">If <paramref name="key"/> is a <c>null</c> reference.</exception>
+            <exception cref="T:System.ArgumentException">If <paramref name="key"/> is <see cref="F:System.String.Empty"/> string.</exception>
+        </member>
+        <member name="T:Yandex.Translator.IError">
+            <summary>
+              <para></para>
+            </summary>
+        </member>
+        <member name="P:Yandex.Translator.IError.Code">
+            <summary>
+              <para></para>
+            </summary>
+        </member>
+        <member name="P:Yandex.Translator.IError.Text">
+            <summary>
+              <para></para>
+            </summary>
+        </member>
+        <member name="T:Yandex.Translator.IRequest">
+            <summary>
+              <para>Representation of a custom web request to Yandex.Translator web service.</para>
+            </summary>
+        </member>
+        <member name="P:Yandex.Translator.IRequest.Parameters">
+            <summary>
+              <para>Map of parameters names/values to be used in a web request.</para>
+            </summary>
+        </member>
+        <member name="T:Yandex.Translator.ITranslation">
+            <summary>
+              <para>Represents a translation of a text fragment from one language to another.</para>
+            </summary>
+        </member>
+        <member name="P:Yandex.Translator.ITranslation.FromLanguage">
+            <summary>
+              <para>Source language of the translation.</para>
+            </summary>
+        </member>
+        <member name="P:Yandex.Translator.ITranslation.Text">
+            <summary>
+              <para>Translated text fragment in target language.</para>
+            </summary>
+        </member>
+        <member name="P:Yandex.Translator.ITranslation.ToLanguage">
+            <summary>
+              <para>Target language of the translation.</para>
+            </summary>
+        </member>
+        <member name="T:Yandex.Translator.ITranslationPair">
+            <summary>
+              <para>Represents a pair of souce and target languages (translation direction).</para>
+            </summary>
+        </member>
+        <member name="P:Yandex.Translator.ITranslationPair.FromLanguage">
+            <summary>
+              <para>Source translation language.</para>
+            </summary>
+        </member>
+        <member name="P:Yandex.Translator.ITranslationPair.ToLanguage">
+            <summary>
+              <para>Target translation language.</para>
+            </summary>
+        </member>
+        <member name="T:Yandex.Translator.ITranslationRequest">
+            <summary>
+              <para>Representation of a text translation request to Yandex.Translator web service.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Translator.ITranslationRequest.Format(System.String)">
+            <summary>
+              <para>Format of translatable text to use.</para>
+            </summary>
+            <param name="format">Text format.</param>
+            <returns>Back reference to the current translation request.</returns>
+            <exception cref="T:System.ArgumentNullException">If <paramref name="format"/> is a <c>null</c> reference.</exception>
+            <exception cref="T:System.ArgumentException">If <paramref name="format"/> is <see cref="F:System.String.Empty"/> string.</exception>
+        </member>
+        <member name="M:Yandex.Translator.ITranslationRequest.From(System.String)">
+            <summary>
+              <para>Source language from which a text fragment should be translated.</para>
+            </summary>
+            <param name="language">Source language.</param>
+            <returns>Back reference to the current translation request.</returns>
+            <exception cref="T:System.ArgumentNullException">If <paramref name="language"/> is a <c>null</c> reference.</exception>
+            <exception cref="T:System.ArgumentException">If <paramref name="language"/> is <see cref="F:System.String.Empty"/> string.</exception>
+        </member>
+        <member name="M:Yandex.Translator.ITranslationRequest.Text(System.String)">
+            <summary>
+              <para>Text in souce language to be translated.</para>
+            </summary>
+            <param name="text">Text fragment.</param>
+            <returns>Back reference to the current translation request.</returns>
+            <exception cref="T:System.ArgumentNullException">If <paramref name="text"/> is a <c>null</c> reference.</exception>
+            <exception cref="T:System.ArgumentException">If <paramref name="text"/> is <see cref="F:System.String.Empty"/> string.</exception>
+        </member>
+        <member name="M:Yandex.Translator.ITranslationRequest.To(System.String)">
+            <summary>
+              <para>Target language to which a text fragment should be translated.</para>
+            </summary>
+            <param name="language">Target language.</param>
+            <returns>Back reference to the current translation request.</returns>
+            <exception cref="T:System.ArgumentNullException">If <paramref name="language"/> is a <c>null</c> reference.</exception>
+            <exception cref="T:System.ArgumentException">If <paramref name="language"/> is <see cref="F:System.String.Empty"/> string.</exception>
+        </member>
+        <member name="T:Yandex.Translator.ITranslationRequestExtensions">
+            <summary>
+              <para>Set of extension methods for interface <see cref="T:Yandex.Translator.ITranslationRequest"/>.</para>
+            </summary>
+            <seealso cref="T:Yandex.Translator.ITranslationRequest"/>
+        </member>
+        <member name="M:Yandex.Translator.ITranslationRequestExtensions.From(Yandex.Translator.ITranslationRequest,System.Globalization.CultureInfo)">
+            <summary>
+              <para>Specifies source language from which a text fragment should be translated.</para>
+            </summary>
+            <param name="request">Translation request instance.</param>
+            <param name="culture">Culture that contains a language to be used.</param>
+            <returns>Back reference to the provided translation <paramref name="request"/>.</returns>
+            <exception cref="T:System.ArgumentNullException">If either <paramref name="request"/> or <paramref name="culture"/> is a <c>null</c> reference.</exception>
+            <seealso cref="M:Yandex.Translator.ITranslationRequest.From(System.String)"/>
+        </member>
+        <member name="M:Yandex.Translator.ITranslationRequestExtensions.Html(Yandex.Translator.ITranslationRequest)">
+            <summary>
+              <para>Specifies that translatable text fragment is in HTML format.</para>
+            </summary>
+            <param name="request">Translation request instance.</param>
+            <returns>Back reference to the provided translation <paramref name="request"/>.</returns>
+            <exception cref="T:System.ArgumentNullException">If <paramref name="request"/> is a <c>null</c> reference.</exception>
+            <seealso cref="M:Yandex.Translator.ITranslationRequest.Format(System.String)"/>
+        </member>
+        <member name="M:Yandex.Translator.ITranslationRequestExtensions.PlainText(Yandex.Translator.ITranslationRequest)">
+            <summary>
+              <para>Specifies that translatable text fragment is in plain text format.</para>
+            </summary>
+            <param name="request">Translation request instance.</param>
+            <returns>Back reference to the provided translation <paramref name="request"/>.</returns>
+            <exception cref="T:System.ArgumentNullException">If <paramref name="request"/> is a <c>null</c> reference.</exception>
+            <seealso cref="M:Yandex.Translator.ITranslationRequest.Format(System.String)"/>
+        </member>
+        <member name="M:Yandex.Translator.ITranslationRequestExtensions.To(Yandex.Translator.ITranslationRequest,System.Globalization.CultureInfo)">
+            <summary>
+              <para>Specifies target language to which a text fragment should be translated.</para>
+            </summary>
+            <param name="request">Translation request instance.</param>
+            <param name="culture">Culture that contains a language to be used.</param>
+            <returns>Back reference to the provided translation <paramref name="request"/>.</returns>
+            <exception cref="T:System.ArgumentNullException">If either <paramref name="request"/> or <paramref name="culture"/> is a <c>null</c> reference.</exception>
+            <seealso cref="M:Yandex.Translator.ITranslationRequest.To(System.String)"/>
+        </member>
+        <member name="T:Yandex.Translator.IYandexTranslator">
+            <summary>
+              <para>Represents a client for making requests to Yandex.Translator web service.</para>
+            </summary>
+        </member>
+        <member name="P:Yandex.Translator.IYandexTranslator.ApiKey">
+            <summary>
+              <para>API key to use. Should be obtained by developers.</para>
+            </summary>
+        </member>
+        <member name="P:Yandex.Translator.IYandexTranslator.Format">
+            <summary>
+              <para>Data exchange format to use.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Translator.IYandexTranslator.Call(System.String,System.Collections.Generic.IDictionary{System.String,System.Object},System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+              <para>Makes a remote call to Yandex.Translator REST web service and returns it's response.</para>
+              <para>Uses value of <see cref="P:Yandex.Translator.IYandexTranslator.Format"/> for data exchange.</para>
+            </summary>
+            <param name="resource">Relative URL of web resource to be used. Base endpoint URL is predefined by implentation.</param>
+            <param name="parameters">Map of query parameters names/values.</param>
+            <param name="headers">Map of HTTP headers names/values.</param>
+            <returns>Response from Yandex.Translator web service.</returns>
+            <exception cref="T:System.ArgumentNullException">If <paramref name="resource"/> is a <c>null</c> reference.</exception>
+            <exception cref="T:System.ArgumentException">If <paramref name="resource"/> is <see cref="F:System.String.Empty"/> string.</exception>
+            <exception cref="T:Yandex.Translator.TranslatorException">If error occurs during the processing of web request, or if request was invalid.</exception>
+        </member>
+        <member name="M:Yandex.Translator.IYandexTranslator.Call``1(System.String,System.Collections.Generic.IDictionary{System.String,System.Object},System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+              <para>Makes a remote call to Yandex.Translator REST web service and returns deserialized generic response.</para>
+              <para>Uses value of <see cref="P:Yandex.Translator.IYandexTranslator.Format"/> for data exchange.</para>
+            </summary>
+            <typeparam name="T">Type of object that is created from web service's response.</typeparam>
+            <param name="resource">Relative URL of web resource to be used. Base endpoint URL is predefined by implementation.</param>
+            <param name="parameters">Map of query parameters names/values.</param>
+            <param name="headers">Map of HTTP headers names/values.</param>
+            <returns>Generic response from Yandex.Translator web service.</returns>
+            <exception cref="T:System.ArgumentNullException">If <paramref name="resource"/> is a <c>null</c> reference.</exception>
+            <exception cref="T:System.ArgumentException">If <paramref name="resource"/> is <see cref="F:System.String.Empty"/> string.</exception>
+            <exception cref="T:Yandex.Translator.TranslatorException">If error occurs during the processing of web request, or if request was invalid.</exception>
+        </member>
+        <member name="T:Yandex.Translator.IYandexTranslatorExtensions">
+            <summary>
+              <para>Set of extension methods for interface <see cref="T:Yandex.Translator.IYandexTranslator"/>.</para>
+            </summary>
+            <seealso cref="T:Yandex.Translator.IYandexTranslator"/>
+        </member>
+        <member name="M:Yandex.Translator.IYandexTranslatorExtensions.Call(Yandex.Translator.IYandexTranslator,System.String,System.Object,System.Object)">
+            <summary>
+              <para>Makes a remote call to Yandex.Translator REST web service and returns it's response.</para>
+            </summary>
+            <param name="translator">Translator instance to be used.</param>
+            <param name="resource">Relative URL of web resource to be used. Base endpoint URL is predefined by implentation.</param>
+            <param name="parameters">Object whose public properties represent query parameters names/values.</param>
+            <param name="headers">Object whose public properties represent HTTP headers names/values.</param>
+            <returns>Response from Yandex.Translator web service.</returns>
+            <exception cref="T:System.ArgumentNullException">If either <paramref name="translator"/> or <paramref name="resource"/> is a <c>null</c> reference.</exception>
+            <exception cref="T:System.ArgumentException">If <paramref name="resource"/> is <see cref="F:System.String.Empty"/> string.</exception>
+            <exception cref="T:Yandex.Translator.TranslatorException">If error occurs during the processing of web request, or if request was invalid.</exception>
+        </member>
+        <member name="M:Yandex.Translator.IYandexTranslatorExtensions.Call``1(Yandex.Translator.IYandexTranslator,System.String,System.Object,System.Object)">
+            <summary>
+              <para>Makes a remote call to Yandex.Translator REST web service and returns deserialized generic response.</para>
+            </summary>
+            <typeparam name="T">Type of object that is created from web service's response.</typeparam>
+            <param name="translator">Translator instance to be used.</param>
+            <param name="resource">Relative URL of web resource to be used. Base endpoint URL is predefined by implentation.</param>
+            <param name="parameters">Object whose public properties represent query parameters names/values.</param>
+            <param name="headers">Object whose public properties represent HTTP headers names/values.</param>
+            <returns>Generic response from Yandex.Translator web service.</returns>
+            <exception cref="T:System.ArgumentNullException">If either <paramref name="translator"/> or <paramref name="resource"/> is a <c>null</c> reference.</exception>
+            <exception cref="T:System.ArgumentException">If <paramref name="resource"/> is <see cref="F:System.String.Empty"/> string.</exception>
+            <exception cref="T:Yandex.Translator.TranslatorException">If error occurs during the processing of web request, or if request was invalid.</exception>
+        </member>
+        <member name="M:Yandex.Translator.IYandexTranslatorExtensions.Detect(Yandex.Translator.IYandexTranslator,System.String)">
+            <summary>
+              <para>Makes a language detection request to Yandex.Translator web service.</para>
+            </summary>
+            <param name="translator">Translator instance to be used.</param>
+            <param name="text">Text fragment which language is to be detected.</param>
+            <returns>Language of the provided text fragment.</returns>
+            <exception cref="T:System.ArgumentNullException">If either <paramref name="translator"/> or <paramref name="text"/> is a <c>null</c> reference.</exception>
+            <exception cref="T:System.ArgumentException">If <paramref name="text"/> is <see cref="F:System.String.Empty"/> string.</exception>
+            <exception cref="T:Yandex.Translator.TranslatorException">If error occurs during the processing of web request, or if language of given text fragment cannot be reliably determined.</exception>
+            <seealso cref="!:http://api.yandex.ru/translate/doc/dg/reference/detect.xml"/>
+        </member>
+        <member name="M:Yandex.Translator.IYandexTranslatorExtensions.Detect(Yandex.Translator.IYandexTranslator,System.String,System.String@)">
+            <summary>
+              <para>Makes a language detection request to Yandex.Translator web service.</para>
+            </summary>
+            <param name="translator">Translator instance to be used.</param>
+            <param name="text">Text fragment which language is to be detected.</param>
+            <param name="language">Language of the provided text fragment.</param>
+            <returns><c>true</c> if language was successfully determined and <paramref name="language"/> output parameter contains its ISO code, or <c>false</c> if detection failed and <paramref name="language"/> is a <c>null</c> reference.</returns>
+            <exception cref="T:System.ArgumentNullException">If either <paramref name="translator"/> or <paramref name="text"/> is a <c>null</c> reference.</exception>
+            <exception cref="T:System.ArgumentException">If <paramref name="text"/> is <see cref="F:System.String.Empty"/> string.</exception>
+            <seealso cref="!:http://api.yandex.ru/translate/doc/dg/reference/detect.xml"/>
+        </member>
+        <member name="M:Yandex.Translator.IYandexTranslatorExtensions.Translate(Yandex.Translator.IYandexTranslator,System.String,System.String,System.String)">
+            <summary>
+              <para>Makes a translation request to Yandex.Translator web service.</para>
+            </summary>
+            <param name="translator">Translator instance to be used.</param>
+            <param name="language">Translation language. Can be either a single language code (like "en"), representing a target language, or a language pair (like "en-ru"), representing both source and target languages respectively.</param>
+            <param name="text">Text to be translated.</param>
+            <param name="format">Format of original text.</param>
+            <returns><see cref="T:Yandex.Translator.ITranslation"/> instance that represents result of text's translation.</returns>
+            <exception cref="T:System.ArgumentNullException">If either <paramref name="translator"/>, <paramref name="language"/> or <paramref name="text"/> is a <c>null</c> reference.</exception>
+            <exception cref="T:System.ArgumentException">If either <paramref name="language"/> or <paramref name="text"/> is <see cref="F:System.String.Empty"/> string.</exception>
+            <exception cref="T:Yandex.Translator.TranslatorException">If error occurs during the processing of web request, or if given text cannot be translated by web service.</exception>
+            <seealso cref="M:Yandex.Translator.IYandexTranslatorExtensions.Translate(Yandex.Translator.IYandexTranslator,System.Action{Yandex.Translator.ITranslationRequest})"/>
+            <seealso cref="!:http://api.yandex.ru/translate/doc/dg/reference/translate.xml"/>
+        </member>
+        <member name="M:Yandex.Translator.IYandexTranslatorExtensions.Translate(Yandex.Translator.IYandexTranslator,System.Action{Yandex.Translator.ITranslationRequest})">
+            <summary>
+              <para>Makes a translation request to Yandex.Translator web service.</para>
+            </summary>
+            <param name="translator">Translator instance to be used.</param>
+            <param name="request">Delegate that specifies text for translation, source/target languages and addional options.</param>
+            <returns><see cref="T:Yandex.Translator.ITranslation"/> instance that represents result of text's translation.</returns>
+            <exception cref="T:System.ArgumentNullException">If either <paramref name="translator"/> or <paramref name="request"/> is a <c>null</c> reference.</exception>
+            <exception cref="T:Yandex.Translator.TranslatorException">If error occurs during the processing of web request, or if given text cannot be translated by web service.</exception>
+            <seealso cref="M:Yandex.Translator.IYandexTranslatorExtensions.Translate(Yandex.Translator.IYandexTranslator,System.String,System.String,System.String)"/>
+            <seealso cref="!:http://api.yandex.ru/translate/doc/dg/reference/translate.xml"/>
+        </member>
+        <member name="M:Yandex.Translator.IYandexTranslatorExtensions.Translate(Yandex.Translator.IYandexTranslator,System.Action{Yandex.Translator.ITranslationRequest},Yandex.Translator.ITranslation@)">
+            <summary>
+              <para>Makes a translation request to Yandex.Translator web service.</para>
+            </summary>
+            <param name="translator">Translator instance to be used.</param>
+            <param name="request">Delegate that specifies text for translation, source/target languages and addional options.</param>
+            <param name="translation"><see cref="T:Yandex.Translator.ITranslation"/> instance that represents result of text's translation.</param>
+            <returns><c>true</c> if translation was successfull and <paramref name="translation"/> output parameter contains translated text, or <c>false</c> if translation failed and <paramref name="translation"/> is a <c>null</c> reference.</returns>
+            <exception cref="T:System.ArgumentNullException">If either <paramref name="translator"/> or <paramref name="request"/> is a <c>null</c> reference.</exception>
+            <seealso cref="!:http://api.yandex.ru/translate/doc/dg/reference/translate.xml"/>
+        </member>
+        <member name="M:Yandex.Translator.IYandexTranslatorExtensions.TranslationPairs(Yandex.Translator.IYandexTranslator)">
+            <summary>
+              <para>Makes a request to Yandex.Translator web service to return collection of supported languages pairs (translations directions).</para>
+            </summary>
+            <param name="translator">Translator instance to be used.</param>
+            <returns>Collection of supported language pairs (directions).</returns>
+            <exception cref="T:System.ArgumentNullException">If <paramref name="translator"/> is a <c>null</c> reference.</exception>
+            <exception cref="T:Yandex.Translator.TranslatorException">If error occurs during the processing of web request.</exception>
+            <seealso cref="!:http://api.yandex.ru/translate/doc/dg/reference/getLangs.xml"/>
+        </member>
+        <member name="M:Yandex.Translator.IYandexTranslatorExtensions.TranslationPairs(Yandex.Translator.IYandexTranslator,System.Collections.Generic.IEnumerable{Yandex.Translator.ITranslationPair}@)">
+            <summary>
+              <para>Makes a request to Yandex.Translator web service to return collection of supported languages pairs (translations directions).</para>
+            </summary>
+            <param name="translator">Translator instance to be used.</param>
+            <param name="pairs">Collection of supported language pairs (directions).</param>
+            <returns><c>true</c> if request was successfull and <paramref name="pairs"/> output parameter contains supported language pairs, or <c>false</c> if request failed and <paramref name="pairs"/> is a <c>null</c> reference.</returns>
+            <exception cref="T:System.ArgumentNullException">If <paramref name="translator"/> is a <c>null</c> reference.</exception>
+            <seealso cref="!:http://api.yandex.ru/translate/doc/dg/reference/getLangs.xml"/>
+        </member>
+        <member name="T:Yandex.Translator.JsonDefaultSettings">
+            <summary>
+              <para>Default settings for <see cref="T:Newtonsoft.Json.JsonConverter"/>.</para>
+            </summary>
+            <seealso cref="T:Newtonsoft.Json.JsonConverter"/>
+        </member>
+        <member name="P:Yandex.Translator.JsonDefaultSettings.Deserializer">
+            <summary>
+              <para>Default JSON deserializer settings.</para>
+            </summary>
+        </member>
+        <member name="P:Yandex.Translator.JsonDefaultSettings.Serializer">
+            <summary>
+              <para>Default JSON serializer settings.</para>
+            </summary>
+        </member>
+        <member name="T:Yandex.Translator.JsonEntityOrderedContractResolver">
+            <summary>
+              <para>Custom JSON <see cref="T:Newtonsoft.Json.Serialization.IContractResolver"/> that orders serialized properties alphabetically, as well as placing property named "id" (case-insensitive), if it exists, at the top.</para>
+            </summary>
+        </member>
+        <member name="T:Yandex.Translator.ObjectExtensions">
+            <summary>
+              <para>Set of extension methods for class <see cref="T:System.Object"/>.</para>
+            </summary>
+            <seealso cref="T:System.Object"/>
+        </member>
+        <member name="M:Yandex.Translator.ObjectExtensions.Json(System.Object,Newtonsoft.Json.JsonSerializerSettings)">
+            <summary>
+              <para>Serializes specified object into JSON string.</para>
+            </summary>
+            <param name="subject">Target object to be serialized.</param>
+            <param name="settings">Serialization settings. If not specified, default settings set (<see cref="P:Yandex.Translator.JsonDefaultSettings.Serializer"/>) will be used.</param>
+            <returns>JSON serialized version of <paramref name="subject"/> instance.</returns>
+            <exception cref="T:System.ArgumentNullException">If <paramref name="subject"/> is a <c>null</c> reference.</exception>
+            <seealso cref="T:Newtonsoft.Json.JsonConvert"/>
+            <seealso cref="T:Yandex.Translator.JsonDefaultSettings"/>
+        </member>
+        <member name="T:Yandex.Translator.StringExtensions">
+            <summary>
+              <para>Set of extension methods for class <see cref="T:System.String"/>.</para>
+            </summary>
+            <seealso cref="T:System.String"/>
+        </member>
+        <member name="M:Yandex.Translator.StringExtensions.Json``1(System.String,Newtonsoft.Json.JsonSerializerSettings)">
+            <summary>
+              <para>Deserializes object from JSON string.</para>
+            </summary>
+            <typeparam name="T">Type of object to be instantiated during deserialization.</typeparam>
+            <param name="json">Serialized JSON object of type <typeparamref name="T"/>.</param>
+            <param name="settings">Deserialization settings. If not specified, default settings set (<see cref="P:Yandex.Translator.JsonDefaultSettings.Deserializer"/>) will be used.</param>
+            <returns>Instance of <typeparamref name="T"/> type, deserialized from <paramref name="json"/> string.</returns>
+            <exception cref="T:System.ArgumentNullException">If <paramref name="json"/> is a <c>null</c> reference.</exception>
+            <exception cref="T:System.ArgumentException">If <paramref name="json"/> is <see cref="F:System.String.Empty"/> string.</exception>
+            <seealso cref="T:Newtonsoft.Json.JsonConvert"/>
+            <seealso cref="T:Yandex.Translator.JsonDefaultSettings"/>
+        </member>
+        <member name="T:Yandex.Translator.TranslationPairsResult">
+            <summary>
+              <para>Represents a result of call to Yandex.Translator service's operation of retrieving supported translations pairs.</para>
+            </summary>
+        </member>
+        <member name="P:Yandex.Translator.TranslationPairsResult.Pairs">
+            <summary>
+              <para>Collection of supported translations pairs (directions).</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Translator.TranslationPairsResult.#ctor">
+            <summary>
+              <para>Creates new result instance.</para>
+            </summary>
+        </member>
+        <member name="T:Yandex.Translator.TranslationResult">
+            <summary>
+              <para>Represents a result of call to Yandex.Translator service's operation of retrieving supported translations pairs.</para>
+            </summary>
+        </member>
+        <member name="P:Yandex.Translator.TranslationResult.Code">
+            <summary>
+              <para>HTTP result status code.</para>
+            </summary>
+        </member>
+        <member name="P:Yandex.Translator.TranslationResult.Language">
+            <summary>
+              <para>Languages pair (for example "en-ru"), representing text's translation direction.</para>
+            </summary>
+        </member>
+        <member name="P:Yandex.Translator.TranslationResult.Lines">
+            <summary>
+              <para>Collection of translated text fragments.</para>
+            </summary>
+        </member>
+        <member name="P:Yandex.Translator.TranslationResult.Text">
+            <summary>
+              <para>Full translated text.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Translator.TranslationResult.#ctor">
+            <summary>
+              <para>Creates new result instance.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Translator.TranslationResult.#ctor(System.Int32,System.String,System.String)">
+            <summary>
+              <para>Creates new result instance.</para>
+            </summary>
+            <param name="code">HTTP result status code.</param>
+            <param name="language">Languages pair, representing text's translation direction.</param>
+            <param name="text">Translated version of text.</param>
+            <exception cref="T:System.ArgumentNullException">If either <paramref name="language"/> or <paramref name="text"/> is a <c>null</c> reference.</exception>
+            <exception cref="T:System.ArgumentException">If either <paramref name="language"/> or <paramref name="text"/> is <see cref="F:System.String.Empty"/> string.</exception>
+        </member>
+        <member name="M:Yandex.Translator.TranslationResult.ToString">
+            <summary>
+              <para>Returns a <see cref="T:System.String"/> that represents the current <see cref="T:Yandex.Translator.TranslationResult"/> instance.</para>
+            </summary>
+            <returns>A string that represents the current <see cref="T:Yandex.Translator.TranslationResult"/>.</returns>
+        </member>
+        <member name="T:Yandex.Translator.TranslatorException">
+            <summary>
+              <para>Represent error that occurs during execution of request to Yandex.Translator service.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Translator.TranslatorException.#ctor(Yandex.Translator.IError,System.Exception)">
+            <summary>
+              <para>Initializes a new instance exception with a specified error message and a reference to the inner exception that is the cause of this exception.</para>
+            </summary>
+            <param name="error">Detailed error information.</param>
+            <param name="innerException">The exception that is the cause of the current exception, or a <c>null</c> reference.</param>
+            <exception cref="T:System.ArgumentNullException">If <paramref name="error"/> is a <c>null</c> reference.</exception>
+        </member>
+        <member name="P:Yandex.Translator.TranslatorException.Error">
+            <summary>
+              <para>Detailed error information</para>
+            </summary>
+        </member>
+        <member name="T:Yandex.Translator.Yandex">
+            <summary>
+              <para>Entry point to access Yandex.Translator web service.</para>
+            </summary>
+            <seealso cref="!:http://api.yandex.ru/translate"/>
+        </member>
+        <member name="M:Yandex.Translator.Yandex.Translator(System.Action{Yandex.Translator.IApiConfigurator})">
+            <summary>
+              <para>Configures instance of client translator to be used for making requests to Yandex.Translator web service.</para>
+            </summary>
+            <param name="configurator">Delegate that generic translator's parameters and options to use.</param>
+            <exception cref="T:System.ArgumentNullException">If <paramref name="configurator"/> is a <c>null</c> reference.</exception>
+            <exception cref="T:System.ArgumentException">If <paramref name="configurator"/> is <see cref="F:System.String.Empty"/> string.</exception>
+        </member>
+    </members>
+</doc>

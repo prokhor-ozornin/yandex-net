@@ -16,7 +16,7 @@ namespace Yandex.Translator
     public void Constructors()
     {
       var response = new TranslationPairsResult();
-      Assert.False(response.Pairs.Any());
+      Assert.Empty(response.Pairs);
     }
 
     /// <summary>
@@ -26,11 +26,11 @@ namespace Yandex.Translator
     public void Pairs_Property()
     {
       var response = new TranslationPairsResult();
-      Assert.False(response.Pairs.Any());
+      Assert.Empty(response.Pairs);
       response.Pairs.Add("pair");
       Assert.Equal("pair", response.Pairs.Single());
       response.Pairs.Remove("pair");
-      Assert.False(response.Pairs.Any());
+      Assert.Empty(response.Pairs);
     }
   }
 }

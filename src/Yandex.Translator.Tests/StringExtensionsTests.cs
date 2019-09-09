@@ -8,7 +8,9 @@ using Xunit;
 
 namespace Yandex.Translator
 {
-  /// <summary>
+    using System.Globalization;
+
+    /// <summary>
   ///   <para>Test sseet for class <see cref="StringExtensions"/>.</para>
   /// </summary>
   public sealed class StringExtensionsTests
@@ -37,7 +39,7 @@ namespace Yandex.Translator
       Assert.Null(subject.PublicField);
       Assert.Null(subject.PublicProperty);
 
-      subject = @"{{""Id"":1,""Date"":""{0}"",""PublicField"":""field"",""PublicProperty"":""property""}}".FormatSelf(DateTime.MinValue.ToString()).Json<MockJsonObject>();
+      subject = string.Format(CultureInfo.InvariantCulture, @"{{""Id"":1,""Date"":""{0}"",""PublicField"":""field"",""PublicProperty"":""property""}}", DateTime.MinValue).Json<MockJsonObject>();
       Assert.Equal(DateTime.MinValue, subject.Date);
       Assert.Equal(1, subject.Id);
       Assert.Equal("field", subject.PublicField);
