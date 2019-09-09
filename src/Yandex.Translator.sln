@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yandex.Translator.4.7.2", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yandex.Translator.Core", "Yandex.Translator.Core\Yandex.Translator.Core.csproj", "{0C448DE2-164C-4E89-A386-3B6F7A8D6825}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yandex.Translator.Core.2.1", "Yandex.Translator.Core.2.1\Yandex.Translator.Core.2.1.csproj", "{448DB31E-A1D8-4242-B35C-6BF976F0B03F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
