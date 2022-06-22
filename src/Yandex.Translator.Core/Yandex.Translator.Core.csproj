@@ -49,7 +49,7 @@
 
   <ItemGroup>
     <PackageReference Include="Catharsis.Commons" Version="4.0.1" />
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="RestSharp" Version="106.5.4" />
   </ItemGroup>
 
