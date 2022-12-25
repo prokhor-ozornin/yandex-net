@@ -1,0 +1,98 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <AssemblyName>Yandex</AssemblyName>
+    <RootNamespace>Yandex</RootNamespace>
+    <LangVersion>latest</LangVersion>
+    <Version>1.0</Version>
+    <Authors>Prokhor Ozornin &lt;prokhor.ozornin@yandex.ru&gt;</Authors>
+    <Copyright>Copyright © 2014 - 2019</Copyright>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
+    <EnableNETAnalyzers>True</EnableNETAnalyzers>
+    <AnalysisLevel>latest</AnalysisLevel>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\Yandex\Detector\Core\DetectorException.cs" Link="Detector\Core\DetectorException.cs" />
+    <Compile Include="..\Yandex\Detector\Core\IError.cs" Link="Detector\Core\IError.cs" />
+    <Compile Include="..\Yandex\Detector\Core\IJavaPlatform.cs" Link="Detector\Core\IJavaPlatform.cs" />
+    <Compile Include="..\Yandex\Detector\Core\IMobileDevice.cs" Link="Detector\Core\IMobileDevice.cs" />
+    <Compile Include="..\Yandex\Detector\Core\Implementation\Error.cs" Link="Detector\Core\Implementation\Error.cs" />
+    <Compile Include="..\Yandex\Detector\Core\Implementation\JavaPlatform.cs" Link="Detector\Core\Implementation\JavaPlatform.cs" />
+    <Compile Include="..\Yandex\Detector\Core\Implementation\MobileDetector.cs" Link="Detector\Core\Implementation\MobileDetector.cs" />
+    <Compile Include="..\Yandex\Detector\Core\Implementation\MobileDevice.cs" Link="Detector\Core\Implementation\MobileDevice.cs" />
+    <Compile Include="..\Yandex\Detector\Core\Implementation\Resolution.cs" Link="Detector\Core\Implementation\Resolution.cs" />
+    <Compile Include="..\Yandex\Detector\Core\IResolution.cs" Link="Detector\Core\IResolution.cs" />
+    <Compile Include="..\Yandex\Detector\Core\IResultable.cs" Link="Detector\Core\IResultable.cs" />
+    <Compile Include="..\Yandex\Detector\Core\MobileDevicesClass.cs" Link="Detector\Core\MobileDevicesClass.cs" />
+    <Compile Include="..\Yandex\Detector\IMobileDetector.cs" Link="Detector\IMobileDetector.cs" />
+    <Compile Include="..\Yandex\Detector\IMobileDetectorExtensions.cs" Link="Detector\IMobileDetectorExtensions.cs" />
+    <Compile Include="..\Yandex\Detector\IYandexApiExtensions.cs" Link="Detector\IYandexApiExtensions.cs" />
+    <Compile Include="..\Yandex\Detector\Requests\IDetectorRequest.cs" Link="Detector\Requests\IDetectorRequest.cs" />
+    <Compile Include="..\Yandex\Detector\Requests\IDetectorRequestExtensions.cs" Link="Detector\Requests\IDetectorRequestExtensions.cs" />
+    <Compile Include="..\Yandex\Detector\Requests\Implementation\DetectorRequest.cs" Link="Detector\Requests\Implementation\DetectorRequest.cs" />
+    <Compile Include="..\Yandex\Extensions\JsonExtensions.cs" Link="Extensions\JsonExtensions.cs" />
+    <Compile Include="..\Yandex\Extensions\JsonRestSerializer.cs" Link="Extensions\JsonRestSerializer.cs" />
+    <Compile Include="..\Yandex\IsExternalInit.cs" Link="IsExternalInit.cs" />
+    <Compile Include="..\Yandex\IYandexApi.cs" Link="IYandexApi.cs" />
+    <Compile Include="..\Yandex\Translator\Core\ErrorType.cs" Link="Translator\Core\ErrorType.cs" />
+    <Compile Include="..\Yandex\Translator\Core\IApi.cs" Link="Translator\Core\IApi.cs" />
+    <Compile Include="..\Yandex\Translator\Core\IApiConfigurator.cs" Link="Translator\Core\IApiConfigurator.cs" />
+    <Compile Include="..\Yandex\Translator\Core\IApiExtensions.cs" Link="Translator\Core\IApiExtensions.cs" />
+    <Compile Include="..\Yandex\Translator\Core\IError.cs" Link="Translator\Core\IError.cs" />
+    <Compile Include="..\Yandex\Translator\Core\Implementation\Api.cs" Link="Translator\Core\Implementation\Api.cs" />
+    <Compile Include="..\Yandex\Translator\Core\Implementation\ApiConfigurator.cs" Link="Translator\Core\Implementation\ApiConfigurator.cs" />
+    <Compile Include="..\Yandex\Translator\Core\Implementation\DetectedLanguageResult.cs" Link="Translator\Core\Implementation\DetectedLanguageResult.cs" />
+    <Compile Include="..\Yandex\Translator\Core\Implementation\Error.cs" Link="Translator\Core\Implementation\Error.cs" />
+    <Compile Include="..\Yandex\Translator\Core\Implementation\Translation.cs" Link="Translator\Core\Implementation\Translation.cs" />
+    <Compile Include="..\Yandex\Translator\Core\Implementation\TranslationPair.cs" Link="Translator\Core\Implementation\TranslationPair.cs" />
+    <Compile Include="..\Yandex\Translator\Core\Implementation\Translator.cs" Link="Translator\Core\Implementation\Translator.cs" />
+    <Compile Include="..\Yandex\Translator\Core\IResultable.cs" Link="Translator\Core\IResultable.cs" />
+    <Compile Include="..\Yandex\Translator\Core\ITranslation.cs" Link="Translator\Core\ITranslation.cs" />
+    <Compile Include="..\Yandex\Translator\Core\ITranslationPair.cs" Link="Translator\Core\ITranslationPair.cs" />
+    <Compile Include="..\Yandex\Translator\Core\TranslationPairsResult.cs" Link="Translator\Core\TranslationPairsResult.cs" />
+    <Compile Include="..\Yandex\Translator\Core\TranslationResult.cs" Link="Translator\Core\TranslationResult.cs" />
+    <Compile Include="..\Yandex\Translator\Core\TranslatorException.cs" Link="Translator\Core\TranslatorException.cs" />
+    <Compile Include="..\Yandex\Translator\ITranslator.cs" Link="Translator\ITranslator.cs" />
+    <Compile Include="..\Yandex\Translator\ITranslatorExtensions.cs" Link="Translator\ITranslatorExtensions.cs" />
+    <Compile Include="..\Yandex\Translator\IYandexApiExtensions.cs" Link="Translator\IYandexApiExtensions.cs" />
+    <Compile Include="..\Yandex\Translator\Requests\IApiRequest.cs" Link="Translator\Requests\IApiRequest.cs" />
+    <Compile Include="..\Yandex\Translator\Requests\Implementation\ApiRequest.cs" Link="Translator\Requests\Implementation\ApiRequest.cs" />
+    <Compile Include="..\Yandex\Translator\Requests\Implementation\TranslationApiRequest.cs" Link="Translator\Requests\Implementation\TranslationApiRequest.cs" />
+    <Compile Include="..\Yandex\Translator\Requests\ITranslationApiRequest.cs" Link="Translator\Requests\ITranslationApiRequest.cs" />
+    <Compile Include="..\Yandex\Translator\Requests\ITranslationApiRequestExtensions.cs" Link="Translator\Requests\ITranslationApiRequestExtensions.cs" />
+    <Compile Include="..\Yandex\Yandex.cs" Link="Yandex.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
+    <PackageReference Include="RestSharp" Version="108.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="Yandex.Tests" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Detector\Core\Implementation\" />
+    <Folder Include="Detector\Requests\Implementation\" />
+    <Folder Include="Extensions\" />
+    <Folder Include="Translator\Core\Implementation\" />
+    <Folder Include="Translator\Requests\Implementation\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Catharsis.Commons">
+      <HintPath>..\..\..\Catharsis.NET.Commons\src\Catharsis.Commons.Standard\bin\Release\netstandard2.1\Catharsis.Commons.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

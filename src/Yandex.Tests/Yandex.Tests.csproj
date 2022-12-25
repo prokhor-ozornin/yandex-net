@@ -1,0 +1,37 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <AssemblyName>Yandex.Tests</AssemblyName>
+    <RootNamespace>Yandex.Tests</RootNamespace>
+    <LangVersion>latest</LangVersion>
+    <Version>1.0</Version>
+    <Company>Prokhor Ozornin &lt;prokhor.ozornin@yandex.ru&gt;</Company>
+    <Authors>Prokhor Ozornin &lt;prokhor.ozornin@yandex.ru&gt;</Authors>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <ProduceReferenceAssembly>False</ProduceReferenceAssembly>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentAssertions" Version="6.8.0" />
+    <PackageReference Include="FluentAssertions.Json" Version="6.1.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.4.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
+    <PackageReference Include="xunit" Version="2.4.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Yandex.Core\Yandex.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Catharsis.Commons">
+      <HintPath>..\..\..\Catharsis.NET.Commons\src\Catharsis.Commons.Core\bin\Release\net6.0\Catharsis.Commons.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
