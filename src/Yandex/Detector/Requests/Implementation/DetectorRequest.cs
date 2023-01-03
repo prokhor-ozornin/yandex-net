@@ -2,12 +2,13 @@
 
 internal sealed class DetectorRequest : IDetectorRequest
 {
-  public IDictionary<string, object?> Headers { get; } = new Dictionary<string, object?>();
+  private readonly Dictionary<string, object> headers = new();
 
-  public IDetectorRequest Header(string name, object? value)
+  public IReadOnlyDictionary<string, object> Headers => headers;
+
+  public IDetectorRequest WithHeader(string name, object value)
   {
-    Headers[name] = value;
-
+    headers[name] = value;
     return this;
   }
 } 

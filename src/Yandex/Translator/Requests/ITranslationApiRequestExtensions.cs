@@ -31,7 +31,7 @@ public static class ITranslationApiRequestExtensions
   /// <param name="culture">Culture that contains a language to be used.</param>
   /// <returns>Back reference to the provided translation <paramref name="request"/>.</returns>
   /// <seealso cref="ITranslationApiRequest.From(string)"/>
-  public static ITranslationApiRequest From(this ITranslationApiRequest request, CultureInfo? culture) => request.From(culture?.TwoLetterISOLanguageName);
+  public static ITranslationApiRequest From(this ITranslationApiRequest request, CultureInfo culture) => request.From(culture?.TwoLetterISOLanguageName);
 
   /// <summary>
   ///   <para>Specifies target language to which a text fragment should be translated.</para>
@@ -40,5 +40,5 @@ public static class ITranslationApiRequestExtensions
   /// <param name="culture">Culture that contains a language to be used.</param>
   /// <returns>Back reference to the provided translation <paramref name="request"/>.</returns>
   /// <seealso cref="ITranslationApiRequest.To(string)"/>
-  public static ITranslationApiRequest To(this ITranslationApiRequest request, CultureInfo? culture) => request.To(culture?.TwoLetterISOLanguageName);
+  public static ITranslationApiRequest To(this ITranslationApiRequest request, CultureInfo culture) => request.To(culture?.TwoLetterISOLanguageName);
 }

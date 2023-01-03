@@ -29,7 +29,7 @@ public sealed class Error : IError
   ///   <para></para>
   /// </summary>
   /// <param name="info"></param>
-  public Error(object info) : this(new Info().Properties(info))
+  public Error(object info) : this(new Info().SetState(info))
   {
   }
 
@@ -38,14 +38,14 @@ public sealed class Error : IError
   /// </summary>
   /// <param name="other">The instance to compare with the current one.</param>
   /// <returns><c>true</c> if specified instance is equal to the current, <c>false</c> otherwise.</returns>
-  public bool Equals(IError? other) => this.Equality(other, error => error.Text);
+  public bool Equals(IError other) => this.Equality(other, error => error.Text);
 
   /// <summary>
   ///   <para>Determines whether the specified <see cref="object"/> is equal to the current <see cref="object"/>.</para>
   /// </summary>
   /// <param name="other">The object to compare with the current object.</param>
   /// <returns><c>true</c> if the specified object is equal to the current object, <c>false</c>.</returns>
-  public override bool Equals(object? other) => Equals(other as Error);
+  public override bool Equals(object other) => Equals(other as Error);
 
   /// <summary>
   ///   <para>Returns hash code for the current object.</para>
@@ -69,7 +69,7 @@ public sealed class Error : IError
     ///   <para></para>
     /// </summary>
     [DataMember(Name = "Text", IsRequired = true)]
-    public string? Text { get; init; }
+    public string Text { get; init; }
 
     /// <summary>
     ///   <para></para>

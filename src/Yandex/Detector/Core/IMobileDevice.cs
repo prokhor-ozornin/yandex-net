@@ -30,12 +30,12 @@ public interface IMobileDevice : IEquatable<IMobileDevice>
   /// <summary>
   ///   <para>Device's screen resolution (px).</para>
   /// </summary>
-  IResolution? Screen { get; }
+  IResolution Screen { get; }
 
   /// <summary>
   ///   <para>Device's installed _Java platform capabilities.</para>
   /// </summary>
-  IJavaPlatform? JavaPlatform { get; }
+  IJavaPlatform JavaPlatform { get; }
 
   /// <summary>
   ///   <para>Returns class of devices as instance of <see cref="MobileDevicesClass"/> enumeration.</para>

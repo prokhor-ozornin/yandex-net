@@ -50,7 +50,7 @@ public sealed class ITranslationApiRequestExtensionsTest
   [Fact]
   public void From_Method()
   {
-    void Validate(CultureInfo? culture)
+    void Validate(CultureInfo culture)
     {
       var request = new TranslationApiRequest();
 
@@ -86,7 +86,7 @@ public sealed class ITranslationApiRequestExtensionsTest
   [Fact]
   public void To_Method()
   {
-    void Validate(CultureInfo? culture)
+    void Validate(CultureInfo culture)
     {
       var request = new TranslationApiRequest();
 

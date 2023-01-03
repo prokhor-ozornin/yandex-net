@@ -55,12 +55,12 @@ public sealed class JsonExtensionsTest
       get; set;
     }
 
-    public string? PublicProperty
+    public string PublicProperty
     {
       get; set;
     }
 
-    public string? PublicField;
+    public string PublicField;
 
     public DateTimeOffset? Date
     {

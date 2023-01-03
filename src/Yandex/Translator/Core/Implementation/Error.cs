@@ -21,13 +21,13 @@ public sealed class Error : IError
     Text = info.Text ?? string.Empty;
   }
 
-  public Error(object info) : this(new Info().Properties(info)) {}
+  public Error(object info) : this(new Info().SetState(info)) {}
 
-  public int CompareTo(IError? other) => Code.CompareTo(other?.Code);
+  public int CompareTo(IError other) => Code.CompareTo(other?.Code);
 
-  public bool Equals(IError? other) => this.Equality(other, nameof(Code));
+  public bool Equals(IError other) => this.Equality(other, nameof(Code));
 
-  public override bool Equals(object? other) => Equals(other as IError);
+  public override bool Equals(object other) => Equals(other as IError);
 
   public override int GetHashCode() => this.HashCode(nameof(Code));
 
@@ -40,7 +40,7 @@ public sealed class Error : IError
     public int? Code { get; init; }
 
     [DataMember(Name = "text", IsRequired = true)]
-    public string? Text { get; init; }
+    public string Text { get; init; }
 
     public IError Result() => new Error(this);
   }

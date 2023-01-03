@@ -29,7 +29,7 @@ public sealed class TranslationPairsResult
   ///   <para></para>
   /// </summary>
   /// <param name="info"></param>
-  public TranslationPairsResult(object info) : this(new Info().Properties(info)) {}
+  public TranslationPairsResult(object info) : this(new Info().SetState(info)) {}
 
   /// <summary>
   ///   <para></para>
@@ -41,7 +41,7 @@ public sealed class TranslationPairsResult
     ///   <para>Collection of supported translations pairs (directions).</para>
     /// </summary>
     [DataMember(Name = "dirs", IsRequired = true)]
-    public List<string>? Pairs { get; init; }
+    public List<string> Pairs { get; init; }
 
     /// <summary>
     ///   <para></para>

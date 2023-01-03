@@ -10,26 +10,26 @@ public interface ITranslationApiRequest : IApiRequest
   /// </summary>
   /// <param name="format">Text format.</param>
   /// <returns>Back reference to the current translation request.</returns>
-  ITranslationApiRequest Format(string? format);
+  ITranslationApiRequest Format(string format);
 
   /// <summary>
   ///   <para>Source language from which a text fragment should be translated.</para>
   /// </summary>
   /// <param name="language">Source language.</param>
   /// <returns>Back reference to the current translation request.</returns>
-  ITranslationApiRequest From(string? language);
+  ITranslationApiRequest From(string language);
 
   /// <summary>
   ///   <para>Target language to which a text fragment should be translated.</para>
   /// </summary>
   /// <param name="language">Target language.</param>
   /// <returns>Back reference to the current translation request.</returns>
-  ITranslationApiRequest To(string? language);
+  ITranslationApiRequest To(string language);
 
   /// <summary>
   ///   <para>Text in source language to be translated.</para>
   /// </summary>
   /// <param name="text">Text fragment.</param>
   /// <returns>Back reference to the current translation request.</returns>
-  ITranslationApiRequest Text(string? text);
+  ITranslationApiRequest Text(string text);
 }

@@ -8,5 +8,13 @@ public interface IApiRequest
   /// <summary>
   ///   <para>Map of parameters names/values to be used in a web request.</para>
   /// </summary>
-  IDictionary<string, object?> Parameters { get; }
+  IReadOnlyDictionary<string, object> Parameters { get; }
+
+  /// <summary>
+  ///   <para></para>
+  /// </summary>
+  /// <param name="name"></param>
+  /// <param name="value"></param>
+  /// <returns></returns>
+  IApiRequest WithParameter(string name, object value);
 }

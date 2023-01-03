@@ -15,7 +15,7 @@ public static class JsonExtensions
   /// <param name="settings">Serialization settings. If not specified, default settings set will be used.</param>
   /// <returns>JSON serialized version of <paramref name="subject"/> instance.</returns>
   /// <seealso cref="JsonConvert"/>
-  public static string AsJson(this object subject, JsonSerializerSettings? settings = null) =>
+  public static string AsJson(this object subject, JsonSerializerSettings settings = null) =>
     JsonConvert.SerializeObject(subject, settings ?? new JsonSerializerSettings
     {
       ConstructorHandling = ConstructorHandling.AllowNonPublicDefaultConstructor,
@@ -32,7 +32,7 @@ public static class JsonExtensions
   /// <param name="settings">Deserialization settings. If not specified, default settings set will be used.</param>
   /// <returns>Instance of <typeparamref name="T"/> type, deserialized from <paramref name="json"/> string.</returns>
   /// <seealso cref="JsonConvert"/>
-  public static T? AsJson<T>(this string json, JsonSerializerSettings? settings = null) =>
+  public static T AsJson<T>(this string json, JsonSerializerSettings settings = null) =>
     JsonConvert.DeserializeObject<T>(json, settings ?? new JsonSerializerSettings
     {
       ContractResolver = new JsonEntityOrderedContractResolver(),

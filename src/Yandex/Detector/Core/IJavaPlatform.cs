@@ -18,10 +18,10 @@ public interface IJavaPlatform : IEquatable<IJavaPlatform>
   /// <summary>
   ///   <para>Prefix of Java certificate.</para>
   /// </summary>
-  string? Certificate { get; }
+  string Certificate { get; }
 
   /// <summary>
   ///   <para>Dimensions of Java applications icons.</para>
   /// </summary>
-  IResolution? Icon { get; }
+  IResolution Icon { get; }
 }

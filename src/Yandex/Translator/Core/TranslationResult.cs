@@ -51,7 +51,7 @@ public sealed class TranslationResult
   ///   <para></para>
   /// </summary>
   /// <param name="info"></param>
-  public TranslationResult(object info) : this(new Info().Properties(info)) {}
+  public TranslationResult(object info) : this(new Info().SetState(info)) {}
 
   /// <summary>
   ///   <para>Returns a <see cref="string"/> that represents the current <see cref="TranslationResult"/> instance.</para>
@@ -75,13 +75,13 @@ public sealed class TranslationResult
     ///   <para>Languages pair (for example "en-ru"), representing text's translation direction.</para>
     /// </summary>
     [DataMember(Name = "lang", IsRequired = true)]
-    public string? Language { get; init; }
+    public string Language { get; init; }
 
     /// <summary>
     ///   <para>Collection of translated text fragments.</para>
     /// </summary>
     [DataMember(Name = "text", IsRequired = true)]
-    public List<string>? Lines { get; init; }
+    public List<string> Lines { get; init; }
 
     /// <summary>
     ///   <para></para>

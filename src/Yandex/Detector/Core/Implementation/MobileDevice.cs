@@ -32,12 +32,12 @@ public sealed class MobileDevice : IMobileDevice
   /// <summary>
   ///   <para>Device's screen resolution (px).</para>
   /// </summary>
-  public IResolution? Screen { get; }
+  public IResolution Screen { get; }
 
   /// <summary>
   ///   <para>Device's installed _Java platform capabilities.</para>
   /// </summary>
-  public IJavaPlatform? JavaPlatform { get; }
+  public IJavaPlatform JavaPlatform { get; }
 
   /// <summary>
   ///   <para></para>
@@ -52,8 +52,8 @@ public sealed class MobileDevice : IMobileDevice
                       string deviceClass,
                       string vendor,
                       string description,
-                      IResolution? screen = null,
-                      IJavaPlatform? javaPlatform = null)
+                      IResolution screen = null,
+                      IJavaPlatform javaPlatform = null)
   {
     Name = name;
     DeviceClass = deviceClass;
@@ -81,7 +81,7 @@ public sealed class MobileDevice : IMobileDevice
   ///   <para></para>
   /// </summary>
   /// <param name="info"></param>
-  public MobileDevice(object info) : this(new Info().Properties(info))
+  public MobileDevice(object info) : this(new Info().SetState(info))
   {
   }
 
@@ -90,14 +90,14 @@ public sealed class MobileDevice : IMobileDevice
   /// </summary>
   /// <param name="other">The instance to compare with the current one.</param>
   /// <returns><c>true</c> if specified instance is equal to the current, <c>false</c> otherwise.</returns>
-  public bool Equals(IMobileDevice? other) => this.Equality(other, nameof(Name));
+  public bool Equals(IMobileDevice other) => this.Equality(other, nameof(Name));
 
   /// <summary>
   ///   <para>Determines whether the specified <see cref="object"/> is equal to the current <see cref="object"/>.</para>
   /// </summary>
   /// <param name="other">The object to compare with the current object.</param>
   /// <returns><c>true</c> if the specified object is equal to the current object, <c>false</c>.</returns>
-  public override bool Equals(object? other) => Equals(other as IMobileDevice);
+  public override bool Equals(object other) => Equals(other as IMobileDevice);
 
   /// <summary>
   ///   <para>Returns hash code for the current object.</para>
@@ -121,25 +121,25 @@ public sealed class MobileDevice : IMobileDevice
     ///   <para>Device's model name.</para>
     /// </summary>
     [DataMember(Name = "name", IsRequired = true)]
-    public string? Name { get; init; }
+    public string Name { get; init; }
 
     /// <summary>
     ///   <para>Class of devices.</para>
     /// </summary>
     [DataMember(Name = "device-class", IsRequired = true)]
-    public string? DeviceClass { get; init; }
+    public string DeviceClass { get; init; }
 
     /// <summary>
     ///   <para>Name of device's vendor.</para>
     /// </summary>
     [DataMember(Name = "vendor", IsRequired = true)]
-    public string? Vendor { get; init; }
+    public string Vendor { get; init; }
 
     /// <summary>
     ///   <para>Description of device's class.</para>
     /// </summary>
     [DataMember(Name = "device-class-desc", IsRequired = true)]
-    public string? Description { get; init; }
+    public string Description { get; init; }
 
     /// <summary>
     ///   <para>Device's screen horizontal width (px).</para>
@@ -157,7 +157,7 @@ public sealed class MobileDevice : IMobileDevice
     ///   <para>Device's installed Java platform capabilities.</para>
     /// </summary>
     [DataMember(Name = "java", IsRequired = true)]
-    public JavaPlatform? JavaPlatform { get; init; }
+    public JavaPlatform JavaPlatform { get; init; }
 
     /// <summary>
     ///   <para></para>

@@ -27,10 +27,10 @@ public sealed class YandexTranslatorTests : IDisposable
     AssertionExtensions.Should(() => new Api(string.Empty)).ThrowExactly<ArgumentException>();
 
     var api = new Api("apiKey");
-    api.Property("JsonSerializer").Should().NotBeNull().And.BeOfType<ISerializer>();
-    api.Property("JsonDeserializer").Should().NotBeNull().And.BeOfType<IDeserializer>();
+    api.GetPropertyValue("JsonSerializer").Should().NotBeNull().And.BeOfType<ISerializer>();
+    api.GetPropertyValue("JsonDeserializer").Should().NotBeNull().And.BeOfType<IDeserializer>();
 
-    var client = api.Field("restClient").To<RestClient>();
+    var client = api.GetFieldValue("restClient").To<RestClient>();
     //client.BaseUrl.ToString().Should().Be("https://translate.yandex.net/api/v1.5/tr");
     var key = client.DefaultParameters.FirstOrDefault(parameter => parameter.Name == "key");
     key.Should().NotBeNull();
@@ -40,53 +40,53 @@ public sealed class YandexTranslatorTests : IDisposable
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="IApi.Pairs(CancellationToken)"/> method.</para>
+  ///   <para>Performs testing of <see cref="IApi.PairsAsync(CancellationToken)"/> method.</para>
   /// </summary>
   [Fact]
-  public void Pairs_Method()
+  public void PairsAsync_Method()
   {
-    AssertionExtensions.Should(() => Api.Pairs(Cancellation)).ThrowExactly<TaskCanceledException>();
+    AssertionExtensions.Should(() => Api.PairsAsync(Cancellation)).ThrowExactly<TaskCanceledException>();
 
     using var api = Api;
 
-    var pairs = api.Pairs().ToList().Await();
+    var pairs = api.PairsAsync().ToListAsync().Await();
     pairs.Should().NotBeNullOrEmpty().And.Contain(translation => translation.FromLanguage == "en" && translation.ToLanguage == "ru").And.Contain(translation => translation.FromLanguage == "ru" && translation.ToLanguage == "en");
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="IApi.Detect(string, CancellationToken)"/> method.</para>
+  ///   <para>Performs testing of <see cref="IApi.DetectAsync"/> method.</para>
   /// </summary>
   [Fact]
   public void Detect_Method()
   {
-    AssertionExtensions.Should(() => Api.Detect(null!)).ThrowExactlyAsync<ArgumentNullException>().Await();
-    AssertionExtensions.Should(() => Api.Detect(string.Empty)).ThrowExactlyAsync<ArgumentException>().Await();
-    AssertionExtensions.Should(() => Api.Detect("text", Cancellation)).ThrowExactlyAsync<TaskCanceledException>().Await();
+    AssertionExtensions.Should(() => Api.DetectAsync(null!)).ThrowExactlyAsync<ArgumentNullException>().Await();
+    AssertionExtensions.Should(() => Api.DetectAsync(string.Empty)).ThrowExactlyAsync<ArgumentException>().Await();
+    AssertionExtensions.Should(() => Api.DetectAsync("text", Cancellation)).ThrowExactlyAsync<TaskCanceledException>().Await();
 
     using var api = Api;
 
-    api.Detect("Hello, world").Should().Be("en");
-    api.Detect("Привет, мир").Should().Be("ru");
+    api.DetectAsync("Hello, world").Should().Be("en");
+    api.DetectAsync("Привет, мир").Should().Be("ru");
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="IApi.Translate(ITranslationApiRequest, CancellationToken)"/> method.</para>
+  ///   <para>Performs testing of <see cref="IApi.TranslateAsync(ITranslationApiRequest, CancellationToken)"/> method.</para>
   /// </summary>
   [Fact]
-  public void Translate_Method()
+  public void TranslateAsync_Method()
   {
-    AssertionExtensions.Should(() => Api.Translate(null!)).ThrowExactlyAsync<ArgumentNullException>().Await();
-    AssertionExtensions.Should(() => Api.Translate(null!, Cancellation)).ThrowExactlyAsync<TaskCanceledException>().Await();
+    AssertionExtensions.Should(() => Api.TranslateAsync(null!)).ThrowExactlyAsync<ArgumentNullException>().Await();
+    AssertionExtensions.Should(() => Api.TranslateAsync(null!, Cancellation)).ThrowExactlyAsync<TaskCanceledException>().Await();
 
     using var api = Api;
 
-    var translation = api.Translate(request => request.From("ru").To("en").Text("Привет, мир")).Await();
+    var translation = api.TranslateAsync(request => request.From("ru").To("en").Text("Привет, мир")).Await();
     translation.Should().NotBeNull().And.BeOfType<Translation>();
     translation.FromLanguage.Should().Be("ru");
     translation.ToLanguage.Should().Be("en");
     translation.Text.Should().Be("Hello world");
 
-    translation = api.Translate(request => request.From("en").To("ru").Text("Hello, world")).Await();
+    translation = api.TranslateAsync(request => request.From("en").To("ru").Text("Hello, world")).Await();
     translation.Should().NotBeNull().And.BeOfType<Translation>();
     translation.FromLanguage.Should().Be("en");
     translation.ToLanguage.Should().Be("ru");

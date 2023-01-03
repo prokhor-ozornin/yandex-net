@@ -1,5 +1,4 @@
-﻿using Catharsis.Commons;
-using FluentAssertions;
+﻿using FluentAssertions;
 using FluentAssertions.Execution;
 using Xunit;
 using Yandex.Detector;
@@ -11,15 +10,11 @@ namespace Yandex.Tests.Detector;
 /// </summary>
 public sealed class IMobileDetectorExtensionsTest
 {
-  private CancellationToken Cancellation { get; } = new(true);
-
   /// <summary>
   ///   <para>Performs testing of following methods :</para>
   ///   <list type="bullet">
-  ///     <item><description><see cref="IMobileDetectorExtensions.Detect(IMobileDetector, CancellationToken, (string Name, object? Value)[])"/></description></item>
-  ///     <item><description><see cref="IMobileDetectorExtensions.Detect(IMobileDetector, Action{IDetectorRequest}, CancellationToken)"/></description></item>
-  ///     <item><description><see cref="IMobileDetectorExtensions.Detect(IMobileDetector, out IMobileDevice?, CancellationToken, (string Name, object? Value)[])"/></description></item>
-  ///     <item><description><see cref="IMobileDetectorExtensions.Detect(IMobileDetector, out IMobileDevice?, Action{IDetectorRequest}, CancellationToken)"/></description></item>
+  ///     <item><description><see cref="IMobileDetectorExtensions.Detect(IMobileDetector, (string Name, object Value)[])"/></description></item>
+  ///     <item><description><see cref="IMobileDetectorExtensions.Detect(IMobileDetector, Action{IDetectorRequest})"/></description></item>
   ///   </list>
   /// </summary>
   [Fact]
@@ -44,39 +39,46 @@ public sealed class IMobileDetectorExtensionsTest
     {
       using var detector = Yandex.Api.Detector();
 
-      AssertionExtensions.Should(() => IMobileDetectorExtensions.Detect(null!)).ThrowExactlyAsync<ArgumentNullException>().Await();
-      AssertionExtensions.Should(() => IMobileDetectorExtensions.Detect(null!, _ => {})).ThrowExactlyAsync<ArgumentNullException>().Await();
-      AssertionExtensions.Should(() => IMobileDetectorExtensions.Detect(new MobileDetector(), null!)).ThrowExactlyAsync<ArgumentNullException>().Await();
-      AssertionExtensions.Should(() => IMobileDetectorExtensions.Detect(null!, out _)).ThrowExactly<ArgumentNullException>();
-      AssertionExtensions.Should(() => IMobileDetectorExtensions.Detect(null!, out _, _ => {})).ThrowExactly<ArgumentNullException>();
+      /*AssertionExtensions.Should(() => IMobileDetectorExtensions.DetectAsync(null!)).ThrowExactlyAsync<ArgumentNullException>().Await();
+      AssertionExtensions.Should(() => IMobileDetectorExtensions.DetectAsync(null!, _ => {})).ThrowExactlyAsync<ArgumentNullException>().Await();
+      AssertionExtensions.Should(() => IMobileDetectorExtensions.DetectAsync(new MobileDetector(), null!)).ThrowExactlyAsync<ArgumentNullException>().Await();
+      AssertionExtensions.Should(() => IMobileDetectorExtensions.TryDetect(null!, out _)).ThrowExactly<ArgumentNullException>();
+      AssertionExtensions.Should(() => IMobileDetectorExtensions.TryDetect(null!, out _, _ => {})).ThrowExactly<ArgumentNullException>();
 
-      AssertionExtensions.Should(() => detector.Detect(out _, null!)).ThrowExactly<ArgumentNullException>();
-      AssertionExtensions.Should(() => detector.Detect(out _, null!)).ThrowExactly<ArgumentNullException>();
-      AssertionExtensions.Should(() => detector.Detect(_ => { })).ThrowExactlyAsync<DetectorException>().Await().WithMessage("No HTTP headers were specified").Which.InnerException.Should().BeNull();
-      AssertionExtensions.Should(() => detector.Detect(request => request.Profile("invalid"))).ThrowExactlyAsync<DetectorException>().Await().WithMessage("Failed to understand service's response").WithInnerExceptionExactly<InvalidOperationException>();
-      AssertionExtensions.Should(() => detector.Detect(request => request.UserAgent("invalid"))).ThrowExactlyAsync<DetectorException>().Await().WithMessage("Unknown user agent and wap profile").Which.InnerException.Should().BeNull();
-      AssertionExtensions.Should(() => detector.Detect(Cancellation)).ThrowExactlyAsync<TaskCanceledException>().Await();
-      AssertionExtensions.Should(() => detector.Detect(_ => { }, Cancellation)).ThrowExactlyAsync<TaskCanceledException>().Await();
-      AssertionExtensions.Should(() => detector.Detect(out _, Cancellation)).ThrowExactly<TaskCanceledException>();
-      AssertionExtensions.Should(() => detector.Detect(out _, _ => { }, Cancellation)).ThrowExactly<TaskCanceledException>();
+      AssertionExtensions.Should(() => detector.TryDetect(out _, null!)).ThrowExactly<ArgumentNullException>();
+      AssertionExtensions.Should(() => detector.TryDetect(out _, null!)).ThrowExactly<ArgumentNullException>();
+      AssertionExtensions.Should(() => detector.DetectAsync(_ => {})).ThrowExactlyAsync<DetectorException>().Await().WithMessage("No HTTP headers were specified").Which.InnerException.Should().BeNull();
+      AssertionExtensions.Should(() => detector.DetectAsync(request => request.Profile("invalid"))).ThrowExactlyAsync<DetectorException>().Await().WithMessage("Failed to understand service's response").WithInnerExceptionExactly<InvalidOperationException>();
+      AssertionExtensions.Should(() => detector.DetectAsync(request => request.UserAgent("invalid"))).ThrowExactlyAsync<DetectorException>().Await().WithMessage("Unknown user agent and wap profile").Which.InnerException.Should().BeNull();
+      AssertionExtensions.Should(() => detector.DetectAsync(Cancellation)).ThrowExactlyAsync<TaskCanceledException>().Await();
+      AssertionExtensions.Should(() => detector.DetectAsync(_ => {}, Cancellation)).ThrowExactlyAsync<TaskCanceledException>().Await();
+      AssertionExtensions.Should(() => detector.TryDetect(out _, Cancellation)).ThrowExactly<TaskCanceledException>();
+      AssertionExtensions.Should(() => detector.TryDetect(out _, _ => {}, Cancellation)).ThrowExactly<TaskCanceledException>();
 
       const string userAgent = "Alcatel-CTH3/1.0 UP.Browser/6.2.ALCATEL MMP/1.0";
 
-      var device = detector.Detect(request => request.UserAgent(userAgent)).Await();
+      var device = detector.DetectAsync(request => request.UserAgent(userAgent)).Await();
 
-      device = detector.Detect(default, (Name: "user-agent", Value: userAgent)).Await();
+      device = detector.DetectAsync(default, (Name: "user-agent", Value: userAgent)).Await();
       Validate(device);
 
-      device = detector.Detect(request => request.UserAgent(userAgent)).Await();
+      device = detector.DetectAsync(request => request.UserAgent(userAgent)).Await();
       Validate(device);
 
-      detector.Detect(out device).Should().BeTrue();
+      detector.TryDetect(out device).Should().BeTrue();
       device.Should().NotBeNull();
       Validate(device!);
 
-      detector.Detect(out device, request => request.UserAgent(userAgent)).Should().BeTrue();
+      detector.TryDetect(out device, request => request.UserAgent(userAgent)).Should().BeTrue();
       device.Should().NotBeNull();
-      Validate(device!);
+      Validate(device!);*/
     }
+
+    using (new AssertionScope())
+    {
+
+    }
+
+    throw new NotImplementedException();
   }
 }

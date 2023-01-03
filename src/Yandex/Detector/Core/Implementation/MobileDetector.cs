@@ -9,7 +9,7 @@ internal sealed class MobileDetector : IMobileDetector
   private Uri EndpointUrl { get; } = "http://phd.yandex.net/detect/".ToUri();
   private HttpClient HttpClient { get; } = new();
 
-  public async Task<IMobileDevice> Detect(IDictionary<string, object?> headers, CancellationToken cancellation = default)
+  public async Task<IMobileDevice> DetectAsync(IReadOnlyDictionary<string, object> headers, CancellationToken cancellation = default)
   {
     if (!headers.Any())
     {
@@ -20,7 +20,7 @@ internal sealed class MobileDetector : IMobileDetector
 
     try
     {
-      response = await HttpClient.Headers(headers).Text(EndpointUrl, cancellation);
+      response = await HttpClient.WithHeaders(headers).ToTextAsync(EndpointUrl, cancellation).ConfigureAwait(false);
     }
     catch (Exception exception)
     {
@@ -29,7 +29,7 @@ internal sealed class MobileDetector : IMobileDetector
 
     try
     {
-      var error = response.AsXml<Error.Info>()!.Result();
+      var error = response.DeserializeAsXml<Error.Info>()!.Result();
       throw new DetectorException(error.Text);
     }
     catch (InvalidOperationException)
@@ -38,7 +38,7 @@ internal sealed class MobileDetector : IMobileDetector
 
     try
     {
-      return response.AsXml<MobileDevice.Info>()!.Result();
+      return response.DeserializeAsXml<MobileDevice.Info>()!.Result();
     }
     catch (Exception exception)
     {

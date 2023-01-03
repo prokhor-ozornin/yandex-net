@@ -12,8 +12,8 @@ public static class IDetectorRequestExtensions
   /// <param name="request">Instance of request to Yandex.Detector service.</param>
   /// <param name="version">Version of installed Opera Mini.</param>
   /// <returns>Back reference to the provided <paramref name="request"/> instance.</returns>
-  /// <seealso cref="IDetectorRequest.Header(string, object)"/>
-  public static IDetectorRequest OperaMini(this IDetectorRequest request, string version) => request.Header("x-operamini-phone-ua", version);
+  /// <seealso cref="IDetectorRequest.WithHeader"/>
+  public static IDetectorRequest OperaMini(this IDetectorRequest request, string version) => request.WithHeader("x-operamini-phone-ua", version);
 
   /// <summary>
   ///   <para>Adds set of headers for HTTP request that indicates a mobile profile of the target device.</para>
@@ -22,12 +22,12 @@ public static class IDetectorRequestExtensions
   /// <param name="request">Instance of request to Yandex.Detector service.</param>
   /// <param name="profile">Value of HTTP mobile profile headers.</param>
   /// <returns>Back reference to the provided <paramref name="request"/> instance.</returns>
-  /// <seealso cref="IDetectorRequest.Header(string, object)"/>
+  /// <seealso cref="IDetectorRequest.WithHeader"/>
   public static IDetectorRequest Profile(this IDetectorRequest request, string profile)
   {
-    request.Header("profile", profile);
-    request.Header("wap-profile", profile);
-    request.Header("x-wap-profile", profile);
+    request.WithHeader("profile", profile);
+    request.WithHeader("wap-profile", profile);
+    request.WithHeader("x-wap-profile", profile);
 
     return request;
   }
@@ -38,6 +38,6 @@ public static class IDetectorRequestExtensions
   /// <param name="request">Instance of request to Yandex.Detector service.</param>
   /// <param name="userAgent">Value of User-agent header.</param>
   /// <returns>Back reference to the provided <paramref name="request"/> instance.</returns>
-  /// <seealso cref="IDetectorRequest.Header(string, object)"/>
-  public static IDetectorRequest UserAgent(this IDetectorRequest request, string userAgent) => request.Header("user-agent", userAgent);
+  /// <seealso cref="IDetectorRequest.WithHeader"/>
+  public static IDetectorRequest UserAgent(this IDetectorRequest request, string userAgent) => request.WithHeader("user-agent", userAgent);
 }

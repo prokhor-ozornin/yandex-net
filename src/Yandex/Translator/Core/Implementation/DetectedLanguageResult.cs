@@ -43,7 +43,7 @@ public sealed class DetectedLanguageResult
   ///   <para></para>
   /// </summary>
   /// <param name="info"></param>
-  public DetectedLanguageResult(object info) : this(new Info().Properties(info)) {}
+  public DetectedLanguageResult(object info) : this(new Info().SetState(info)) {}
 
   /// <summary>
   ///   <para></para>
@@ -61,7 +61,7 @@ public sealed class DetectedLanguageResult
     ///   <para>Detected text's language.</para>
     /// </summary>
     [DataMember(Name = "lang", IsRequired = true)]
-    public string? Language { get; init; }
+    public string Language { get; init; }
 
     /// <summary>
     ///   <para></para>

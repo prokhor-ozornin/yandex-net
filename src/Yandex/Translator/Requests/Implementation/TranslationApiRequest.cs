@@ -4,43 +4,42 @@ namespace Yandex.Translator;
 
 internal sealed class TranslationApiRequest : ApiRequest, ITranslationApiRequest
 {
-  private string? FromLanguage { get; set; }
+  private string FromLanguage { get; set; }
+  private string ToLanguage { get; set; }
 
-  private string? ToLanguage { get; set; }
-
-  public ITranslationApiRequest Format(string? format)
+  public ITranslationApiRequest Format(string format)
   {
-    Parameters["format"] = format;
+    WithParameter("format", format);
 
     return this;
   }
 
-  public ITranslationApiRequest From(string? language)
+  public ITranslationApiRequest From(string language)
   {
     FromLanguage = language;
 
-    Parameters["lang"] = Languages;
+    WithParameter("lang", Languages);
 
     return this;
   }
 
-  public ITranslationApiRequest To(string? language)
+  public ITranslationApiRequest To(string language)
   {
     ToLanguage = language;
 
-    Parameters["lang"] = Languages;
+    WithParameter("lang", Languages);
 
     return this;
   }
 
-  public ITranslationApiRequest Text(string? text)
+  public ITranslationApiRequest Text(string text)
   {
-    Parameters["text"] = text;
+    WithParameter("text", text);
 
     return this;
   }
 
-  private string? Languages
+  private string Languages
   {
     get
     {

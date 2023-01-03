@@ -9,5 +9,5 @@ internal sealed class ApiConfigurator : IApiConfigurator
     return this;
   }
 
-  public string? ApiKeyValue { get; private set; }
+  public string ApiKeyValue { get; private set; }
 }

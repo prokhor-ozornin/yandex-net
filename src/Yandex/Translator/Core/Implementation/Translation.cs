@@ -17,9 +17,9 @@ internal sealed class Translation : ITranslation
 
   public string ToLanguage { get; }
 
-  public bool Equals(ITranslation? other) => this.Equality(other, nameof(FromLanguage), nameof(ToLanguage), nameof(Text));
+  public bool Equals(ITranslation other) => this.Equality(other, nameof(FromLanguage), nameof(ToLanguage), nameof(Text));
 
-  public override bool Equals(object? other) => Equals(other as ITranslation);
+  public override bool Equals(object other) => Equals(other as ITranslation);
 
   public override int GetHashCode() => this.HashCode(nameof(FromLanguage), nameof(Text), nameof(ToLanguage));
 

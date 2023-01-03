@@ -2,5 +2,13 @@
 
 internal abstract class ApiRequest : IApiRequest
 {
-  public IDictionary<string, object?> Parameters { get; } = new Dictionary<string, object?>();
+  private readonly Dictionary<string, object> parameters = new();
+
+  public IReadOnlyDictionary<string, object> Parameters => parameters;
+
+  public IApiRequest WithParameter(string name, object value)
+  {
+    parameters[name] = value;
+    return this;
+  }
 }

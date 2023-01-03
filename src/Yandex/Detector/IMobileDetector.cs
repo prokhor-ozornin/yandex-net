@@ -12,5 +12,5 @@ public interface IMobileDetector : IDisposable
   /// <param name="cancellation"></param>
   /// <returns>Instance of <see cref="IMobileDevice"/> object, describing capabilities of identified mobile device.</returns>
   /// <exception cref="DetectorException">If there was error either during the request to Yandex.Detector web service, or mobile device cannot be identified based on a set of provided HTTP headers.</exception>
-  Task<IMobileDevice> Detect(IDictionary<string, object?> headers, CancellationToken cancellation = default);
+  Task<IMobileDevice> DetectAsync(IReadOnlyDictionary<string, object> headers, CancellationToken cancellation = default);
 }

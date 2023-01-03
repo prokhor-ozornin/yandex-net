@@ -10,10 +10,10 @@ public sealed class TranslatorException : Exception
   /// </summary>
   /// <param name="error">Detailed error information.</param>
   /// <param name="inner">The exception that is the cause of the current exception, or a <c>null</c> reference.</param>
-  public TranslatorException(IError? error = null, Exception? inner = null) : base(error != null ? error.Text : string.Empty, inner) => Error = error;
+  public TranslatorException(IError error = null, Exception inner = null) : base(error != null ? error.Text : string.Empty, inner) => Error = error;
 
   /// <summary>
   ///   <para>Detailed error information</para>
   /// </summary>
-  public IError? Error { get; }
+  public IError Error { get; }
 }

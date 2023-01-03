@@ -20,9 +20,9 @@ internal sealed class Api : IApi
     RestClient.UseSerializer<JsonRestSerializer>();
   }
 
-  public async IAsyncEnumerable<ITranslationPair> Pairs([EnumeratorCancellation] CancellationToken cancellation = default)
+  public async IAsyncEnumerable<ITranslationPair> PairsAsync([EnumeratorCancellation] CancellationToken cancellation = default)
   {
-    var result = (await Request<TranslationPairsResult.Info>("/getLangs", null, cancellation)).Result();
+    var result = (await Request<TranslationPairsResult.Info>("/getLangs", null, cancellation).ConfigureAwait(false)).Result();
 
     foreach (var languages in result.Pairs.Select(pair => pair.Split('-')))
     {
@@ -30,9 +30,9 @@ internal sealed class Api : IApi
     }
   }
 
-  public async Task<string> Detect(string text, CancellationToken cancellation = default)
+  public async Task<string> DetectAsync(string text, CancellationToken cancellation = default)
   {
-    var result = (await Request<DetectedLanguageResult.Info>("detect", new Dictionary<string, object?> {{"text", text}}, cancellation)).Result();
+    var result = (await Request<DetectedLanguageResult.Info>("detect", new Dictionary<string, object> {{"text", text}}, cancellation).ConfigureAwait(false)).Result();
 
     if (result.Code != (int) HttpStatusCode.OK || result.Language.IsEmpty())
     {
@@ -42,9 +42,9 @@ internal sealed class Api : IApi
     return result.Language;
   }
 
-  public async Task<ITranslation> Translate(ITranslationApiRequest request, CancellationToken cancellation = default)
+  public async Task<ITranslation> TranslateAsync(ITranslationApiRequest request, CancellationToken cancellation = default)
   {
-    var result = (await Request<TranslationResult.Info>("/translate", request.Parameters, cancellation)).Result();
+    var result = (await Request<TranslationResult.Info>("/translate", request.Parameters, cancellation).ConfigureAwait(false)).Result();
 
     var translation = result.ToString();
 
@@ -81,7 +81,7 @@ internal sealed class Api : IApi
     disposed = true;
   }
 
-  private async Task<T> Request<T>(string resource, IDictionary<string, object?>? parameters = null, CancellationToken cancellation = default) where T : new()
+  private async Task<T> Request<T>(string resource, IReadOnlyDictionary<string, object> parameters = null, CancellationToken cancellation = default) where T : new()
   {
     var request = new RestRequest(resource)
     {
@@ -92,19 +92,19 @@ internal sealed class Api : IApi
     {
       foreach (var parameter in parameters)
       {
-        request.AddParameter(parameter.Key, parameter.Value?.ToStringInvariant());
+        request.AddParameter(parameter.Key, parameter.Value?.ToInvariantString());
       }
     }
 
-    var response = await RestClient.ExecuteGetAsync<T>(request, cancellation);
+    var response = await RestClient.ExecuteGetAsync<T>(request, cancellation).ConfigureAwait(false);
 
     if (response.ErrorException != null || response.StatusCode != HttpStatusCode.OK)
     {
-      var responseError = new Error((int) response.StatusCode, response.ErrorMessage ?? (response.StatusDescription ?? response.StatusCode.ToStringInvariant()));
+      var responseError = new Error((int) response.StatusCode, response.ErrorMessage ?? (response.StatusDescription ?? response.StatusCode.ToInvariantString()));
       throw new TranslatorException(responseError, response.ErrorException);
     }
 
-    IError? error = null;
+    IError error = null;
 
     try
     {

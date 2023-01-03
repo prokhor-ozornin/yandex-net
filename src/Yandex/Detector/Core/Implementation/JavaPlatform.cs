@@ -21,12 +21,12 @@ public sealed class JavaPlatform : IJavaPlatform
   /// <summary>
   ///   <para>Prefix of Java certificate.</para>
   /// </summary>
-  public string? Certificate { get; }
+  public string Certificate { get; }
 
   /// <summary>
   ///   <para>Dimensions of Java applications icons.</para>
   /// </summary>
-  public IResolution? Icon { get; }
+  public IResolution Icon { get; }
 
   /// <summary>
   ///   <para></para>
@@ -37,8 +37,8 @@ public sealed class JavaPlatform : IJavaPlatform
   /// <param name="icon"></param>
   public JavaPlatform(bool camera,
                       bool fileSystem,
-                      string? certificate = null, 
-                      IResolution? icon = null)
+                      string certificate = null, 
+                      IResolution icon = null)
   {
     Camera = camera;
     FileSystem = fileSystem;
@@ -62,7 +62,7 @@ public sealed class JavaPlatform : IJavaPlatform
   ///   <para></para>
   /// </summary>
   /// <param name="info"></param>
-  public JavaPlatform(object info) : this(new Info().Properties(info))
+  public JavaPlatform(object info) : this(new Info().SetState(info))
   {
   }
 
@@ -71,14 +71,14 @@ public sealed class JavaPlatform : IJavaPlatform
   /// </summary>
   /// <param name="other">The instance to compare with the current one.</param>
   /// <returns><c>true</c> if specified instance is equal to the current, <c>false</c> otherwise.</returns>
-  public bool Equals(IJavaPlatform? other) => this.Equality(other, nameof(Camera), nameof(Certificate), nameof(FileSystem), nameof(Icon));
+  public bool Equals(IJavaPlatform other) => this.Equality(other, nameof(Camera), nameof(Certificate), nameof(FileSystem), nameof(Icon));
 
   /// <summary>
   ///   <para>Determines whether the specified <see cref="object"/> is equal to the current <see cref="object"/>.</para>
   /// </summary>
   /// <param name="other">The object to compare with the current object.</param>
   /// <returns><c>true</c> if the specified object is equal to the current object, <c>false</c>.</returns>
-  public override bool Equals(object? other) => Equals(other as IJavaPlatform);
+  public override bool Equals(object other) => Equals(other as IJavaPlatform);
 
   /// <summary>
   ///   <para>Returns hash code for the current object.</para>
@@ -108,13 +108,13 @@ public sealed class JavaPlatform : IJavaPlatform
     ///   <para></para>
     /// </summary>
     [DataMember(Name = "certificate-prefix", IsRequired = true)]
-    public string? Certificate { get; init; }
+    public string Certificate { get; init; }
 
     /// <summary>
     ///   <para></para>
     /// </summary>
     [DataMember(Name = "iconsize", IsRequired = true)]
-    public string? Icon { get; init; }
+    public string Icon { get; init; }
 
     /// <summary>
     ///   <para></para>
