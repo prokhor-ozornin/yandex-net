@@ -138,12 +138,12 @@ public sealed class JavaPlatformInfoTests : UnitTest<JavaPlatform.Info>
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="JavaPlatform.Info.Result()"/> method.</para>
+  ///   <para>Performs testing of <see cref="JavaPlatform.Info.ToResult()"/> method.</para>
   /// </summary>
   [Fact]
-  public void Result_Method()
+  public void ToResult_Method()
   {
-    var result = new JavaPlatform.Info().Result();
+    var result = new JavaPlatform.Info().ToResult();
     result.Should().NotBeNull().And.BeOfType<JavaPlatform>();
     result.Camera.Should().BeFalse();
     result.FileSystem.Should().BeFalse();

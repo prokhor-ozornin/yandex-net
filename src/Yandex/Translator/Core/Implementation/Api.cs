@@ -22,7 +22,7 @@ internal sealed class Api : IApi
 
   public async IAsyncEnumerable<ITranslationPair> PairsAsync([EnumeratorCancellation] CancellationToken cancellation = default)
   {
-    var result = (await Request<TranslationPairsResult.Info>("/getLangs", null, cancellation).ConfigureAwait(false)).Result();
+    var result = (await Request<TranslationPairsResult.Info>("/getLangs", null, cancellation).ConfigureAwait(false)).ToResult();
 
     foreach (var languages in result.Pairs.Select(pair => pair.Split('-')))
     {
@@ -32,7 +32,7 @@ internal sealed class Api : IApi
 
   public async Task<string> DetectAsync(string text, CancellationToken cancellation = default)
   {
-    var result = (await Request<DetectedLanguageResult.Info>("detect", new Dictionary<string, object> {{"text", text}}, cancellation).ConfigureAwait(false)).Result();
+    var result = (await Request<DetectedLanguageResult.Info>("detect", new Dictionary<string, object> {{"text", text}}, cancellation).ConfigureAwait(false)).ToResult();
 
     if (result.Code != (int) HttpStatusCode.OK || result.Language.IsEmpty())
     {
@@ -44,7 +44,7 @@ internal sealed class Api : IApi
 
   public async Task<ITranslation> TranslateAsync(ITranslationApiRequest request, CancellationToken cancellation = default)
   {
-    var result = (await Request<TranslationResult.Info>("/translate", request.Parameters, cancellation).ConfigureAwait(false)).Result();
+    var result = (await Request<TranslationResult.Info>("/translate", request.Parameters, cancellation).ConfigureAwait(false)).ToResult();
 
     var translation = result.ToString();
 
@@ -108,7 +108,7 @@ internal sealed class Api : IApi
 
     try
     {
-      error = response.Content?.AsJson<Error.Info>()?.Result();
+      error = response.Content?.AsJson<Error.Info>()?.ToResult();
     }
     catch
     {

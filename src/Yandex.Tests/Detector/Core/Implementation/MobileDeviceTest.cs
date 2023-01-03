@@ -179,12 +179,12 @@ public sealed class MobileDeviceInfoTests : UnitTest<MobileDevice.Info>
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="MobileDevice.Info.Result()"/> method.</para>
+  ///   <para>Performs testing of <see cref="MobileDevice.Info.ToResult()"/> method.</para>
   /// </summary>
   [Fact]
-  public void Result_Method()
+  public void ToResult_Method()
   {
-    var result = new MobileDevice.Info().Result();
+    var result = new MobileDevice.Info().ToResult();
     result.Should().NotBeNull().And.BeOfType<MobileDevice>();
     result.Name.Should().BeEmpty();
     result.DeviceClass.Should().BeEmpty();

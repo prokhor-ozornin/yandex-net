@@ -67,6 +67,6 @@ public sealed class DetectedLanguageResult
     ///   <para></para>
     /// </summary>
     /// <returns></returns>
-    public DetectedLanguageResult Result() => new(this);
+    public DetectedLanguageResult ToResult() => new(this);
   }
 }

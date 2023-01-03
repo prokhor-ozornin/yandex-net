@@ -15,8 +15,8 @@ public sealed class ITranslatorExtensionsTest
   [Fact]
   public void Configure_Method()
   {
-    AssertionExtensions.Should(() => ITranslatorExtensions.Configure(null!, _ => { })).ThrowExactly<ArgumentNullException>();
-    AssertionExtensions.Should(() => ITranslatorExtensions.Configure(Yandex.Api.Translator(), null!)).ThrowExactly<ArgumentNullException>();
+    AssertionExtensions.Should(() => ITranslatorExtensions.Configure(null, _ => { })).ThrowExactly<ArgumentNullException>();
+    AssertionExtensions.Should(() => ITranslatorExtensions.Configure(Yandex.Api.Translator(), null)).ThrowExactly<ArgumentNullException>();
     AssertionExtensions.Should(() => Yandex.Api.Translator().Configure(_ => {})).ThrowExactly<ArgumentNullException>();
 
     var translator = Yandex.Api.Translator();

@@ -29,7 +29,7 @@ internal sealed class MobileDetector : IMobileDetector
 
     try
     {
-      var error = response.DeserializeAsXml<Error.Info>()!.Result();
+      var error = response.DeserializeAsXml<Error.Info>().ToResult();
       throw new DetectorException(error.Text);
     }
     catch (InvalidOperationException)
@@ -38,7 +38,7 @@ internal sealed class MobileDetector : IMobileDetector
 
     try
     {
-      return response.DeserializeAsXml<MobileDevice.Info>()!.Result();
+      return response.DeserializeAsXml<MobileDevice.Info>().ToResult();
     }
     catch (Exception exception)
     {

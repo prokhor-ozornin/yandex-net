@@ -87,6 +87,6 @@ public sealed class TranslationResult
     ///   <para></para>
     /// </summary>
     /// <returns></returns>
-    public TranslationResult Result() => new(this);
+    public TranslationResult ToResult() => new(this);
   }
 }

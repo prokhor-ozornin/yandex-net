@@ -16,7 +16,7 @@ public sealed class MobileDetectorTest
   [Fact]
   public void DetectAsync_Method()
   {
-    AssertionExtensions.Should(() => new MobileDetector().DetectAsync(null!)).ThrowExactlyAsync<ArgumentNullException>().Await();
+    AssertionExtensions.Should(() => new MobileDetector().DetectAsync(null)).ThrowExactlyAsync<ArgumentNullException>().Await();
 
     AssertionExtensions.Should(() => new MobileDetector().DetectAsync(new Dictionary<string, object>())).ThrowExactlyAsync<DetectorException>().Await().WithMessage("No HTTP headers were specified").Which.InnerException.Should().BeNull();
     AssertionExtensions.Should(() => new MobileDetector().DetectAsync(new Dictionary<string, object> {{"user-agent", "invalid"}})).ThrowExactlyAsync<DetectorException>().Await().WithMessage("Unknown user agent and wap profile").Which.InnerException.Should().BeNull();

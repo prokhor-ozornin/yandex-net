@@ -120,6 +120,6 @@ public sealed class JavaPlatform : IJavaPlatform
     ///   <para></para>
     /// </summary>
     /// <returns></returns>
-    public IJavaPlatform Result() => new JavaPlatform(this);
+    public IJavaPlatform ToResult() => new JavaPlatform(this);
   }
 }

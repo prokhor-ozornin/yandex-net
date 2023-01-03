@@ -22,8 +22,8 @@ public sealed class IApiExtensionsTest : IDisposable
   [Fact]
   public void TranslateAsync_Method()
   {
-    AssertionExtensions.Should(() => IApiExtensions.TranslateAsync(null!, _ => { })).ThrowExactlyAsync<ArgumentNullException>().Await();
-    AssertionExtensions.Should(() => IApiExtensions.TranslateAsync(Api, null!)).ThrowExactlyAsync<ArgumentNullException>().Await();
+    AssertionExtensions.Should(() => IApiExtensions.TranslateAsync(null, _ => { })).ThrowExactlyAsync<ArgumentNullException>().Await();
+    AssertionExtensions.Should(() => IApiExtensions.TranslateAsync(Api, null)).ThrowExactlyAsync<ArgumentNullException>().Await();
     AssertionExtensions.Should(() => Api.TranslateAsync(_ => { }, Cancellation)).ThrowExactlyAsync<TaskCanceledException>().Await();
 
     var translation = Api.TranslateAsync(request => request.From("ru").To("en").Text("Привет, мир")).Await();

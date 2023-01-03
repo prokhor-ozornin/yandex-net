@@ -18,7 +18,7 @@ public sealed class ITranslationApiRequestExtensionsTest
   [Fact]
   public void AsHtml_Method()
   {
-    AssertionExtensions.Should(() => ITranslationApiRequestExtensions.AsHtml(null!)).ThrowExactly<ArgumentNullException>();
+    AssertionExtensions.Should(() => ITranslationApiRequestExtensions.AsHtml(null)).ThrowExactly<ArgumentNullException>();
 
     var request = new TranslationApiRequest();
 
@@ -34,7 +34,7 @@ public sealed class ITranslationApiRequestExtensionsTest
   [Fact]
   public void AsText_Method()
   {
-    AssertionExtensions.Should(() => ITranslationApiRequestExtensions.AsText(null!)).ThrowExactly<ArgumentNullException>();
+    AssertionExtensions.Should(() => ITranslationApiRequestExtensions.AsText(null)).ThrowExactly<ArgumentNullException>();
 
     var request = new TranslationApiRequest();
 
@@ -50,7 +50,7 @@ public sealed class ITranslationApiRequestExtensionsTest
   [Fact]
   public void From_Method()
   {
-    void Validate(CultureInfo culture)
+    static void Validate(CultureInfo culture)
     {
       var request = new TranslationApiRequest();
 
@@ -72,7 +72,7 @@ public sealed class ITranslationApiRequestExtensionsTest
 
     using (new AssertionScope())
     {
-      AssertionExtensions.Should(() => ITranslationApiRequestExtensions.From(null!, CultureInfo.InvariantCulture)).ThrowExactly<ArgumentNullException>();
+      AssertionExtensions.Should(() => ITranslationApiRequestExtensions.From(null, CultureInfo.InvariantCulture)).ThrowExactly<ArgumentNullException>();
       AssertionExtensions.Should(() => ITranslationApiRequestExtensions.From(new TranslationApiRequest(), null)).ThrowExactly<ArgumentNullException>();
 
       Validate(null);
@@ -86,7 +86,7 @@ public sealed class ITranslationApiRequestExtensionsTest
   [Fact]
   public void To_Method()
   {
-    void Validate(CultureInfo culture)
+    static void Validate(CultureInfo culture)
     {
       var request = new TranslationApiRequest();
 
@@ -108,7 +108,7 @@ public sealed class ITranslationApiRequestExtensionsTest
 
     using (new AssertionScope())
     {
-      AssertionExtensions.Should(() => ITranslationApiRequestExtensions.To(null!, CultureInfo.InvariantCulture)).ThrowExactly<ArgumentNullException>();
+      AssertionExtensions.Should(() => ITranslationApiRequestExtensions.To(null, CultureInfo.InvariantCulture)).ThrowExactly<ArgumentNullException>();
 
       Validate(null);
       CultureInfo.GetCultures(CultureTypes.AllCultures).ForEach(Validate);

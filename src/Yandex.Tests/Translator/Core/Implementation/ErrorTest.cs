@@ -103,12 +103,12 @@ public sealed class ErrorInfoTests : UnitTest<Error.Info>
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="Error.Info.Result()"/> method.</para>
+  ///   <para>Performs testing of <see cref="Error.Info.ToResult()"/> method.</para>
   /// </summary>
   [Fact]
-  public void Result_Method()
+  public void ToResult_Method()
   {
-    var result = new Error.Info().Result();
+    var result = new Error.Info().ToResult();
     result.Should().NotBeNull().And.BeOfType<Error>();
     result.Code.Should().Be(0);
     result.Text.Should().BeEmpty();

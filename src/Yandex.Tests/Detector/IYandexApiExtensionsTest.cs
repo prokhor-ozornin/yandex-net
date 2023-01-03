@@ -15,7 +15,7 @@ public sealed class IYandexApiExtensionsTest
   [Fact]
   public void Detector_Method()
   {
-    AssertionExtensions.Should(() => IYandexApiExtensions.Detector(null!)).ThrowExactly<ArgumentNullException>();
+    AssertionExtensions.Should(() => IYandexApiExtensions.Detector(null)).ThrowExactly<ArgumentNullException>();
 
     Yandex.Api.Detector().Should().NotBeNull().And.NotBeSameAs(Yandex.Api.Detector()).And.BeOfType<MobileDetector>();
   }

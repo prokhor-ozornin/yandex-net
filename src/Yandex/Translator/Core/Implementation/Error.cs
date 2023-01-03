@@ -42,6 +42,6 @@ public sealed class Error : IError
     [DataMember(Name = "text", IsRequired = true)]
     public string Text { get; init; }
 
-    public IError Result() => new Error(this);
+    public IError ToResult() => new Error(this);
   }
 }

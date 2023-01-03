@@ -163,6 +163,6 @@ public sealed class MobileDevice : IMobileDevice
     ///   <para></para>
     /// </summary>
     /// <returns></returns>
-    public IMobileDevice Result() => new MobileDevice(this);
+    public IMobileDevice ToResult() => new MobileDevice(this);
   }
 }

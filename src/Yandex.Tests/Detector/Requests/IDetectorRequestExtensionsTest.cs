@@ -15,8 +15,8 @@ public sealed class IDetectorRequestExtensionsTest
   [Fact]
   public void OperaMini_Method()
   {
-    AssertionExtensions.Should(() => IDetectorRequestExtensions.OperaMini(null!, "version")).ThrowExactly<ArgumentNullException>();
-    AssertionExtensions.Should(() => new DetectorRequest().OperaMini(null!)).ThrowExactly<ArgumentNullException>();
+    AssertionExtensions.Should(() => IDetectorRequestExtensions.OperaMini(null, "version")).ThrowExactly<ArgumentNullException>();
+    AssertionExtensions.Should(() => new DetectorRequest().OperaMini(null)).ThrowExactly<ArgumentNullException>();
     AssertionExtensions.Should(() => new DetectorRequest().OperaMini(string.Empty)).ThrowExactly<ArgumentException>();
 
     var request = new DetectorRequest();
@@ -35,8 +35,8 @@ public sealed class IDetectorRequestExtensionsTest
   [Fact]
   public void Profile_Method()
   {
-    AssertionExtensions.Should(() => IDetectorRequestExtensions.Profile(null!, "profile")).ThrowExactly<ArgumentNullException>();
-    AssertionExtensions.Should(() => new DetectorRequest().Profile(null!)).ThrowExactly<ArgumentNullException>();
+    AssertionExtensions.Should(() => IDetectorRequestExtensions.Profile(null, "profile")).ThrowExactly<ArgumentNullException>();
+    AssertionExtensions.Should(() => new DetectorRequest().Profile(null)).ThrowExactly<ArgumentNullException>();
     AssertionExtensions.Should(() => new DetectorRequest().Profile(string.Empty)).ThrowExactly<ArgumentException>();
 
     var request = new DetectorRequest();
@@ -53,8 +53,8 @@ public sealed class IDetectorRequestExtensionsTest
   [Fact]
   public void UserAgent_Method()
   {
-    AssertionExtensions.Should(() => IDetectorRequestExtensions.UserAgent(null!, "userAgent")).ThrowExactly<ArgumentNullException>();
-    AssertionExtensions.Should(() => new DetectorRequest().UserAgent(null!)).ThrowExactly<ArgumentNullException>();
+    AssertionExtensions.Should(() => IDetectorRequestExtensions.UserAgent(null, "userAgent")).ThrowExactly<ArgumentNullException>();
+    AssertionExtensions.Should(() => new DetectorRequest().UserAgent(null)).ThrowExactly<ArgumentNullException>();
     AssertionExtensions.Should(() => new DetectorRequest().UserAgent(string.Empty)).ThrowExactly<ArgumentException>();
 
     var request = new DetectorRequest();

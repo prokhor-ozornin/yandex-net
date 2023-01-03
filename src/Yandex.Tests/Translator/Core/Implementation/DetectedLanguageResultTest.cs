@@ -75,12 +75,12 @@ public sealed class DetectedLanguageResultInfoTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="DetectedLanguageResult.Info.Result()"/> method.</para>
+  ///   <para>Performs testing of <see cref="DetectedLanguageResult.Info.ToResult()"/> method.</para>
   /// </summary>
   [Fact]
-  public void Result_Method()
+  public void ToResult_Method()
   {
-    var result = new DetectedLanguageResult.Info().Result();
+    var result = new DetectedLanguageResult.Info().ToResult();
     result.Should().NotBeNull().And.BeOfType<DetectedLanguageResult>();
     result.Code.Should().Be(0);
     result.Language.Should().BeEmpty();

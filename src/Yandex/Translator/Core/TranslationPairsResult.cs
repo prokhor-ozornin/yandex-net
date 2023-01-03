@@ -47,6 +47,6 @@ public sealed class TranslationPairsResult
     ///   <para></para>
     /// </summary>
     /// <returns></returns>
-    public TranslationPairsResult Result() => new(this);
+    public TranslationPairsResult ToResult() => new(this);
   }
 }

@@ -16,8 +16,8 @@ public sealed class TranslationPairTest
   [Fact]
   public void Constructors()
   {
-    AssertionExtensions.Should(() => new TranslationPair(null!, "to")).ThrowExactly<ArgumentNullException>();
-    AssertionExtensions.Should(() => new TranslationPair("from", null!)).ThrowExactly<ArgumentNullException>();
+    AssertionExtensions.Should(() => new TranslationPair(null, "to")).ThrowExactly<ArgumentNullException>();
+    AssertionExtensions.Should(() => new TranslationPair("from", null)).ThrowExactly<ArgumentNullException>();
     AssertionExtensions.Should(() => new TranslationPair(string.Empty, "ro")).ThrowExactly<ArgumentException>();
     AssertionExtensions.Should(() => new TranslationPair("from", string.Empty)).ThrowExactly<ArgumentException>();
 

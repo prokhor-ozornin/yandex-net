@@ -26,8 +26,8 @@ public sealed class DetectorRequestTest
   [Fact]
   public void Header_Method()
   {
-    AssertionExtensions.Should(() => new DetectorRequest().WithHeader(null!, "value")).ThrowExactly<ArgumentNullException>();
-    AssertionExtensions.Should(() => new DetectorRequest().WithHeader("name", null!)).ThrowExactly<ArgumentNullException>();
+    AssertionExtensions.Should(() => new DetectorRequest().WithHeader(null, "value")).ThrowExactly<ArgumentNullException>();
+    AssertionExtensions.Should(() => new DetectorRequest().WithHeader("name", null)).ThrowExactly<ArgumentNullException>();
     AssertionExtensions.Should(() => new DetectorRequest().WithHeader(string.Empty, "value")).ThrowExactly<ArgumentException>();
 
     var request = new DetectorRequest();

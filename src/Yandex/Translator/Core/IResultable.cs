@@ -9,5 +9,5 @@ public interface IResultable<T> where T : class
   ///   <para></para>
   /// </summary>
   /// <returns></returns>
-  T Result();
+  T ToResult();
 }

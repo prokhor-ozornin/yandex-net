@@ -19,8 +19,8 @@ public sealed class JsonExtensionsTest
   [Fact]
   public void AsJson_Methods()
   {
-    AssertionExtensions.Should(() => JsonExtensions.AsJson(null!)).ThrowExactly<ArgumentNullException>();
-    AssertionExtensions.Should(() => JsonExtensions.AsJson<object>(null!)).ThrowExactly<ArgumentNullException>();
+    AssertionExtensions.Should(() => JsonExtensions.AsJson(null)).ThrowExactly<ArgumentNullException>();
+    AssertionExtensions.Should(() => JsonExtensions.AsJson<object>(null)).ThrowExactly<ArgumentNullException>();
     AssertionExtensions.Should(() => string.Empty.AsJson<object>()).ThrowExactly<ArgumentException>();
 
     AssertionExtensions.Should(() => "{}".AsJson<string>()).ThrowExactly<JsonReaderException>();

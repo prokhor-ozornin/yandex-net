@@ -15,7 +15,7 @@ public sealed class IYandexApiExtensionsTest
   [Fact]
   public void Translator_Method()
   {
-    AssertionExtensions.Should(() => IYandexApiExtensions.Translator(null!)).ThrowExactly<ArgumentNullException>();
+    AssertionExtensions.Should(() => IYandexApiExtensions.Translator(null)).ThrowExactly<ArgumentNullException>();
 
     Yandex.Api.Translator().Should().NotBeNull().And.NotBeSameAs(Yandex.Api.Translator());
   }

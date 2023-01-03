@@ -23,7 +23,7 @@ public sealed class YandexTranslatorTests : IDisposable
   [Fact]
   public void Constructors()
   {
-    AssertionExtensions.Should(() => new Api(null!)).ThrowExactly<ArgumentNullException>();
+    AssertionExtensions.Should(() => new Api(null)).ThrowExactly<ArgumentNullException>();
     AssertionExtensions.Should(() => new Api(string.Empty)).ThrowExactly<ArgumentException>();
 
     var api = new Api("apiKey");
@@ -59,7 +59,7 @@ public sealed class YandexTranslatorTests : IDisposable
   [Fact]
   public void Detect_Method()
   {
-    AssertionExtensions.Should(() => Api.DetectAsync(null!)).ThrowExactlyAsync<ArgumentNullException>().Await();
+    AssertionExtensions.Should(() => Api.DetectAsync(null)).ThrowExactlyAsync<ArgumentNullException>().Await();
     AssertionExtensions.Should(() => Api.DetectAsync(string.Empty)).ThrowExactlyAsync<ArgumentException>().Await();
     AssertionExtensions.Should(() => Api.DetectAsync("text", Cancellation)).ThrowExactlyAsync<TaskCanceledException>().Await();
 
@@ -75,8 +75,8 @@ public sealed class YandexTranslatorTests : IDisposable
   [Fact]
   public void TranslateAsync_Method()
   {
-    AssertionExtensions.Should(() => Api.TranslateAsync(null!)).ThrowExactlyAsync<ArgumentNullException>().Await();
-    AssertionExtensions.Should(() => Api.TranslateAsync(null!, Cancellation)).ThrowExactlyAsync<TaskCanceledException>().Await();
+    AssertionExtensions.Should(() => Api.TranslateAsync(null)).ThrowExactlyAsync<ArgumentNullException>().Await();
+    AssertionExtensions.Should(() => Api.TranslateAsync(null, Cancellation)).ThrowExactlyAsync<TaskCanceledException>().Await();
 
     using var api = Api;
 

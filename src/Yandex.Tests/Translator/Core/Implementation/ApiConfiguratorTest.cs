@@ -26,7 +26,7 @@ public sealed class ApiConfiguratorTest
   [Fact]
   public void ApiKey_Method()
   {
-    AssertionExtensions.Should(() => new ApiConfigurator().ApiKey(null!)).ThrowExactly<ArgumentNullException>();
+    AssertionExtensions.Should(() => new ApiConfigurator().ApiKey(null)).ThrowExactly<ArgumentNullException>();
     AssertionExtensions.Should(() => new ApiConfigurator().ApiKey(string.Empty)).ThrowExactly<ArgumentException>();
 
     var configurator = new ApiConfigurator();

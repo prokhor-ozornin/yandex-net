@@ -113,12 +113,12 @@ public sealed class TranslationResultInfoTests : UnitTest<TranslationResult.Info
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="TranslationResult.Info.Result()"/> method.</para>
+  ///   <para>Performs testing of <see cref="TranslationResult.Info.ToResult()"/> method.</para>
   /// </summary>
   [Fact]
-  public void Result_Method()
+  public void ToResult_Method()
   {
-    var result = new TranslationResult.Info().Result();
+    var result = new TranslationResult.Info().ToResult();
     result.Should().NotBeNull().And.BeOfType<TranslationResult>();
     result.Code.Should().Be(0);
     result.Language.Should().BeEmpty();

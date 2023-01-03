@@ -16,9 +16,9 @@ public sealed class TranslationTest
   [Fact]
   public void Constructors()
   {
-    AssertionExtensions.Should(() => new Translation(null!, "to", "text")).ThrowExactly<ArgumentNullException>();
-    AssertionExtensions.Should(() => new Translation("from", null!, "text")).ThrowExactly<ArgumentNullException>();
-    AssertionExtensions.Should(() => new Translation("from", "to", null!)).ThrowExactly<ArgumentNullException>();
+    AssertionExtensions.Should(() => new Translation(null, "to", "text")).ThrowExactly<ArgumentNullException>();
+    AssertionExtensions.Should(() => new Translation("from", null, "text")).ThrowExactly<ArgumentNullException>();
+    AssertionExtensions.Should(() => new Translation("from", "to", null)).ThrowExactly<ArgumentNullException>();
     AssertionExtensions.Should(() => new Translation(string.Empty, "to", "text")).ThrowExactly<ArgumentException>();
     AssertionExtensions.Should(() => new Translation("from", string.Empty, "text")).ThrowExactly<ArgumentException>();
     AssertionExtensions.Should(() => new Translation("from", "to", string.Empty)).ThrowExactly<ArgumentException>();

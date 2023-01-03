@@ -74,12 +74,12 @@ public sealed class TranslationPairsResponseInfoTests
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="TranslationPairsResult.Info.Result()"/> method.</para>
+  ///   <para>Performs testing of <see cref="TranslationPairsResult.Info.ToResult()"/> method.</para>
   /// </summary>
   [Fact]
-  public void Result_Method()
+  public void ToResult_Method()
   {
-    var result = new TranslationPairsResult.Info().Result();
+    var result = new TranslationPairsResult.Info().ToResult();
     result.Should().NotBeNull().And.BeOfType<TranslationPairTest>();
     result.Pairs.Should().BeEmpty();
   }

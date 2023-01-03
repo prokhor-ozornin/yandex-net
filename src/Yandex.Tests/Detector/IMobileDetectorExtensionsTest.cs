@@ -20,7 +20,7 @@ public sealed class IMobileDetectorExtensionsTest
   [Fact]
   public void Detect_Methods()
   {
-    void Validate(IMobileDevice device)
+    static void Validate(IMobileDevice device)
     {
       device.Description.Should().Be("Java MIDP2 (small)");
       device.DeviceClass.Should().Be("midp2ss");
@@ -39,14 +39,14 @@ public sealed class IMobileDetectorExtensionsTest
     {
       using var detector = Yandex.Api.Detector();
 
-      /*AssertionExtensions.Should(() => IMobileDetectorExtensions.DetectAsync(null!)).ThrowExactlyAsync<ArgumentNullException>().Await();
-      AssertionExtensions.Should(() => IMobileDetectorExtensions.DetectAsync(null!, _ => {})).ThrowExactlyAsync<ArgumentNullException>().Await();
-      AssertionExtensions.Should(() => IMobileDetectorExtensions.DetectAsync(new MobileDetector(), null!)).ThrowExactlyAsync<ArgumentNullException>().Await();
-      AssertionExtensions.Should(() => IMobileDetectorExtensions.TryDetect(null!, out _)).ThrowExactly<ArgumentNullException>();
-      AssertionExtensions.Should(() => IMobileDetectorExtensions.TryDetect(null!, out _, _ => {})).ThrowExactly<ArgumentNullException>();
+      /*AssertionExtensions.Should(() => IMobileDetectorExtensions.DetectAsync(null)).ThrowExactlyAsync<ArgumentNullException>().Await();
+      AssertionExtensions.Should(() => IMobileDetectorExtensions.DetectAsync(null, _ => {})).ThrowExactlyAsync<ArgumentNullException>().Await();
+      AssertionExtensions.Should(() => IMobileDetectorExtensions.DetectAsync(new MobileDetector(), null)).ThrowExactlyAsync<ArgumentNullException>().Await();
+      AssertionExtensions.Should(() => IMobileDetectorExtensions.TryDetect(null, out _)).ThrowExactly<ArgumentNullException>();
+      AssertionExtensions.Should(() => IMobileDetectorExtensions.TryDetect(null, out _, _ => {})).ThrowExactly<ArgumentNullException>();
 
-      AssertionExtensions.Should(() => detector.TryDetect(out _, null!)).ThrowExactly<ArgumentNullException>();
-      AssertionExtensions.Should(() => detector.TryDetect(out _, null!)).ThrowExactly<ArgumentNullException>();
+      AssertionExtensions.Should(() => detector.TryDetect(out _, null)).ThrowExactly<ArgumentNullException>();
+      AssertionExtensions.Should(() => detector.TryDetect(out _, null)).ThrowExactly<ArgumentNullException>();
       AssertionExtensions.Should(() => detector.DetectAsync(_ => {})).ThrowExactlyAsync<DetectorException>().Await().WithMessage("No HTTP headers were specified").Which.InnerException.Should().BeNull();
       AssertionExtensions.Should(() => detector.DetectAsync(request => request.Profile("invalid"))).ThrowExactlyAsync<DetectorException>().Await().WithMessage("Failed to understand service's response").WithInnerExceptionExactly<InvalidOperationException>();
       AssertionExtensions.Should(() => detector.DetectAsync(request => request.UserAgent("invalid"))).ThrowExactlyAsync<DetectorException>().Await().WithMessage("Unknown user agent and wap profile").Which.InnerException.Should().BeNull();
