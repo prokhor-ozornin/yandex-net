@@ -27,10 +27,10 @@ public sealed class YandexTranslatorTests : IDisposable
     AssertionExtensions.Should(() => new Api(string.Empty)).ThrowExactly<ArgumentException>();
 
     var api = new Api("apiKey");
-    api.GetPropertyValue("JsonSerializer").Should().NotBeNull().And.BeOfType<ISerializer>();
-    api.GetPropertyValue("JsonDeserializer").Should().NotBeNull().And.BeOfType<IDeserializer>();
+    api.GetPropertyValue<ISerializer>("JsonSerializer").Should().NotBeNull();
+    api.GetPropertyValue<IDeserializer>("JsonDeserializer").Should().NotBeNull();
 
-    var client = api.GetFieldValue("restClient").To<RestClient>();
+    var client = api.GetFieldValue<RestClient>("restClient");
     //client.BaseUrl.ToString().Should().Be("https://translate.yandex.net/api/v1.5/tr");
     var key = client.DefaultParameters.FirstOrDefault(parameter => parameter.Name == "key");
     key.Should().NotBeNull();
