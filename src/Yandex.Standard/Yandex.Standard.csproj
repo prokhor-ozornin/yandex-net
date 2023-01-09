@@ -90,8 +90,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="Catharsis.Commons">
-      <HintPath>..\..\..\Catharsis.NET.Commons\src\Catharsis.Commons.Standard\bin\Release\netstandard2.1\Catharsis.Commons.dll</HintPath>
+    <Reference Include="Catharsis.Extensions">
+      <HintPath>..\..\..\Catharsis\Catharsis.Extensions\src\Catharsis.Extensions.Standard\bin\Release\netstandard2.1\Catharsis.Extensions.dll</HintPath>
     </Reference>
   </ItemGroup>
 

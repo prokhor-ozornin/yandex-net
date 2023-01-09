@@ -7,7 +7,7 @@ namespace Yandex.Tests.Detector.Core.Implementation;
 /// <summary>
 ///   <para>Tests set for class <see cref="Error"/>.</para>
 /// </summary>
-public sealed class ErrorTest : UnitTest<Error>
+public sealed class ErrorTest : EntityTest<Error>
 {
   /// <summary>
   ///   <para>Performs testing of <see cref="Error.Text"/> property.</para>
@@ -60,7 +60,7 @@ public sealed class ErrorTest : UnitTest<Error>
 /// <summary>
 ///   <para>Tests set for class <see cref="Error.Info"/>.</para>
 /// </summary>
-public sealed class ErrorInfoTests : UnitTest<Error.Info>
+public sealed class ErrorInfoTests : EntityTest<Error.Info>
 {
   /// <summary>
   ///   <para>Performs testing of <see cref="Error.Info.Text"/> property.</para>

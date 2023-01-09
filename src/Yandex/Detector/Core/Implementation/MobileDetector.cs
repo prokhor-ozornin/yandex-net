@@ -1,4 +1,4 @@
-﻿using Catharsis.Commons;
+﻿using Catharsis.Extensions;
 
 namespace Yandex.Detector;
 
@@ -11,6 +11,8 @@ internal sealed class MobileDetector : IMobileDetector
 
   public async Task<IMobileDevice> DetectAsync(IReadOnlyDictionary<string, object> headers, CancellationToken cancellation = default)
   {
+    if (headers is null) throw new ArgumentNullException(nameof(headers));
+
     if (!headers.Any())
     {
       throw new DetectorException("No HTTP headers were specified");

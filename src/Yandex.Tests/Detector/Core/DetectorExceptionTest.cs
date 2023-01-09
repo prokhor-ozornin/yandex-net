@@ -7,12 +7,12 @@ namespace Yandex.Tests.Detector.Core;
 /// <summary>
 ///   <para>Tests set for class <see cref="DetectorException"/>.</para>
 /// </summary>
-public sealed class DetectorExceptionTest
+public sealed class DetectorExceptionTest : UnitTest
 {
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
   /// </summary>
-  /// <seealso cref="DetectorException(string?, Exception?)"/>
+  /// <seealso cref="DetectorException(string, Exception)"/>
   [Fact]
   public void Constructors()
   {

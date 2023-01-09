@@ -7,7 +7,7 @@ namespace Yandex.Tests.Translator;
 /// <summary>
 ///   <para>Tests set for class <see cref="ITranslatorExtensions"/>.</para>
 /// </summary>
-public sealed class ITranslatorExtensionsTest
+public sealed class ITranslatorExtensionsTest : UnitTest
 {
   /// <summary>
   ///   <para>Performs testing of <see cref="ITranslatorExtensions.Configure(ITranslator, Action{IApiConfigurator})"/> method.</para>
@@ -15,9 +15,8 @@ public sealed class ITranslatorExtensionsTest
   [Fact]
   public void Configure_Method()
   {
-    AssertionExtensions.Should(() => ITranslatorExtensions.Configure(null, _ => { })).ThrowExactly<ArgumentNullException>();
-    AssertionExtensions.Should(() => ITranslatorExtensions.Configure(Yandex.Api.Translator(), null)).ThrowExactly<ArgumentNullException>();
-    AssertionExtensions.Should(() => Yandex.Api.Translator().Configure(_ => {})).ThrowExactly<ArgumentNullException>();
+    AssertionExtensions.Should(() => ITranslatorExtensions.Configure(null, _ => { })).ThrowExactly<ArgumentNullException>().WithParameterName("translator");
+    AssertionExtensions.Should(() => ITranslatorExtensions.Configure(Yandex.Api.Translator(), null)).ThrowExactly<ArgumentNullException>().WithParameterName("action");
 
     var translator = Yandex.Api.Translator();
     var api = translator.Configure(configurator => configurator.ApiKey("key"));

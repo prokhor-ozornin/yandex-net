@@ -8,7 +8,7 @@ namespace Yandex.Tests.Translator;
 /// <summary>
 ///   <para>Tests set for class <see cref="DetectedLanguageResult"/>.</para>
 /// </summary>
-public sealed class DetectedLanguageResultTest
+public sealed class DetectedLanguageResultTest : UnitTest
 {
   /// <summary>
   ///   <para>Performs testing of <see cref="DetectedLanguageResult.Code"/> property.</para>

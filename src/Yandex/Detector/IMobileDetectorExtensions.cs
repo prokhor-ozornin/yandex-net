@@ -1,4 +1,4 @@
-﻿using Catharsis.Commons;
+﻿using Catharsis.Extensions;
 
 namespace Yandex.Detector;
 
@@ -27,6 +27,8 @@ public static class IMobileDetectorExtensions
   /// <exception cref="DetectorException">If there was error either during the request to Yandex.Detector web service, or mobile device cannot be identified based on a set of provided HTTP headers.</exception>
   public static Task<IMobileDevice> DetectAsync(this IMobileDetector detector, Action<IDetectorRequest> action, CancellationToken cancellation = default)
   {
+
+
     var builder = new DetectorRequest();
     
     action(builder);

@@ -1,4 +1,4 @@
-﻿using Catharsis.Commons;
+﻿using Catharsis.Extensions;
 
 namespace Yandex.Translator;
 
@@ -6,6 +6,11 @@ internal sealed class TranslationPair : ITranslationPair
 {
   public TranslationPair(string fromLanguage, string toLanguage)
   {
+    if (fromLanguage is null) throw new ArgumentNullException(nameof(fromLanguage));
+    if (fromLanguage.IsEmpty()) throw new ArgumentException(nameof(fromLanguage));
+    if (toLanguage is null) throw new ArgumentNullException(nameof(toLanguage));
+    if (toLanguage.IsEmpty()) throw new ArgumentException(nameof(toLanguage));
+
     FromLanguage = fromLanguage;
     ToLanguage = toLanguage;
   }

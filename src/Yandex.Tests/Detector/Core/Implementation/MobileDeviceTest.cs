@@ -7,7 +7,7 @@ namespace Yandex.Tests.Detector.Core.Implementation;
 /// <summary>
 ///   <para>Tests set for class <see cref="MobileDevice"/>.</para>
 /// </summary>
-public sealed class MobileDeviceTest : UnitTest<MobileDevice>
+public sealed class MobileDeviceTest : EntityTest<MobileDevice>
 {
   /// <summary>
   ///   <para>Performs testing of <see cref="MobileDevice.Name"/> property.</para>
@@ -56,7 +56,7 @@ public sealed class MobileDeviceTest : UnitTest<MobileDevice>
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
   /// </summary>
-  /// <seealso cref="MobileDevice(string, string, string, string, IResolution?, IJavaPlatform?)"/>
+  /// <seealso cref="MobileDevice(string, string, string, string, IResolution, IJavaPlatform)"/>
   /// <seealso cref="MobileDevice(MobileDevice.Info)"/>
   /// <seealso cref="MobileDevice(object)"/>
   [Fact]
@@ -113,7 +113,7 @@ public sealed class MobileDeviceTest : UnitTest<MobileDevice>
 /// <summary>
 ///   <para>Tests set for class <see cref="MobileDevice.Info"/>.</para>
 /// </summary>
-public sealed class MobileDeviceInfoTests : UnitTest<MobileDevice.Info>
+public sealed class MobileDeviceInfoTests : EntityTest<MobileDevice.Info>
 {
   /// <summary>
   ///   <para>Performs testing of <see cref="MobileDevice.Info.Name"/> property.</para>

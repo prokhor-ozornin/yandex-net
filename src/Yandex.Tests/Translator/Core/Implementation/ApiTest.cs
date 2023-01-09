@@ -1,4 +1,4 @@
-﻿using Catharsis.Commons;
+﻿using Catharsis.Extensions;
 using RestSharp;
 using RestSharp.Serializers;
 using FluentAssertions;
@@ -11,11 +11,9 @@ namespace Yandex.Tests.Translator;
 /// <summary>
 ///   <para>Tests set for class <see cref="Api"/>.</para>
 /// </summary>
-public sealed class YandexTranslatorTests : IDisposable
+public sealed class YandexTranslatorTests : UnitTest
 {
   private IApi Api { get; } = Yandex.Api.Translator().Configure(configurator => configurator.ApiKey(ConfigurationManager.AppSettings["ApiKey"]));
-
-  private CancellationToken Cancellation { get; } = new(true);
 
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -23,8 +21,8 @@ public sealed class YandexTranslatorTests : IDisposable
   [Fact]
   public void Constructors()
   {
-    AssertionExtensions.Should(() => new Api(null)).ThrowExactly<ArgumentNullException>();
-    AssertionExtensions.Should(() => new Api(string.Empty)).ThrowExactly<ArgumentException>();
+    AssertionExtensions.Should(() => new Api(null)).ThrowExactly<ArgumentNullException>().WithParameterName("key");
+    AssertionExtensions.Should(() => new Api(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("key");
 
     var api = new Api("apiKey");
     api.GetPropertyValue<ISerializer>("JsonSerializer").Should().NotBeNull();
@@ -75,8 +73,8 @@ public sealed class YandexTranslatorTests : IDisposable
   [Fact]
   public void TranslateAsync_Method()
   {
-    AssertionExtensions.Should(() => Api.TranslateAsync(null)).ThrowExactlyAsync<ArgumentNullException>().Await();
-    AssertionExtensions.Should(() => Api.TranslateAsync(null, Cancellation)).ThrowExactlyAsync<TaskCanceledException>().Await();
+    AssertionExtensions.Should(() => Api.TranslateAsync(null)).ThrowExactlyAsync<ArgumentNullException>().WithParameterName("request").Await();
+    AssertionExtensions.Should(() => Api.TranslateAsync(null, Cancellation)).ThrowExactlyAsync<OperationCanceledException>().Await();
 
     using var api = Api;
 
@@ -105,7 +103,7 @@ public sealed class YandexTranslatorTests : IDisposable
   /// <summary>
   ///   <para></para>
   /// </summary>
-  public void Dispose()
+  public override void Dispose()
   {
     Api.Dispose();
   }

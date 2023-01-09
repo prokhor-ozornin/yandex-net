@@ -9,15 +9,15 @@ public static class ITranslatorExtensions
   /// <summary>
   ///   <para></para>
   /// </summary>
-  /// <param name="self"></param>
+  /// <param name="translator"></param>
   /// <param name="action"></param>
   /// <returns></returns>
-  public static IApi Configure(this ITranslator self, Action<IApiConfigurator> action)
+  public static IApi Configure(this ITranslator translator, Action<IApiConfigurator> action)
   {
     var configurator = new ApiConfigurator();
 
     action(configurator);
 
-    return self.Configure(configurator);
+    return translator.Configure(configurator);
   }
 }

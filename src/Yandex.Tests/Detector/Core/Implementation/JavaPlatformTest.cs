@@ -7,7 +7,7 @@ namespace Yandex.Tests.Detector.Core.Implementation;
 /// <summary>
 ///   <para>Tests set for class <see cref="JavaPlatform"/>.</para>
 /// </summary>
-public sealed class JavaPlatformTest : UnitTest<JavaPlatform>
+public sealed class JavaPlatformTest : EntityTest<JavaPlatform>
 {
   /// <summary>
   ///   <para>Performs testing of <see cref="JavaPlatform.Camera"/> property.</para>
@@ -40,7 +40,7 @@ public sealed class JavaPlatformTest : UnitTest<JavaPlatform>
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
   /// </summary>
-  /// <seealso cref="JavaPlatform(bool, bool, string?, IResolution?)"/>
+  /// <seealso cref="JavaPlatform(bool, bool, string, IResolution)"/>
   /// <seealso cref="JavaPlatform(JavaPlatform.Info)"/>
   /// <seealso cref="JavaPlatform(object)"/>
   [Fact]
@@ -97,7 +97,7 @@ public sealed class JavaPlatformTest : UnitTest<JavaPlatform>
 /// <summary>
 ///   <para>Tests set for class <see cref="JavaPlatform.Info"/>.</para>
 /// </summary>
-public sealed class JavaPlatformInfoTests : UnitTest<JavaPlatform.Info>
+public sealed class JavaPlatformInfoTests : EntityTest<JavaPlatform.Info>
 {
   /// <summary>
   ///   <para>Performs testing of <see cref="JavaPlatform.Info.Camera"/> property.</para>

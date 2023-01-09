@@ -7,7 +7,7 @@ namespace Yandex.Tests.Translator;
 /// <summary>
 ///   <para>Tests set for class <see cref="Translation"/>.</para>
 /// </summary>
-public sealed class TranslationTest
+public sealed class TranslationTest : UnitTest
 {
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -16,12 +16,11 @@ public sealed class TranslationTest
   [Fact]
   public void Constructors()
   {
-    AssertionExtensions.Should(() => new Translation(null, "to", "text")).ThrowExactly<ArgumentNullException>();
-    AssertionExtensions.Should(() => new Translation("from", null, "text")).ThrowExactly<ArgumentNullException>();
-    AssertionExtensions.Should(() => new Translation("from", "to", null)).ThrowExactly<ArgumentNullException>();
-    AssertionExtensions.Should(() => new Translation(string.Empty, "to", "text")).ThrowExactly<ArgumentException>();
-    AssertionExtensions.Should(() => new Translation("from", string.Empty, "text")).ThrowExactly<ArgumentException>();
-    AssertionExtensions.Should(() => new Translation("from", "to", string.Empty)).ThrowExactly<ArgumentException>();
+    AssertionExtensions.Should(() => new Translation(null, "to", "text")).ThrowExactly<ArgumentNullException>().WithParameterName("fromLanguage");
+    AssertionExtensions.Should(() => new Translation("from", null, "text")).ThrowExactly<ArgumentNullException>().WithParameterName("toLanguage");
+    AssertionExtensions.Should(() => new Translation("from", "to", null)).ThrowExactly<ArgumentNullException>().WithParameterName("text");
+    AssertionExtensions.Should(() => new Translation(string.Empty, "to", "text")).ThrowExactly<ArgumentException>().WithParameterName("fromLanguage");
+    AssertionExtensions.Should(() => new Translation("from", string.Empty, "text")).ThrowExactly<ArgumentException>().WithParameterName("toLanguage");
 
     var translation = new Translation("en", "ru", "text");
     translation.FromLanguage.Should().Be("en");

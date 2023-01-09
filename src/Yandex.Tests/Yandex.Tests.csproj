@@ -29,8 +29,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="Catharsis.Commons">
-      <HintPath>..\..\..\Catharsis.NET.Commons\src\Catharsis.Commons.Core\bin\Release\net6.0\Catharsis.Commons.dll</HintPath>
+    <Reference Include="Catharsis.Extensions">
+      <HintPath>..\..\..\Catharsis\Catharsis.Extensions\src\Catharsis.Extensions.Core\bin\Release\net6.0\Catharsis.Extensions.dll</HintPath>
     </Reference>
   </ItemGroup>
 

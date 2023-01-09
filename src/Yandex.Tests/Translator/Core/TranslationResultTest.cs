@@ -1,4 +1,4 @@
-﻿using Catharsis.Commons;
+﻿using Catharsis.Extensions;
 using FluentAssertions;
 using FluentAssertions.Json;
 using Xunit;
@@ -9,7 +9,7 @@ namespace Yandex.Tests.Translator;
 /// <summary>
 ///   <para>Tests set for class <see cref="TranslationResult"/>.</para>
 /// </summary>
-public sealed class TranslationResultTest : UnitTest<TranslationResult>
+public sealed class TranslationResultTest : EntityTest<TranslationResult>
 {
   /// <summary>
   ///   <para>Performs testing of <see cref="TranslationResult.Code"/> property.</para>
@@ -75,7 +75,7 @@ public sealed class TranslationResultTest : UnitTest<TranslationResult>
 /// <summary>
 ///   <para>Tests set for class <see cref="TranslationResult.Info"/>.</para>
 /// </summary>
-public sealed class TranslationResultInfoTests : UnitTest<TranslationResult.Info>
+public sealed class TranslationResultInfoTests : EntityTest<TranslationResult.Info>
 {
   /// <summary>
   ///   <para>Performs testing of <see cref="TranslationResult.Info.Code"/> property.</para>

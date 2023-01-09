@@ -7,7 +7,7 @@ namespace Yandex.Tests.Translator;
 /// <summary>
 ///   <para>Tests set for class <see cref="TranslationApiRequest"/>.</para>
 /// </summary>
-public sealed class TranslationApiRequestTest
+public sealed class TranslationApiRequestTest : UnitTest
 {
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>

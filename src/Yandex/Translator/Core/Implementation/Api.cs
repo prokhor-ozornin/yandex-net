@@ -1,6 +1,6 @@
 ﻿using System.Net;
 using System.Runtime.CompilerServices;
-using Catharsis.Commons;
+using Catharsis.Extensions;
 using RestSharp;
 
 namespace Yandex.Translator;
@@ -12,11 +12,11 @@ internal sealed class Api : IApi
   private Uri EndpointUrl { get; } = "https://translate.yandex.net/api/v1.5/tr".ToUri();
   private RestClient RestClient { get; }
 
-  public Api(string apiKey)
+  public Api(string key)
   {
     RestClient = new RestClient(EndpointUrl);
     RestClient.Options.BaseUrl = $"{EndpointUrl}.json".ToUri();
-    RestClient.AddDefaultParameter("key", apiKey);
+    RestClient.AddDefaultParameter("key", key);
     RestClient.UseSerializer<JsonRestSerializer>();
   }
 
@@ -108,7 +108,7 @@ internal sealed class Api : IApi
 
     try
     {
-      error = response.Content?.AsJson<Error.Info>()?.ToResult();
+      error = response.Content?.DeserializeAsJson<Error.Info>()?.ToResult();
     }
     catch
     {

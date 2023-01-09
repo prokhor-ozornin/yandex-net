@@ -7,7 +7,7 @@ namespace Yandex.Tests.Detector.Core.Implementation;
 /// <summary>
 ///   <para>Tests set for class <see cref="Resolution"/>.</para>
 /// </summary>
-public sealed class ResolutionTest : UnitTest<Resolution>
+public sealed class ResolutionTest : EntityTest<Resolution>
 {
   /// <summary>
   ///   <para>Performs testing of <see cref="Resolution.Height"/> property.</para>

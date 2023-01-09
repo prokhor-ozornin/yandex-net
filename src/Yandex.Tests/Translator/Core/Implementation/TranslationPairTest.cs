@@ -7,7 +7,7 @@ namespace Yandex.Tests.Translator;
 /// <summary>
 ///   <para>Tests set for class <see cref="TranslationPair"/>.</para>
 /// </summary>
-public sealed class TranslationPairTest
+public sealed class TranslationPairTest : UnitTest
 {
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -16,10 +16,10 @@ public sealed class TranslationPairTest
   [Fact]
   public void Constructors()
   {
-    AssertionExtensions.Should(() => new TranslationPair(null, "to")).ThrowExactly<ArgumentNullException>();
-    AssertionExtensions.Should(() => new TranslationPair("from", null)).ThrowExactly<ArgumentNullException>();
-    AssertionExtensions.Should(() => new TranslationPair(string.Empty, "ro")).ThrowExactly<ArgumentException>();
-    AssertionExtensions.Should(() => new TranslationPair("from", string.Empty)).ThrowExactly<ArgumentException>();
+    AssertionExtensions.Should(() => new TranslationPair(null, "to")).ThrowExactly<ArgumentNullException>().WithParameterName("fromLanguage");
+    AssertionExtensions.Should(() => new TranslationPair("from", null)).ThrowExactly<ArgumentNullException>().WithParameterName("toLanguage");
+    AssertionExtensions.Should(() => new TranslationPair(string.Empty, "ro")).ThrowExactly<ArgumentException>().WithParameterName("fromLanguage");
+    AssertionExtensions.Should(() => new TranslationPair("from", string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("toLanguage");
 
     var pair = new TranslationPair("en", "ru");
     pair.FromLanguage.Should().Be("en");

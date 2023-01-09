@@ -7,7 +7,7 @@ namespace Yandex.Tests.Detector.Requests;
 /// <summary>
 ///   <para>Tests set for class <see cref="IDetectorRequestExtensions"/>.</para>
 /// </summary>
-public sealed class IDetectorRequestExtensionsTest
+public sealed class IDetectorRequestExtensionsTest : UnitTest
 {
   /// <summary>
   ///   <para>Performs testing of <see cref="IDetectorRequestExtensions.OperaMini(IDetectorRequest, string)"/> method.</para>
@@ -15,9 +15,9 @@ public sealed class IDetectorRequestExtensionsTest
   [Fact]
   public void OperaMini_Method()
   {
-    AssertionExtensions.Should(() => IDetectorRequestExtensions.OperaMini(null, "version")).ThrowExactly<ArgumentNullException>();
-    AssertionExtensions.Should(() => new DetectorRequest().OperaMini(null)).ThrowExactly<ArgumentNullException>();
-    AssertionExtensions.Should(() => new DetectorRequest().OperaMini(string.Empty)).ThrowExactly<ArgumentException>();
+    AssertionExtensions.Should(() => IDetectorRequestExtensions.OperaMini(null, "version")).ThrowExactly<ArgumentNullException>().WithParameterName("request");
+    AssertionExtensions.Should(() => new DetectorRequest().OperaMini(null)).ThrowExactly<ArgumentNullException>().WithParameterName("version");
+    AssertionExtensions.Should(() => new DetectorRequest().OperaMini(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("version");
 
     var request = new DetectorRequest();
     
@@ -35,9 +35,9 @@ public sealed class IDetectorRequestExtensionsTest
   [Fact]
   public void Profile_Method()
   {
-    AssertionExtensions.Should(() => IDetectorRequestExtensions.Profile(null, "profile")).ThrowExactly<ArgumentNullException>();
-    AssertionExtensions.Should(() => new DetectorRequest().Profile(null)).ThrowExactly<ArgumentNullException>();
-    AssertionExtensions.Should(() => new DetectorRequest().Profile(string.Empty)).ThrowExactly<ArgumentException>();
+    AssertionExtensions.Should(() => IDetectorRequestExtensions.Profile(null, "profile")).ThrowExactly<ArgumentNullException>().WithParameterName("request");
+    AssertionExtensions.Should(() => new DetectorRequest().Profile(null)).ThrowExactly<ArgumentNullException>().WithParameterName("profile");
+    AssertionExtensions.Should(() => new DetectorRequest().Profile(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("profile");
 
     var request = new DetectorRequest();
 
@@ -53,9 +53,9 @@ public sealed class IDetectorRequestExtensionsTest
   [Fact]
   public void UserAgent_Method()
   {
-    AssertionExtensions.Should(() => IDetectorRequestExtensions.UserAgent(null, "userAgent")).ThrowExactly<ArgumentNullException>();
-    AssertionExtensions.Should(() => new DetectorRequest().UserAgent(null)).ThrowExactly<ArgumentNullException>();
-    AssertionExtensions.Should(() => new DetectorRequest().UserAgent(string.Empty)).ThrowExactly<ArgumentException>();
+    AssertionExtensions.Should(() => IDetectorRequestExtensions.UserAgent(null, "userAgent")).ThrowExactly<ArgumentNullException>().WithParameterName("request");
+    AssertionExtensions.Should(() => new DetectorRequest().UserAgent(null)).ThrowExactly<ArgumentNullException>().WithParameterName("userAgent");
+    AssertionExtensions.Should(() => new DetectorRequest().UserAgent(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("userAgent");
 
     var request = new DetectorRequest();
 

@@ -1,12 +1,12 @@
 ﻿using FluentAssertions;
 using Xunit;
 
-namespace Yandex;
+namespace Yandex.Tests;
 
 /// <summary>
 ///   <para>Tests set for class <see cref="Yandex"/>.</para>
 /// </summary>
-public sealed class YandexTest
+public sealed class YandexTest : UnitTest
 {
   /// <summary>
   ///   <para>Performs testing of <see cref="Yandex.Api"/> property.</para>

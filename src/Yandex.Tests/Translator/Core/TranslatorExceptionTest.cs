@@ -7,12 +7,12 @@ namespace Yandex.Tests.Translator;
 /// <summary>
 ///   <para>Tests set for class <see cref="TranslatorException"/>.</para>
 /// </summary>
-public sealed class TranslatorExceptionTest
+public sealed class TranslatorExceptionTest : UnitTest
 {
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
   /// </summary>
-  /// <seealso cref="TranslatorException(IError?, Exception?)"/>
+  /// <seealso cref="TranslatorException(IError, Exception)"/>
   [Fact]
   public void Constructors()
   {

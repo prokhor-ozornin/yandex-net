@@ -1,4 +1,6 @@
-﻿namespace Yandex.Detector;
+﻿using Catharsis.Extensions;
+
+namespace Yandex.Detector;
 
 /// <summary>
 ///   <para>Set of extension methods for interface <see cref="IDetectorRequest"/>.</para>
@@ -13,7 +15,14 @@ public static class IDetectorRequestExtensions
   /// <param name="version">Version of installed Opera Mini.</param>
   /// <returns>Back reference to the provided <paramref name="request"/> instance.</returns>
   /// <seealso cref="IDetectorRequest.WithHeader"/>
-  public static IDetectorRequest OperaMini(this IDetectorRequest request, string version) => request.WithHeader("x-operamini-phone-ua", version);
+  public static IDetectorRequest OperaMini(this IDetectorRequest request, string version)
+  {
+    if (request is null) throw new ArgumentNullException(nameof(request));
+    if (version is null) throw new ArgumentNullException(nameof(version));
+    if (version.IsEmpty()) throw new ArgumentException(nameof(version));
+
+    return request.WithHeader("x-operamini-phone-ua", version);
+  }
 
   /// <summary>
   ///   <para>Adds set of headers for HTTP request that indicates a mobile profile of the target device.</para>
@@ -25,11 +34,11 @@ public static class IDetectorRequestExtensions
   /// <seealso cref="IDetectorRequest.WithHeader"/>
   public static IDetectorRequest Profile(this IDetectorRequest request, string profile)
   {
-    request.WithHeader("profile", profile);
-    request.WithHeader("wap-profile", profile);
-    request.WithHeader("x-wap-profile", profile);
+    if (request is null) throw new ArgumentNullException(nameof(request));
+    if (profile is null) throw new ArgumentNullException(nameof(profile));
 
-    return request;
+
+    return request.WithHeader("profile", profile).WithHeader("wap-profile", profile).WithHeader("x-wap-profile", profile);
   }
 
   /// <summary>

@@ -11,12 +11,12 @@ public static class JsonExtensions
   /// <summary>
   ///   <para>Serializes specified object into JSON string.</para>
   /// </summary>
-  /// <param name="subject">Target object to be serialized.</param>
+  /// <param name="instance">Target object to be serialized.</param>
   /// <param name="settings">Serialization settings. If not specified, default settings set will be used.</param>
-  /// <returns>JSON serialized version of <paramref name="subject"/> instance.</returns>
+  /// <returns>JSON serialized version of <paramref name="instance"/> instance.</returns>
   /// <seealso cref="JsonConvert"/>
-  public static string AsJson(this object subject, JsonSerializerSettings settings = null) =>
-    JsonConvert.SerializeObject(subject, settings ?? new JsonSerializerSettings
+  public static string SerializeAsJson(this object instance, JsonSerializerSettings settings = null) =>
+    JsonConvert.SerializeObject(instance, settings ?? new JsonSerializerSettings
     {
       ConstructorHandling = ConstructorHandling.AllowNonPublicDefaultConstructor,
       DateTimeZoneHandling = DateTimeZoneHandling.RoundtripKind,
@@ -32,7 +32,7 @@ public static class JsonExtensions
   /// <param name="settings">Deserialization settings. If not specified, default settings set will be used.</param>
   /// <returns>Instance of <typeparamref name="T"/> type, deserialized from <paramref name="json"/> string.</returns>
   /// <seealso cref="JsonConvert"/>
-  public static T AsJson<T>(this string json, JsonSerializerSettings settings = null) =>
+  public static T DeserializeAsJson<T>(this string json, JsonSerializerSettings settings = null) =>
     JsonConvert.DeserializeObject<T>(json, settings ?? new JsonSerializerSettings
     {
       ContractResolver = new JsonEntityOrderedContractResolver(),

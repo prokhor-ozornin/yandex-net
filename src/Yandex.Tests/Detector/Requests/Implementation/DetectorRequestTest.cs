@@ -7,7 +7,7 @@ namespace Yandex.Tests.Detector.Requests.Implementation;
 /// <summary>
 ///   <para>Tests set for class <see cref="DetectorRequest"/>.</para>
 /// </summary>
-public sealed class DetectorRequestTest
+public sealed class DetectorRequestTest : UnitTest
 {
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -26,9 +26,8 @@ public sealed class DetectorRequestTest
   [Fact]
   public void Header_Method()
   {
-    AssertionExtensions.Should(() => new DetectorRequest().WithHeader(null, "value")).ThrowExactly<ArgumentNullException>();
-    AssertionExtensions.Should(() => new DetectorRequest().WithHeader("name", null)).ThrowExactly<ArgumentNullException>();
-    AssertionExtensions.Should(() => new DetectorRequest().WithHeader(string.Empty, "value")).ThrowExactly<ArgumentException>();
+    AssertionExtensions.Should(() => new DetectorRequest().WithHeader(null, "value")).ThrowExactly<ArgumentNullException>().WithParameterName("name");
+    AssertionExtensions.Should(() => new DetectorRequest().WithHeader(string.Empty, "value")).ThrowExactly<ArgumentException>().WithParameterName("name");
 
     var request = new DetectorRequest();
     

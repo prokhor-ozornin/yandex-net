@@ -1,5 +1,5 @@
 ﻿using System.Runtime.Serialization;
-using Catharsis.Commons;
+using Catharsis.Extensions;
 
 namespace Yandex.Translator;
 
@@ -35,7 +35,7 @@ public sealed class DetectedLanguageResult
   /// <param name="info"></param>
   public DetectedLanguageResult(Info info)
   {
-    Code = info.Code ?? 0;
+    Code = info.Code.GetValueOrDefault(0);
     Language = info.Language ?? string.Empty;
   }
 

@@ -1,4 +1,4 @@
-﻿using Catharsis.Commons;
+﻿using Catharsis.Extensions;
 using FluentAssertions;
 using Xunit;
 using Yandex.Detector;
@@ -8,19 +8,22 @@ namespace Yandex.Tests.Detector.Core.Implementation;
 /// <summary>
 ///   <para>Tests set for class <see cref="MobileDetector"/>.</para>
 /// </summary>
-public sealed class MobileDetectorTest
+public sealed class MobileDetectorTest : UnitTest
 {
+  private IMobileDetector Detector { get; } = Yandex.Api.Detector();
+
   /// <summary>
-  ///   <para>Performs testing of <see cref="MobileDetector.DetectAsync(IDictionary{string, object?}, CancellationToken)"/> method.</para>
+  ///   <para>Performs testing of <see cref="MobileDetector.DetectAsync(IReadOnlyDictionary{string, object}, CancellationToken)"/> method.</para>
   /// </summary>
   [Fact]
   public void DetectAsync_Method()
   {
-    AssertionExtensions.Should(() => new MobileDetector().DetectAsync(null)).ThrowExactlyAsync<ArgumentNullException>().Await();
+    AssertionExtensions.Should(() => Detector.DetectAsync(null)).ThrowExactlyAsync<ArgumentNullException>().WithParameterName("headers").Await();
+    AssertionExtensions.Should(() => Detector.DetectAsync(Cancellation)).ThrowExactlyAsync<OperationCanceledException>().Await();
 
-    AssertionExtensions.Should(() => new MobileDetector().DetectAsync(new Dictionary<string, object>())).ThrowExactlyAsync<DetectorException>().Await().WithMessage("No HTTP headers were specified").Which.InnerException.Should().BeNull();
-    AssertionExtensions.Should(() => new MobileDetector().DetectAsync(new Dictionary<string, object> {{"user-agent", "invalid"}})).ThrowExactlyAsync<DetectorException>().Await().WithMessage("Unknown user agent and wap profile").Which.InnerException.Should().BeNull();
-    AssertionExtensions.Should(() => new MobileDetector().DetectAsync(new Dictionary<string, object> {{"wap-profile", "invalid"}})).ThrowExactlyAsync<DetectorException>().Await().WithMessage("Failed to understand service's response").WithInnerExceptionExactly<InvalidOperationException>();
+    AssertionExtensions.Should(() => Detector.DetectAsync(new Dictionary<string, object>())).ThrowExactlyAsync<DetectorException>().Await().WithMessage("No HTTP headers were specified").Which.InnerException.Should().BeNull();
+    AssertionExtensions.Should(() => Detector.DetectAsync(new Dictionary<string, object> {{"user-agent", "invalid"}})).ThrowExactlyAsync<DetectorException>().Await().WithMessage("Unknown user agent and wap profile").Which.InnerException.Should().BeNull();
+    AssertionExtensions.Should(() => Detector.DetectAsync(new Dictionary<string, object> {{"wap-profile", "invalid"}})).ThrowExactlyAsync<DetectorException>().Await().WithMessage("Failed to understand service's response").WithInnerExceptionExactly<InvalidOperationException>();
 
     using var detector = new MobileDetector();
 
@@ -53,5 +56,13 @@ public sealed class MobileDetectorTest
     device.Screen.Height.Should().Be(160);
     device.Screen.Width.Should().Be(128);
     device.Vendor.Should().Be("Alcatel");
+  }
+
+  /// <summary>
+  ///   <para></para>
+  /// </summary>
+  public void Dispose()
+  {
+    Detector.Dispose();
   }
 }

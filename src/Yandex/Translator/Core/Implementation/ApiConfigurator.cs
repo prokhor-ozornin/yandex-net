@@ -2,9 +2,9 @@
 
 internal sealed class ApiConfigurator : IApiConfigurator
 {
-  public IApiConfigurator ApiKey(string apiKey)
+  public IApiConfigurator ApiKey(string key)
   {
-    ApiKeyValue = apiKey;
+    ApiKeyValue = key;
 
     return this;
   }
