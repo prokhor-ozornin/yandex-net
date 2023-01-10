@@ -15,7 +15,13 @@ public static class IMobileDetectorExtensions
   /// <param name="cancellation"></param>
   /// <param name="headers"></param>
   /// <returns></returns>
-  public static Task<IMobileDevice> DetectAsync(this IMobileDetector detector, CancellationToken cancellation = default, params (string Name, object Value)[] headers) => detector.DetectAsync(headers.ToDictionary(), cancellation);
+  public static Task<IMobileDevice> DetectAsync(this IMobileDetector detector, CancellationToken cancellation = default, params (string Name, object Value)[] headers)
+  {
+    if (detector is null) throw new ArgumentNullException(nameof(detector));
+    if (headers is null) throw new ArgumentNullException(nameof(headers));
+
+    return detector.DetectAsync(headers.ToDictionary(), cancellation);
+  }
 
   /// <summary>
   ///   <para>Performs request to Yandex.Detector web service and determines capabilities of mobile client device.</para>
@@ -27,7 +33,8 @@ public static class IMobileDetectorExtensions
   /// <exception cref="DetectorException">If there was error either during the request to Yandex.Detector web service, or mobile device cannot be identified based on a set of provided HTTP headers.</exception>
   public static Task<IMobileDevice> DetectAsync(this IMobileDetector detector, Action<IDetectorRequest> action, CancellationToken cancellation = default)
   {
-
+    if (detector is null) throw new ArgumentNullException(nameof(detector));
+    if (action is null) throw new ArgumentNullException(nameof(action));
 
     var builder = new DetectorRequest();
     

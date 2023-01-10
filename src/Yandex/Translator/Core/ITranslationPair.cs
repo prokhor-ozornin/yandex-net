@@ -3,7 +3,7 @@
 /// <summary>
 ///   <para>Represents a pair of souce and target languages (translation direction).</para>
 /// </summary>
-public interface ITranslationPair : IEquatable<ITranslationPair>
+public interface ITranslationPair
 {
   /// <summary>
   ///   <para>Source translation language.</para>

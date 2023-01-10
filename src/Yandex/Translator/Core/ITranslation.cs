@@ -3,7 +3,7 @@
 /// <summary>
 ///   <para>Represents a translation of a text fragment from one language to another.</para>
 /// </summary>
-public interface ITranslation : IEquatable<ITranslation>
+public interface ITranslation
 {
   /// <summary>
   ///   <para>Source language of the translation.</para>

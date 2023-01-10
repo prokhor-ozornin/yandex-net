@@ -32,6 +32,9 @@ internal sealed class Api : IApi
 
   public async Task<string> DetectAsync(string text, CancellationToken cancellation = default)
   {
+    if (text is null) throw new ArgumentNullException(nameof(text));
+    if (text.IsEmpty()) throw new ArgumentException(nameof(text));
+
     var result = (await Request<DetectedLanguageResult.Info>("detect", new Dictionary<string, object> {{"text", text}}, cancellation).ConfigureAwait(false)).ToResult();
 
     if (result.Code != (int) HttpStatusCode.OK || result.Language.IsEmpty())
@@ -44,6 +47,8 @@ internal sealed class Api : IApi
 
   public async Task<ITranslation> TranslateAsync(ITranslationApiRequest request, CancellationToken cancellation = default)
   {
+    if (request is null) throw new ArgumentNullException(nameof(request));
+
     var result = (await Request<TranslationResult.Info>("/translate", request.Parameters, cancellation).ConfigureAwait(false)).ToResult();
 
     var translation = result.ToString();
@@ -83,6 +88,9 @@ internal sealed class Api : IApi
 
   private async Task<T> Request<T>(string resource, IReadOnlyDictionary<string, object> parameters = null, CancellationToken cancellation = default) where T : new()
   {
+    if (resource is null) throw new ArgumentNullException(nameof(resource));
+    if (resource.IsEmpty()) throw new ArgumentException(nameof(resource));
+
     var request = new RestRequest(resource)
     {
       RequestFormat = DataFormat.Json

@@ -43,7 +43,7 @@ public sealed class YandexTranslatorTests : UnitTest
   [Fact]
   public void PairsAsync_Method()
   {
-    AssertionExtensions.Should(() => Api.PairsAsync(Cancellation)).ThrowExactly<TaskCanceledException>();
+    AssertionExtensions.Should(() => Api.PairsAsync(Cancellation)).ThrowExactly<OperationCanceledException>();
 
     using var api = Api;
 

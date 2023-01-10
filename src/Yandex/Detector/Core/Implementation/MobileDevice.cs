@@ -6,7 +6,6 @@ namespace Yandex.Detector;
 /// <summary>
 ///   <para>Contains information about mobile device and its features and capabilities.</para>
 /// </summary>
-/// 
 public sealed class MobileDevice : IMobileDevice
 {
   /// <summary>
@@ -35,7 +34,7 @@ public sealed class MobileDevice : IMobileDevice
   public IResolution Screen { get; }
 
   /// <summary>
-  ///   <para>Device's installed _Java platform capabilities.</para>
+  ///   <para>Device's installed Java platform capabilities.</para>
   /// </summary>
   public IJavaPlatform JavaPlatform { get; }
 

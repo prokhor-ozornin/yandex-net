@@ -39,10 +39,13 @@ public sealed class IMobileDetectorExtensionsTest : UnitTest
     {
       using var detector = Yandex.Api.Detector();
 
+      AssertionExtensions.Should(() => IMobileDetectorExtensions.Detect(null)).ThrowExactly<ArgumentNullException>().WithParameterName("detector");
+
     }
 
     using (new AssertionScope())
     {
+      AssertionExtensions.Should(() => IMobileDetectorExtensions.Detect(null, _ => { })).ThrowExactly<ArgumentNullException>().WithParameterName("detector");
 
     }
 

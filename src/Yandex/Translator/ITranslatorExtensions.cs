@@ -14,6 +14,9 @@ public static class ITranslatorExtensions
   /// <returns></returns>
   public static IApi Configure(this ITranslator translator, Action<IApiConfigurator> action)
   {
+    if (translator is null) throw new ArgumentNullException(nameof(translator));
+    if (action is null) throw new ArgumentNullException(nameof(action));
+
     var configurator = new ApiConfigurator();
 
     action(configurator);

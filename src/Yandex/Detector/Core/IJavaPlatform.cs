@@ -1,9 +1,9 @@
 ﻿namespace Yandex.Detector;
 
 /// <summary>
-///   <para>Mobile _Java platform capabilities.</para>
+///   <para>Mobile Java platform capabilities.</para>
 /// </summary>
-public interface IJavaPlatform : IEquatable<IJavaPlatform>
+public interface IJavaPlatform
 {
   /// <summary>
   ///   <para>Whether Java applications have access to device's camera.</para>

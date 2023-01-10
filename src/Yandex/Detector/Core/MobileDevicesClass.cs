@@ -71,42 +71,42 @@ public enum MobileDevicesClass
   WMGeneric,
 
   /// <summary>
-  ///   <para>_Java MIDP2 (small).</para>
+  ///   <para>Java MIDP2 (small).</para>
   /// </summary>
   MIDP2ss,
 
   /// <summary>
-  ///   <para>_Java MIDP2 (big).</para>
+  ///   <para>Java MIDP2 (big).</para>
   /// </summary>
   MIDP2bs,
 
   /// <summary>
-  ///   <para>_Java MIDP2 (huge).</para>
+  ///   <para>Java MIDP2 (huge).</para>
   /// </summary>
   midp2hs,
 
   /// <summary>
-  ///   <para>_Java MIDP2 (small + bluetooth).</para>
+  ///   <para>Java MIDP2 (small + bluetooth).</para>
   /// </summary>
   MIDP2ssg,
 
   /// <summary>
-  ///   <para>_Java MIDP2 (big + bluetooth).</para>
+  ///   <para>Java MIDP2 (big + bluetooth).</para>
   /// </summary>
   MIDP2bsg,
 
   /// <summary>
-  ///   <para>_Java MIDP2 (huge + bluetooth).</para>
+  ///   <para>Java MIDP2 (huge + bluetooth).</para>
   /// </summary>
   MIDP2hsg,
   
   /// <summary>
-  ///   <para>_Java MIDP2 (lite).</para>
+  ///   <para>Java MIDP2 (lite).</para>
   /// </summary>
   MIDP2lite,
 
   /// <summary>
-  ///   <para>_Java MIDP2 (lite + bluetooth).</para>
+  ///   <para>Java MIDP2 (lite + bluetooth).</para>
   /// </summary>
   MIDP2LiteG,
 

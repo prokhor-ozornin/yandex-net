@@ -3,7 +3,7 @@
 /// <summary>
 ///   <para></para>
 /// </summary>
-public interface IResolution : IEquatable<IResolution>
+public interface IResolution
 {
   /// <summary>
   ///   <para></para>

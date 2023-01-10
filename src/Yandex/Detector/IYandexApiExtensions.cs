@@ -11,5 +11,5 @@ public static class IYandexApiExtensions
   /// </summary>
   /// <param name="api"></param>
   /// <returns></returns>
-  public static IMobileDetector Detector(this IYandexApi api) => new MobileDetector();
+  public static IMobileDetector Detector(this IYandexApi api) => api is not null ? new MobileDetector() : throw new ArgumentNullException(nameof(api));
 }

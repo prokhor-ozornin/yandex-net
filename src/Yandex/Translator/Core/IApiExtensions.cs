@@ -19,6 +19,9 @@ public static class IApiExtensions
   /// <seealso cref="http://api.yandex.ru/translate/doc/dg/reference/translate.xml"/>
   public static Task<ITranslation> TranslateAsync(this IApi api, Action<ITranslationApiRequest> action, CancellationToken cancellation = default)
   {
+    if (api is null) throw new ArgumentNullException(nameof(api));
+    if (action is null) throw new ArgumentNullException(nameof(action));
+
     var request = new TranslationApiRequest();
 
     action(request);
@@ -31,7 +34,7 @@ public static class IApiExtensions
   /// </summary>
   /// <param name="api"></param>
   /// <returns></returns>
-  public static IEnumerable<ITranslationPair> Pairs(this IApi api) => api.PairsAsync().ToListAsync().Result;
+  public static IEnumerable<ITranslationPair> Pairs(this IApi api) => api is not null ? api.PairsAsync().ToListAsync().Result : throw new ArgumentNullException(nameof(api));
 
   /// <summary>
   ///   <para></para>
@@ -39,15 +42,28 @@ public static class IApiExtensions
   /// <param name="api"></param>
   /// <param name="text"></param>
   /// <returns></returns>
-  public static string Detect(this IApi api, string text) => api.DetectAsync(text).Result;
-  
+  public static string Detect(this IApi api, string text)
+  {
+    if (api is null) throw new ArgumentNullException(nameof(api));
+    if (text is null) throw new ArgumentNullException(nameof(text));
+    if (text.IsEmpty()) throw new ArgumentException(nameof(text));
+
+    return api.DetectAsync(text).Result;
+  }
+
   /// <summary>
   ///   <para></para>
   /// </summary>
   /// <param name="api"></param>
   /// <param name="request"></param>
   /// <returns></returns>
-  public static ITranslation Translate(this IApi api, ITranslationApiRequest request) => api.TranslateAsync(request).Result;
+  public static ITranslation Translate(this IApi api, ITranslationApiRequest request)
+  {
+    if (api is null) throw new ArgumentNullException(nameof(api));
+    if (request is null) throw new ArgumentNullException(nameof(request));
+
+    return api.TranslateAsync(request).Result;
+  }
 
   /// <summary>
   ///   <para></para>

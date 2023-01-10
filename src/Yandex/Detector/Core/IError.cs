@@ -3,7 +3,7 @@
 /// <summary>
 ///   <para></para>
 /// </summary>
-public interface IError : IEquatable<IError>
+public interface IError
 {
   /// <summary>
   ///   <para></para>

@@ -33,7 +33,7 @@ public interface IMobileDevice : IEquatable<IMobileDevice>
   IResolution Screen { get; }
 
   /// <summary>
-  ///   <para>Device's installed _Java platform capabilities.</para>
+  ///   <para>Device's installed Java platform capabilities.</para>
   /// </summary>
   IJavaPlatform JavaPlatform { get; }
 

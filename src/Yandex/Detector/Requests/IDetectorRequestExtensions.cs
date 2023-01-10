@@ -37,7 +37,6 @@ public static class IDetectorRequestExtensions
     if (request is null) throw new ArgumentNullException(nameof(request));
     if (profile is null) throw new ArgumentNullException(nameof(profile));
 
-
     return request.WithHeader("profile", profile).WithHeader("wap-profile", profile).WithHeader("x-wap-profile", profile);
   }
 
@@ -48,5 +47,11 @@ public static class IDetectorRequestExtensions
   /// <param name="userAgent">Value of User-agent header.</param>
   /// <returns>Back reference to the provided <paramref name="request"/> instance.</returns>
   /// <seealso cref="IDetectorRequest.WithHeader"/>
-  public static IDetectorRequest UserAgent(this IDetectorRequest request, string userAgent) => request.WithHeader("user-agent", userAgent);
+  public static IDetectorRequest UserAgent(this IDetectorRequest request, string userAgent)
+  {
+    if (request is null) throw new ArgumentNullException(nameof(request));
+    if (userAgent is null) throw new ArgumentNullException(nameof(userAgent));
+
+    return request.WithHeader("user-agent", userAgent);
+  }
 }

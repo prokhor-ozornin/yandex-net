@@ -11,5 +11,5 @@ public static class IYandexApiExtensions
   /// </summary>
   /// <param name="api"></param>
   /// <returns></returns>
-  public static ITranslator Translator(this IYandexApi api) => new Translator();
+  public static ITranslator Translator(this IYandexApi api) => api is not null ? new Translator() : throw new ArgumentNullException(nameof(api));
 }

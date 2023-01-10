@@ -4,9 +4,9 @@ using Catharsis.Extensions;
 namespace Yandex.Detector;
 
 /// <summary>
-///   <para>Mobile _Java platform capabilities.</para>
+///   <para>Mobile Java platform capabilities.</para>
 /// </summary>
-public sealed class JavaPlatform : IJavaPlatform
+public sealed record JavaPlatform : IJavaPlatform
 {
   /// <summary>
   ///   <para>Whether Java applications have access to device's camera.</para>
@@ -65,26 +65,6 @@ public sealed class JavaPlatform : IJavaPlatform
   public JavaPlatform(object info) : this(new Info().SetState(info))
   {
   }
-
-  /// <summary>
-  ///   <para>Determines whether two <see cref="IJavaPlatform"/> instances are equal.</para>
-  /// </summary>
-  /// <param name="other">The instance to compare with the current one.</param>
-  /// <returns><c>true</c> if specified instance is equal to the current, <c>false</c> otherwise.</returns>
-  public bool Equals(IJavaPlatform other) => this.Equality(other, nameof(Camera), nameof(Certificate), nameof(FileSystem), nameof(Icon));
-
-  /// <summary>
-  ///   <para>Determines whether the specified <see cref="object"/> is equal to the current <see cref="object"/>.</para>
-  /// </summary>
-  /// <param name="other">The object to compare with the current object.</param>
-  /// <returns><c>true</c> if the specified object is equal to the current object, <c>false</c>.</returns>
-  public override bool Equals(object other) => Equals(other as IJavaPlatform);
-
-  /// <summary>
-  ///   <para>Returns hash code for the current object.</para>
-  /// </summary>
-  /// <returns>Hash code of current instance.</returns>
-  public override int GetHashCode() => this.HashCode(nameof(Camera), nameof(Certificate), nameof(FileSystem), nameof(Icon));
 
   /// <summary>
   ///   <para></para>
