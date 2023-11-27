@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <AssemblyName>Yandex.Tests</AssemblyName>
     <RootNamespace>Yandex.Tests</RootNamespace>
     <LangVersion>latest</LangVersion>
@@ -17,11 +17,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="FluentAssertions" Version="6.8.0" />
+    <PackageReference Include="FluentAssertions" Version="6.12.0" />
     <PackageReference Include="FluentAssertions.Json" Version="6.1.0" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.4.1" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
-    <PackageReference Include="xunit" Version="2.4.2" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="xunit" Version="2.6.2" />
   </ItemGroup>
 
   <ItemGroup>
@@ -30,7 +30,7 @@
 
   <ItemGroup>
     <Reference Include="Catharsis.Extensions">
-      <HintPath>..\..\..\Catharsis\Catharsis.Extensions\src\Catharsis.Extensions.Core\bin\Release\net6.0\Catharsis.Extensions.dll</HintPath>
+      <HintPath>..\..\..\Catharsis\Catharsis.Extensions\src\Catharsis.Extensions.Core\bin\Release\net8.0\Catharsis.Extensions.dll</HintPath>
     </Reference>
   </ItemGroup>
 
