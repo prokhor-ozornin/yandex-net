@@ -20,21 +20,6 @@ public sealed class IMobileDetectorExtensionsTest : UnitTest
   [Fact]
   public void Detect_Methods()
   {
-    static void Validate(IMobileDevice device)
-    {
-      device.Description.Should().Be("Java MIDP2 (small)");
-      device.DeviceClass.Should().Be("midp2ss");
-      device.JavaPlatform.Camera.Should().BeTrue();
-      device.JavaPlatform.Certificate.Should().BeEmpty();
-      device.JavaPlatform.FileSystem.Should().BeTrue();
-      device.JavaPlatform.Icon.Height.Should().Be(18);
-      device.JavaPlatform.Icon.Width.Should().Be(18);
-      device.Name.Should().Be("One Touch C651");
-      device.Screen.Height.Should().Be(160);
-      device.Screen.Width.Should().Be(128);
-      device.Vendor.Should().Be("Alcatel");
-    }
-
     using (new AssertionScope())
     {
       using var detector = Yandex.Api.Detector();
@@ -50,5 +35,22 @@ public sealed class IMobileDetectorExtensionsTest : UnitTest
     }
 
     throw new NotImplementedException();
+
+    return;
+
+    static void Validate(IMobileDevice device)
+    {
+      device.Description.Should().Be("Java MIDP2 (small)");
+      device.DeviceClass.Should().Be("midp2ss");
+      device.JavaPlatform.Camera.Should().BeTrue();
+      device.JavaPlatform.Certificate.Should().BeEmpty();
+      device.JavaPlatform.FileSystem.Should().BeTrue();
+      device.JavaPlatform.Icon.Height.Should().Be(18);
+      device.JavaPlatform.Icon.Width.Should().Be(18);
+      device.Name.Should().Be("One Touch C651");
+      device.Screen.Height.Should().Be(160);
+      device.Screen.Width.Should().Be(128);
+      device.Vendor.Should().Be("Alcatel");
+    }
   }
 }

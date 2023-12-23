@@ -50,6 +50,16 @@ public sealed class ITranslationApiRequestExtensionsTest : UnitTest
   [Fact]
   public void From_Method()
   {
+    using (new AssertionScope())
+    {
+      AssertionExtensions.Should(() => ITranslationApiRequestExtensions.From(null, CultureInfo.InvariantCulture)).ThrowExactly<ArgumentNullException>().WithParameterName("request");
+
+      Validate(null);
+      CultureInfo.GetCultures(CultureTypes.AllCultures).ForEach(Validate);
+    }
+    
+    return;
+
     static void Validate(CultureInfo culture)
     {
       var request = new TranslationApiRequest();
@@ -69,14 +79,6 @@ public sealed class ITranslationApiRequestExtensionsTest : UnitTest
         request.Parameters["lang"].Should().BeNull();
       }
     }
-
-    using (new AssertionScope())
-    {
-      AssertionExtensions.Should(() => ITranslationApiRequestExtensions.From(null, CultureInfo.InvariantCulture)).ThrowExactly<ArgumentNullException>().WithParameterName("request");
-
-      Validate(null);
-      CultureInfo.GetCultures(CultureTypes.AllCultures).ForEach(Validate);
-    }
   }
 
   /// <summary>
@@ -85,6 +87,16 @@ public sealed class ITranslationApiRequestExtensionsTest : UnitTest
   [Fact]
   public void To_Method()
   {
+    using (new AssertionScope())
+    {
+      AssertionExtensions.Should(() => ITranslationApiRequestExtensions.To(null, CultureInfo.InvariantCulture)).ThrowExactly<ArgumentNullException>().WithParameterName("request");
+
+      Validate(null);
+      CultureInfo.GetCultures(CultureTypes.AllCultures).ForEach(Validate);
+    }
+
+    return;
+
     static void Validate(CultureInfo culture)
     {
       var request = new TranslationApiRequest();
@@ -103,14 +115,6 @@ public sealed class ITranslationApiRequestExtensionsTest : UnitTest
       {
         request.Parameters["lang"].Should().BeNull();
       }
-    }
-
-    using (new AssertionScope())
-    {
-      AssertionExtensions.Should(() => ITranslationApiRequestExtensions.To(null, CultureInfo.InvariantCulture)).ThrowExactly<ArgumentNullException>().WithParameterName("request");
-
-      Validate(null);
-      CultureInfo.GetCultures(CultureTypes.AllCultures).ForEach(Validate);
     }
   }
 }
