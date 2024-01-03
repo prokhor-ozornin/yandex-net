@@ -5,6 +5,7 @@ using FluentAssertions;
 using Xunit;
 using Yandex.Translator;
 using System.Configuration;
+using Catharsis.Commons;
 
 namespace Yandex.Tests.Translator;
 
@@ -43,7 +44,7 @@ public sealed class YandexTranslatorTests : UnitTest
   [Fact]
   public void PairsAsync_Method()
   {
-    AssertionExtensions.Should(() => Api.PairsAsync(Cancellation)).ThrowExactly<OperationCanceledException>();
+    AssertionExtensions.Should(() => Api.PairsAsync(Attributes.CancellationToken())).ThrowExactly<OperationCanceledException>();
 
     using var api = Api;
 
@@ -59,7 +60,7 @@ public sealed class YandexTranslatorTests : UnitTest
   {
     AssertionExtensions.Should(() => Api.DetectAsync(null)).ThrowExactlyAsync<ArgumentNullException>().Await();
     AssertionExtensions.Should(() => Api.DetectAsync(string.Empty)).ThrowExactlyAsync<ArgumentException>().Await();
-    AssertionExtensions.Should(() => Api.DetectAsync("text", Cancellation)).ThrowExactlyAsync<TaskCanceledException>().Await();
+    AssertionExtensions.Should(() => Api.DetectAsync("text", Attributes.CancellationToken())).ThrowExactlyAsync<TaskCanceledException>().Await();
 
     using var api = Api;
 
@@ -74,7 +75,7 @@ public sealed class YandexTranslatorTests : UnitTest
   public void TranslateAsync_Method()
   {
     AssertionExtensions.Should(() => Api.TranslateAsync(null)).ThrowExactlyAsync<ArgumentNullException>().WithParameterName("request").Await();
-    AssertionExtensions.Should(() => Api.TranslateAsync(null, Cancellation)).ThrowExactlyAsync<OperationCanceledException>().Await();
+    AssertionExtensions.Should(() => Api.TranslateAsync(null, Attributes.CancellationToken())).ThrowExactlyAsync<OperationCanceledException>().Await();
 
     using var api = Api;
 

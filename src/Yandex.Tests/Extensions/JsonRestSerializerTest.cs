@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using Catharsis.Commons;
+using Xunit;
 using Yandex.Translator;
 
 namespace Yandex.Tests;

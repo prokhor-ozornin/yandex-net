@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Catharsis.Commons;
+using Newtonsoft.Json;
 using FluentAssertions;
 using Xunit;
 

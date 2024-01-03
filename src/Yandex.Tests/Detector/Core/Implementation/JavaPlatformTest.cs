@@ -1,4 +1,5 @@
-﻿using FluentAssertions;
+﻿using Catharsis.Commons;
+using FluentAssertions;
 using Xunit;
 using Yandex.Detector;
 
@@ -7,7 +8,7 @@ namespace Yandex.Tests.Detector.Core.Implementation;
 /// <summary>
 ///   <para>Tests set for class <see cref="JavaPlatform"/>.</para>
 /// </summary>
-public sealed class JavaPlatformTest : EntityTest<JavaPlatform>
+public sealed class JavaPlatformTest : ClassTest<JavaPlatform>
 {
   /// <summary>
   ///   <para>Performs testing of <see cref="JavaPlatform.Camera"/> property.</para>
@@ -97,7 +98,7 @@ public sealed class JavaPlatformTest : EntityTest<JavaPlatform>
 /// <summary>
 ///   <para>Tests set for class <see cref="JavaPlatform.Info"/>.</para>
 /// </summary>
-public sealed class JavaPlatformInfoTests : EntityTest<JavaPlatform.Info>
+public sealed class JavaPlatformInfoTests : ClassTest<JavaPlatform.Info>
 {
   /// <summary>
   ///   <para>Performs testing of <see cref="JavaPlatform.Info.Camera"/> property.</para>

@@ -1,4 +1,5 @@
-﻿using Catharsis.Extensions;
+﻿using Catharsis.Commons;
+using Catharsis.Extensions;
 using FluentAssertions;
 using Xunit;
 using Yandex.Detector;
@@ -19,7 +20,7 @@ public sealed class MobileDetectorTest : UnitTest
   public void DetectAsync_Method()
   {
     AssertionExtensions.Should(() => Detector.DetectAsync(null)).ThrowExactlyAsync<ArgumentNullException>().WithParameterName("headers").Await();
-    AssertionExtensions.Should(() => Detector.DetectAsync(Cancellation)).ThrowExactlyAsync<OperationCanceledException>().Await();
+    AssertionExtensions.Should(() => Detector.DetectAsync(Attributes.CancellationToken())).ThrowExactlyAsync<OperationCanceledException>().Await();
 
     AssertionExtensions.Should(() => Detector.DetectAsync(new Dictionary<string, object>())).ThrowExactlyAsync<DetectorException>().Await().WithMessage("No HTTP headers were specified").Which.InnerException.Should().BeNull();
     AssertionExtensions.Should(() => Detector.DetectAsync(new Dictionary<string, object> {{"user-agent", "invalid"}})).ThrowExactlyAsync<DetectorException>().Await().WithMessage("Unknown user agent and wap profile").Which.InnerException.Should().BeNull();

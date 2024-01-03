@@ -1,4 +1,5 @@
 ﻿using System.Configuration;
+using Catharsis.Commons;
 using Catharsis.Extensions;
 using FluentAssertions;
 using FluentAssertions.Execution;
@@ -22,7 +23,7 @@ public sealed class IApiExtensionsTest : UnitTest
   {
     AssertionExtensions.Should(() => IApiExtensions.TranslateAsync(null, _ => { })).ThrowExactlyAsync<ArgumentNullException>().WithParameterName("api").Await();
     AssertionExtensions.Should(() => IApiExtensions.TranslateAsync(Api, null)).ThrowExactlyAsync<ArgumentNullException>().WithParameterName("action").Await();
-    AssertionExtensions.Should(() => Api.TranslateAsync(_ => { }, Cancellation)).ThrowExactlyAsync<OperationCanceledException>().Await();
+    AssertionExtensions.Should(() => Api.TranslateAsync(_ => { }, Attributes.CancellationToken())).ThrowExactlyAsync<OperationCanceledException>().Await();
 
     var translation = Api.TranslateAsync(request => request.From("ru").To("en").Text("Привет, мир")).Await();
     translation.Should().NotBeNull();
