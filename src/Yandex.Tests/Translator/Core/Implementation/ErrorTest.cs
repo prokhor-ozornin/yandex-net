@@ -1,5 +1,6 @@
 ﻿using Catharsis.Commons;
 using FluentAssertions;
+using FluentAssertions.Execution;
 using FluentAssertions.Json;
 using Xunit;
 using Yandex.Translator;
@@ -71,7 +72,18 @@ public sealed class ErrorTest : ClassTest<Error>
   ///   <para>Performs testing of <see cref="Error.ToString()"/> method.</para>
   /// </summary>
   [Fact]
-  public void ToString_Method() { new Error(1, Guid.Empty.ToString()).ToString().Should().Be(Guid.Empty.ToString()); }
+  public void ToString_Method()
+  {
+    using (new AssertionScope())
+    {
+      Validate(string.Empty, new Error(1, string.Empty));
+      Validate("text", new Error(1, "text"));
+    }
+
+    return;
+
+    static void Validate(string value, object instance) => instance.ToString().Should().Be(value);
+  }
 }
 
 /// <summary>
@@ -109,10 +121,20 @@ public sealed class ErrorInfoTests : ClassTest<Error.Info>
   [Fact]
   public void ToResult_Method()
   {
-    var result = new Error.Info().ToResult();
-    result.Should().NotBeNull().And.BeOfType<Error>();
-    result.Code.Should().Be(0);
-    result.Text.Should().BeEmpty();
+    using (new AssertionScope())
+    {
+      var result = new Error.Info().ToResult();
+      result.Should().NotBeNull().And.BeOfType<Error>();
+      result.Code.Should().Be(0);
+      result.Text.Should().BeEmpty();
+    }
+
+    return;
+
+    static void Validate()
+    {
+
+    }
   }
 
   /// <summary>
@@ -121,7 +143,13 @@ public sealed class ErrorInfoTests : ClassTest<Error.Info>
   [Fact]
   public void Serialization()
   {
-    var info = new Error.Info();
-    info.Should().BeDataContractSerializable().And.BeXmlSerializable().And.BeJsonSerializable();
+    using (new AssertionScope())
+    {
+      Validate(new Error.Info());
+    }
+
+    return;
+
+    static void Validate(object instance) => instance.Should().BeDataContractSerializable().And.BeXmlSerializable().And.BeJsonSerializable();
   }
 }

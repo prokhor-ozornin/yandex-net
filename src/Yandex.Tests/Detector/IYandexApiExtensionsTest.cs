@@ -1,5 +1,6 @@
 ﻿using Catharsis.Commons;
 using FluentAssertions;
+using FluentAssertions.Execution;
 using Xunit;
 using Yandex.Detector;
 
@@ -16,8 +17,18 @@ public sealed class IYandexApiExtensionsTest : UnitTest
   [Fact]
   public void Detector_Method()
   {
-    AssertionExtensions.Should(() => IYandexApiExtensions.Detector(null)).ThrowExactly<ArgumentNullException>().WithParameterName("api");
+    using (new AssertionScope())
+    {
+      AssertionExtensions.Should(() => IYandexApiExtensions.Detector(null)).ThrowExactly<ArgumentNullException>().WithParameterName("api");
 
-    Yandex.Api.Detector().Should().NotBeNull().And.NotBeSameAs(Yandex.Api.Detector()).And.BeOfType<MobileDetector>();
+      Yandex.Api.Detector().Should().NotBeNull().And.NotBeSameAs(Yandex.Api.Detector()).And.BeOfType<MobileDetector>();
+    }
+
+    return;
+
+    static void Validate()
+    {
+
+    }
   }
 }

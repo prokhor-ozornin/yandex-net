@@ -7,18 +7,10 @@ namespace Yandex.Translator;
 
 internal sealed class Api : IApi
 {
+  private RestClient RestClient { get; } = new("https://translate.yandex.net/api/v1.5/tr.json".ToUri(), configureSerialization: config => config.UseSerializer<JsonRestSerializer>());
   private bool disposed;
 
-  private Uri EndpointUrl { get; } = "https://translate.yandex.net/api/v1.5/tr".ToUri();
-  private RestClient RestClient { get; }
-
-  public Api(string key)
-  {
-    RestClient = new RestClient(EndpointUrl);
-    RestClient.Options.BaseUrl = $"{EndpointUrl}.json".ToUri();
-    RestClient.AddDefaultParameter("key", key);
-    RestClient.UseSerializer<JsonRestSerializer>();
-  }
+  public Api(string key) => RestClient.AddDefaultParameter("key", key);
 
   public async IAsyncEnumerable<ITranslationPair> PairsAsync([EnumeratorCancellation] CancellationToken cancellation = default)
   {
@@ -96,7 +88,7 @@ internal sealed class Api : IApi
       RequestFormat = DataFormat.Json
     };
 
-    if (parameters != null)
+    if (parameters is not null)
     {
       foreach (var parameter in parameters)
       {
@@ -106,7 +98,7 @@ internal sealed class Api : IApi
 
     var response = await RestClient.ExecuteGetAsync<T>(request, cancellation).ConfigureAwait(false);
 
-    if (response.ErrorException != null || response.StatusCode != HttpStatusCode.OK)
+    if (response.ErrorException is not null || response.StatusCode != HttpStatusCode.OK)
     {
       var responseError = new Error((int) response.StatusCode, response.ErrorMessage ?? (response.StatusDescription ?? response.StatusCode.ToInvariantString()));
       throw new TranslatorException(responseError, response.ErrorException);
@@ -122,7 +114,7 @@ internal sealed class Api : IApi
     {
     }
 
-    if (error != null && !error.Text.IsEmpty())
+    if (error is not null && !error.Text.IsEmpty())
     {
       throw new TranslatorException(error);
     }

@@ -1,5 +1,6 @@
 ﻿using Catharsis.Commons;
 using FluentAssertions;
+using FluentAssertions.Execution;
 using Xunit;
 using Yandex.Translator;
 
@@ -16,7 +17,10 @@ public sealed class IYandexApiExtensionsTest : UnitTest
   [Fact]
   public void Translator_Method()
   {
-    AssertionExtensions.Should(() => IYandexApiExtensions.Translator(null)).ThrowExactly<ArgumentNullException>().WithParameterName("api");
+    using (new AssertionScope())
+    {
+      AssertionExtensions.Should(() => IYandexApiExtensions.Translator(null)).ThrowExactly<ArgumentNullException>().WithParameterName("api");
+    }
 
     Yandex.Api.Translator().Should().NotBeNull().And.NotBeSameAs(Yandex.Api.Translator());
   }

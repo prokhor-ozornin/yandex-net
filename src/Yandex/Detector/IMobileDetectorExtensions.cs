@@ -20,7 +20,7 @@ public static class IMobileDetectorExtensions
     if (detector is null) throw new ArgumentNullException(nameof(detector));
     if (headers is null) throw new ArgumentNullException(nameof(headers));
 
-    return detector.DetectAsync(headers.ToDictionary(), cancellation);
+    return detector.DetectAsync(headers.ToReadOnlyDictionary(), cancellation);
   }
 
   /// <summary>

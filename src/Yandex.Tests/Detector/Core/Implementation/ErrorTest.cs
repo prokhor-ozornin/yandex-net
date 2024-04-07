@@ -1,5 +1,7 @@
 ﻿using Catharsis.Commons;
 using FluentAssertions;
+using FluentAssertions.Execution;
+using FluentAssertions.Json;
 using Xunit;
 using Yandex.Detector;
 
@@ -38,7 +40,7 @@ public sealed class ErrorTest : ClassTest<Error>
   /// <summary>
   ///   <para>Performs testing of following methods :</para>
   ///   <list type="bullet">
-  ///     <item><description><see cref="Error.Equals(IError)"/></description></item>
+  ///     <item><description><see cref="Error.Equals(Error)"/></description></item>
   ///     <item><description><see cref="Error.Equals(object)"/></description></item>
   ///   </list>
   /// </summary>
@@ -55,7 +57,19 @@ public sealed class ErrorTest : ClassTest<Error>
   ///   <para>Performs testing of <see cref="Error.ToString()"/> method.</para>
   /// </summary>
   [Fact]
-  public void ToString_Method() { new Error(new {Text = Guid.Empty.ToString()}).ToString().Should().Be(Guid.Empty.ToString()); }
+  public void ToString_Method()
+  {
+    using (new AssertionScope())
+    {
+      Validate(string.Empty, new Error(new {}));
+      Validate(string.Empty, new Error(new { Text = string.Empty }));
+      Validate("text", new Error(new { Text = "text" }));
+    }
+
+    return;
+
+    static void Validate(string value, object instance) => instance.ToString().Should().Be(value);
+  }
 }
 
 /// <summary>
@@ -86,9 +100,19 @@ public sealed class ErrorInfoTests : ClassTest<Error.Info>
   [Fact]
   public void ToResult_Method()
   {
-    var result = new Error.Info().ToResult();
-    result.Should().NotBeNull().And.BeOfType<Error>();
-    result.Text.Should().BeNull();
+    using (new AssertionScope())
+    {
+      var result = new Error.Info().ToResult();
+      result.Should().NotBeNull().And.BeOfType<Error>();
+      result.Text.Should().BeNull();
+    }
+
+    return;
+
+    static void Validate()
+    {
+
+    }
   }
 
   /// <summary>
@@ -97,7 +121,13 @@ public sealed class ErrorInfoTests : ClassTest<Error.Info>
   [Fact]
   public void Serialization()
   {
-    var info = new Error.Info();
-    info.Should().BeDataContractSerializable().And.BeXmlSerializable();
+    using (new AssertionScope())
+    {
+      Validate(new Error.Info());
+    }
+
+    return;
+
+    static void Validate(object instance) => instance.Should().BeDataContractSerializable().And.BeXmlSerializable().And.BeJsonSerializable();
   }
 }

@@ -44,7 +44,7 @@ public sealed class TranslationResult
   {
     Code = info.Code ?? 0;
     Language = info.Language ?? string.Empty;
-    Lines = info.Lines ?? new List<string>();
+    Lines = info.Lines ?? [];
   }
 
   /// <summary>
@@ -57,7 +57,7 @@ public sealed class TranslationResult
   ///   <para>Returns a <see cref="string"/> that represents the current <see cref="TranslationResult"/> instance.</para>
   /// </summary>
   /// <returns>A string that represents the current <see cref="TranslationResult"/>.</returns>
-  public override string ToString() => Lines.Join(string.Empty);
+  public override string ToString() => Lines.Join();
 
   /// <summary>
   ///   <para></para>

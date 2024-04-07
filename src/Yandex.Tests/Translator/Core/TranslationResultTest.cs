@@ -1,6 +1,7 @@
 ﻿using Catharsis.Commons;
 using Catharsis.Extensions;
 using FluentAssertions;
+using FluentAssertions.Execution;
 using FluentAssertions.Json;
 using Xunit;
 using Yandex.Translator;
@@ -70,7 +71,19 @@ public sealed class TranslationResultTest : ClassTest<TranslationResult>
   ///   <para>Performs testing of <see cref="TranslationResult.ToString()"/> method.</para>
   /// </summary>
   [Fact]
-  public void ToString_Method() { new TranslationResult(new {Lines = new List<string> {"first", "second"}}).ToString().Should().Be("firstsecond"); }
+  public void ToString_Method()
+  {
+    using (new AssertionScope())
+    {
+      Validate(string.Empty, new TranslationResult(new { }));
+      Validate(string.Empty, new TranslationResult(new { Lines = new List<string>() }));
+      Validate("firstsecond", new TranslationResult(new { Lines = new List<string> { "first", "second" } }));
+    }
+
+    return;
+
+    static void Validate(string value, object instance) => instance.ToString().Should().Be(value);
+  }
 }
 
 /// <summary>
@@ -119,11 +132,21 @@ public sealed class TranslationResultInfoTests : ClassTest<TranslationResult.Inf
   [Fact]
   public void ToResult_Method()
   {
-    var result = new TranslationResult.Info().ToResult();
-    result.Should().NotBeNull().And.BeOfType<TranslationResult>();
-    result.Code.Should().Be(0);
-    result.Language.Should().BeEmpty();
-    result.Lines.Should().BeEmpty();
+    using (new AssertionScope())
+    {
+      var result = new TranslationResult.Info().ToResult();
+      result.Should().NotBeNull().And.BeOfType<TranslationResult>();
+      result.Code.Should().Be(0);
+      result.Language.Should().BeEmpty();
+      result.Lines.Should().BeEmpty();
+    }
+
+    return;
+
+    static void Validate()
+    {
+
+    }
   }
 
   /// <summary>
@@ -132,7 +155,13 @@ public sealed class TranslationResultInfoTests : ClassTest<TranslationResult.Inf
   [Fact]
   public void Serialization()
   {
-    var info = new TranslationResult.Info();
-    info.Should().BeDataContractSerializable().And.BeXmlSerializable().And.BeJsonSerializable();
+    using (new AssertionScope())
+    {
+      Validate(new TranslationResult.Info());
+    }
+
+    return;
+
+    static void Validate(object instance) => instance.Should().BeDataContractSerializable().And.BeXmlSerializable().And.BeJsonSerializable();
   }
 }

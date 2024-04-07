@@ -1,5 +1,7 @@
 ﻿using Catharsis.Commons;
 using FluentAssertions;
+using FluentAssertions.Execution;
+using FluentAssertions.Json;
 using Xunit;
 using Yandex.Detector;
 
@@ -144,12 +146,22 @@ public sealed class JavaPlatformInfoTests : ClassTest<JavaPlatform.Info>
   [Fact]
   public void ToResult_Method()
   {
-    var result = new JavaPlatform.Info().ToResult();
-    result.Should().NotBeNull().And.BeOfType<JavaPlatform>();
-    result.Camera.Should().BeFalse();
-    result.FileSystem.Should().BeFalse();
-    result.Certificate.Should().BeNull();
-    result.Icon.Should().BeNull();
+    using (new AssertionScope())
+    {
+      var result = new JavaPlatform.Info().ToResult();
+      result.Should().NotBeNull().And.BeOfType<JavaPlatform>();
+      result.Camera.Should().BeFalse();
+      result.FileSystem.Should().BeFalse();
+      result.Certificate.Should().BeNull();
+      result.Icon.Should().BeNull();
+    }
+
+    return;
+
+    static void Validate()
+    {
+
+    }
   }
 
   /// <summary>
@@ -158,7 +170,13 @@ public sealed class JavaPlatformInfoTests : ClassTest<JavaPlatform.Info>
   [Fact]
   public void Serialization()
   {
-    var info = new JavaPlatform.Info();
-    info.Should().BeDataContractSerializable().And.BeXmlSerializable();
+    using (new AssertionScope())
+    {
+      Validate(new JavaPlatform.Info());
+    }
+
+    return;
+
+    static void Validate(object instance) => instance.Should().BeDataContractSerializable().And.BeXmlSerializable().And.BeJsonSerializable();
   }
 }

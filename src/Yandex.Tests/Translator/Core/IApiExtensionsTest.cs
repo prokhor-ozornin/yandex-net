@@ -21,15 +21,25 @@ public sealed class IApiExtensionsTest : UnitTest
   [Fact]
   public void TranslateAsync_Method()
   {
-    AssertionExtensions.Should(() => IApiExtensions.TranslateAsync(null, _ => { })).ThrowExactlyAsync<ArgumentNullException>().WithParameterName("api").Await();
-    AssertionExtensions.Should(() => IApiExtensions.TranslateAsync(Api, null)).ThrowExactlyAsync<ArgumentNullException>().WithParameterName("action").Await();
-    AssertionExtensions.Should(() => Api.TranslateAsync(_ => { }, Attributes.CancellationToken())).ThrowExactlyAsync<OperationCanceledException>().Await();
+    using (new AssertionScope())
+    {
+      AssertionExtensions.Should(() => IApiExtensions.TranslateAsync(null, _ => { })).ThrowExactlyAsync<ArgumentNullException>().WithParameterName("api").Await();
+      AssertionExtensions.Should(() => IApiExtensions.TranslateAsync(Api, null)).ThrowExactlyAsync<ArgumentNullException>().WithParameterName("action").Await();
+      AssertionExtensions.Should(() => Api.TranslateAsync(_ => { }, Attributes.CancellationToken())).ThrowExactlyAsync<OperationCanceledException>().Await();
 
-    var translation = Api.TranslateAsync(request => request.From("ru").To("en").Text("Привет, мир")).Await();
-    translation.Should().NotBeNull();
-    translation.FromLanguage.Should().Be("ru");
-    translation.ToLanguage.Should().Be("en");
-    translation.Text.Should().Be("Hello world");
+      var translation = Api.TranslateAsync(request => request.From("ru").To("en").Text("Привет, мир")).Await();
+      translation.Should().NotBeNull();
+      translation.FromLanguage.Should().Be("ru");
+      translation.ToLanguage.Should().Be("en");
+      translation.Text.Should().Be("Hello world");
+    }
+
+    return;
+
+    static void Validate()
+    {
+
+    }
   }
 
   /// <summary>
@@ -38,9 +48,19 @@ public sealed class IApiExtensionsTest : UnitTest
   [Fact]
   public void Pairs_Method()
   {
-    AssertionExtensions.Should(() => IApiExtensions.Pairs(null)).ThrowExactly<ArgumentNullException>().WithParameterName("api");
+    using (new AssertionScope())
+    {
+      AssertionExtensions.Should(() => IApiExtensions.Pairs(null)).ThrowExactly<ArgumentNullException>().WithParameterName("api");
 
-    Api.Pairs().Should().NotBeNullOrEmpty().And.HaveCountGreaterThanOrEqualTo(2).And.Contain(translation => translation.FromLanguage == "en" && translation.ToLanguage == "ru").And.Contain(translation => translation.FromLanguage == "ru" && translation.ToLanguage == "en");
+      Api.Pairs().Should().NotBeNullOrEmpty().And.HaveCountGreaterThanOrEqualTo(2).And.Contain(translation => translation.FromLanguage == "en" && translation.ToLanguage == "ru").And.Contain(translation => translation.FromLanguage == "ru" && translation.ToLanguage == "en");
+    }
+
+    return;
+
+    static void Validate()
+    {
+
+    }
   }
 
   /// <summary>
@@ -49,11 +69,21 @@ public sealed class IApiExtensionsTest : UnitTest
   [Fact]
   public void Detect_Method()
   {
-    AssertionExtensions.Should(() => IApiExtensions.Detect(null, string.Empty)).ThrowExactly<ArgumentNullException>().WithParameterName("api");
-    AssertionExtensions.Should(() => Api.Detect(null)).ThrowExactly<ArgumentNullException>().WithParameterName("text");
+    using (new AssertionScope())
+    {
+      AssertionExtensions.Should(() => IApiExtensions.Detect(null, string.Empty)).ThrowExactly<ArgumentNullException>().WithParameterName("api");
+      AssertionExtensions.Should(() => Api.Detect(null)).ThrowExactly<ArgumentNullException>().WithParameterName("text");
 
-    Api.Detect("Hello, world").Should().NotBeNull().And.Be("en");
-    Api.Detect("Привет, мир").Should().NotBeNull().And.Be("ru");
+      Api.Detect("Hello, world").Should().NotBeNull().And.Be("en");
+      Api.Detect("Привет, мир").Should().NotBeNull().And.Be("ru");
+    }
+
+    return;
+
+    static void Validate()
+    {
+
+    }
   }
 
   /// <summary>
@@ -91,8 +121,5 @@ public sealed class IApiExtensionsTest : UnitTest
     }
   }
 
-  public override void Dispose()
-  {
-    Api.Dispose();
-  }
+  public override void Dispose() => Api.Dispose();
 }

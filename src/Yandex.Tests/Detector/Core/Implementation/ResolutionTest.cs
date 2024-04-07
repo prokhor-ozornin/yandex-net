@@ -1,5 +1,6 @@
 ﻿using Catharsis.Commons;
 using FluentAssertions;
+using FluentAssertions.Execution;
 using Xunit;
 using Yandex.Detector;
 
@@ -64,7 +65,14 @@ public sealed class ResolutionTest : ClassTest<Resolution>
   [Fact]
   public void ToString_Method()
   {
-    new Resolution().ToString().Should().Be("0x0");
-    new Resolution {Width = short.MinValue, Height = short.MaxValue}.ToString().Should().Be($"{short.MinValue}x${short.MaxValue}");
+    using (new AssertionScope())
+    {
+      Validate("0x0", new Resolution());
+      Validate($"{short.MinValue}x${short.MaxValue}", new Resolution { Width = short.MinValue, Height = short.MaxValue });
+    }
+
+    return;
+
+    static void Validate(string value, object instance) => instance.ToString().Should().Be(value);
   }
 }

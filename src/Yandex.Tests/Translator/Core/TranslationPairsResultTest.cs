@@ -1,6 +1,7 @@
 ﻿using Catharsis.Commons;
 using Catharsis.Extensions;
 using FluentAssertions;
+using FluentAssertions.Execution;
 using FluentAssertions.Json;
 using Xunit;
 using Yandex.Translator;
@@ -80,9 +81,19 @@ public sealed class TranslationPairsResponseInfoTests
   [Fact]
   public void ToResult_Method()
   {
-    var result = new TranslationPairsResult.Info().ToResult();
-    result.Should().NotBeNull().And.BeOfType<TranslationPairTest>();
-    result.Pairs.Should().BeEmpty();
+    using (new AssertionScope())
+    {
+      var result = new TranslationPairsResult.Info().ToResult();
+      result.Should().NotBeNull().And.BeOfType<TranslationPairTest>();
+      result.Pairs.Should().BeEmpty();
+    }
+
+    return;
+
+    static void Validate()
+    {
+
+    }
   }
 
   /// <summary>
@@ -91,7 +102,13 @@ public sealed class TranslationPairsResponseInfoTests
   [Fact]
   public void Serialization()
   {
-    var info = new TranslationPairsResult.Info();
-    info.Should().BeDataContractSerializable().And.BeXmlSerializable().And.BeJsonSerializable();
+    using (new AssertionScope())
+    {
+      Validate(new TranslationPairsResult.Info());
+    }
+
+    return;
+
+    static void Validate(object instance) => instance.Should().BeDataContractSerializable().And.BeXmlSerializable().And.BeJsonSerializable();
   }
 }

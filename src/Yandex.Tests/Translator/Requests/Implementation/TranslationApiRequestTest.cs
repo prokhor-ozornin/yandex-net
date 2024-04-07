@@ -1,5 +1,7 @@
-﻿using Catharsis.Commons;
+﻿using System.Diagnostics;
+using Catharsis.Commons;
 using FluentAssertions;
+using FluentAssertions.Execution;
 using Xunit;
 using Yandex.Translator;
 
@@ -27,15 +29,25 @@ public sealed class TranslationApiRequestTest : UnitTest
   [Fact]
   public void Format_Method()
   {
-    var request = new TranslationApiRequest();
+    using (new AssertionScope())
+    {
+      var request = new TranslationApiRequest();
 
-    request.Parameters.Should().BeEmpty();
+      request.Parameters.Should().BeEmpty();
 
-    request.Format(null).Should().NotBeNull().And.BeSameAs(request);
-    request.Parameters["format"].Should().BeNull();
+      request.Format(null).Should().NotBeNull().And.BeSameAs(request);
+      request.Parameters["format"].Should().BeNull();
 
-    request.Format("html").Should().NotBeNull().And.BeSameAs(request);
-    request.Parameters["format"].Should().Be("html");
+      request.Format("html").Should().NotBeNull().And.BeSameAs(request);
+      request.Parameters["format"].Should().Be("html");
+    }
+
+    return;
+
+    static void Validate()
+    {
+
+    }
   }
 
   /// <summary>
@@ -44,18 +56,28 @@ public sealed class TranslationApiRequestTest : UnitTest
   [Fact]
   public void From_Method()
   {
-    var request = new TranslationApiRequest();
+    using (new AssertionScope())
+    {
+      var request = new TranslationApiRequest();
 
-    request.Parameters.Should().BeEmpty();
+      request.Parameters.Should().BeEmpty();
 
-    request.From(null).Should().NotBeNull().And.BeSameAs(request);
-    request.Parameters["lang"].Should().BeNull();
+      request.From(null).Should().NotBeNull().And.BeSameAs(request);
+      request.Parameters["lang"].Should().BeNull();
 
-    request.From("en").Should().NotBeNull().And.BeSameAs(request);
-    request.Parameters["lang"].Should().Be("en");
+      request.From("en").Should().NotBeNull().And.BeSameAs(request);
+      request.Parameters["lang"].Should().Be("en");
 
-    request.From("to").Should().NotBeNull().And.BeSameAs(request);
-    request.Parameters["lang"].Should().Be("en-ru");
+      request.From("to").Should().NotBeNull().And.BeSameAs(request);
+      request.Parameters["lang"].Should().Be("en-ru");
+    }
+
+    return;
+
+    static void Validate()
+    {
+
+    }
   }
 
   /// <summary>
@@ -64,18 +86,28 @@ public sealed class TranslationApiRequestTest : UnitTest
   [Fact]
   public void To_Method()
   {
-    var request = new TranslationApiRequest();
+    using (new AssertionScope())
+    {
+      var request = new TranslationApiRequest();
 
-    request.Parameters.Should().BeEmpty();
+      request.Parameters.Should().BeEmpty();
 
-    request.To(null).Should().NotBeNull().And.BeSameAs(request);
-    request.Parameters["lang"].Should().BeNull();
+      request.To(null).Should().NotBeNull().And.BeSameAs(request);
+      request.Parameters["lang"].Should().BeNull();
 
-    request.To("ru").Should().NotBeNull().And.BeSameAs(request);
-    request.Parameters["lang"].Should().Be("ru");
+      request.To("ru").Should().NotBeNull().And.BeSameAs(request);
+      request.Parameters["lang"].Should().Be("ru");
 
-    request.From("en").Should().NotBeNull().And.BeSameAs(request);
-    request.Parameters["lang"].Should().Be("en-ru");
+      request.From("en").Should().NotBeNull().And.BeSameAs(request);
+      request.Parameters["lang"].Should().Be("en-ru");
+    }
+
+    return;
+
+    static void Validate()
+    {
+
+    }
   }
 
   /// <summary>
@@ -84,14 +116,24 @@ public sealed class TranslationApiRequestTest : UnitTest
   [Fact]
   public void Text_Method()
   {
-    var request = new TranslationApiRequest();
+    using (new AssertionScope())
+    {
+      var request = new TranslationApiRequest();
 
-    request.Parameters.Should().BeEmpty();
+      request.Parameters.Should().BeEmpty();
 
-    request.Text(null).Should().NotBeNull().And.BeSameAs(request);
-    request.Parameters["text"].Should().BeNull();
+      request.Text(null).Should().NotBeNull().And.BeSameAs(request);
+      request.Parameters["text"].Should().BeNull();
 
-    request.Text("text").Should().NotBeNull().And.BeSameAs(request);
-    request.Parameters["text"].Should().Be("text");
+      request.Text("text").Should().NotBeNull().And.BeSameAs(request);
+      request.Parameters["text"].Should().Be("text");
+    }
+
+    return;
+
+    static void Validate()
+    {
+
+    }
   }
 }

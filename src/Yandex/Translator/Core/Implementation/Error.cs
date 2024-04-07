@@ -31,7 +31,7 @@ public sealed class Error : IError
 
   public override int GetHashCode() => this.HashCode(nameof(Code));
 
-  public override string ToString() => Text;
+  public override string ToString() => Text ?? string.Empty;
 
   [DataContract(Name = "Error")]
   public sealed record Info : IResultable<IError>

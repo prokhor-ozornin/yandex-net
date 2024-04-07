@@ -1,6 +1,7 @@
 ﻿using Catharsis.Commons;
 using Newtonsoft.Json;
 using FluentAssertions;
+using FluentAssertions.Execution;
 using Xunit;
 
 namespace Yandex.Tests;
@@ -16,7 +17,17 @@ public sealed class JsonExtensionsTest : UnitTest
   [Fact]
   public void SerializeAsJson_Method()
   {
-    AssertionExtensions.Should(() => JsonExtensions.SerializeAsJson(null)).ThrowExactly<ArgumentNullException>().WithParameterName("instance");
+    using (new AssertionScope())
+    {
+      AssertionExtensions.Should(() => JsonExtensions.SerializeAsJson(null)).ThrowExactly<ArgumentNullException>().WithParameterName("instance");
+    }
+
+    return;
+
+    static void Validate()
+    {
+
+    }
 
     throw new NotImplementedException();
   }
@@ -27,7 +38,17 @@ public sealed class JsonExtensionsTest : UnitTest
   [Fact]
   public void DeserializeAsJson_Method()
   {
-    AssertionExtensions.Should(() => JsonExtensions.DeserializeAsJson<object>(null)).ThrowExactly<ArgumentNullException>().WithParameterName("json");
+    using (new AssertionScope())
+    {
+      AssertionExtensions.Should(() => JsonExtensions.DeserializeAsJson<object>(null)).ThrowExactly<ArgumentNullException>().WithParameterName("json");
+    }
+
+    return;
+
+    static void Validate()
+    {
+
+    }
 
     throw new NotImplementedException();
   }

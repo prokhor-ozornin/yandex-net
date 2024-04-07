@@ -1,5 +1,7 @@
 ﻿using Catharsis.Commons;
 using FluentAssertions;
+using FluentAssertions.Execution;
+using FluentAssertions.Json;
 using Xunit;
 using Yandex.Detector;
 
@@ -108,7 +110,19 @@ public sealed class MobileDeviceTest : ClassTest<MobileDevice>
   ///   <para>Performs testing of <see cref="MobileDevice.ToString()"/> method.</para>
   /// </summary>
   [Fact]
-  public void ToString_Method() { new MobileDevice(new {Name = "name"}).ToString().Should().Be("name"); }
+  public void ToString_Method()
+  {
+    using (new AssertionScope())
+    {
+      Validate(string.Empty, new MobileDevice(new {}));
+      Validate(string.Empty, new MobileDevice(new { Name = string.Empty }));
+      Validate("name", new MobileDevice(new { Name = "name" }));
+    }
+
+    return;
+
+    static void Validate(string value, object instance) => instance.ToString().Should().Be(value);
+  }
 }
 
 /// <summary>
@@ -185,23 +199,39 @@ public sealed class MobileDeviceInfoTests : ClassTest<MobileDevice.Info>
   [Fact]
   public void ToResult_Method()
   {
-    var result = new MobileDevice.Info().ToResult();
-    result.Should().NotBeNull().And.BeOfType<MobileDevice>();
-    result.Name.Should().BeEmpty();
-    result.DeviceClass.Should().BeEmpty();
-    result.Vendor.Should().BeEmpty();
-    result.Description.Should().BeEmpty();
-    result.Screen.Should().BeNull();
-    result.JavaPlatform.Should().BeNull();
+    using (new AssertionScope())
+    {
+      var result = new MobileDevice.Info().ToResult();
+      result.Should().NotBeNull().And.BeOfType<MobileDevice>();
+      result.Name.Should().BeEmpty();
+      result.DeviceClass.Should().BeEmpty();
+      result.Vendor.Should().BeEmpty();
+      result.Description.Should().BeEmpty();
+      result.Screen.Should().BeNull();
+      result.JavaPlatform.Should().BeNull();
+    }
+
+    return;
+
+    static void Validate()
+    {
+
+    }
   }
 
-  /// <summary>
-  ///   <para>Performs testing of serialization/deserialization process.</para>
-  /// </summary>
-  [Fact]
+    /// <summary>
+    ///   <para>Performs testing of serialization/deserialization process.</para>
+    /// </summary>
+    [Fact]
   public void Serialization()
   {
-    var info = new MobileDevice.Info();
-    info.Should().BeDataContractSerializable().And.BeXmlSerializable();
+    using (new AssertionScope())
+    {
+      Validate(new MobileDevice.Info());
+    }
+
+    return;
+
+    static void Validate(object instance) => instance.Should().BeDataContractSerializable().And.BeXmlSerializable().And.BeJsonSerializable();
   }
 }

@@ -22,5 +22,5 @@ internal sealed record Translation : ITranslation
 
   public string ToLanguage { get; }
 
-  public override string ToString() => Text;
+  public override string ToString() => Text ?? string.Empty;
 }

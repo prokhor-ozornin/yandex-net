@@ -1,5 +1,6 @@
 ﻿using Catharsis.Commons;
 using FluentAssertions;
+using FluentAssertions.Execution;
 using FluentAssertions.Json;
 using Xunit;
 using Yandex.Translator;
@@ -81,10 +82,20 @@ public sealed class DetectedLanguageResultInfoTests
   [Fact]
   public void ToResult_Method()
   {
-    var result = new DetectedLanguageResult.Info().ToResult();
-    result.Should().NotBeNull().And.BeOfType<DetectedLanguageResult>();
-    result.Code.Should().Be(0);
-    result.Language.Should().BeEmpty();
+    using (new AssertionScope())
+    {
+      var result = new DetectedLanguageResult.Info().ToResult();
+      result.Should().NotBeNull().And.BeOfType<DetectedLanguageResult>();
+      result.Code.Should().Be(0);
+      result.Language.Should().BeEmpty();
+    }
+
+    return;
+
+    static void Validate()
+    {
+
+    }
   }
 
   /// <summary>
@@ -93,7 +104,13 @@ public sealed class DetectedLanguageResultInfoTests
   [Fact]
   public void Serialization()
   {
-    var info = new DetectedLanguageResult.Info();
-    info.Should().BeDataContractSerializable().And.BeXmlSerializable().And.BeJsonSerializable();
+    using (new AssertionScope())
+    {
+      Validate(new DetectedLanguageResult.Info());
+    }
+
+    return;
+
+    static void Validate(object instance) => instance.Should().BeDataContractSerializable().And.BeXmlSerializable().And.BeJsonSerializable();
   }
 }

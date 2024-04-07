@@ -1,5 +1,6 @@
 ﻿using Catharsis.Commons;
 using FluentAssertions;
+using FluentAssertions.Execution;
 using Xunit;
 using Yandex.Detector;
 
@@ -27,15 +28,25 @@ public sealed class DetectorRequestTest : UnitTest
   [Fact]
   public void Header_Method()
   {
-    AssertionExtensions.Should(() => new DetectorRequest().WithHeader(null, "value")).ThrowExactly<ArgumentNullException>().WithParameterName("name");
-    AssertionExtensions.Should(() => new DetectorRequest().WithHeader(string.Empty, "value")).ThrowExactly<ArgumentException>().WithParameterName("name");
+    using (new AssertionScope())
+    {
+      AssertionExtensions.Should(() => new DetectorRequest().WithHeader(null, "value")).ThrowExactly<ArgumentNullException>().WithParameterName("name");
+      AssertionExtensions.Should(() => new DetectorRequest().WithHeader(string.Empty, "value")).ThrowExactly<ArgumentException>().WithParameterName("name");
 
-    var request = new DetectorRequest();
-    
-    request.Headers.Should().BeEmpty();
+      var request = new DetectorRequest();
+      
+      request.Headers.Should().BeEmpty();
 
-    request.WithHeader("uuid", Guid.Empty).Should().NotBeNull().And.BeSameAs(request);
-    request.Headers.Should().ContainSingle();
-    request.Headers["uuid"].Should().Be(Guid.Empty);
+      request.WithHeader("uuid", Guid.Empty).Should().NotBeNull().And.BeSameAs(request);
+      request.Headers.Should().ContainSingle();
+      request.Headers["uuid"].Should().Be(Guid.Empty);
+    }
+
+    return;
+
+    static void Validate()
+    {
+
+    }
   }
 }

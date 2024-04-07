@@ -1,5 +1,6 @@
 ﻿using Catharsis.Commons;
 using FluentAssertions;
+using FluentAssertions.Execution;
 using Xunit;
 using Yandex.Translator;
 
@@ -61,5 +62,15 @@ public sealed class TranslationTest : UnitTest
   ///   <para>Performs testing of <see cref="Translation.ToString()"/> method.</para>
   /// </summary>
   [Fact]
-  public void ToString_Method() { new Translation("fromLanguage", "toLanguage", "text").ToString().Should().Be("text"); }
+  public void ToString_Method()
+  {
+    using (new AssertionScope())
+    {
+      Validate("text", new Translation("fromLanguage", "toLanguage", "text"));
+    }
+
+    return;
+
+    static void Validate(string value, object instance) => instance.ToString().Should().Be(value);
+  }
 }

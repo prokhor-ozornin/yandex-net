@@ -55,7 +55,7 @@ public sealed record JavaPlatform : IJavaPlatform
     Camera = info.Camera > 0;
     FileSystem = info.FileSystem > 0;
     Certificate = info.Certificate;
-    Icon = info.Icon != null && info.Icon.Contains('x') ? new Resolution { Height = info.Icon?.Split('x')[1].ToShort() ?? 0, Width = info.Icon?.Split('x')[0].ToShort() ?? 0 } : null;
+    Icon = info.Icon is not null && info.Icon.Contains('x') ? new Resolution { Height = info.Icon?.Split('x')[1].ToShort() ?? 0, Width = info.Icon?.Split('x')[0].ToShort() ?? 0 } : null;
   }
 
   /// <summary>

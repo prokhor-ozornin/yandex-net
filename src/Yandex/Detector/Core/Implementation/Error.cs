@@ -37,7 +37,7 @@ public sealed record Error : IError
   ///   <para>Returns a <see cref="string"/> that represents the current <see cref="Error"/> instance.</para>
   /// </summary>
   /// <returns>A string that represents the current <see cref="Error"/>.</returns>
-  public override string ToString() => Text;
+  public override string ToString() => Text ?? string.Empty;
 
   /// <summary>
   ///   <para></para>

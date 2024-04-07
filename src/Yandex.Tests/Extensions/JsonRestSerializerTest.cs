@@ -1,4 +1,5 @@
 ﻿using Catharsis.Commons;
+using FluentAssertions.Execution;
 using Xunit;
 using Yandex.Translator;
 
@@ -19,6 +20,10 @@ public sealed class JsonRestSerializerTest : UnitTest
   [Fact]
   public void Serialize_Methods()
   {
+    using (new AssertionScope())
+    {
+    }
+
     throw new NotImplementedException();
   }
 
@@ -28,6 +33,10 @@ public sealed class JsonRestSerializerTest : UnitTest
   [Fact]
   public void Deserialize_Method()
   {
+    using (new AssertionScope())
+    {
+    }
+
     throw new NotImplementedException();
   }
 
@@ -37,6 +46,10 @@ public sealed class JsonRestSerializerTest : UnitTest
   [Fact]
   public void Serializer_Property()
   {
+    using (new AssertionScope())
+    {
+    }
+
     throw new NotImplementedException();
   }
 
@@ -46,6 +59,10 @@ public sealed class JsonRestSerializerTest : UnitTest
   [Fact]
   public void Deserializer_Property()
   {
+    using (new AssertionScope())
+    {
+    }
+
     throw new NotImplementedException();
   }
 
@@ -55,6 +72,10 @@ public sealed class JsonRestSerializerTest : UnitTest
   [Fact]
   public void DataFormat_Property()
   {
+    using (new AssertionScope())
+    {
+    }
+
     throw new NotImplementedException();
   }
 
@@ -64,6 +85,10 @@ public sealed class JsonRestSerializerTest : UnitTest
   [Fact]
   public void ContentType_Property()
   {
+    using (new AssertionScope())
+    {
+    }
+
     throw new NotImplementedException();
   }
 
@@ -73,6 +98,10 @@ public sealed class JsonRestSerializerTest : UnitTest
   [Fact]
   public void AcceptedContentTypes_Property()
   {
+    using (new AssertionScope())
+    {
+    }
+
     throw new NotImplementedException();
   }
 
@@ -82,6 +111,10 @@ public sealed class JsonRestSerializerTest : UnitTest
   [Fact]
   public void SupportsContentType_Delegate()
   {
+    using (new AssertionScope())
+    {
+    }
+
     throw new NotImplementedException();
   }
 }

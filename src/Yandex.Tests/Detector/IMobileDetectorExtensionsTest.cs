@@ -14,7 +14,7 @@ public sealed class IMobileDetectorExtensionsTest : UnitTest
   /// <summary>
   ///   <para>Performs testing of following methods :</para>
   ///   <list type="bullet">
-  ///     <item><description><see cref="IMobileDetectorExtensions.Detect(IMobileDetector, (string Name, object Value)[])"/></description></item>
+  ///     <item><description><see cref="IMobileDetectorExtensions.Detect(IMobileDetector, ValueTuple{string, object}[])"/></description></item>
   ///     <item><description><see cref="IMobileDetectorExtensions.Detect(IMobileDetector, Action{IDetectorRequest})"/></description></item>
   ///   </list>
   /// </summary>

@@ -54,7 +54,7 @@ public static class JsonExtensions
 
       var id = properties.FirstOrDefault(property => property.PropertyName.ToLowerInvariant() == "id");
 
-      if (id != null)
+      if (id is not null)
       {
         properties.Remove(id);
         properties.Insert(0, id);

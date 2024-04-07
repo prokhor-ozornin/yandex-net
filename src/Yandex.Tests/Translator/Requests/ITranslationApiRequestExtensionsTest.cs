@@ -19,14 +19,24 @@ public sealed class ITranslationApiRequestExtensionsTest : UnitTest
   [Fact]
   public void AsHtml_Method()
   {
-    AssertionExtensions.Should(() => ITranslationApiRequestExtensions.AsHtml(null)).ThrowExactly<ArgumentNullException>().WithParameterName("request");
+    using (new AssertionScope())
+    {
+      AssertionExtensions.Should(() => ITranslationApiRequestExtensions.AsHtml(null)).ThrowExactly<ArgumentNullException>().WithParameterName("request");
 
-    var request = new TranslationApiRequest();
+      var request = new TranslationApiRequest();
 
-    request.Parameters.Should().BeEmpty();
+      request.Parameters.Should().BeEmpty();
 
-    request.AsHtml().Should().NotBeNull().And.BeSameAs(request);
-    request.Parameters["format"].Should().Be("html");
+      request.AsHtml().Should().NotBeNull().And.BeSameAs(request);
+      request.Parameters["format"].Should().Be("html");
+    }
+
+    return;
+
+    static void Validate()
+    {
+
+    }
   }
 
   /// <summary>
@@ -35,14 +45,24 @@ public sealed class ITranslationApiRequestExtensionsTest : UnitTest
   [Fact]
   public void AsText_Method()
   {
-    AssertionExtensions.Should(() => ITranslationApiRequestExtensions.AsText(null)).ThrowExactly<ArgumentNullException>().WithParameterName("request");
+    using (new AssertionScope())
+    {
+      AssertionExtensions.Should(() => ITranslationApiRequestExtensions.AsText(null)).ThrowExactly<ArgumentNullException>().WithParameterName("request");
 
-    var request = new TranslationApiRequest();
+      var request = new TranslationApiRequest();
 
-    request.Parameters.Should().BeEmpty();
+      request.Parameters.Should().BeEmpty();
 
-    request.AsText().Should().NotBeNull().And.BeSameAs(request);
-    request.Parameters["format"].Should().Be("plain");
+      request.AsText().Should().NotBeNull().And.BeSameAs(request);
+      request.Parameters["format"].Should().Be("plain");
+    }
+
+    return;
+
+    static void Validate()
+    {
+
+    }
   }
 
   /// <summary>
@@ -71,7 +91,7 @@ public sealed class ITranslationApiRequestExtensionsTest : UnitTest
       request.Parameters["lang"].Should().Be(culture?.TwoLetterISOLanguageName);
       request.To(culture).Should().NotBeNull().And.BeSameAs(request);
 
-      if (culture != null)
+      if (culture is not null)
       {
         request.Parameters["lang"].Should().Be($"{culture.TwoLetterISOLanguageName}-{culture.TwoLetterISOLanguageName}");
       }
@@ -108,7 +128,7 @@ public sealed class ITranslationApiRequestExtensionsTest : UnitTest
       request.Parameters["lang"].Should().Be(culture?.TwoLetterISOLanguageName);
       request.To(culture).Should().NotBeNull().And.BeSameAs(request);
 
-      if (culture != null)
+      if (culture is not null)
       {
         request.Parameters["lang"].Should().Be($"{culture.TwoLetterISOLanguageName}-{culture.TwoLetterISOLanguageName}");
       }
