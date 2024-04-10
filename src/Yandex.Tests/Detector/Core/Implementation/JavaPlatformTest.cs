@@ -1,4 +1,5 @@
-﻿using Catharsis.Commons;
+﻿using System.Runtime.Serialization;
+using Catharsis.Commons;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using FluentAssertions.Json;
@@ -49,6 +50,8 @@ public sealed class JavaPlatformTest : ClassTest<JavaPlatform>
   [Fact]
   public void Constructors()
   {
+    typeof(JavaPlatform).Should().BeDerivedFrom<object>().And.Implement<IJavaPlatform>();
+
     var java = new JavaPlatform(true, true, "certificate", new Resolution {Width = short.MinValue, Height = short.MaxValue});
     java.Camera.Should().BeTrue();
     java.FileSystem.Should().BeTrue();
@@ -133,6 +136,8 @@ public sealed class JavaPlatformInfoTests : ClassTest<JavaPlatform.Info>
   [Fact]
   public void Constructors()
   {
+    typeof(JavaPlatform.Info).Should().BeDerivedFrom<object>().And.Implement<IResultable<IJavaPlatform>>().And.BeDecoratedWith<DataContractAttribute>();
+
     var info = new JavaPlatform.Info();
     info.Camera.Should().BeNull();
     info.FileSystem.Should().BeNull();

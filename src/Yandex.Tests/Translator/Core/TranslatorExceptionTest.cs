@@ -17,6 +17,8 @@ public sealed class TranslatorExceptionTest : UnitTest
   [Fact]
   public void Constructors()
   {
+    typeof(TranslatorException).Should().BeDerivedFrom<Exception>();
+
     var exception = new TranslatorException();
     exception.InnerException.Should().BeNull();
     exception.Message.Should().BeNull();

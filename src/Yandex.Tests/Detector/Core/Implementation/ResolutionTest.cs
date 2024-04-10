@@ -30,6 +30,8 @@ public sealed class ResolutionTest : ClassTest<Resolution>
   [Fact]
   public void Constructors()
   {
+    typeof(Resolution).Should().BeDerivedFrom<object>().And.Implement<IResolution>();
+
     var resolution = new Resolution();
     resolution.Height.Should().Be(0);
     resolution.Width.Should().Be(0);

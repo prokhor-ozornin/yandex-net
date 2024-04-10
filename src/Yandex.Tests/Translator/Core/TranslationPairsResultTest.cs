@@ -1,4 +1,5 @@
-﻿using Catharsis.Commons;
+﻿using System.Runtime.Serialization;
+using Catharsis.Commons;
 using Catharsis.Extensions;
 using FluentAssertions;
 using FluentAssertions.Execution;
@@ -38,7 +39,9 @@ public sealed class TranslationPairsResponseTests : UnitTest
   [Fact]
   public void Constructors()
   {
-    var response = new TranslationPairsResult(Enumerable.Empty<string>());
+    typeof(TranslationPairsResult).Should().BeDerivedFrom<object>();
+
+    var response = new TranslationPairsResult([]);
     response.Pairs.Should().BeEmpty();
 
     response = new TranslationPairsResult(new TranslationPairsResult.Info());
@@ -71,6 +74,8 @@ public sealed class TranslationPairsResponseInfoTests
   [Fact]
   public void Constructors()
   {
+    typeof(TranslationPairsResult.Info).Should().BeDerivedFrom<object>().And.Implement<IResultable<TranslationPairsResult>>().And.BeDecoratedWith<DataContractAttribute>();
+
     var info = new TranslationPairsResult.Info();
     info.Pairs.Should().BeNull();
   }

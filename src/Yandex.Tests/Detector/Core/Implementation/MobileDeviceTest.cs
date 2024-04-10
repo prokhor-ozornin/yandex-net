@@ -1,4 +1,5 @@
-﻿using Catharsis.Commons;
+﻿using System.Runtime.Serialization;
+using Catharsis.Commons;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using FluentAssertions.Json;
@@ -65,6 +66,8 @@ public sealed class MobileDeviceTest : ClassTest<MobileDevice>
   [Fact]
   public void Constructors()
   {
+    typeof(MobileDevice).Should().BeDerivedFrom<object>().And.Implement<IMobileDevice>();
+
     var device = new MobileDevice("name", "deviceClass", "vendor", "description", new Resolution {Width = short.MinValue, Height = short.MaxValue});
     device.Name.Should().Be("name");
     device.DeviceClass.Should().Be("deviceClass");
@@ -183,6 +186,8 @@ public sealed class MobileDeviceInfoTests : ClassTest<MobileDevice.Info>
   [Fact]
   public void Constructors()
   {
+    typeof(MobileDevice.Info).Should().BeDerivedFrom<object>().And.Implement<IResultable<IMobileDevice>>();
+
     var info = new MobileDevice.Info();
     info.Name.Should().BeNull();
     info.DeviceClass.Should().BeNull();

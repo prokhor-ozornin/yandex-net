@@ -17,6 +17,8 @@ public sealed class DetectorExceptionTest : UnitTest
   [Fact]
   public void Constructors()
   {
+    typeof(DetectorException).Should().BeDerivedFrom<Exception>();
+
     var exception = new DetectorException();
     exception.InnerException.Should().BeNull();
     exception.Message.Should().BeNull();

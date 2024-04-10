@@ -1,4 +1,5 @@
-﻿using Catharsis.Commons;
+﻿using System.Runtime.Serialization;
+using Catharsis.Commons;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using Xunit;
@@ -23,6 +24,8 @@ public sealed class TranslationTest : UnitTest
     AssertionExtensions.Should(() => new Translation("from", "to", null)).ThrowExactly<ArgumentNullException>().WithParameterName("text");
     AssertionExtensions.Should(() => new Translation(string.Empty, "to", "text")).ThrowExactly<ArgumentException>().WithParameterName("fromLanguage");
     AssertionExtensions.Should(() => new Translation("from", string.Empty, "text")).ThrowExactly<ArgumentException>().WithParameterName("toLanguage");
+
+    typeof(Translation).Should().BeDerivedFrom<object>().And.Implement<ITranslation>();
 
     var translation = new Translation("en", "ru", "text");
     translation.FromLanguage.Should().Be("en");

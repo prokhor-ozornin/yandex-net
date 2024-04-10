@@ -7,13 +7,14 @@ using Yandex.Translator;
 using System.Configuration;
 using Catharsis.Commons;
 using FluentAssertions.Execution;
+using System.Runtime.Serialization;
 
 namespace Yandex.Tests.Translator;
 
 /// <summary>
 ///   <para>Tests set for class <see cref="Api"/>.</para>
 /// </summary>
-public sealed class YandexTranslatorTests : UnitTest
+public sealed class ApiTests : UnitTest
 {
   private IApi Api { get; } = Yandex.Api.Translator().Configure(configurator => configurator.ApiKey(ConfigurationManager.AppSettings["ApiKey"]));
 
@@ -25,6 +26,8 @@ public sealed class YandexTranslatorTests : UnitTest
   {
     AssertionExtensions.Should(() => new Api(null)).ThrowExactly<ArgumentNullException>().WithParameterName("key");
     AssertionExtensions.Should(() => new Api(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("key");
+
+    typeof(Api).Should().BeDerivedFrom<object>().And.Implement<IApi>();
 
     var api = new Api("apiKey");
     api.GetPropertyValue<ISerializer>("JsonSerializer").Should().NotBeNull();

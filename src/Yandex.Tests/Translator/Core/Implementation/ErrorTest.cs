@@ -1,4 +1,5 @@
-﻿using Catharsis.Commons;
+﻿using System.Runtime.Serialization;
+using Catharsis.Commons;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using FluentAssertions.Json;
@@ -33,6 +34,8 @@ public sealed class ErrorTest : ClassTest<Error>
   [Fact]
   public void Constructors()
   {
+    typeof(Error).Should().BeDerivedFrom<object>().And.Implement<IError>();
+
     var error = new Error(int.MaxValue, Guid.Empty.ToString());
     error.Code.Should().Be(int.MaxValue);
     error.Text.Should().Be(Guid.Empty.ToString());
@@ -110,6 +113,8 @@ public sealed class ErrorInfoTests : ClassTest<Error.Info>
   [Fact]
   public void Constructors()
   {
+    typeof(Error.Info).Should().BeDerivedFrom<object>().And.Implement<IResultable<IError>>().And.BeDecoratedWith<DataContractAttribute>();
+
     var info = new Error.Info();
     info.Code.Should().BeNull();
     info.Text.Should().BeNull();

@@ -18,6 +18,8 @@ public sealed class DetectorRequestTest : UnitTest
   [Fact]
   public void Constructors()
   {
+    typeof(DetectorRequest).Should().BeDerivedFrom<object>().And.Implement<IDetectorRequest>();
+
     var builder = new DetectorRequest();
     builder.Headers.Should().NotBeNullOrEmpty();
   }

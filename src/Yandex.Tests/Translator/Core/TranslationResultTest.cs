@@ -1,4 +1,5 @@
-﻿using Catharsis.Commons;
+﻿using System.Runtime.Serialization;
+using Catharsis.Commons;
 using Catharsis.Extensions;
 using FluentAssertions;
 using FluentAssertions.Execution;
@@ -51,6 +52,8 @@ public sealed class TranslationResultTest : ClassTest<TranslationResult>
   [Fact]
   public void Constructors()
   {
+    typeof(TranslationResult).Should().BeDerivedFrom<object>();
+
     var result = new TranslationResult(int.MaxValue, Guid.Empty.ToString(), Enumerable.Empty<string>());
     result.Code.Should().Be(int.MaxValue);
     result.Language.Should().Be(Guid.Empty.ToString());
@@ -120,6 +123,8 @@ public sealed class TranslationResultInfoTests : ClassTest<TranslationResult.Inf
   [Fact]
   public void Constructors()
   {
+    typeof(TranslationResult.Info).Should().BeDerivedFrom<object>().And.Implement<IResultable<TranslationResult>>().And.BeDecoratedWith<DataContractAttribute>();
+
     var info = new TranslationResult.Info();
     info.Code.Should().BeNull();
     info.Language.Should().BeNull();

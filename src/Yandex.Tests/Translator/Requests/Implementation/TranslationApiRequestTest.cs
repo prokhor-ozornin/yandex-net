@@ -1,5 +1,4 @@
-﻿using System.Diagnostics;
-using Catharsis.Commons;
+﻿using Catharsis.Commons;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using Xunit;
@@ -19,6 +18,8 @@ public sealed class TranslationApiRequestTest : UnitTest
   [Fact]
   public void Constructors()
   {
+    typeof(TranslationApiRequest).Should().BeDerivedFrom<ApiRequest>().And.Implement<ITranslationApiRequest>();
+
     var request = new TranslationApiRequest();
     request.Parameters.Should().BeEmpty();
   }

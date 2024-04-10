@@ -1,4 +1,5 @@
-﻿using Catharsis.Commons;
+﻿using System.Runtime.Serialization;
+using Catharsis.Commons;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using FluentAssertions.Json;
@@ -33,6 +34,8 @@ public sealed class DetectedLanguageResultTest : UnitTest
   [Fact]
   public void Constructors()
   {
+    typeof(DetectedLanguageResult).Should().BeDerivedFrom<object>();
+
     var result = new DetectedLanguageResult(int.MaxValue, Guid.Empty.ToString());
     result.Code.Should().Be(int.MaxValue);
     result.Language.Should().Be(Guid.Empty.ToString());
@@ -71,6 +74,8 @@ public sealed class DetectedLanguageResultInfoTests
   [Fact]
   public void Constructors()
   {
+    typeof(DetectedLanguageResult.Info).Should().BeDerivedFrom<object>().And.Implement<IResultable<DetectedLanguageResult>>().And.BeDecoratedWith<DataContractAttribute>();
+
     var info = new DetectedLanguageResult.Info();
     info.Code.Should().BeNull();
     info.Language.Should().BeNull();
