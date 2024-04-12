@@ -23,7 +23,7 @@ public sealed class TranslationPairsResult
   ///   <para></para>
   /// </summary>
   /// <param name="info"></param>
-  public TranslationPairsResult(Info info) => Pairs = info.Pairs ?? new List<string>();
+  public TranslationPairsResult(Info info) => Pairs = info.Pairs ?? [];
 
   /// <summary>
   ///   <para></para>

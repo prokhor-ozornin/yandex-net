@@ -1,5 +1,6 @@
 ﻿using System.Runtime.Serialization;
 using Catharsis.Commons;
+using Catharsis.Extensions;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using FluentAssertions.Json;
@@ -13,34 +14,6 @@ namespace Yandex.Tests.Detector.Core.Implementation;
 /// </summary>
 public sealed class JavaPlatformTest : ClassTest<JavaPlatform>
 {
-  /// <summary>
-  ///   <para>Performs testing of <see cref="JavaPlatform.Camera"/> property.</para>
-  /// </summary>
-  [Fact]
-  public void Camera_Property() { new JavaPlatform(new {Camera = true}).Camera.Should().BeTrue(); }
-
-  /// <summary>
-  ///   <para>Performs testing of <see cref="JavaPlatform.FileSystem"/> property.</para>
-  /// </summary>
-  [Fact]
-  public void FileSystem_Property() { new JavaPlatform(new {FileSystem = true}).FileSystem.Should().BeTrue(); }
-
-  /// <summary>
-  ///   <para>Performs testing of <see cref="JavaPlatform.Certificate"/> property.</para>
-  /// </summary>
-  [Fact]
-  public void Certificate_Property() { new JavaPlatform(new {Certificate = Guid.Empty.ToString()}).Certificate.Should().Be(Guid.Empty.ToString()); }
-
-  /// <summary>
-  ///   <para>Performs testing of <see cref="JavaPlatform.Icon"/> property.</para>
-  /// </summary>
-  [Fact]
-  public void Icon_Property()
-  {
-    var resolution = new Resolution();
-    new JavaPlatform(new {Resolution = resolution}.Resolution).Should().BeSameAs(resolution);
-  }
-
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
   /// </summary>
@@ -69,6 +42,55 @@ public sealed class JavaPlatformTest : ClassTest<JavaPlatform>
     java.FileSystem.Should().BeFalse();
     java.Certificate.Should().BeNull();
     java.Icon.Should().BeNull();
+  }
+
+  /// <summary>
+  ///   <para>Performs testing of <see cref="JavaPlatform.Camera"/> property.</para>
+  /// </summary>
+  [Fact]
+  public void Camera_Property()
+  {
+    new JavaPlatform(new
+    {
+      Camera = true
+    }).Camera.Should().BeTrue();
+  }
+
+  /// <summary>
+  ///   <para>Performs testing of <see cref="JavaPlatform.FileSystem"/> property.</para>
+  /// </summary>
+  [Fact]
+  public void FileSystem_Property()
+  {
+    new JavaPlatform(new
+    {
+      FileSystem = true
+    }).FileSystem.Should().BeTrue();
+  }
+
+  /// <summary>
+  ///   <para>Performs testing of <see cref="JavaPlatform.Certificate"/> property.</para>
+  /// </summary>
+  [Fact]
+  public void Certificate_Property()
+  {
+    new JavaPlatform(new
+    {
+      Certificate = Guid.Empty.ToString()
+    }).Certificate.Should().Be(Guid.Empty.ToString());
+  }
+
+  /// <summary>
+  ///   <para>Performs testing of <see cref="JavaPlatform.Icon"/> property.</para>
+  /// </summary>
+  [Fact]
+  public void Icon_Property()
+  {
+    var resolution = new Resolution();
+    new JavaPlatform(new
+    {
+      Resolution = resolution
+    }.Resolution).Should().BeSameAs(resolution);
   }
 
   /// <summary>
@@ -106,30 +128,6 @@ public sealed class JavaPlatformTest : ClassTest<JavaPlatform>
 public sealed class JavaPlatformInfoTests : ClassTest<JavaPlatform.Info>
 {
   /// <summary>
-  ///   <para>Performs testing of <see cref="JavaPlatform.Info.Camera"/> property.</para>
-  /// </summary>
-  [Fact]
-  public void Camera_Property() { new JavaPlatform.Info {Camera = byte.MaxValue}.Camera.Should().Be(byte.MaxValue); }
-
-  /// <summary>
-  ///   <para>Performs testing of <see cref="JavaPlatform.Info.FileSystem"/> property.</para>
-  /// </summary>
-  [Fact]
-  public void FileSystem_Property() { new JavaPlatform.Info {FileSystem = byte.MaxValue}.FileSystem.Should().Be(byte.MaxValue); }
-
-  /// <summary>
-  ///   <para>Performs testing of <see cref="JavaPlatform.Info.Certificate"/> property.</para>
-  /// </summary>
-  [Fact]
-  public void Certificate_Property() { new JavaPlatform.Info {Certificate = Guid.Empty.ToString()}.Certificate.Should().Be(Guid.Empty.ToString()); }
-
-  /// <summary>
-  ///   <para>Performs testing of <see cref="JavaPlatform.Info.Icon"/> property.</para>
-  /// </summary>
-  [Fact]
-  public void Icon_Property() { new JavaPlatform.Info {Icon = Guid.Empty.ToString()}.Icon.Should().Be(Guid.Empty.ToString()); }
-
-  /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
   /// </summary>
   /// <seealso cref="JavaPlatform.Info()"/>
@@ -146,6 +144,42 @@ public sealed class JavaPlatformInfoTests : ClassTest<JavaPlatform.Info>
   }
 
   /// <summary>
+  ///   <para>Performs testing of <see cref="JavaPlatform.Info.Camera"/> property.</para>
+  /// </summary>
+  [Fact]
+  public void Camera_Property()
+  {
+    new JavaPlatform.Info { Camera = byte.MaxValue }.Camera.Should().Be(byte.MaxValue);
+  }
+
+  /// <summary>
+  ///   <para>Performs testing of <see cref="JavaPlatform.Info.FileSystem"/> property.</para>
+  /// </summary>
+  [Fact]
+  public void FileSystem_Property()
+  {
+    new JavaPlatform.Info { FileSystem = byte.MaxValue }.FileSystem.Should().Be(byte.MaxValue);
+  }
+
+  /// <summary>
+  ///   <para>Performs testing of <see cref="JavaPlatform.Info.Certificate"/> property.</para>
+  /// </summary>
+  [Fact]
+  public void Certificate_Property()
+  {
+    new JavaPlatform.Info { Certificate = Guid.Empty.ToString() }.Certificate.Should().Be(Guid.Empty.ToString());
+  }
+
+  /// <summary>
+  ///   <para>Performs testing of <see cref="JavaPlatform.Info.Icon"/> property.</para>
+  /// </summary>
+  [Fact]
+  public void Icon_Property()
+  {
+    new JavaPlatform.Info { Icon = Guid.Empty.ToString() }.Icon.Should().Be(Guid.Empty.ToString());
+  }
+
+  /// <summary>
   ///   <para>Performs testing of <see cref="JavaPlatform.Info.ToResult()"/> method.</para>
   /// </summary>
   [Fact]
@@ -153,19 +187,22 @@ public sealed class JavaPlatformInfoTests : ClassTest<JavaPlatform.Info>
   {
     using (new AssertionScope())
     {
-      var result = new JavaPlatform.Info().ToResult();
-      result.Should().NotBeNull().And.BeOfType<JavaPlatform>();
-      result.Camera.Should().BeFalse();
-      result.FileSystem.Should().BeFalse();
-      result.Certificate.Should().BeNull();
-      result.Icon.Should().BeNull();
+      Validate(new JavaPlatform.Info());
     }
 
     return;
 
-    static void Validate()
+    static void Validate(JavaPlatform.Info info)
     {
+      var result = info.ToResult();
 
+      result.Should().BeOfType<JavaPlatform>();
+      result.Camera.Should().Be(info.Camera > 0);
+      result.FileSystem.Should().Be(info.FileSystem > 0);
+      result.Certificate.Should().BeSameAs(info.Certificate);
+      //result.Icon.Should().BeOfType<Resolution>();
+      //result.Icon.Height.Should().Be(info.Icon?.Split('x')[1].ToShort() ?? 0);
+      //result.Icon.Width.Should().Be(info.Icon?.Split('x')[0].ToShort() ?? 0);
     }
   }
 

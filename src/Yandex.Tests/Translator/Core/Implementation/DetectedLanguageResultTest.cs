@@ -14,18 +14,6 @@ namespace Yandex.Tests.Translator;
 public sealed class DetectedLanguageResultTest : UnitTest
 {
   /// <summary>
-  ///   <para>Performs testing of <see cref="DetectedLanguageResult.Code"/> property.</para>
-  /// </summary>
-  [Fact]
-  public void Code_Property() { new DetectedLanguageResult(new {Code = int.MaxValue}).Code.Should().Be(int.MaxValue); }
-
-  /// <summary>
-  ///   <para>Performs testing of <see cref="DetectedLanguageResult.Language"/> property.</para>
-  /// </summary>
-  [Fact]
-  public void Language_Property() { new DetectedLanguageResult(new {Language = Guid.Empty.ToString()}).Language.Should().Be(Guid.Empty.ToString()); }
-
-  /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
   /// </summary>
   /// <seealso cref="DetectedLanguageResult(int, string)"/>
@@ -48,6 +36,30 @@ public sealed class DetectedLanguageResultTest : UnitTest
     result.Code.Should().Be(0);
     result.Language.Should().BeEmpty();
   }
+
+  /// <summary>
+  ///   <para>Performs testing of <see cref="DetectedLanguageResult.Code"/> property.</para>
+  /// </summary>
+  [Fact]
+  public void Code_Property()
+  {
+    new DetectedLanguageResult(new
+    {
+      Code = int.MaxValue
+    }).Code.Should().Be(int.MaxValue);
+  }
+
+  /// <summary>
+  ///   <para>Performs testing of <see cref="DetectedLanguageResult.Language"/> property.</para>
+  /// </summary>
+  [Fact]
+  public void Language_Property()
+  {
+    new DetectedLanguageResult(new
+    {
+      Language = Guid.Empty.ToString()
+    }).Language.Should().Be(Guid.Empty.ToString());
+  }
 }
 
 /// <summary>
@@ -55,18 +67,6 @@ public sealed class DetectedLanguageResultTest : UnitTest
 /// </summary>
 public sealed class DetectedLanguageResultInfoTests
 {
-  /// <summary>
-  ///   <para>Performs testing of <see cref="DetectedLanguageResult.Info.Code"/> property.</para>
-  /// </summary>
-  [Fact]
-  public void Code_Property() { new DetectedLanguageResult.Info {Code = int.MaxValue}.Code.Should().Be(int.MaxValue); }
-
-  /// <summary>
-  ///   <para>Performs testing of <see cref="DetectedLanguageResult.Info.Language"/> property.</para>
-  /// </summary>
-  [Fact]
-  public void Language_Property() { new DetectedLanguageResult.Info {Language = Guid.Empty.ToString()}.Language.Should().Be(Guid.Empty.ToString()); }
-
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
   /// </summary>
@@ -79,6 +79,24 @@ public sealed class DetectedLanguageResultInfoTests
     var info = new DetectedLanguageResult.Info();
     info.Code.Should().BeNull();
     info.Language.Should().BeNull();
+  }
+
+  /// <summary>
+  ///   <para>Performs testing of <see cref="DetectedLanguageResult.Info.Code"/> property.</para>
+  /// </summary>
+  [Fact]
+  public void Code_Property()
+  {
+    new DetectedLanguageResult.Info { Code = int.MaxValue }.Code.Should().Be(int.MaxValue);
+  }
+
+  /// <summary>
+  ///   <para>Performs testing of <see cref="DetectedLanguageResult.Info.Language"/> property.</para>
+  /// </summary>
+  [Fact]
+  public void Language_Property()
+  {
+    new DetectedLanguageResult.Info { Language = Guid.Empty.ToString() }.Language.Should().Be(Guid.Empty.ToString());
   }
 
   /// <summary>

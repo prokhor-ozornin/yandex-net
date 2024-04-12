@@ -1,5 +1,4 @@
-﻿using System.Runtime.Serialization;
-using Catharsis.Commons;
+﻿using Catharsis.Commons;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using FluentAssertions.Json;
@@ -13,50 +12,6 @@ namespace Yandex.Tests.Detector.Core.Implementation;
 /// </summary>
 public sealed class MobileDeviceTest : ClassTest<MobileDevice>
 {
-  /// <summary>
-  ///   <para>Performs testing of <see cref="MobileDevice.Name"/> property.</para>
-  /// </summary>
-  [Fact]
-  public void Name_Property() { new MobileDevice(new {Name = Guid.Empty.ToString()}).Name.Should().Be(Guid.Empty.ToString()); }
-
-  /// <summary>
-  ///   <para>Performs testing of <see cref="MobileDevice.DeviceClass"/> property.</para>
-  /// </summary>
-  [Fact]
-  public void DeviceClass_Property() { new MobileDevice(new {DeviceClass = Guid.Empty.ToString()}).DeviceClass.Should().Be(Guid.Empty.ToString()); }
-
-  /// <summary>
-  ///   <para>Performs testing of <see cref="MobileDevice.Vendor"/> property.</para>
-  /// </summary>
-  [Fact]
-  public void Vendor_Property() { new MobileDevice(new {Vendor = Guid.Empty.ToString()}).Vendor.Should().Be(Guid.Empty.ToString()); }
-
-  /// <summary>
-  ///   <para>Performs testing of <see cref="MobileDevice.Description"/> property.</para>
-  /// </summary>
-  [Fact]
-  public void Description_Property() { new MobileDevice(new {Description = Guid.Empty.ToString()}).Description.Should().Be(Guid.Empty.ToString()); }
-
-  /// <summary>
-  ///   <para>Performs testing of <see cref="MobileDevice.Screen"/> property.</para>
-  /// </summary>
-  [Fact]
-  public void Screen_Property()
-  {
-    var screen = new Resolution();
-    new MobileDevice(new {Screen = Guid.Empty.ToString()}).Screen.Should().BeSameAs(screen);
-  }
-
-  /// <summary>
-  ///   <para>Performs testing of <see cref="MobileDevice.JavaPlatform"/> property.</para>
-  /// </summary>
-  [Fact]
-  public void JavaPlatform_Property()
-  {
-    var javaPlatform = new JavaPlatform(new {});
-    new MobileDevice(new {JavaPlatform = javaPlatform}.JavaPlatform).Should().BeSameAs(javaPlatform);
-  }
-
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
   /// </summary>
@@ -94,6 +49,82 @@ public sealed class MobileDeviceTest : ClassTest<MobileDevice>
   }
 
   /// <summary>
+  ///   <para>Performs testing of <see cref="MobileDevice.Name"/> property.</para>
+  /// </summary>
+  [Fact]
+  public void Name_Property()
+  {
+    new MobileDevice(new
+    {
+      Name = Guid.Empty.ToString()
+    }).Name.Should().Be(Guid.Empty.ToString());
+  }
+
+  /// <summary>
+  ///   <para>Performs testing of <see cref="MobileDevice.DeviceClass"/> property.</para>
+  /// </summary>
+  [Fact]
+  public void DeviceClass_Property()
+  {
+    new MobileDevice(new
+    {
+      DeviceClass = Guid.Empty.ToString()
+    }).DeviceClass.Should().Be(Guid.Empty.ToString());
+  }
+
+  /// <summary>
+  ///   <para>Performs testing of <see cref="MobileDevice.Vendor"/> property.</para>
+  /// </summary>
+  [Fact]
+  public void Vendor_Property()
+  {
+    new MobileDevice(new
+    {
+      Vendor = Guid.Empty.ToString()
+    }).Vendor.Should().Be(Guid.Empty.ToString());
+  }
+
+  /// <summary>
+  ///   <para>Performs testing of <see cref="MobileDevice.Description"/> property.</para>
+  /// </summary>
+  [Fact]
+  public void Description_Property()
+  {
+    new MobileDevice(new
+    {
+      Description = Guid.Empty.ToString()
+    }).Description.Should().Be(Guid.Empty.ToString());
+  }
+
+  /// <summary>
+  ///   <para>Performs testing of <see cref="MobileDevice.Screen"/> property.</para>
+  /// </summary>
+  [Fact]
+  public void Screen_Property()
+  {
+    var screen = new Resolution();
+    new MobileDevice(new
+    {
+      Screen = Guid.Empty.ToString()
+    }).Screen.Should().BeSameAs(screen);
+  }
+
+  /// <summary>
+  ///   <para>Performs testing of <see cref="MobileDevice.JavaPlatform"/> property.</para>
+  /// </summary>
+  [Fact]
+  public void JavaPlatform_Property()
+  {
+    var javaPlatform = new JavaPlatform(new
+    {
+    });
+    new MobileDevice(new
+    {
+      JavaPlatform = javaPlatform
+    }.JavaPlatform).Should().BeSameAs(javaPlatform);
+  }
+
+  /// <summary>
   ///   <para>Performs testing of following methods :</para>
   ///   <list type="bullet">
   ///     <item><description><see cref="MobileDevice.Equals(IMobileDevice)"/></description></item>
@@ -101,13 +132,19 @@ public sealed class MobileDeviceTest : ClassTest<MobileDevice>
   ///   </list>
   /// </summary>
   [Fact]
-  public void Equals_Methods() { TestEquality(nameof(MobileDevice.Name), "first", "second"); }
+  public void Equals_Methods()
+  {
+    TestEquality(nameof(MobileDevice.Name), "first", "second");
+  }
 
   /// <summary>
   ///   <para>Performs testing of <see cref="MobileDevice.GetHashCode()"/> method.</para>
   /// </summary>
   [Fact]
-  public void GetHashCode_Method() { TestHashCode(nameof(MobileDevice.Name), "first", "second"); }
+  public void GetHashCode_Method()
+  {
+    TestHashCode(nameof(MobileDevice.Name), "first", "second");
+  }
 
   /// <summary>
   ///   <para>Performs testing of <see cref="MobileDevice.ToString()"/> method.</para>
@@ -134,52 +171,6 @@ public sealed class MobileDeviceTest : ClassTest<MobileDevice>
 public sealed class MobileDeviceInfoTests : ClassTest<MobileDevice.Info>
 {
   /// <summary>
-  ///   <para>Performs testing of <see cref="MobileDevice.Info.Name"/> property.</para>
-  /// </summary>
-  [Fact]
-  public void Name_Property() { new MobileDevice.Info {Name = Guid.Empty.ToString()}.Name.Should().Be(Guid.Empty.ToString()); }
-
-  /// <summary>
-  ///   <para>Performs testing of <see cref="MobileDevice.Info.DeviceClass"/> property.</para>
-  /// </summary>
-  [Fact]
-  public void DeviceClass_Property() { new MobileDevice.Info {DeviceClass = Guid.Empty.ToString()}.DeviceClass.Should().Be(Guid.Empty.ToString()); }
-
-  /// <summary>
-  ///   <para>Performs testing of <see cref="MobileDevice.Info.Vendor"/> property.</para>
-  /// </summary>
-  [Fact]
-  public void Vendor_Property() { new MobileDevice.Info {Vendor = Guid.Empty.ToString()}.Vendor.Should().Be(Guid.Empty.ToString()); }
-
-  /// <summary>
-  ///   <para>Performs testing of <see cref="MobileDevice.Info.Description"/> property.</para>
-  /// </summary>
-  [Fact]
-  public void Description_Property() { new MobileDevice.Info {Description = Guid.Empty.ToString()}.Description.Should().Be(Guid.Empty.ToString()); }
-
-  /// <summary>
-  ///   <para>Performs testing of <see cref="MobileDevice.Info.ScreenWidth"/> property.</para>
-  /// </summary>
-  [Fact]
-  public void ScreenWidth_Property() { new MobileDevice.Info {ScreenWidth = short.MaxValue}.ScreenWidth.Should().Be(short.MaxValue); }
-
-  /// <summary>
-  ///   <para>Performs testing of <see cref="MobileDevice.Info.ScreenHeight"/> property.</para>
-  /// </summary>
-  [Fact]
-  public void ScreenHeight_Property() { new MobileDevice.Info {ScreenHeight = short.MaxValue}.ScreenHeight.Should().Be(short.MaxValue); }
-
-  /// <summary>
-  ///   <para>Performs testing of <see cref="MobileDevice.Info.JavaPlatform"/> property.</para>
-  /// </summary>
-  [Fact]
-  public void JavaPlatform_Property()
-  {
-    var javaPlatform = new JavaPlatform(new {});
-    new MobileDevice.Info {JavaPlatform = javaPlatform}.JavaPlatform.Should().BeSameAs(javaPlatform);
-  }
-
-  /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
   /// </summary>
   /// <seealso cref="MobileDevice.Info()"/>
@@ -196,6 +187,72 @@ public sealed class MobileDeviceInfoTests : ClassTest<MobileDevice.Info>
     info.ScreenWidth.Should().BeNull();
     info.ScreenHeight.Should().BeNull();
     info.JavaPlatform.Should().BeNull();
+  }
+
+  /// <summary>
+  ///   <para>Performs testing of <see cref="MobileDevice.Info.Name"/> property.</para>
+  /// </summary>
+  [Fact]
+  public void Name_Property()
+  {
+    new MobileDevice.Info { Name = Guid.Empty.ToString() }.Name.Should().Be(Guid.Empty.ToString());
+  }
+
+  /// <summary>
+  ///   <para>Performs testing of <see cref="MobileDevice.Info.DeviceClass"/> property.</para>
+  /// </summary>
+  [Fact]
+  public void DeviceClass_Property()
+  {
+    new MobileDevice.Info { DeviceClass = Guid.Empty.ToString() }.DeviceClass.Should().Be(Guid.Empty.ToString());
+  }
+
+  /// <summary>
+  ///   <para>Performs testing of <see cref="MobileDevice.Info.Vendor"/> property.</para>
+  /// </summary>
+  [Fact]
+  public void Vendor_Property()
+  {
+    new MobileDevice.Info { Vendor = Guid.Empty.ToString() }.Vendor.Should().Be(Guid.Empty.ToString());
+  }
+
+  /// <summary>
+  ///   <para>Performs testing of <see cref="MobileDevice.Info.Description"/> property.</para>
+  /// </summary>
+  [Fact]
+  public void Description_Property()
+  {
+    new MobileDevice.Info { Description = Guid.Empty.ToString() }.Description.Should().Be(Guid.Empty.ToString());
+  }
+
+  /// <summary>
+  ///   <para>Performs testing of <see cref="MobileDevice.Info.ScreenWidth"/> property.</para>
+  /// </summary>
+  [Fact]
+  public void ScreenWidth_Property()
+  {
+    new MobileDevice.Info { ScreenWidth = short.MaxValue }.ScreenWidth.Should().Be(short.MaxValue);
+  }
+
+  /// <summary>
+  ///   <para>Performs testing of <see cref="MobileDevice.Info.ScreenHeight"/> property.</para>
+  /// </summary>
+  [Fact]
+  public void ScreenHeight_Property()
+  {
+    new MobileDevice.Info { ScreenHeight = short.MaxValue }.ScreenHeight.Should().Be(short.MaxValue);
+  }
+
+  /// <summary>
+  ///   <para>Performs testing of <see cref="MobileDevice.Info.JavaPlatform"/> property.</para>
+  /// </summary>
+  [Fact]
+  public void JavaPlatform_Property()
+  {
+    var javaPlatform = new JavaPlatform(new
+    {
+    });
+    new MobileDevice.Info { JavaPlatform = javaPlatform }.JavaPlatform.Should().BeSameAs(javaPlatform);
   }
 
   /// <summary>
@@ -218,16 +275,26 @@ public sealed class MobileDeviceInfoTests : ClassTest<MobileDevice.Info>
 
     return;
 
-    static void Validate()
+    static void Validate(MobileDevice.Info info)
     {
+      var result = info.ToResult();
 
+      result.Should().BeOfType<JavaPlatform>();
+      result.Name.Should().Be(info.Name ?? string.Empty);
+      result.DeviceClass.Should().Be(info.DeviceClass ?? string.Empty);
+      result.Vendor.Should().Be(info.Vendor ?? string.Empty);
+      result.Description.Should().Be(info.Description ?? string.Empty);
+      result.Screen.Should().BeOfType<Resolution>();
+      result.Screen.Height.Should().Be(info.ScreenHeight ?? 0);
+      result.Screen.Width.Should().Be(info.ScreenWidth ?? 0);
+      result.JavaPlatform.Should().BeSameAs(info.JavaPlatform);
     }
   }
 
-    /// <summary>
-    ///   <para>Performs testing of serialization/deserialization process.</para>
-    /// </summary>
-    [Fact]
+  /// <summary>
+  ///   <para>Performs testing of serialization/deserialization process.</para>
+  /// </summary>
+  [Fact]
   public void Serialization()
   {
     using (new AssertionScope())

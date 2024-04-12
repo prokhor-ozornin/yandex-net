@@ -15,35 +15,6 @@ namespace Yandex.Tests.Translator;
 public sealed class TranslationResultTest : ClassTest<TranslationResult>
 {
   /// <summary>
-  ///   <para>Performs testing of <see cref="TranslationResult.Code"/> property.</para>
-  /// </summary>
-  [Fact]
-  public void Code_Property() { new TranslationResult(new {Code = int.MaxValue}).Code.Should().Be(int.MaxValue); }
-
-  /// <summary>
-  ///   <para>Performs testing of <see cref="TranslationResult.Language"/>.</para>
-  /// </summary>
-  [Fact]
-  public void Language_Property() { new TranslationResult(new {Language = Guid.Empty.ToString()}).Language.Should().Be(Guid.Empty.ToString()); }
-
-  /// <summary>
-  ///   <para>Performs testing of <see cref="TranslationResult.Lines"/> property.</para>
-  /// </summary>
-  [Fact]
-  public void Lines_Property()
-  {
-    var result = new TranslationResult(new {});
-    result.Lines.Should().BeEmpty();
-
-    var lines = result.Lines.To<List<string>>();
-    lines.Add("line");
-    result.Lines.Single().Should().Be("line");
-    lines.Remove("line");
-    result.Lines.Should().BeEmpty();
-  }
-
-
-  /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
   /// </summary>
   /// <seealso cref="TranslationResult(int, string, IEnumerable{string})"/>
@@ -67,6 +38,48 @@ public sealed class TranslationResultTest : ClassTest<TranslationResult>
     result = new TranslationResult(new {});
     result.Code.Should().Be(0);
     result.Language.Should().BeEmpty();
+    result.Lines.Should().BeEmpty();
+  }
+
+  /// <summary>
+  ///   <para>Performs testing of <see cref="TranslationResult.Code"/> property.</para>
+  /// </summary>
+  [Fact]
+  public void Code_Property()
+  {
+    new TranslationResult(new
+    {
+      Code = int.MaxValue
+    }).Code.Should().Be(int.MaxValue);
+  }
+
+  /// <summary>
+  ///   <para>Performs testing of <see cref="TranslationResult.Language"/>.</para>
+  /// </summary>
+  [Fact]
+  public void Language_Property()
+  {
+    new TranslationResult(new
+    {
+      Language = Guid.Empty.ToString()
+    }).Language.Should().Be(Guid.Empty.ToString());
+  }
+
+  /// <summary>
+  ///   <para>Performs testing of <see cref="TranslationResult.Lines"/> property.</para>
+  /// </summary>
+  [Fact]
+  public void Lines_Property()
+  {
+    var result = new TranslationResult(new
+    {
+    });
+    result.Lines.Should().BeEmpty();
+
+    var lines = result.Lines.To<List<string>>();
+    lines.Add("line");
+    result.Lines.Single().Should().Be("line");
+    lines.Remove("line");
     result.Lines.Should().BeEmpty();
   }
 
@@ -95,28 +108,6 @@ public sealed class TranslationResultTest : ClassTest<TranslationResult>
 public sealed class TranslationResultInfoTests : ClassTest<TranslationResult.Info>
 {
   /// <summary>
-  ///   <para>Performs testing of <see cref="TranslationResult.Info.Code"/> property.</para>
-  /// </summary>
-  [Fact]
-  public void Code_Property() { new TranslationResult.Info {Code = int.MaxValue}.Code.Should().Be(int.MaxValue); }
-
-  /// <summary>
-  ///   <para>Performs testing of <see cref="TranslationResult.Info.Language"/>.</para>
-  /// </summary>
-  [Fact]
-  public void Language_Property() { new TranslationResult.Info {Language = Guid.Empty.ToString()}.Language.Should().Be(Guid.Empty.ToString()); }
-
-  /// <summary>
-  ///   <para>Performs testing of <see cref="TranslationResult.Info.Lines"/> property.</para>
-  /// </summary>
-  [Fact]
-  public void Lines_Property()
-  {
-    var lines = new List<string>();
-    new TranslationResult.Info {Lines = lines}.Lines.Should().BeSameAs(lines);
-  }
-
-  /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
   /// </summary>
   /// <seealso cref="TranslationResult.Info()"/>
@@ -129,6 +120,34 @@ public sealed class TranslationResultInfoTests : ClassTest<TranslationResult.Inf
     info.Code.Should().BeNull();
     info.Language.Should().BeNull();
     info.Lines.Should().BeNull();
+  }
+
+  /// <summary>
+  ///   <para>Performs testing of <see cref="TranslationResult.Info.Code"/> property.</para>
+  /// </summary>
+  [Fact]
+  public void Code_Property()
+  {
+    new TranslationResult.Info { Code = int.MaxValue }.Code.Should().Be(int.MaxValue);
+  }
+
+  /// <summary>
+  ///   <para>Performs testing of <see cref="TranslationResult.Info.Language"/>.</para>
+  /// </summary>
+  [Fact]
+  public void Language_Property()
+  {
+    new TranslationResult.Info { Language = Guid.Empty.ToString() }.Language.Should().Be(Guid.Empty.ToString());
+  }
+
+  /// <summary>
+  ///   <para>Performs testing of <see cref="TranslationResult.Info.Lines"/> property.</para>
+  /// </summary>
+  [Fact]
+  public void Lines_Property()
+  {
+    var lines = new List<string>();
+    new TranslationResult.Info { Lines = lines }.Lines.Should().BeSameAs(lines);
   }
 
   /// <summary>

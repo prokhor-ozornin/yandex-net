@@ -12,18 +12,6 @@ namespace Yandex.Tests.Detector.Core.Implementation;
 public sealed class ResolutionTest : ClassTest<Resolution>
 {
   /// <summary>
-  ///   <para>Performs testing of <see cref="Resolution.Height"/> property.</para>
-  /// </summary>
-  [Fact]
-  public void Height_Property() { new Resolution {Height = short.MaxValue}.Height.Should().Be(short.MaxValue); }
-
-  /// <summary>
-  ///   <para>Performs testing of <see cref="Resolution.Width"/> property.</para>
-  /// </summary>
-  [Fact]
-  public void Width_Property() { new Resolution {Width = short.MaxValue}.Width.Should().Be(short.MaxValue); }
-
-  /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
   /// </summary>
   /// <seealso cref="Resolution()"/>
@@ -35,6 +23,24 @@ public sealed class ResolutionTest : ClassTest<Resolution>
     var resolution = new Resolution();
     resolution.Height.Should().Be(0);
     resolution.Width.Should().Be(0);
+  }
+
+  /// <summary>
+  ///   <para>Performs testing of <see cref="Resolution.Height"/> property.</para>
+  /// </summary>
+  [Fact]
+  public void Height_Property()
+  {
+    new Resolution { Height = short.MaxValue }.Height.Should().Be(short.MaxValue);
+  }
+
+  /// <summary>
+  ///   <para>Performs testing of <see cref="Resolution.Width"/> property.</para>
+  /// </summary>
+  [Fact]
+  public void Width_Property()
+  {
+    new Resolution { Width = short.MaxValue }.Width.Should().Be(short.MaxValue);
   }
 
   /// <summary>

@@ -14,12 +14,6 @@ namespace Yandex.Tests.Detector.Core.Implementation;
 public sealed class ErrorTest : ClassTest<Error>
 {
   /// <summary>
-  ///   <para>Performs testing of <see cref="Error.Text"/> property.</para>
-  /// </summary>
-  [Fact]
-  public void Text_Property() { new Error(new {Text = Guid.Empty.ToString()}).Text.Should().Be(Guid.Empty.ToString()); }
-
-  /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
   /// </summary>
   /// <seealso cref="Error(string)"/>
@@ -41,6 +35,18 @@ public sealed class ErrorTest : ClassTest<Error>
   }
 
   /// <summary>
+  ///   <para>Performs testing of <see cref="Error.Text"/> property.</para>
+  /// </summary>
+  [Fact]
+  public void Text_Property()
+  {
+    new Error(new
+    {
+      Text = Guid.Empty.ToString()
+    }).Text.Should().Be(Guid.Empty.ToString());
+  }
+
+  /// <summary>
   ///   <para>Performs testing of following methods :</para>
   ///   <list type="bullet">
   ///     <item><description><see cref="Error.Equals(Error)"/></description></item>
@@ -48,13 +54,19 @@ public sealed class ErrorTest : ClassTest<Error>
   ///   </list>
   /// </summary>
   [Fact]
-  public void Equals_Methods() { TestEquality(nameof(Error.Text), "first", "second"); }
+  public void Equals_Methods()
+  {
+    TestEquality(nameof(Error.Text), "first", "second");
+  }
 
   /// <summary>
   ///   <para>Performs testing of <see cref="Error.GetHashCode()"/> method.</para>
   /// </summary>
   [Fact]
-  public void GetHashCode_Method() { TestHashCode(nameof(Error.Text), "first", "second"); }
+  public void GetHashCode_Method()
+  {
+    TestHashCode(nameof(Error.Text), "first", "second");
+  }
 
   /// <summary>
   ///   <para>Performs testing of <see cref="Error.ToString()"/> method.</para>
@@ -81,12 +93,6 @@ public sealed class ErrorTest : ClassTest<Error>
 public sealed class ErrorInfoTests : ClassTest<Error.Info>
 {
   /// <summary>
-  ///   <para>Performs testing of <see cref="Error.Info.Text"/> property.</para>
-  /// </summary>
-  [Fact]
-  public void Text_Property() { new Error.Info {Text = Guid.Empty.ToString()}.Text.Should().Be(Guid.Empty.ToString()); }
-
-  /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
   /// </summary>
   /// <seealso cref="Error.Info()"/>
@@ -100,6 +106,15 @@ public sealed class ErrorInfoTests : ClassTest<Error.Info>
   }
 
   /// <summary>
+  ///   <para>Performs testing of <see cref="Error.Info.Text"/> property.</para>
+  /// </summary>
+  [Fact]
+  public void Text_Property()
+  {
+    new Error.Info { Text = Guid.Empty.ToString() }.Text.Should().Be(Guid.Empty.ToString());
+  }
+
+  /// <summary>
   ///   <para>Performs testing of <see cref="Error.Info.ToResult()"/> method.</para>
   /// </summary>
   [Fact]
@@ -107,16 +122,17 @@ public sealed class ErrorInfoTests : ClassTest<Error.Info>
   {
     using (new AssertionScope())
     {
-      var result = new Error.Info().ToResult();
-      result.Should().NotBeNull().And.BeOfType<Error>();
-      result.Text.Should().BeNull();
+      Validate(new Error.Info());
     }
 
     return;
 
-    static void Validate()
+    static void Validate(Error.Info info)
     {
+      var result = info.ToResult();
 
+      result.Should().BeOfType<Error>();
+      result.Text.Should().Be(info.Text ?? string.Empty);
     }
   }
 

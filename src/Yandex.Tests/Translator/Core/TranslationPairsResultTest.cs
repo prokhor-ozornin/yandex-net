@@ -15,22 +15,6 @@ namespace Yandex.Tests.Translator;
 public sealed class TranslationPairsResponseTests : UnitTest
 {
   /// <summary>
-  ///   <para>Performs testing of <see cref="TranslationPairsResult.Pairs"/> property.</para>
-  /// </summary>
-  [Fact]
-  public void Pairs_Property()
-  {
-    var response = new TranslationPairsResult(new {});
-    response.Pairs.Should().BeEmpty();
-
-    var pairs = response.Pairs.To<List<string>>();
-    pairs.Add("pair");
-    response.Pairs.Should().ContainSingle(pair => pair == "pair");
-    pairs.Remove("pair");
-    response.Pairs.Should().BeEmpty();
-  }
-
-  /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
   /// </summary>
   /// <seealso cref="TranslationPairsResult(IEnumerable{string})"/>
@@ -50,6 +34,24 @@ public sealed class TranslationPairsResponseTests : UnitTest
     response = new TranslationPairsResult(new {});
     response.Pairs.Should().BeEmpty();
   }
+
+  /// <summary>
+  ///   <para>Performs testing of <see cref="TranslationPairsResult.Pairs"/> property.</para>
+  /// </summary>
+  [Fact]
+  public void Pairs_Property()
+  {
+    var response = new TranslationPairsResult(new
+    {
+    });
+    response.Pairs.Should().BeEmpty();
+
+    var pairs = response.Pairs.To<List<string>>();
+    pairs.Add("pair");
+    response.Pairs.Should().ContainSingle(pair => pair == "pair");
+    pairs.Remove("pair");
+    response.Pairs.Should().BeEmpty();
+  }
 }
 
 /// <summary>
@@ -57,16 +59,6 @@ public sealed class TranslationPairsResponseTests : UnitTest
 /// </summary>
 public sealed class TranslationPairsResponseInfoTests
 {
-  /// <summary>
-  ///   <para>Performs testing of <see cref="TranslationPairsResult.Info.Pairs"/> property.</para>
-  /// </summary>
-  [Fact]
-  public void Pairs_Property()
-  {
-    var pairs = new List<string>();
-    new TranslationPairsResult.Info {Pairs = pairs}.Pairs.Should().BeSameAs(pairs);
-  }
-
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
   /// </summary>
@@ -78,6 +70,16 @@ public sealed class TranslationPairsResponseInfoTests
 
     var info = new TranslationPairsResult.Info();
     info.Pairs.Should().BeNull();
+  }
+
+  /// <summary>
+  ///   <para>Performs testing of <see cref="TranslationPairsResult.Info.Pairs"/> property.</para>
+  /// </summary>
+  [Fact]
+  public void Pairs_Property()
+  {
+    var pairs = new List<string>();
+    new TranslationPairsResult.Info { Pairs = pairs }.Pairs.Should().BeSameAs(pairs);
   }
 
   /// <summary>

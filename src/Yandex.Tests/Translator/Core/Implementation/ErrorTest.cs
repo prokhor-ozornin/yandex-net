@@ -14,18 +14,6 @@ namespace Yandex.Tests.Translator;
 public sealed class ErrorTest : ClassTest<Error>
 {
   /// <summary>
-  ///   <para>Performs testing of <see cref="Error.Code"/> property.</para>
-  /// </summary>
-  [Fact]
-  public void Code_Property() { new Error(new {Code = int.MaxValue}).Code.Should().Be(int.MaxValue); }
-
-  /// <summary>
-  ///   <para>Performs testing of <see cref="Error.Text"/> property.</para>
-  /// </summary>
-  [Fact]
-  public void Text_Property() { new Error(new {Text = Guid.Empty.ToString()}).Text.Should().Be(Guid.Empty.ToString()); }
-
-  /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
   /// </summary>
   /// <seealso cref="Error(int, string)"/>
@@ -50,10 +38,37 @@ public sealed class ErrorTest : ClassTest<Error>
   }
 
   /// <summary>
+  ///   <para>Performs testing of <see cref="Error.Code"/> property.</para>
+  /// </summary>
+  [Fact]
+  public void Code_Property()
+  {
+    new Error(new
+    {
+      Code = int.MaxValue
+    }).Code.Should().Be(int.MaxValue);
+  }
+
+  /// <summary>
+  ///   <para>Performs testing of <see cref="Error.Text"/> property.</para>
+  /// </summary>
+  [Fact]
+  public void Text_Property()
+  {
+    new Error(new
+    {
+      Text = Guid.Empty.ToString()
+    }).Text.Should().Be(Guid.Empty.ToString());
+  }
+
+  /// <summary>
   ///   <para>Performs testing of <see cref="Error.CompareTo(IError)"/> method.</para>
   /// </summary>
   [Fact]
-  public void CompareTo_Method() { TestCompareTo(nameof(Error.Code), 1, 2); }
+  public void CompareTo_Method()
+  {
+    TestCompareTo(nameof(Error.Code), 1, 2);
+  }
 
   /// <summary>
   ///   <para>Performs testing of following methods :</para>
@@ -63,13 +78,19 @@ public sealed class ErrorTest : ClassTest<Error>
   ///   </list>
   /// </summary>
   [Fact]
-  public void Equals_Methods() { TestEquality(nameof(Error.Code), 1, 2); }
+  public void Equals_Methods()
+  {
+    TestEquality(nameof(Error.Code), 1, 2);
+  }
 
   /// <summary>
   ///   <para>Performs testing of <see cref="Error.GetHashCode()"/> method.</para>
   /// </summary>
   [Fact]
-  public void GetHashCode_Method() { TestHashCode(nameof(Error.Code), 1, 2); }
+  public void GetHashCode_Method()
+  {
+    TestHashCode(nameof(Error.Code), 1, 2);
+  }
 
   /// <summary>
   ///   <para>Performs testing of <see cref="Error.ToString()"/> method.</para>
@@ -95,18 +116,6 @@ public sealed class ErrorTest : ClassTest<Error>
 public sealed class ErrorInfoTests : ClassTest<Error.Info>
 {
   /// <summary>
-  ///   <para>Performs testing of <see cref="Error.Info.Code"/> property.</para>
-  /// </summary>
-  [Fact]
-  public void Code_Property() { new Error.Info {Code = int.MaxValue}.Code.Should().Be(int.MaxValue); }
-
-  /// <summary>
-  ///   <para>Performs testing of <see cref="Error.Info.Text"/> property.</para>
-  /// </summary>
-  [Fact]
-  public void Text_Property() { new Error.Info {Text = Guid.Empty.ToString()}.Text.Should().Be(Guid.Empty.ToString()); }
-
-  /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
   /// </summary>
   /// <seealso cref="Error.Info()"/>
@@ -118,6 +127,24 @@ public sealed class ErrorInfoTests : ClassTest<Error.Info>
     var info = new Error.Info();
     info.Code.Should().BeNull();
     info.Text.Should().BeNull();
+  }
+
+  /// <summary>
+  ///   <para>Performs testing of <see cref="Error.Info.Code"/> property.</para>
+  /// </summary>
+  [Fact]
+  public void Code_Property()
+  {
+    new Error.Info { Code = int.MaxValue }.Code.Should().Be(int.MaxValue);
+  }
+
+  /// <summary>
+  ///   <para>Performs testing of <see cref="Error.Info.Text"/> property.</para>
+  /// </summary>
+  [Fact]
+  public void Text_Property()
+  {
+    new Error.Info { Text = Guid.Empty.ToString() }.Text.Should().Be(Guid.Empty.ToString());
   }
 
   /// <summary>

@@ -72,7 +72,7 @@ public sealed class MobileDevice : IMobileDevice
     DeviceClass = info.DeviceClass ?? string.Empty;
     Vendor = info.Vendor ?? string.Empty;
     Description = info.Description ?? string.Empty;
-    Screen = info is {ScreenHeight: {}, ScreenWidth: {}} ? new Resolution { Height = info.ScreenHeight ?? 0, Width = info.ScreenWidth ?? 0 } : null;
+    Screen = new Resolution { Height = info.ScreenHeight ?? 0, Width = info.ScreenWidth ?? 0 };
     JavaPlatform = info.JavaPlatform;
   }
 
