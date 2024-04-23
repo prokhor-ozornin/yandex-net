@@ -29,11 +29,11 @@ public sealed class DetectedLanguageResultTest : UnitTest
     result.Language.Should().Be(Guid.Empty.ToString());
 
     result = new DetectedLanguageResult(new DetectedLanguageResult.Info());
-    result.Code.Should().Be(0);
+    result.Code.Should().Be(default);
     result.Language.Should().BeEmpty();
 
     result = new DetectedLanguageResult(new {});
-    result.Code.Should().Be(0);
+    result.Code.Should().Be(default);
     result.Language.Should().BeEmpty();
   }
 
@@ -43,10 +43,7 @@ public sealed class DetectedLanguageResultTest : UnitTest
   [Fact]
   public void Code_Property()
   {
-    new DetectedLanguageResult(new
-    {
-      Code = int.MaxValue
-    }).Code.Should().Be(int.MaxValue);
+    new DetectedLanguageResult(new { Code = int.MaxValue }).Code.Should().Be(int.MaxValue);
   }
 
   /// <summary>
@@ -55,10 +52,7 @@ public sealed class DetectedLanguageResultTest : UnitTest
   [Fact]
   public void Language_Property()
   {
-    new DetectedLanguageResult(new
-    {
-      Language = Guid.Empty.ToString()
-    }).Language.Should().Be(Guid.Empty.ToString());
+    new DetectedLanguageResult(new { Language = "en" }).Language.Should().Be("en");
   }
 }
 
@@ -96,7 +90,7 @@ public sealed class DetectedLanguageResultInfoTests
   [Fact]
   public void Language_Property()
   {
-    new DetectedLanguageResult.Info { Language = Guid.Empty.ToString() }.Language.Should().Be(Guid.Empty.ToString());
+    new DetectedLanguageResult.Info { Language = "en" }.Language.Should().Be("en");
   }
 
   /// <summary>
@@ -107,17 +101,18 @@ public sealed class DetectedLanguageResultInfoTests
   {
     using (new AssertionScope())
     {
-      var result = new DetectedLanguageResult.Info().ToResult();
-      result.Should().NotBeNull().And.BeOfType<DetectedLanguageResult>();
-      result.Code.Should().Be(0);
-      result.Language.Should().BeEmpty();
+      Validate(new DetectedLanguageResult(default, string.Empty), new DetectedLanguageResult.Info());
     }
 
     return;
 
-    static void Validate()
+    static void Validate(DetectedLanguageResult result, DetectedLanguageResult.Info info)
     {
+      var languageResult = info.ToResult();
 
+      languageResult.Should().BeOfType<DetectedLanguageResult>();
+      languageResult.Code.Should().Be(result.Code);
+      languageResult.Language.Should().Be(result.Language);
     }
   }
 

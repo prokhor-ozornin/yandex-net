@@ -62,6 +62,8 @@ public sealed class MobileDetectorTest : UnitTest
       device.Vendor.Should().Be("Alcatel");
     }
 
+    throw new NotImplementedException();
+
     return;
 
     static void Validate()
@@ -69,9 +71,4 @@ public sealed class MobileDetectorTest : UnitTest
 
     }
   }
-
-  /// <summary>
-  ///   <para></para>
-  /// </summary>
-  public void Dispose() => Detector.Dispose();
 }

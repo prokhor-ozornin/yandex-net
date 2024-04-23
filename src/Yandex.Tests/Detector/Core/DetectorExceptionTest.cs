@@ -21,7 +21,7 @@ public sealed class DetectorExceptionTest : UnitTest
 
     var exception = new DetectorException();
     exception.InnerException.Should().BeNull();
-    exception.Message.Should().BeNull();
+    exception.Message.Should().NotBeEmpty();
 
     var inner = new Exception();
     exception = new DetectorException("message", inner);

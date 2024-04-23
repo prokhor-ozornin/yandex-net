@@ -1,5 +1,4 @@
-﻿using System.Runtime.Serialization;
-using Catharsis.Commons;
+﻿using Catharsis.Commons;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using FluentAssertions.Json;
@@ -16,22 +15,18 @@ public sealed class ErrorTest : ClassTest<Error>
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
   /// </summary>
+  /// <seealso cref="Error()"/>
   /// <seealso cref="Error(string)"/>
-  /// <seealso cref="Error(Error.Info)"/>
-  /// <seealso cref="Error(object)"/>
   [Fact]
   public void Constructors()
   {
     typeof(Error).Should().BeDerivedFrom<object>().And.Implement<IError>();
 
-    var error = new Error(Guid.Empty.ToString());
-    error.Text.Should().Be(Guid.Empty.ToString());
+    var error = new Error();
+    error.Text.Should().BeNull();
 
-    error = new Error(new Error.Info());
-    error.Text.Should().BeEmpty();
-
-    error = new Error(new {});
-    error.Text.Should().BeEmpty();
+    error = new Error("text");
+    error.Text.Should().Be("text");
   }
 
   /// <summary>
@@ -40,10 +35,7 @@ public sealed class ErrorTest : ClassTest<Error>
   [Fact]
   public void Text_Property()
   {
-    new Error(new
-    {
-      Text = Guid.Empty.ToString()
-    }).Text.Should().Be(Guid.Empty.ToString());
+    new Error { Text = "text" }.Text.Should().Be("text");
   }
 
   /// <summary>
@@ -76,64 +68,14 @@ public sealed class ErrorTest : ClassTest<Error>
   {
     using (new AssertionScope())
     {
-      Validate(string.Empty, new Error(new {}));
-      Validate(string.Empty, new Error(new { Text = string.Empty }));
-      Validate("text", new Error(new { Text = "text" }));
+      Validate(string.Empty, new Error());
+      Validate(string.Empty, new Error(string.Empty));
+      Validate("text", new Error("text"));
     }
 
     return;
 
     static void Validate(string value, object instance) => instance.ToString().Should().Be(value);
-  }
-}
-
-/// <summary>
-///   <para>Tests set for class <see cref="Error.Info"/>.</para>
-/// </summary>
-public sealed class ErrorInfoTests : ClassTest<Error.Info>
-{
-  /// <summary>
-  ///   <para>Performs testing of class constructor(s).</para>
-  /// </summary>
-  /// <seealso cref="Error.Info()"/>
-  [Fact]
-  public void Constructors()
-  {
-    typeof(Error.Info).Should().BeDerivedFrom<object>().And.Implement<IResultable<IError>>().And.BeDecoratedWith<DataContractAttribute>();
-
-    var info = new Error.Info();
-    info.Text.Should().BeNull();
-  }
-
-  /// <summary>
-  ///   <para>Performs testing of <see cref="Error.Info.Text"/> property.</para>
-  /// </summary>
-  [Fact]
-  public void Text_Property()
-  {
-    new Error.Info { Text = Guid.Empty.ToString() }.Text.Should().Be(Guid.Empty.ToString());
-  }
-
-  /// <summary>
-  ///   <para>Performs testing of <see cref="Error.Info.ToResult()"/> method.</para>
-  /// </summary>
-  [Fact]
-  public void ToResult_Method()
-  {
-    using (new AssertionScope())
-    {
-      Validate(new Error.Info());
-    }
-
-    return;
-
-    static void Validate(Error.Info info)
-    {
-      var result = info.ToResult();
-
-      result.Should().BeOfType<Error>();
-      result.Text.Should().Be(info.Text ?? string.Empty);
-    }
   }
 
   /// <summary>
@@ -144,7 +86,7 @@ public sealed class ErrorInfoTests : ClassTest<Error.Info>
   {
     using (new AssertionScope())
     {
-      Validate(new Error.Info());
+      Validate(new Error());
     }
 
     return;

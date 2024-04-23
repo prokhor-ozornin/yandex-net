@@ -41,14 +41,12 @@ public sealed class TranslationPairsResponseTests : UnitTest
   [Fact]
   public void Pairs_Property()
   {
-    var response = new TranslationPairsResult(new
-    {
-    });
+    var response = new TranslationPairsResult(new { });
     response.Pairs.Should().BeEmpty();
 
     var pairs = response.Pairs.To<List<string>>();
     pairs.Add("pair");
-    response.Pairs.Should().ContainSingle(pair => pair == "pair");
+    response.Pairs.Should().Equal("pair");
     pairs.Remove("pair");
     response.Pairs.Should().BeEmpty();
   }
@@ -90,16 +88,17 @@ public sealed class TranslationPairsResponseInfoTests
   {
     using (new AssertionScope())
     {
-      var result = new TranslationPairsResult.Info().ToResult();
-      result.Should().NotBeNull().And.BeOfType<TranslationPairTest>();
-      result.Pairs.Should().BeEmpty();
+      Validate(new TranslationPairsResult([]), new TranslationPairsResult.Info());
     }
 
     return;
 
-    static void Validate()
+    static void Validate(TranslationPairsResult result, TranslationPairsResult.Info info)
     {
+      var pairsResult = info.ToResult();
 
+      pairsResult.Should().BeOfType<TranslationPairsResult>();
+      pairsResult.Pairs.Should().Equal(result.Pairs);
     }
   }
 

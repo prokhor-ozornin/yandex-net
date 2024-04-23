@@ -21,13 +21,13 @@ public sealed class TranslatorExceptionTest : UnitTest
 
     var exception = new TranslatorException();
     exception.InnerException.Should().BeNull();
-    exception.Message.Should().BeNull();
+    exception.Message.Should().BeEmpty();
 
     var inner = new Exception();
     var error = new Error(1, "error");
     exception = new TranslatorException(error, inner);
-    exception.InnerException.Should().NotBeNull().And.BeSameAs(inner);
+    exception.InnerException.Should().BeSameAs(inner);
     exception.Message.Should().Be("error");
-    exception.Error.Should().NotBeNull().And.BeSameAs(error);
+    exception.Error.Should().BeSameAs(error);
   }
 }

@@ -21,34 +21,25 @@ public sealed class DetectorRequestTest : UnitTest
     typeof(DetectorRequest).Should().BeDerivedFrom<object>().And.Implement<IDetectorRequest>();
 
     var builder = new DetectorRequest();
-    builder.Headers.Should().NotBeNullOrEmpty();
+    builder.Headers.Should().BeEmpty();
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="DetectorRequest.WithHeader"/> method.</para>
+  ///   <para>Performs testing of <see cref="DetectorRequest.WithHeader(string, object)"/> method.</para>
   /// </summary>
   [Fact]
-  public void Header_Method()
+  public void WithHeader_Method()
   {
     using (new AssertionScope())
     {
       AssertionExtensions.Should(() => new DetectorRequest().WithHeader(null, "value")).ThrowExactly<ArgumentNullException>().WithParameterName("name");
-      AssertionExtensions.Should(() => new DetectorRequest().WithHeader(string.Empty, "value")).ThrowExactly<ArgumentException>().WithParameterName("name");
+      AssertionExtensions.Should(() => new DetectorRequest().WithHeader(string.Empty, "value")).ThrowExactly<ArgumentException>().WithMessage("name");
 
-      var request = new DetectorRequest();
-      
-      request.Headers.Should().BeEmpty();
-
-      request.WithHeader("uuid", Guid.Empty).Should().NotBeNull().And.BeSameAs(request);
-      request.Headers.Should().ContainSingle();
-      request.Headers["uuid"].Should().Be(Guid.Empty);
+      Validate("id", Guid.NewGuid(), new DetectorRequest());
     }
 
     return;
 
-    static void Validate()
-    {
-
-    }
+    static void Validate(string name, object value, IDetectorRequest request) => request.WithHeader(name, value).Should().BeSameAs(request).And.BeOfType<DetectorRequest>().Which.Headers[name].Should().Be(value);
   }
 }

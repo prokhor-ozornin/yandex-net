@@ -41,5 +41,5 @@ public interface IMobileDevice : IEquatable<IMobileDevice>
   ///   <para>Returns class of devices as instance of <see cref="MobileDevicesClass"/> enumeration.</para>
   /// </summary>
   /// <returns>Class of devices.</returns>
-  MobileDevicesClass? MobileDeviceClass => DeviceClass.IsEmpty() ? null : Enum.Parse<MobileDevicesClass>(DeviceClass, true);
+  MobileDevicesClass? MobileDeviceClass => DeviceClass.IsUnset() ? null : Enum.Parse<MobileDevicesClass>(DeviceClass, true);
 }

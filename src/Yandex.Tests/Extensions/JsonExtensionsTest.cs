@@ -22,14 +22,14 @@ public sealed class JsonExtensionsTest : UnitTest
       AssertionExtensions.Should(() => JsonExtensions.SerializeAsJson(null)).ThrowExactly<ArgumentNullException>().WithParameterName("instance");
     }
 
+    throw new NotImplementedException();
+
     return;
 
     static void Validate()
     {
 
     }
-
-    throw new NotImplementedException();
   }
 
   /// <summary>
@@ -43,13 +43,13 @@ public sealed class JsonExtensionsTest : UnitTest
       AssertionExtensions.Should(() => JsonExtensions.DeserializeAsJson<object>(null)).ThrowExactly<ArgumentNullException>().WithParameterName("json");
     }
 
+    throw new NotImplementedException();
+
     return;
 
     static void Validate()
     {
 
     }
-
-    throw new NotImplementedException();
   }
 }

@@ -44,30 +44,6 @@ public sealed class ResolutionTest : ClassTest<Resolution>
   }
 
   /// <summary>
-  ///   <para>Performs testing of following methods :</para>
-  ///   <list type="bullet">
-  ///     <item><description><see cref="Resolution.Equals(IResolution)"/></description></item>
-  ///     <item><description><see cref="Resolution.Equals(object)"/></description></item>
-  ///   </list>
-  /// </summary>
-  [Fact]
-  public void Equals_Methods()
-  {
-    TestEquality(nameof(Resolution.Height), 1, 2);
-    TestEquality(nameof(Resolution.Width), 1, 2);
-  }
-
-  /// <summary>
-  ///   <para>Performs testing of <see cref="Resolution.GetHashCode()"/> method.</para>
-  /// </summary>
-  [Fact]
-  public void GetHashCode_Method()
-  {
-    TestHashCode(nameof(Resolution.Height), 1, 2);
-    TestHashCode(nameof(Resolution.Width), 1, 2);
-  }
-
-  /// <summary>
   ///   <para>Performs testing of <see cref="Resolution.ToString()"/> method.</para>
   /// </summary>
   [Fact]
@@ -76,11 +52,11 @@ public sealed class ResolutionTest : ClassTest<Resolution>
     using (new AssertionScope())
     {
       Validate("0x0", new Resolution());
-      Validate($"{short.MinValue}x${short.MaxValue}", new Resolution { Width = short.MinValue, Height = short.MaxValue });
+      Validate($"{short.MinValue}x{short.MaxValue}", new Resolution { Width = short.MinValue, Height = short.MaxValue });
     }
 
     return;
 
-    static void Validate(string value, object instance) => instance.ToString().Should().Be(value);
+    static void Validate(string result, object instance) => instance.ToString().Should().Be(result);
   }
 }

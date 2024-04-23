@@ -4,7 +4,7 @@ namespace Yandex.Detector;
 
 internal sealed class DetectorRequest : IDetectorRequest
 {
-  private readonly Dictionary<string, object> headers = new();
+  private readonly Dictionary<string, object> headers = [];
 
   public IReadOnlyDictionary<string, object> Headers => headers;
 

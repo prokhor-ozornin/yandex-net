@@ -1,5 +1,4 @@
-﻿using System.Runtime.Serialization;
-using Catharsis.Commons;
+﻿using Catharsis.Commons;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using Xunit;
@@ -20,10 +19,10 @@ public sealed class TranslationTest : UnitTest
   public void Constructors()
   {
     AssertionExtensions.Should(() => new Translation(null, "to", "text")).ThrowExactly<ArgumentNullException>().WithParameterName("fromLanguage");
-    AssertionExtensions.Should(() => new Translation("from", null, "text")).ThrowExactly<ArgumentNullException>().WithParameterName("toLanguage");
-    AssertionExtensions.Should(() => new Translation("from", "to", null)).ThrowExactly<ArgumentNullException>().WithParameterName("text");
-    AssertionExtensions.Should(() => new Translation(string.Empty, "to", "text")).ThrowExactly<ArgumentException>().WithParameterName("fromLanguage");
-    AssertionExtensions.Should(() => new Translation("from", string.Empty, "text")).ThrowExactly<ArgumentException>().WithParameterName("toLanguage");
+    AssertionExtensions.Should(() => new Translation(string.Empty, "ru", "text")).ThrowExactly<ArgumentException>().WithMessage("fromLanguage");
+    AssertionExtensions.Should(() => new Translation("en", null, "text")).ThrowExactly<ArgumentNullException>().WithParameterName("toLanguage");
+    AssertionExtensions.Should(() => new Translation("en", string.Empty, "text")).ThrowExactly<ArgumentException>().WithMessage("toLanguage");
+    AssertionExtensions.Should(() => new Translation("en", "ru", null)).ThrowExactly<ArgumentNullException>().WithParameterName("text");
 
     typeof(Translation).Should().BeDerivedFrom<object>().And.Implement<ITranslation>();
 
@@ -34,34 +33,6 @@ public sealed class TranslationTest : UnitTest
   }
 
   /// <summary>
-  ///   <para>Performs testing of following methods :</para>
-  ///   <list type="bullet">
-  ///     <item><description><see cref="Translation.Equals(ITranslation)"/></description></item>
-  ///     <item><description><see cref="Translation.Equals(object)"/></description></item>
-  ///   </list>
-  /// </summary>
-  [Fact]
-  public void Equals_Methods()
-  {
-    new Translation("fromLanguage", "toLanguage", "text").Should().Be(new Translation("fromLanguage", "toLanguage", "text"));
-    new Translation("first", "toLanguage", "text").Should().NotBe(new Translation("second", "toLanguage", "text"));
-    new Translation("fromLanguage", "first", "text").Should().NotBe(new Translation("fromLanguage", "second", "text"));
-    new Translation("fromLanguage", "toLanguage", "first").Should().NotBe(new Translation("fromLanguage", "toLanguage", "second"));
-  }
-
-  /// <summary>
-  ///   <para>Performs testing of <see cref="Translation.GetHashCode()"/> method.</para>
-  /// </summary>
-  [Fact]
-  public void GetHashCode_Method()
-  {
-    new Translation("fromLanguage", "toLanguage", "text").GetHashCode().Should().Be(new Translation("fromLanguage", "toLanguage", "text").GetHashCode());
-    new Translation("first", "toLanguage", "text").GetHashCode().Should().NotBe(new Translation("second", "toLanguage", "text").GetHashCode());
-    new Translation("fromLanguage", "first", "text").GetHashCode().Should().NotBe(new Translation("fromLanguage", "second", "text").GetHashCode());
-    new Translation("fromLanguage", "toLanguage", "first").GetHashCode().Should().NotBe(new Translation("fromLanguage", "toLanguage", "second").GetHashCode());
-  }
-
-  /// <summary>
   ///   <para>Performs testing of <see cref="Translation.ToString()"/> method.</para>
   /// </summary>
   [Fact]
@@ -69,7 +40,7 @@ public sealed class TranslationTest : UnitTest
   {
     using (new AssertionScope())
     {
-      Validate("text", new Translation("fromLanguage", "toLanguage", "text"));
+      Validate("text", new Translation("en", "ru", "text"));
     }
 
     return;

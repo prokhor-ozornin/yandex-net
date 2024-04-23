@@ -20,8 +20,12 @@ public sealed class IYandexApiExtensionsTest : UnitTest
     using (new AssertionScope())
     {
       AssertionExtensions.Should(() => IYandexApiExtensions.Translator(null)).ThrowExactly<ArgumentNullException>().WithParameterName("api");
+
+      Validate(Yandex.Api);
     }
 
-    Yandex.Api.Translator().Should().NotBeNull().And.NotBeSameAs(Yandex.Api.Translator());
+    return;
+
+    static void Validate(IYandexApi api) => api.Translator().Should().BeOfType<global::Yandex.Translator.Translator>().And.NotBeSameAs(api.Translator());
   }
 }

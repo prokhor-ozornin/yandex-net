@@ -36,7 +36,7 @@ public sealed class MobileDeviceTest : ClassTest<MobileDevice>
     device.DeviceClass.Should().BeEmpty();
     device.Vendor.Should().BeEmpty();
     device.Description.Should().BeEmpty();
-    device.Screen.Should().BeNull();
+    device.Screen.Should().Be(new Resolution());
     device.JavaPlatform.Should().BeNull();
 
     device = new MobileDevice(new {});
@@ -44,7 +44,7 @@ public sealed class MobileDeviceTest : ClassTest<MobileDevice>
     device.DeviceClass.Should().BeEmpty();
     device.Vendor.Should().BeEmpty();
     device.Description.Should().BeEmpty();
-    device.Screen.Should().BeNull();
+    device.Screen.Should().Be(new Resolution());
     device.JavaPlatform.Should().BeNull();
   }
 
@@ -54,10 +54,7 @@ public sealed class MobileDeviceTest : ClassTest<MobileDevice>
   [Fact]
   public void Name_Property()
   {
-    new MobileDevice(new
-    {
-      Name = Guid.Empty.ToString()
-    }).Name.Should().Be(Guid.Empty.ToString());
+    new MobileDevice(new { Name = "name" }).Name.Should().Be("name");
   }
 
   /// <summary>
@@ -66,10 +63,7 @@ public sealed class MobileDeviceTest : ClassTest<MobileDevice>
   [Fact]
   public void DeviceClass_Property()
   {
-    new MobileDevice(new
-    {
-      DeviceClass = Guid.Empty.ToString()
-    }).DeviceClass.Should().Be(Guid.Empty.ToString());
+    new MobileDevice(new { DeviceClass = "deviceClass" }).DeviceClass.Should().Be("deviceClass");
   }
 
   /// <summary>
@@ -78,10 +72,7 @@ public sealed class MobileDeviceTest : ClassTest<MobileDevice>
   [Fact]
   public void Vendor_Property()
   {
-    new MobileDevice(new
-    {
-      Vendor = Guid.Empty.ToString()
-    }).Vendor.Should().Be(Guid.Empty.ToString());
+    new MobileDevice(new { Vendor = "vendor" }).Vendor.Should().Be("vendor");
   }
 
   /// <summary>
@@ -90,10 +81,7 @@ public sealed class MobileDeviceTest : ClassTest<MobileDevice>
   [Fact]
   public void Description_Property()
   {
-    new MobileDevice(new
-    {
-      Description = Guid.Empty.ToString()
-    }).Description.Should().Be(Guid.Empty.ToString());
+    new MobileDevice(new { Description = "description" }).Description.Should().Be("description");
   }
 
   /// <summary>
@@ -103,10 +91,7 @@ public sealed class MobileDeviceTest : ClassTest<MobileDevice>
   public void Screen_Property()
   {
     var screen = new Resolution();
-    new MobileDevice(new
-    {
-      Screen = Guid.Empty.ToString()
-    }).Screen.Should().BeSameAs(screen);
+    new MobileDevice(new { Screen = "screen" }).Screen.Should().BeSameAs(screen);
   }
 
   /// <summary>
@@ -115,13 +100,8 @@ public sealed class MobileDeviceTest : ClassTest<MobileDevice>
   [Fact]
   public void JavaPlatform_Property()
   {
-    var javaPlatform = new JavaPlatform(new
-    {
-    });
-    new MobileDevice(new
-    {
-      JavaPlatform = javaPlatform
-    }.JavaPlatform).Should().BeSameAs(javaPlatform);
+    var javaPlatform = new JavaPlatform(new { });
+    new MobileDevice(new { JavaPlatform = javaPlatform }.JavaPlatform).Should().BeSameAs(javaPlatform);
   }
 
   /// <summary>
@@ -195,7 +175,7 @@ public sealed class MobileDeviceInfoTests : ClassTest<MobileDevice.Info>
   [Fact]
   public void Name_Property()
   {
-    new MobileDevice.Info { Name = Guid.Empty.ToString() }.Name.Should().Be(Guid.Empty.ToString());
+    new MobileDevice.Info { Name = "name" }.Name.Should().Be("name");
   }
 
   /// <summary>
@@ -204,7 +184,7 @@ public sealed class MobileDeviceInfoTests : ClassTest<MobileDevice.Info>
   [Fact]
   public void DeviceClass_Property()
   {
-    new MobileDevice.Info { DeviceClass = Guid.Empty.ToString() }.DeviceClass.Should().Be(Guid.Empty.ToString());
+    new MobileDevice.Info { DeviceClass = "deviceClass" }.DeviceClass.Should().Be("deviceClass");
   }
 
   /// <summary>
@@ -213,7 +193,7 @@ public sealed class MobileDeviceInfoTests : ClassTest<MobileDevice.Info>
   [Fact]
   public void Vendor_Property()
   {
-    new MobileDevice.Info { Vendor = Guid.Empty.ToString() }.Vendor.Should().Be(Guid.Empty.ToString());
+    new MobileDevice.Info { Vendor = "vendor" }.Vendor.Should().Be("vendor");
   }
 
   /// <summary>
@@ -222,7 +202,7 @@ public sealed class MobileDeviceInfoTests : ClassTest<MobileDevice.Info>
   [Fact]
   public void Description_Property()
   {
-    new MobileDevice.Info { Description = Guid.Empty.ToString() }.Description.Should().Be(Guid.Empty.ToString());
+    new MobileDevice.Info { Description = "description" }.Description.Should().Be("description");
   }
 
   /// <summary>
@@ -249,9 +229,7 @@ public sealed class MobileDeviceInfoTests : ClassTest<MobileDevice.Info>
   [Fact]
   public void JavaPlatform_Property()
   {
-    var javaPlatform = new JavaPlatform(new
-    {
-    });
+    var javaPlatform = new JavaPlatform(new { });
     new MobileDevice.Info { JavaPlatform = javaPlatform }.JavaPlatform.Should().BeSameAs(javaPlatform);
   }
 

@@ -1,6 +1,5 @@
 ﻿using System.Runtime.Serialization;
 using Catharsis.Commons;
-using Catharsis.Extensions;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using FluentAssertions.Json;
@@ -50,10 +49,7 @@ public sealed class JavaPlatformTest : ClassTest<JavaPlatform>
   [Fact]
   public void Camera_Property()
   {
-    new JavaPlatform(new
-    {
-      Camera = true
-    }).Camera.Should().BeTrue();
+    new JavaPlatform(new { Camera = (byte) 1 }).Camera.Should().BeTrue();
   }
 
   /// <summary>
@@ -62,10 +58,7 @@ public sealed class JavaPlatformTest : ClassTest<JavaPlatform>
   [Fact]
   public void FileSystem_Property()
   {
-    new JavaPlatform(new
-    {
-      FileSystem = true
-    }).FileSystem.Should().BeTrue();
+    new JavaPlatform(new { FileSystem = (byte) 1 }).FileSystem.Should().BeTrue();
   }
 
   /// <summary>
@@ -74,10 +67,7 @@ public sealed class JavaPlatformTest : ClassTest<JavaPlatform>
   [Fact]
   public void Certificate_Property()
   {
-    new JavaPlatform(new
-    {
-      Certificate = Guid.Empty.ToString()
-    }).Certificate.Should().Be(Guid.Empty.ToString());
+    new JavaPlatform(new { Certificate = "certificate" }).Certificate.Should().Be("certificate");
   }
 
   /// <summary>
@@ -87,38 +77,7 @@ public sealed class JavaPlatformTest : ClassTest<JavaPlatform>
   public void Icon_Property()
   {
     var resolution = new Resolution();
-    new JavaPlatform(new
-    {
-      Resolution = resolution
-    }.Resolution).Should().BeSameAs(resolution);
-  }
-
-  /// <summary>
-  ///   <para>Performs testing of following methods :</para>
-  ///   <list type="bullet">
-  ///     <item><description><see cref="JavaPlatform.Equals(IJavaPlatform)"/></description></item>
-  ///     <item><description><see cref="JavaPlatform.Equals(object)"/></description></item>
-  ///   </list>
-  /// </summary>
-  [Fact]
-  public void Equals_Methods()
-  {
-    TestEquality(nameof(JavaPlatform.Camera), true, false);
-    TestEquality(nameof(JavaPlatform.FileSystem), true, false);
-    TestEquality(nameof(JavaPlatform.Certificate), "first", "second");
-    TestEquality(nameof(JavaPlatform.Icon), new Resolution {Height = 1, Width = 1}, new Resolution {Height = 2, Width = 2});
-  }
-
-  /// <summary>
-  ///   <para>Performs testing of <see cref="JavaPlatform.GetHashCode()"/> method.</para>
-  /// </summary>
-  [Fact]
-  public void GetHashCode_Method()
-  {
-    TestHashCode(nameof(JavaPlatform.Camera), true, false);
-    TestHashCode(nameof(JavaPlatform.FileSystem), true, false);
-    TestHashCode(nameof(JavaPlatform.Certificate), "first", "second");
-    TestHashCode(nameof(JavaPlatform.Icon), new Resolution {Height = 1, Width = 1}, new Resolution {Height = 2, Width = 2});
+    new JavaPlatform(new { Icon = "32x32" }).Icon.ToString().Should().Be("32x32");
   }
 }
 

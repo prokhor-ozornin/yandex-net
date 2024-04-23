@@ -10,6 +10,7 @@ internal sealed record Translation : ITranslation
     if (fromLanguage.IsEmpty()) throw new ArgumentException(nameof(fromLanguage));
     if (toLanguage is null) throw new ArgumentNullException(nameof(toLanguage));
     if (toLanguage.IsEmpty()) throw new ArgumentException(nameof(toLanguage));
+    if (text is null) throw new ArgumentNullException(nameof(text));
 
     FromLanguage = fromLanguage;
     ToLanguage = toLanguage;

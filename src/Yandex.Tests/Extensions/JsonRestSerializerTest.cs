@@ -22,6 +22,18 @@ public sealed class JsonRestSerializerTest : UnitTest
   {
     using (new AssertionScope())
     {
+      static void Validate()
+      {
+
+      }
+    }
+
+    using (new AssertionScope())
+    {
+      static void Validate()
+      {
+
+      }
     }
 
     throw new NotImplementedException();
@@ -38,6 +50,13 @@ public sealed class JsonRestSerializerTest : UnitTest
     }
 
     throw new NotImplementedException();
+
+    return;
+
+    static void Validate()
+    {
+
+    }
   }
 
   /// <summary>
@@ -51,6 +70,13 @@ public sealed class JsonRestSerializerTest : UnitTest
     }
 
     throw new NotImplementedException();
+
+    return;
+
+    static void Validate()
+    {
+
+    }
   }
 
   /// <summary>
@@ -64,6 +90,13 @@ public sealed class JsonRestSerializerTest : UnitTest
     }
 
     throw new NotImplementedException();
+
+    return;
+
+    static void Validate()
+    {
+
+    }
   }
 
   /// <summary>
@@ -77,6 +110,13 @@ public sealed class JsonRestSerializerTest : UnitTest
     }
 
     throw new NotImplementedException();
+
+    return;
+
+    static void Validate()
+    {
+
+    }
   }
 
   /// <summary>
@@ -90,6 +130,13 @@ public sealed class JsonRestSerializerTest : UnitTest
     }
 
     throw new NotImplementedException();
+
+    return;
+
+    static void Validate()
+    {
+
+    }
   }
 
   /// <summary>
@@ -103,6 +150,13 @@ public sealed class JsonRestSerializerTest : UnitTest
     }
 
     throw new NotImplementedException();
+
+    return;
+
+    static void Validate()
+    {
+
+    }
   }
 
   /// <summary>
@@ -116,5 +170,12 @@ public sealed class JsonRestSerializerTest : UnitTest
     }
 
     throw new NotImplementedException();
+
+    return;
+
+    static void Validate()
+    {
+
+    }
   }
 }

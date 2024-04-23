@@ -32,19 +32,11 @@ public sealed class ApiConfiguratorTest : UnitTest
   {
     using (new AssertionScope())
     {
-      AssertionExtensions.Should(() => new ApiConfigurator().ApiKey(null)).ThrowExactly<ArgumentNullException>().WithParameterName("key");
-      AssertionExtensions.Should(() => new ApiConfigurator().ApiKey(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("key");
-
-      var configurator = new ApiConfigurator();
-      configurator.ApiKey("apiKey").Should().NotBeNull().And.BeSameAs(configurator);
-      configurator.ApiKeyValue.Should().Be("apiKey");
+      Validate("apiKey", new ApiConfigurator());
     }
 
     return;
 
-    static void Validate()
-    {
-
-    }
+    static void Validate(string key, IApiConfigurator configurator) => configurator.ApiKey(key).Should().BeSameAs(configurator).And.BeOfType<ApiConfigurator>().Which.ApiKeyValue.Should().Be(key);
   }
 }

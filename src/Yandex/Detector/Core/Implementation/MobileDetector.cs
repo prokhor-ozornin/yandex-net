@@ -31,7 +31,7 @@ internal sealed class MobileDetector : IMobileDetector
 
     try
     {
-      var error = response.DeserializeAsXml<Error.Info>().ToResult();
+      var error = response.DeserializeAsXml<Error>();
       throw new DetectorException(error.Text);
     }
     catch (InvalidOperationException)

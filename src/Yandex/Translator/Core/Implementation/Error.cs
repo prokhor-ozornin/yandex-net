@@ -3,25 +3,24 @@ using Catharsis.Extensions;
 
 namespace Yandex.Translator;
 
+[DataContract(Name = "Error")]
 public sealed class Error : IError
 {
-  public int Code { get; }
+  [DataMember(Name = "code", IsRequired = true)]
+  public int Code { get; init; }
 
-  public string Text { get; }
+  [DataMember(Name = "text", IsRequired = true)]
+  public string Text { get; init; }
 
+  public Error()
+  {
+  }
+  
   public Error(int code, string text)
   {
     Code = code;
     Text = text;
   }
-
-  public Error(Info info)
-  {
-    Code = info.Code ?? 0;
-    Text = info.Text ?? string.Empty;
-  }
-
-  public Error(object info) : this(new Info().SetState(info)) {}
 
   public int CompareTo(IError other) => Code.CompareTo(other?.Code);
 
@@ -32,16 +31,4 @@ public sealed class Error : IError
   public override int GetHashCode() => this.HashCode(nameof(Code));
 
   public override string ToString() => Text ?? string.Empty;
-
-  [DataContract(Name = "Error")]
-  public sealed record Info : IResultable<IError>
-  {
-    [DataMember(Name = "code", IsRequired = true)]
-    public int? Code { get; init; }
-
-    [DataMember(Name = "text", IsRequired = true)]
-    public string Text { get; init; }
-
-    public IError ToResult() => new Error(this);
-  }
 }

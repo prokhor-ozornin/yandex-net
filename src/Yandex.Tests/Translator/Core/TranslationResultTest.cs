@@ -25,18 +25,18 @@ public sealed class TranslationResultTest : ClassTest<TranslationResult>
   {
     typeof(TranslationResult).Should().BeDerivedFrom<object>();
 
-    var result = new TranslationResult(int.MaxValue, Guid.Empty.ToString(), Enumerable.Empty<string>());
+    var result = new TranslationResult(int.MaxValue, "en", []);
     result.Code.Should().Be(int.MaxValue);
-    result.Language.Should().Be(Guid.Empty.ToString());
+    result.Language.Should().Be("en");
     result.Lines.Should().BeEmpty();
 
     result = new TranslationResult(new TranslationResult.Info());
-    result.Code.Should().Be(0);
+    result.Code.Should().Be(default);
     result.Language.Should().BeEmpty();
     result.Lines.Should().BeEmpty();
 
     result = new TranslationResult(new {});
-    result.Code.Should().Be(0);
+    result.Code.Should().Be(default);
     result.Language.Should().BeEmpty();
     result.Lines.Should().BeEmpty();
   }
@@ -47,10 +47,7 @@ public sealed class TranslationResultTest : ClassTest<TranslationResult>
   [Fact]
   public void Code_Property()
   {
-    new TranslationResult(new
-    {
-      Code = int.MaxValue
-    }).Code.Should().Be(int.MaxValue);
+    new TranslationResult(new { Code = int.MaxValue }).Code.Should().Be(int.MaxValue);
   }
 
   /// <summary>
@@ -59,10 +56,7 @@ public sealed class TranslationResultTest : ClassTest<TranslationResult>
   [Fact]
   public void Language_Property()
   {
-    new TranslationResult(new
-    {
-      Language = Guid.Empty.ToString()
-    }).Language.Should().Be(Guid.Empty.ToString());
+    new TranslationResult(new { Language = "en" }).Language.Should().Be("en");
   }
 
   /// <summary>
@@ -71,9 +65,7 @@ public sealed class TranslationResultTest : ClassTest<TranslationResult>
   [Fact]
   public void Lines_Property()
   {
-    var result = new TranslationResult(new
-    {
-    });
+    var result = new TranslationResult(new { });
     result.Lines.Should().BeEmpty();
 
     var lines = result.Lines.To<List<string>>();
@@ -137,7 +129,7 @@ public sealed class TranslationResultInfoTests : ClassTest<TranslationResult.Inf
   [Fact]
   public void Language_Property()
   {
-    new TranslationResult.Info { Language = Guid.Empty.ToString() }.Language.Should().Be(Guid.Empty.ToString());
+    new TranslationResult.Info { Language = "en" }.Language.Should().Be("en");
   }
 
   /// <summary>
@@ -158,18 +150,19 @@ public sealed class TranslationResultInfoTests : ClassTest<TranslationResult.Inf
   {
     using (new AssertionScope())
     {
-      var result = new TranslationResult.Info().ToResult();
-      result.Should().NotBeNull().And.BeOfType<TranslationResult>();
-      result.Code.Should().Be(0);
-      result.Language.Should().BeEmpty();
-      result.Lines.Should().BeEmpty();
+      Validate(new TranslationResult(0, string.Empty, []), new TranslationResult.Info());
     }
 
     return;
 
-    static void Validate()
+    static void Validate(TranslationResult result, TranslationResult.Info info)
     {
+      var translationResult = info.ToResult();
 
+      translationResult.Should().BeOfType<TranslationResult>();
+      translationResult.Code.Should().Be(result.Code);
+      translationResult.Language.Should().Be(result.Language);
+      translationResult.Lines.Should().Equal(result.Lines);
     }
   }
 

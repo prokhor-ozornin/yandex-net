@@ -29,7 +29,7 @@ internal sealed class Api : IApi
 
     var result = (await Request<DetectedLanguageResult.Info>("detect", new Dictionary<string, object> {{"text", text}}, cancellation).ConfigureAwait(false)).ToResult();
 
-    if (result.Code != (int) HttpStatusCode.OK || result.Language.IsEmpty())
+    if (result.Code != (int) HttpStatusCode.OK || result.Language.IsUnset())
     {
       throw new TranslatorException(new Error(result.Code, "Cannot determine source language for text"));
     }
@@ -45,7 +45,7 @@ internal sealed class Api : IApi
 
     var translation = result.ToString();
 
-    if (result.Code != (int) HttpStatusCode.OK || result.Language.IsEmpty() || translation.IsEmpty())
+    if (result.Code != (int) HttpStatusCode.OK || result.Language.IsUnset() || translation.IsUnset())
     {
       throw new TranslatorException(new Error(result.Code, "Text translation failed"));
     }
@@ -108,13 +108,13 @@ internal sealed class Api : IApi
 
     try
     {
-      error = response.Content?.DeserializeAsJson<Error.Info>()?.ToResult();
+      error = response.Content?.DeserializeAsJson<Error>();
     }
     catch
     {
     }
 
-    if (error is not null && !error.Text.IsEmpty())
+    if (error is not null && !error.Text.IsUnset())
     {
       throw new TranslatorException(error);
     }

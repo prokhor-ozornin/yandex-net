@@ -43,17 +43,17 @@ internal sealed class TranslationApiRequest : ApiRequest, ITranslationApiRequest
   {
     get
     {
-      if (FromLanguage.IsEmpty() && ToLanguage.IsEmpty())
+      if (FromLanguage.IsUnset() && ToLanguage.IsUnset())
       {
         return null;
       }
 
-      if (FromLanguage.IsEmpty())
+      if (FromLanguage.IsUnset())
       {
         return ToLanguage;
       }
 
-      if (ToLanguage.IsEmpty())
+      if (ToLanguage.IsUnset())
       {
         return FromLanguage;
       }
