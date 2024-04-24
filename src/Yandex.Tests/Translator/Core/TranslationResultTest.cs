@@ -97,7 +97,7 @@ public sealed class TranslationResultTest : ClassTest<TranslationResult>
 /// <summary>
 ///   <para>Tests set for class <see cref="TranslationResult.Info"/>.</para>
 /// </summary>
-public sealed class TranslationResultInfoTests : ClassTest<TranslationResult.Info>
+public sealed class TranslationResultInfoTest : ClassTest<TranslationResult.Info>
 {
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>

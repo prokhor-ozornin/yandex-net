@@ -76,7 +76,6 @@ public sealed class JavaPlatformTest : ClassTest<JavaPlatform>
   [Fact]
   public void Icon_Property()
   {
-    var resolution = new Resolution();
     new JavaPlatform(new { Icon = "32x32" }).Icon.ToString().Should().Be("32x32");
   }
 }
@@ -84,7 +83,7 @@ public sealed class JavaPlatformTest : ClassTest<JavaPlatform>
 /// <summary>
 ///   <para>Tests set for class <see cref="JavaPlatform.Info"/>.</para>
 /// </summary>
-public sealed class JavaPlatformInfoTests : ClassTest<JavaPlatform.Info>
+public sealed class JavaPlatformInfoTest : ClassTest<JavaPlatform.Info>
 {
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>

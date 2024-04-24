@@ -55,7 +55,7 @@ public sealed class TranslationPairsResponseTests : UnitTest
 /// <summary>
 ///   <para>Tests set for class <see cref="TranslationPairsResult.Info"/>.</para>
 /// </summary>
-public sealed class TranslationPairsResponseInfoTests
+public sealed class TranslationPairsResponseInfoTest : UnitTest
 {
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>

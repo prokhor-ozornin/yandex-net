@@ -148,7 +148,7 @@ public sealed class MobileDeviceTest : ClassTest<MobileDevice>
 /// <summary>
 ///   <para>Tests set for class <see cref="MobileDevice.Info"/>.</para>
 /// </summary>
-public sealed class MobileDeviceInfoTests : ClassTest<MobileDevice.Info>
+public sealed class MobileDeviceInfoTest : ClassTest<MobileDevice.Info>
 {
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
