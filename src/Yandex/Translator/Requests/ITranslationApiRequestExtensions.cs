@@ -3,7 +3,7 @@
 namespace Yandex.Translator;
 
 /// <summary>
-///   <para>Set of extension methods for interface <see cref="ITranslationApiRequest"/>.</para>
+///   <para>A set of extension methods for the <see cref="ITranslationApiRequest"/> interface.</para>
 /// </summary>
 /// <seealso cref="ITranslationApiRequest"/>
 public static class ITranslationApiRequestExtensions

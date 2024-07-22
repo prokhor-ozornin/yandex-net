@@ -3,7 +3,7 @@
 namespace Yandex.Detector;
 
 /// <summary>
-///   <para>Set of extension methods for interface <see cref="IDetectorRequest"/>.</para>
+///   <para>A set of extension methods for the <see cref="IDetectorRequest"/> interface.</para>
 /// </summary>
 /// <seealso cref="IDetectorRequest"/>
 public static class IDetectorRequestExtensions

@@ -1,7 +1,7 @@
 ﻿namespace Yandex.Translator;
 
 /// <summary>
-///   <para>Set of extension methods for interface <see cref="ITranslator"/>.</para>
+///   <para>A set of extension methods for the <see cref="ITranslator"/> interface.</para>
 /// </summary>
 /// <seealso cref="ITranslator"/>
 public static class ITranslatorExtensions

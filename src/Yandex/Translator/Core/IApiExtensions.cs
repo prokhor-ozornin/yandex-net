@@ -3,7 +3,7 @@
 namespace Yandex.Translator;
 
 /// <summary>
-///   <para>Set of extension methods for interface <see cref="IApi"/>.</para>
+///   <para>A set of extension methods for the <see cref="IApi"/> interface.</para>
 /// </summary>
 /// <seealso cref="IApi"/>
 public static class IApiExtensions

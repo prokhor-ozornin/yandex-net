@@ -3,7 +3,7 @@
 namespace Yandex.Detector;
 
 /// <summary>
-///   <para>Set of extension methods for interface <see cref="IMobileDetector"/>.</para>
+///   <para>A set of extension methods for the <see cref="IMobileDetector"/> interface.</para>
 /// </summary>
 /// <seealso cref="IMobileDetector"/>
 public static class IMobileDetectorExtensions
