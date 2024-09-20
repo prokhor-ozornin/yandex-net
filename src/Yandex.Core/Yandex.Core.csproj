@@ -20,6 +20,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Detector\.gitignore" />
+    <None Remove="Detector\Core\.gitignore" />
+    <None Remove="Detector\Core\Implementation\.gitignore" />
+    <None Remove="Detector\Requests\.gitignore" />
+    <None Remove="Detector\Requests\Implementation\.gitignore" />
+    <None Remove="Extensions\.gitignore" />
+    <None Remove="Translator\.gitignore" />
+    <None Remove="Translator\Core\.gitignore" />
+    <None Remove="Translator\Core\Implementation\.gitignore" />
+    <None Remove="Translator\Requests\.gitignore" />
+    <None Remove="Translator\Requests\Implementation\.gitignore" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Include="..\Yandex\Detector\Core\DetectorException.cs" Link="Detector\Core\DetectorException.cs" />
     <Compile Include="..\Yandex\Detector\Core\IError.cs" Link="Detector\Core\IError.cs" />
     <Compile Include="..\Yandex\Detector\Core\IJavaPlatform.cs" Link="Detector\Core\IJavaPlatform.cs" />
@@ -81,9 +95,14 @@
 
   <ItemGroup>
     <Folder Include="Detector\Core\Implementation\" />
+    <Folder Include="Detector\Core\Implementation\" />
+    <Folder Include="Detector\Requests\Implementation\" />
     <Folder Include="Detector\Requests\Implementation\" />
     <Folder Include="Extensions\" />
+    <Folder Include="Extensions\" />
     <Folder Include="Translator\Core\Implementation\" />
+    <Folder Include="Translator\Core\Implementation\" />
+    <Folder Include="Translator\Requests\Implementation\" />
     <Folder Include="Translator\Requests\Implementation\" />
   </ItemGroup>
 
