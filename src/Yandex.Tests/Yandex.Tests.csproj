@@ -30,10 +30,10 @@
 
   <ItemGroup>
     <Reference Include="Catharsis.Commons">
-      <HintPath>..\..\..\Catharsis\Catharsis.Commons\Catharsis.Commons.Core\bin\Release\net8.0\Catharsis.Commons.dll</HintPath>
+      <HintPath>..\..\..\Catharsis.Commons\src\Catharsis.Commons.Core\bin\Release\net8.0\Catharsis.Commons.dll</HintPath>
     </Reference>
     <Reference Include="Catharsis.Extensions">
-      <HintPath>..\..\..\Catharsis\Catharsis.Extensions\src\Catharsis.Extensions.Core\bin\Release\net8.0\Catharsis.Extensions.dll</HintPath>
+      <HintPath>..\..\..\Catharsis.Extensions\src\Catharsis.Extensions.Core\bin\Release\net8.0\Catharsis.Extensions.dll</HintPath>
     </Reference>
   </ItemGroup>
 
