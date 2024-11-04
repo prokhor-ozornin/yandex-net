@@ -1,0 +1,1181 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Yandex</name>
+    </assembly>
+    <members>
+        <member name="T:Yandex.Detector.DetectorException">
+            <summary>
+              <para>Represent error that occurs during execution of request to Yandex.Detector service.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Detector.DetectorException.#ctor(System.String,System.Exception)">
+            <summary>
+              <para>Initializes a new instance exception with a specified error message and a reference to the inner exception that is the cause of this exception.</para>
+            </summary>
+            <param name="message">The error message that explains the reason for the exception.</param>
+            <param name="inner">The exception that is the cause of the current exception, or a <c>null</c> reference.</param>
+        </member>
+        <member name="T:Yandex.Detector.IError">
+            <summary>
+              <para></para>
+            </summary>
+        </member>
+        <member name="P:Yandex.Detector.IError.Text">
+            <summary>
+              <para></para>
+            </summary>
+        </member>
+        <member name="T:Yandex.Detector.IJavaPlatform">
+            <summary>
+              <para>Mobile Java platform capabilities.</para>
+            </summary>
+        </member>
+        <member name="P:Yandex.Detector.IJavaPlatform.Camera">
+            <summary>
+              <para>Whether Java applications have access to device's camera.</para>
+            </summary>
+        </member>
+        <member name="P:Yandex.Detector.IJavaPlatform.FileSystem">
+            <summary>
+              <para>Whether Java applications have access to device's filesystem.</para>
+            </summary>
+        </member>
+        <member name="P:Yandex.Detector.IJavaPlatform.Certificate">
+            <summary>
+              <para>Prefix of Java certificate.</para>
+            </summary>
+        </member>
+        <member name="P:Yandex.Detector.IJavaPlatform.Icon">
+            <summary>
+              <para>Dimensions of Java applications icons.</para>
+            </summary>
+        </member>
+        <member name="T:Yandex.Detector.IMobileDevice">
+            <summary>
+              <para>Contains information about mobile device and its features and capabilities.</para>
+            </summary>
+        </member>
+        <member name="P:Yandex.Detector.IMobileDevice.Name">
+            <summary>
+              <para>Device's model name.</para>
+            </summary>
+        </member>
+        <member name="P:Yandex.Detector.IMobileDevice.DeviceClass">
+            <summary>
+              <para>Class of devices.</para>
+            </summary>
+        </member>
+        <member name="P:Yandex.Detector.IMobileDevice.Vendor">
+            <summary>
+              <para>Name of device's vendor.</para>
+            </summary>
+        </member>
+        <member name="P:Yandex.Detector.IMobileDevice.Description">
+            <summary>
+              <para>Description of device's class.</para>
+            </summary>
+        </member>
+        <member name="P:Yandex.Detector.IMobileDevice.Screen">
+            <summary>
+              <para>Device's screen resolution (px).</para>
+            </summary>
+        </member>
+        <member name="P:Yandex.Detector.IMobileDevice.JavaPlatform">
+            <summary>
+              <para>Device's installed Java platform capabilities.</para>
+            </summary>
+        </member>
+        <member name="P:Yandex.Detector.IMobileDevice.MobileDeviceClass">
+            <summary>
+              <para>Returns class of devices as instance of <see cref="T:Yandex.Detector.MobileDevicesClass"/> enumeration.</para>
+            </summary>
+            <returns>Class of devices.</returns>
+        </member>
+        <member name="T:Yandex.Detector.Error">
+            <summary>
+              <para></para>
+            </summary>
+        </member>
+        <member name="P:Yandex.Detector.Error.Text">
+            <summary>
+              <para></para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Detector.Error.#ctor">
+            <summary>
+              <para></para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Detector.Error.#ctor(System.String)">
+            <summary>
+              <para></para>
+            </summary>
+            <param name="text"></param>
+        </member>
+        <member name="M:Yandex.Detector.Error.ToString">
+            <summary>
+              <para>Returns a <see cref="T:System.String"/> that represents the current <see cref="T:Yandex.Detector.Error"/> instance.</para>
+            </summary>
+            <returns>A string that represents the current <see cref="T:Yandex.Detector.Error"/>.</returns>
+        </member>
+        <member name="T:Yandex.Detector.JavaPlatform">
+            <summary>
+              <para>Mobile Java platform capabilities.</para>
+            </summary>
+        </member>
+        <member name="P:Yandex.Detector.JavaPlatform.Camera">
+            <summary>
+              <para>Whether Java applications have access to device's camera.</para>
+            </summary>
+        </member>
+        <member name="P:Yandex.Detector.JavaPlatform.FileSystem">
+            <summary>
+              <para>Whether Java applications have access to device's filesystem.</para>
+            </summary>
+        </member>
+        <member name="P:Yandex.Detector.JavaPlatform.Certificate">
+            <summary>
+              <para>Prefix of Java certificate.</para>
+            </summary>
+        </member>
+        <member name="P:Yandex.Detector.JavaPlatform.Icon">
+            <summary>
+              <para>Dimensions of Java applications icons.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Detector.JavaPlatform.#ctor(System.Boolean,System.Boolean,System.String,Yandex.Detector.IResolution)">
+            <summary>
+              <para></para>
+            </summary>
+            <param name="camera"></param>
+            <param name="fileSystem"></param>
+            <param name="certificate"></param>
+            <param name="icon"></param>
+        </member>
+        <member name="M:Yandex.Detector.JavaPlatform.#ctor(Yandex.Detector.JavaPlatform.Info)">
+            <summary>
+              <para></para>
+            </summary>
+            <param name="info"></param>
+        </member>
+        <member name="M:Yandex.Detector.JavaPlatform.#ctor(System.Object)">
+            <summary>
+              <para></para>
+            </summary>
+            <param name="info"></param>
+        </member>
+        <member name="T:Yandex.Detector.JavaPlatform.Info">
+            <summary>
+              <para></para>
+            </summary>
+        </member>
+        <member name="P:Yandex.Detector.JavaPlatform.Info.Camera">
+            <summary>
+              <para></para>
+            </summary>
+        </member>
+        <member name="P:Yandex.Detector.JavaPlatform.Info.FileSystem">
+            <summary>
+              <para></para>
+            </summary>
+        </member>
+        <member name="P:Yandex.Detector.JavaPlatform.Info.Certificate">
+            <summary>
+              <para></para>
+            </summary>
+        </member>
+        <member name="P:Yandex.Detector.JavaPlatform.Info.Icon">
+            <summary>
+              <para></para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Detector.JavaPlatform.Info.ToResult">
+            <summary>
+              <para></para>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Yandex.Detector.MobileDevice">
+            <summary>
+              <para>Contains information about mobile device and its features and capabilities.</para>
+            </summary>
+        </member>
+        <member name="P:Yandex.Detector.MobileDevice.Name">
+            <summary>
+              <para>Device's model name.</para>
+            </summary>
+        </member>
+        <member name="P:Yandex.Detector.MobileDevice.DeviceClass">
+            <summary>
+              <para>Class of devices.</para>
+            </summary>
+        </member>
+        <member name="P:Yandex.Detector.MobileDevice.Vendor">
+            <summary>
+              <para>Name of device's vendor.</para>
+            </summary>
+        </member>
+        <member name="P:Yandex.Detector.MobileDevice.Description">
+            <summary>
+              <para>Description of device's class.</para>
+            </summary>
+        </member>
+        <member name="P:Yandex.Detector.MobileDevice.Screen">
+            <summary>
+              <para>Device's screen resolution (px).</para>
+            </summary>
+        </member>
+        <member name="P:Yandex.Detector.MobileDevice.JavaPlatform">
+            <summary>
+              <para>Device's installed Java platform capabilities.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Detector.MobileDevice.#ctor(System.String,System.String,System.String,System.String,Yandex.Detector.IResolution,Yandex.Detector.IJavaPlatform)">
+            <summary>
+              <para></para>
+            </summary>
+            <param name="name"></param>
+            <param name="deviceClass"></param>
+            <param name="vendor"></param>
+            <param name="description"></param>
+            <param name="screen"></param>
+            <param name="javaPlatform"></param>
+        </member>
+        <member name="M:Yandex.Detector.MobileDevice.#ctor(Yandex.Detector.MobileDevice.Info)">
+            <summary>
+              <para></para>
+            </summary>
+            <param name="info"></param>
+        </member>
+        <member name="M:Yandex.Detector.MobileDevice.#ctor(System.Object)">
+            <summary>
+              <para></para>
+            </summary>
+            <param name="info"></param>
+        </member>
+        <member name="M:Yandex.Detector.MobileDevice.Equals(Yandex.Detector.IMobileDevice)">
+            <summary>
+              <para>Determines whether two <see cref="T:Yandex.Detector.IMobileDevice"/> instances are equal.</para>
+            </summary>
+            <param name="other">The instance to compare with the current one.</param>
+            <returns><c>true</c> if specified instance is equal to the current, <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:Yandex.Detector.MobileDevice.Equals(System.Object)">
+            <summary>
+              <para>Determines whether the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>.</para>
+            </summary>
+            <param name="other">The object to compare with the current object.</param>
+            <returns><c>true</c> if the specified object is equal to the current object, <c>false</c>.</returns>
+        </member>
+        <member name="M:Yandex.Detector.MobileDevice.GetHashCode">
+            <summary>
+              <para>Returns hash code for the current object.</para>
+            </summary>
+            <returns>Hash code of current instance.</returns>
+        </member>
+        <member name="M:Yandex.Detector.MobileDevice.ToString">
+            <summary>
+              <para>Returns a <see cref="T:System.String"/> that represents the current <see cref="T:Yandex.Detector.MobileDevice"/> instance.</para>
+            </summary>
+            <returns>A string that represents the current <see cref="T:Yandex.Detector.MobileDevice"/>.</returns>
+        </member>
+        <member name="T:Yandex.Detector.MobileDevice.Info">
+            <summary>
+              <para></para>
+            </summary>
+        </member>
+        <member name="P:Yandex.Detector.MobileDevice.Info.Name">
+            <summary>
+              <para>Device's model name.</para>
+            </summary>
+        </member>
+        <member name="P:Yandex.Detector.MobileDevice.Info.DeviceClass">
+            <summary>
+              <para>Class of devices.</para>
+            </summary>
+        </member>
+        <member name="P:Yandex.Detector.MobileDevice.Info.Vendor">
+            <summary>
+              <para>Name of device's vendor.</para>
+            </summary>
+        </member>
+        <member name="P:Yandex.Detector.MobileDevice.Info.Description">
+            <summary>
+              <para>Description of device's class.</para>
+            </summary>
+        </member>
+        <member name="P:Yandex.Detector.MobileDevice.Info.ScreenWidth">
+            <summary>
+              <para>Device's screen horizontal width (px).</para>
+            </summary>
+        </member>
+        <member name="P:Yandex.Detector.MobileDevice.Info.ScreenHeight">
+            <summary>
+              <para>Device's screen vertical height (px).</para>
+            </summary>
+        </member>
+        <member name="P:Yandex.Detector.MobileDevice.Info.JavaPlatform">
+            <summary>
+              <para>Device's installed Java platform capabilities.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Detector.MobileDevice.Info.ToResult">
+            <summary>
+              <para></para>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Yandex.Detector.Resolution">
+            <summary>
+              <para></para>
+            </summary>
+        </member>
+        <member name="P:Yandex.Detector.Resolution.Height">
+            <summary>
+              <para></para>
+            </summary>
+        </member>
+        <member name="P:Yandex.Detector.Resolution.Width">
+            <summary>
+              <para></para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Detector.Resolution.ToString">
+            <summary>
+              <para>Returns a <see cref="T:System.String"/> that represents the current <see cref="T:Yandex.Detector.Resolution"/> instance.</para>
+            </summary>
+            <returns>A string that represents the current <see cref="T:Yandex.Detector.Resolution"/>.</returns>
+        </member>
+        <member name="T:Yandex.Detector.IResolution">
+            <summary>
+              <para></para>
+            </summary>
+        </member>
+        <member name="P:Yandex.Detector.IResolution.Height">
+            <summary>
+              <para></para>
+            </summary>
+        </member>
+        <member name="P:Yandex.Detector.IResolution.Width">
+            <summary>
+              <para></para>
+            </summary>
+        </member>
+        <member name="T:Yandex.Detector.IResultable`1">
+            <summary>
+              <para>Representation of access point for different types of W3C content validators.</para>
+            </summary>
+            <summary>
+              <para>Voting search results.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Detector.IResultable`1.ToResult">
+            <summary>
+              <para></para>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Yandex.Detector.MobileDevicesClass">
+            <summary>
+              <para>Well-known classes of mobile devices.</para>
+            </summary>
+        </member>
+        <member name="F:Yandex.Detector.MobileDevicesClass.UIQ2">
+            <summary>
+              <para>Symbian UIQ2.</para>
+            </summary>
+        </member>
+        <member name="F:Yandex.Detector.MobileDevicesClass.UIQ3">
+            <summary>
+              <para>Symbian UIQ3.</para>
+            </summary>
+        </member>
+        <member name="F:Yandex.Detector.MobileDevicesClass.S60v1">
+            <summary>
+              <para>Symbian S60v1.</para>
+            </summary>
+        </member>
+        <member name="F:Yandex.Detector.MobileDevicesClass.S60v2">
+            <summary>
+              <para>Symbian S60v2.</para>
+            </summary>
+        </member>
+        <member name="F:Yandex.Detector.MobileDevicesClass.S60v3">
+            <summary>
+              <para>Symbian S60v3.</para>
+            </summary>
+        </member>
+        <member name="F:Yandex.Detector.MobileDevicesClass.S60v5">
+            <summary>
+              <para>Symbian S60v5.</para>
+            </summary>
+        </member>
+        <member name="F:Yandex.Detector.MobileDevicesClass.WM4SP">
+            <summary>
+              <para>Microsoft Windows Mobile 2003 Smartphone edition.</para>
+            </summary>
+        </member>
+        <member name="F:Yandex.Detector.MobileDevicesClass.WM4PPC">
+            <summary>
+              <para>Microsoft Windows Mobile 2003 Pocket PC edition.</para>
+            </summary>
+        </member>
+        <member name="F:Yandex.Detector.MobileDevicesClass.WM5SP">
+            <summary>
+              <para>Microsoft Windows Mobile 2005 Smartphone edition.</para>
+            </summary>
+        </member>
+        <member name="F:Yandex.Detector.MobileDevicesClass.WM5PPC">
+            <summary>
+              <para>Microsoft Windows Mobile 2005 Pocket PC edition.</para>
+            </summary>
+        </member>
+        <member name="F:Yandex.Detector.MobileDevicesClass.WM6SP">
+            <summary>
+              <para>Microsoft Windows Mobile 2006 Smartphone edition.</para>
+            </summary>
+        </member>
+        <member name="F:Yandex.Detector.MobileDevicesClass.WM6PPC">
+            <summary>
+              <para>Microsoft Windows Mobile 2006 Pocket PC edition.</para>
+            </summary>
+        </member>
+        <member name="F:Yandex.Detector.MobileDevicesClass.WMGeneric">
+            <summary>
+              <para>Microsoft Windows Mobile Generic.</para>
+            </summary>
+        </member>
+        <member name="F:Yandex.Detector.MobileDevicesClass.MIDP2ss">
+            <summary>
+              <para>Java MIDP2 (small).</para>
+            </summary>
+        </member>
+        <member name="F:Yandex.Detector.MobileDevicesClass.MIDP2bs">
+            <summary>
+              <para>Java MIDP2 (big).</para>
+            </summary>
+        </member>
+        <member name="F:Yandex.Detector.MobileDevicesClass.midp2hs">
+            <summary>
+              <para>Java MIDP2 (huge).</para>
+            </summary>
+        </member>
+        <member name="F:Yandex.Detector.MobileDevicesClass.MIDP2ssg">
+            <summary>
+              <para>Java MIDP2 (small + bluetooth).</para>
+            </summary>
+        </member>
+        <member name="F:Yandex.Detector.MobileDevicesClass.MIDP2bsg">
+            <summary>
+              <para>Java MIDP2 (big + bluetooth).</para>
+            </summary>
+        </member>
+        <member name="F:Yandex.Detector.MobileDevicesClass.MIDP2hsg">
+            <summary>
+              <para>Java MIDP2 (huge + bluetooth).</para>
+            </summary>
+        </member>
+        <member name="F:Yandex.Detector.MobileDevicesClass.MIDP2lite">
+            <summary>
+              <para>Java MIDP2 (lite).</para>
+            </summary>
+        </member>
+        <member name="F:Yandex.Detector.MobileDevicesClass.MIDP2LiteG">
+            <summary>
+              <para>Java MIDP2 (lite + bluetooth).</para>
+            </summary>
+        </member>
+        <member name="F:Yandex.Detector.MobileDevicesClass.Android">
+            <summary>
+              <para>Google Android OS.</para>
+            </summary>
+        </member>
+        <member name="F:Yandex.Detector.MobileDevicesClass.Rim">
+            <summary>
+              <para>Blackberry OS.</para>
+            </summary>
+        </member>
+        <member name="F:Yandex.Detector.MobileDevicesClass.IPhoneOS">
+            <summary>
+              <para>Apple iPhone OS.</para>
+            </summary>
+        </member>
+        <member name="T:Yandex.Detector.IMobileDetector">
+            <summary>
+              <para>Provides access to functionality of Yandex.Detector mobile service.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Detector.IMobileDetector.DetectAsync(System.Collections.Generic.IReadOnlyDictionary{System.String,System.Object},System.Threading.CancellationToken)">
+            <summary>
+              <para>Performs request to Yandex.Detector web service and determines capabilities of mobile client device, using provided HTTP headers for its identification.</para>
+            </summary>
+            <param name="headers">Mobile device's HTTP headers with values.</param>
+            <param name="cancellation"></param>
+            <returns>Instance of <see cref="T:Yandex.Detector.IMobileDevice"/> object, describing capabilities of identified mobile device.</returns>
+            <exception cref="T:Yandex.Detector.DetectorException">If there was error either during the request to Yandex.Detector web service, or mobile device cannot be identified based on a set of provided HTTP headers.</exception>
+        </member>
+        <member name="T:Yandex.Detector.IMobileDetectorExtensions">
+            <summary>
+              <para>A set of extension methods for the <see cref="T:Yandex.Detector.IMobileDetector"/> interface.</para>
+            </summary>
+            <seealso cref="T:Yandex.Detector.IMobileDetector"/>
+        </member>
+        <member name="M:Yandex.Detector.IMobileDetectorExtensions.DetectAsync(Yandex.Detector.IMobileDetector,System.Threading.CancellationToken,System.ValueTuple{System.String,System.Object}[])">
+            <summary>
+              <para></para>
+            </summary>
+            <param name="detector"></param>
+            <param name="cancellation"></param>
+            <param name="headers"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Yandex.Detector.IMobileDetectorExtensions.DetectAsync(Yandex.Detector.IMobileDetector,System.Action{Yandex.Detector.IDetectorRequest},System.Threading.CancellationToken)">
+            <summary>
+              <para>Performs request to Yandex.Detector web service and determines capabilities of mobile client device.</para>
+            </summary>
+            <param name="detector">Instance of client for Yandex.Detector web service.</param>
+            <param name="action">Delegate that performs configuration of mobile device's HTTP headers to be send with request.</param>
+            <param name="cancellation"></param>
+            <returns>Instance of <see cref="T:Yandex.Detector.IMobileDevice"/> object, describing capabilities of identified mobile device.</returns>
+            <exception cref="T:Yandex.Detector.DetectorException">If there was error either during the request to Yandex.Detector web service, or mobile device cannot be identified based on a set of provided HTTP headers.</exception>
+        </member>
+        <member name="M:Yandex.Detector.IMobileDetectorExtensions.Detect(Yandex.Detector.IMobileDetector,System.ValueTuple{System.String,System.Object}[])">
+            <summary>
+              <para></para>
+            </summary>
+            <param name="detector"></param>
+            <param name="headers"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Yandex.Detector.IMobileDetectorExtensions.Detect(Yandex.Detector.IMobileDetector,System.Action{Yandex.Detector.IDetectorRequest})">
+            <summary>
+              <para></para>
+            </summary>
+            <param name="detector"></param>
+            <param name="action"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Yandex.Detector.IYandexApiExtensions">
+            <summary>
+              <para>Entry point for Yandex.Detector web service's access.</para>
+            </summary>
+            <seealso cref="!:http://api.yandex.ru/detector"/>
+        </member>
+        <member name="M:Yandex.Detector.IYandexApiExtensions.Detector(Yandex.IYandexApi)">
+            <summary>
+              <para>Returns detector's instance to query Yandex.Detector service.</para>
+            </summary>
+            <param name="api"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Yandex.Detector.IDetectorRequest">
+            <summary>
+              <para>Represents a configurable request to the Yandex.Detector service.</para>
+            </summary>
+        </member>
+        <member name="P:Yandex.Detector.IDetectorRequest.Headers">
+            <summary>
+              <para>Map of parameters names/values to be used in a web request.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Detector.IDetectorRequest.WithHeader(System.String,System.Object)">
+            <summary>
+              <para>Add new mobile device header for HTTP request, or replaces an existing one.</para>
+            </summary>
+            <param name="name">Name of the header.</param>
+            <param name="value">Value of the header.</param>
+            <returns>Back reference to the current request instance.</returns>
+        </member>
+        <member name="T:Yandex.Detector.IDetectorRequestExtensions">
+            <summary>
+              <para>A set of extension methods for the <see cref="T:Yandex.Detector.IDetectorRequest"/> interface.</para>
+            </summary>
+            <seealso cref="T:Yandex.Detector.IDetectorRequest"/>
+        </member>
+        <member name="M:Yandex.Detector.IDetectorRequestExtensions.OperaMini(Yandex.Detector.IDetectorRequest,System.String)">
+            <summary>
+              <para>Adds new header for HTTP request that identifies target mobile device as having an Opera Mini browser installed.</para>
+            </summary>
+            <param name="request">Instance of request to Yandex.Detector service.</param>
+            <param name="version">Version of installed Opera Mini.</param>
+            <returns>Back reference to the provided <paramref name="request"/> instance.</returns>
+            <seealso cref="M:Yandex.Detector.IDetectorRequest.WithHeader(System.String,System.Object)"/>
+        </member>
+        <member name="M:Yandex.Detector.IDetectorRequestExtensions.Profile(Yandex.Detector.IDetectorRequest,System.String)">
+            <summary>
+              <para>Adds set of headers for HTTP request that indicates a mobile profile of the target device.</para>
+              <para>The following HTTP headers are set : "profile", "wap-profile", "x-wap-profile".</para>
+            </summary>
+            <param name="request">Instance of request to Yandex.Detector service.</param>
+            <param name="profile">Value of HTTP mobile profile headers.</param>
+            <returns>Back reference to the provided <paramref name="request"/> instance.</returns>
+            <seealso cref="M:Yandex.Detector.IDetectorRequest.WithHeader(System.String,System.Object)"/>
+        </member>
+        <member name="M:Yandex.Detector.IDetectorRequestExtensions.UserAgent(Yandex.Detector.IDetectorRequest,System.String)">
+            <summary>
+              <para>Adds new "user-agent" header for HTTP request that identifies a target mobile device.</para>
+            </summary>
+            <param name="request">Instance of request to Yandex.Detector service.</param>
+            <param name="userAgent">Value of User-agent header.</param>
+            <returns>Back reference to the provided <paramref name="request"/> instance.</returns>
+            <seealso cref="M:Yandex.Detector.IDetectorRequest.WithHeader(System.String,System.Object)"/>
+        </member>
+        <member name="T:Yandex.JsonExtensions">
+            <summary>
+              <para></para>
+            </summary>
+        </member>
+        <member name="M:Yandex.JsonExtensions.SerializeAsJson(System.Object,Newtonsoft.Json.JsonSerializerSettings)">
+            <summary>
+              <para>Serializes specified object into JSON string.</para>
+            </summary>
+            <param name="instance">Target object to be serialized.</param>
+            <param name="settings">Serialization settings. If not specified, default settings set will be used.</param>
+            <returns>JSON serialized version of <paramref name="instance"/> instance.</returns>
+            <seealso cref="T:Newtonsoft.Json.JsonConvert"/>
+        </member>
+        <member name="M:Yandex.JsonExtensions.DeserializeAsJson``1(System.String,Newtonsoft.Json.JsonSerializerSettings)">
+            <summary>
+              <para>Deserializes object from JSON string.</para>
+            </summary>
+            <typeparam name="T">Type of object to be instantiated during deserialization.</typeparam>
+            <param name="json">Serialized JSON object of type <typeparamref name="T"/>.</param>
+            <param name="settings">Deserialization settings. If not specified, default settings set will be used.</param>
+            <returns>Instance of <typeparamref name="T"/> type, deserialized from <paramref name="json"/> string.</returns>
+            <seealso cref="T:Newtonsoft.Json.JsonConvert"/>
+        </member>
+        <member name="T:Yandex.Translator.ErrorType">
+            <summary>
+              <para>Type of errors, corresponding to HTTP status codes.</para>
+            </summary>
+        </member>
+        <member name="F:Yandex.Translator.ErrorType.ApiKeyInvalid">
+            <summary>
+              <para>Invalid API key.</para>
+            </summary>
+        </member>
+        <member name="F:Yandex.Translator.ErrorType.ApiKeyBlocked">
+            <summary>
+              <para>API key is blocked.</para>
+            </summary>
+        </member>
+        <member name="F:Yandex.Translator.ErrorType.DailyRequestsLimitExceeded">
+            <summary>
+              <para>Exceeded daily requests limit.</para>
+            </summary>
+        </member>
+        <member name="F:Yandex.Translator.ErrorType.DailyCharactersLimitExceeded">
+            <summary>
+              <para>Daily characters limit was exceeded</para>
+            </summary>
+        </member>
+        <member name="F:Yandex.Translator.ErrorType.TextTooLong">
+            <summary>
+              <para>Translation text is too long.</para>
+            </summary>
+        </member>
+        <member name="F:Yandex.Translator.ErrorType.UnprocessableText">
+            <summary>
+              <para>Translation text is unprocessable.</para>
+            </summary>
+        </member>
+        <member name="F:Yandex.Translator.ErrorType.LanguageNotSupported">
+            <summary>
+              <para>Translation language is not supported.</para>
+            </summary>
+        </member>
+        <member name="T:Yandex.Translator.IApi">
+            <summary>
+              <para></para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Translator.IApi.PairsAsync(System.Threading.CancellationToken)">
+            <summary>
+              <para>Makes a request to Yandex.Translator web service to return collection of supported languages pairs (translations directions).</para>
+            </summary>
+            <param name="cancellation"></param>
+            <returns>Collection of supported language pairs (directions).</returns>
+            <seealso cref="!:http://api.yandex.ru/translate/doc/dg/reference/getLangs.xml"/>
+        </member>
+        <member name="M:Yandex.Translator.IApi.DetectAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+              <para>Makes a language detection request to Yandex.Translator web service.</para>
+            </summary>
+            <param name="text">Text fragment which language is to be detected.</param>
+            <param name="cancellation"></param>
+            <returns>Language of the provided text fragment.</returns>
+            <exception cref="T:Yandex.Translator.TranslatorException">If error occurs during the processing of web request, or if language of given text fragment cannot be reliably determined.</exception>
+            <seealso cref="!:http://api.yandex.ru/translate/doc/dg/reference/detect.xml"/>
+        </member>
+        <member name="M:Yandex.Translator.IApi.TranslateAsync(Yandex.Translator.ITranslationApiRequest,System.Threading.CancellationToken)">
+            <summary>
+              <para>Makes a translation request to Yandex.Translator web service.</para>
+            </summary>
+            <param name="request">Parameters of request.</param>
+            <param name="cancellation"></param>
+            <returns><see cref="T:Yandex.Translator.ITranslation"/> instance that represents result of text's translation.</returns>
+            <exception cref="T:Yandex.Translator.TranslatorException">If error occurs during the processing of web request, or if given text cannot be translated by web service.</exception>
+            <seealso cref="!:http://api.yandex.ru/translate/doc/dg/reference/translate.xml"/>
+        </member>
+        <member name="T:Yandex.Translator.IApiConfigurator">
+            <summary>
+              <para>Configurator of basic parameters that are used when making requests to Yandex.Translator web service.</para>
+            </summary>
+        </member>
+        <member name="P:Yandex.Translator.IApiConfigurator.ApiKeyValue">
+            <summary>
+              <para></para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Translator.IApiConfigurator.ApiKey(System.String)">
+            <summary>
+              <para>Specifies API key to use.</para>
+            </summary>
+            <param name="key">API key.</param>
+            <returns>Back reference to the current configurator instance.</returns>
+        </member>
+        <member name="T:Yandex.Translator.IApiExtensions">
+            <summary>
+              <para>A set of extension methods for the <see cref="T:Yandex.Translator.IApi"/> interface.</para>
+            </summary>
+            <seealso cref="T:Yandex.Translator.IApi"/>
+        </member>
+        <member name="M:Yandex.Translator.IApiExtensions.TranslateAsync(Yandex.Translator.IApi,System.Action{Yandex.Translator.ITranslationApiRequest},System.Threading.CancellationToken)">
+            <summary>
+              <para>Makes a translation request to Yandex.Translator web service.</para>
+            </summary>
+            <param name="api">Translator instance to be used.</param>
+            <param name="action">Delegate that specifies text for translation, source/target languages and addional options.</param>
+            <param name="cancellation"></param>
+            <returns><see cref="T:Yandex.Translator.ITranslation"/> instance that represents result of text's translation.</returns>
+            <exception cref="T:Yandex.Translator.TranslatorException">If error occurs during the processing of web request, or if given text cannot be translated by web service.</exception>
+            <seealso cref="!:http://api.yandex.ru/translate/doc/dg/reference/translate.xml"/>
+        </member>
+        <member name="M:Yandex.Translator.IApiExtensions.Pairs(Yandex.Translator.IApi)">
+            <summary>
+              <para></para>
+            </summary>
+            <param name="api"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Yandex.Translator.IApiExtensions.Detect(Yandex.Translator.IApi,System.String)">
+            <summary>
+              <para></para>
+            </summary>
+            <param name="api"></param>
+            <param name="text"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Yandex.Translator.IApiExtensions.Translate(Yandex.Translator.IApi,Yandex.Translator.ITranslationApiRequest)">
+            <summary>
+              <para></para>
+            </summary>
+            <param name="api"></param>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Yandex.Translator.IApiExtensions.Translate(Yandex.Translator.IApi,System.Action{Yandex.Translator.ITranslationApiRequest})">
+            <summary>
+              <para></para>
+            </summary>
+            <param name="api"></param>
+            <param name="action"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Yandex.Translator.IError">
+            <summary>
+              <para></para>
+            </summary>
+        </member>
+        <member name="P:Yandex.Translator.IError.Code">
+            <summary>
+              <para></para>
+            </summary>
+        </member>
+        <member name="P:Yandex.Translator.IError.Text">
+            <summary>
+              <para></para>
+            </summary>
+        </member>
+        <member name="T:Yandex.Translator.DetectedLanguageResult">
+            <summary>
+              <para>Represents a result of call to Yandex.Translator service's operation of language detection.</para>
+            </summary>
+        </member>
+        <member name="P:Yandex.Translator.DetectedLanguageResult.Code">
+            <summary>
+              <para>HTTP result status code.</para>
+            </summary>
+        </member>
+        <member name="P:Yandex.Translator.DetectedLanguageResult.Language">
+            <summary>
+              <para>Detected text's language.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Translator.DetectedLanguageResult.#ctor(System.Int32,System.String)">
+            <summary>
+              <para></para>
+            </summary>
+            <param name="code"></param>
+            <param name="language"></param>
+        </member>
+        <member name="M:Yandex.Translator.DetectedLanguageResult.#ctor(Yandex.Translator.DetectedLanguageResult.Info)">
+            <summary>
+              <para></para>
+            </summary>
+            <param name="info"></param>
+        </member>
+        <member name="M:Yandex.Translator.DetectedLanguageResult.#ctor(System.Object)">
+            <summary>
+              <para></para>
+            </summary>
+            <param name="info"></param>
+        </member>
+        <member name="T:Yandex.Translator.DetectedLanguageResult.Info">
+            <summary>
+              <para></para>
+            </summary>
+        </member>
+        <member name="P:Yandex.Translator.DetectedLanguageResult.Info.Code">
+            <summary>
+              <para>HTTP result status code.</para>
+            </summary>
+        </member>
+        <member name="P:Yandex.Translator.DetectedLanguageResult.Info.Language">
+            <summary>
+              <para>Detected text's language.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Translator.DetectedLanguageResult.Info.ToResult">
+            <summary>
+              <para></para>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Yandex.Translator.IResultable`1">
+            <summary>
+              <para>Voting search results.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Translator.IResultable`1.ToResult">
+            <summary>
+              <para></para>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Yandex.Translator.ITranslation">
+            <summary>
+              <para>Represents a translation of a text fragment from one language to another.</para>
+            </summary>
+        </member>
+        <member name="P:Yandex.Translator.ITranslation.FromLanguage">
+            <summary>
+              <para>Source language of the translation.</para>
+            </summary>
+        </member>
+        <member name="P:Yandex.Translator.ITranslation.ToLanguage">
+            <summary>
+              <para>Target language of the translation.</para>
+            </summary>
+        </member>
+        <member name="P:Yandex.Translator.ITranslation.Text">
+            <summary>
+              <para>Translated text fragment in target language.</para>
+            </summary>
+        </member>
+        <member name="T:Yandex.Translator.ITranslationPair">
+            <summary>
+              <para>Represents a pair of souce and target languages (translation direction).</para>
+            </summary>
+        </member>
+        <member name="P:Yandex.Translator.ITranslationPair.FromLanguage">
+            <summary>
+              <para>Source translation language.</para>
+            </summary>
+        </member>
+        <member name="P:Yandex.Translator.ITranslationPair.ToLanguage">
+            <summary>
+              <para>Target translation language.</para>
+            </summary>
+        </member>
+        <member name="T:Yandex.Translator.TranslationPairsResult">
+            <summary>
+              <para>Represents a result of call to Yandex.Translator service's operation of retrieving supported translations pairs.</para>
+            </summary>
+        </member>
+        <member name="P:Yandex.Translator.TranslationPairsResult.Pairs">
+            <summary>
+              <para>Collection of supported translations pairs (directions).</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Translator.TranslationPairsResult.#ctor(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+              <para></para>
+            </summary>
+            <param name="pairs"></param>
+        </member>
+        <member name="M:Yandex.Translator.TranslationPairsResult.#ctor(Yandex.Translator.TranslationPairsResult.Info)">
+            <summary>
+              <para></para>
+            </summary>
+            <param name="info"></param>
+        </member>
+        <member name="M:Yandex.Translator.TranslationPairsResult.#ctor(System.Object)">
+            <summary>
+              <para></para>
+            </summary>
+            <param name="info"></param>
+        </member>
+        <member name="T:Yandex.Translator.TranslationPairsResult.Info">
+            <summary>
+              <para></para>
+            </summary>
+        </member>
+        <member name="P:Yandex.Translator.TranslationPairsResult.Info.Pairs">
+            <summary>
+              <para>Collection of supported translations pairs (directions).</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Translator.TranslationPairsResult.Info.ToResult">
+            <summary>
+              <para></para>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Yandex.Translator.TranslationResult">
+            <summary>
+              <para>Represents a result of call to Yandex.Translator service's operation of retrieving supported translations pairs.</para>
+            </summary>
+        </member>
+        <member name="P:Yandex.Translator.TranslationResult.Code">
+            <summary>
+              <para>HTTP result status code.</para>
+            </summary>
+        </member>
+        <member name="P:Yandex.Translator.TranslationResult.Language">
+            <summary>
+              <para>Languages pair (for example "en-ru"), representing text's translation direction.</para>
+            </summary>
+        </member>
+        <member name="P:Yandex.Translator.TranslationResult.Lines">
+            <summary>
+              <para>Collection of translated text fragments.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Translator.TranslationResult.#ctor(System.Int32,System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+              <para></para>
+            </summary>
+            <param name="code"></param>
+            <param name="language"></param>
+            <param name="lines"></param>
+        </member>
+        <member name="M:Yandex.Translator.TranslationResult.#ctor(Yandex.Translator.TranslationResult.Info)">
+            <summary>
+              <para></para>
+            </summary>
+            <param name="info"></param>
+        </member>
+        <member name="M:Yandex.Translator.TranslationResult.#ctor(System.Object)">
+            <summary>
+              <para></para>
+            </summary>
+            <param name="info"></param>
+        </member>
+        <member name="M:Yandex.Translator.TranslationResult.ToString">
+            <summary>
+              <para>Returns a <see cref="T:System.String"/> that represents the current <see cref="T:Yandex.Translator.TranslationResult"/> instance.</para>
+            </summary>
+            <returns>A string that represents the current <see cref="T:Yandex.Translator.TranslationResult"/>.</returns>
+        </member>
+        <member name="T:Yandex.Translator.TranslationResult.Info">
+            <summary>
+              <para></para>
+            </summary>
+        </member>
+        <member name="P:Yandex.Translator.TranslationResult.Info.Code">
+            <summary>
+              <para>HTTP result status code.</para>
+            </summary>
+        </member>
+        <member name="P:Yandex.Translator.TranslationResult.Info.Language">
+            <summary>
+              <para>Languages pair (for example "en-ru"), representing text's translation direction.</para>
+            </summary>
+        </member>
+        <member name="P:Yandex.Translator.TranslationResult.Info.Lines">
+            <summary>
+              <para>Collection of translated text fragments.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Translator.TranslationResult.Info.ToResult">
+            <summary>
+              <para></para>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Yandex.Translator.TranslatorException">
+            <summary>
+              <para>Represent error that occurs during execution of request to Yandex.Translator service.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Translator.TranslatorException.#ctor(Yandex.Translator.IError,System.Exception)">
+            <summary>
+              <para>Initializes a new instance exception with a specified error message and a reference to the inner exception that is the cause of this exception.</para>
+            </summary>
+            <param name="error">Detailed error information.</param>
+            <param name="inner">The exception that is the cause of the current exception, or a <c>null</c> reference.</param>
+        </member>
+        <member name="P:Yandex.Translator.TranslatorException.Error">
+            <summary>
+              <para>Detailed error information</para>
+            </summary>
+        </member>
+        <member name="T:Yandex.Translator.ITranslator">
+            <summary>
+              <para>Represents a client for making requests to Yandex.Translator web service.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Translator.ITranslator.Configure(Yandex.Translator.IApiConfigurator)">
+            <summary>
+              <para></para>
+            </summary>
+            <param name="configurator"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Yandex.Translator.ITranslatorExtensions">
+            <summary>
+              <para>A set of extension methods for the <see cref="T:Yandex.Translator.ITranslator"/> interface.</para>
+            </summary>
+            <seealso cref="T:Yandex.Translator.ITranslator"/>
+        </member>
+        <member name="M:Yandex.Translator.ITranslatorExtensions.Configure(Yandex.Translator.ITranslator,System.Action{Yandex.Translator.IApiConfigurator})">
+            <summary>
+              <para></para>
+            </summary>
+            <param name="translator"></param>
+            <param name="action"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Yandex.Translator.IYandexApiExtensions">
+            <summary>
+              <para>Entry point to access Yandex.Translator web service.</para>
+            </summary>
+            <seealso cref="!:http://api.yandex.ru/translate"/>
+        </member>
+        <member name="M:Yandex.Translator.IYandexApiExtensions.Translator(Yandex.IYandexApi)">
+            <summary>
+              <para>Configures instance of client translator to be used for making requests to Yandex.Translator web service.</para>
+            </summary>
+            <param name="api"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Yandex.Translator.IApiRequest">
+            <summary>
+              <para>Representation of a custom web request to Yandex.Translator web service.</para>
+            </summary>
+        </member>
+        <member name="P:Yandex.Translator.IApiRequest.Parameters">
+            <summary>
+              <para>Map of parameters names/values to be used in a web request.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Translator.IApiRequest.WithParameter(System.String,System.Object)">
+            <summary>
+              <para></para>
+            </summary>
+            <param name="name"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Yandex.Translator.ITranslationApiRequest">
+            <summary>
+              <para>Representation of a text translation request to Yandex.Translator web service.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Translator.ITranslationApiRequest.Format(System.String)">
+            <summary>
+              <para>Format of translatable text to use.</para>
+            </summary>
+            <param name="format">Text format.</param>
+            <returns>Back reference to the current translation request.</returns>
+        </member>
+        <member name="M:Yandex.Translator.ITranslationApiRequest.From(System.String)">
+            <summary>
+              <para>Source language from which a text fragment should be translated.</para>
+            </summary>
+            <param name="language">Source language.</param>
+            <returns>Back reference to the current translation request.</returns>
+        </member>
+        <member name="M:Yandex.Translator.ITranslationApiRequest.To(System.String)">
+            <summary>
+              <para>Target language to which a text fragment should be translated.</para>
+            </summary>
+            <param name="language">Target language.</param>
+            <returns>Back reference to the current translation request.</returns>
+        </member>
+        <member name="M:Yandex.Translator.ITranslationApiRequest.Text(System.String)">
+            <summary>
+              <para>Text in source language to be translated.</para>
+            </summary>
+            <param name="text">Text fragment.</param>
+            <returns>Back reference to the current translation request.</returns>
+        </member>
+        <member name="T:Yandex.Translator.ITranslationApiRequestExtensions">
+            <summary>
+              <para>A set of extension methods for the <see cref="T:Yandex.Translator.ITranslationApiRequest"/> interface.</para>
+            </summary>
+            <seealso cref="T:Yandex.Translator.ITranslationApiRequest"/>
+        </member>
+        <member name="M:Yandex.Translator.ITranslationApiRequestExtensions.AsHtml(Yandex.Translator.ITranslationApiRequest)">
+            <summary>
+              <para>Specifies that translatable text fragment is in HTML format.</para>
+            </summary>
+            <param name="request">Translation request instance.</param>
+            <returns>Back reference to the provided translation <paramref name="request"/>.</returns>
+            <seealso cref="M:Yandex.Translator.ITranslationApiRequest.Format(System.String)"/>
+        </member>
+        <member name="M:Yandex.Translator.ITranslationApiRequestExtensions.AsText(Yandex.Translator.ITranslationApiRequest)">
+            <summary>
+              <para>Specifies that translatable text fragment is in plain text format.</para>
+            </summary>
+            <param name="request">Translation request instance.</param>
+            <returns>Back reference to the provided translation <paramref name="request"/>.</returns>
+            <seealso cref="M:Yandex.Translator.ITranslationApiRequest.Format(System.String)"/>
+        </member>
+        <member name="M:Yandex.Translator.ITranslationApiRequestExtensions.From(Yandex.Translator.ITranslationApiRequest,System.Globalization.CultureInfo)">
+            <summary>
+              <para>Specifies source language from which a text fragment should be translated.</para>
+            </summary>
+            <param name="request">Translation request instance.</param>
+            <param name="culture">Culture that contains a language to be used.</param>
+            <returns>Back reference to the provided translation <paramref name="request"/>.</returns>
+            <seealso cref="M:Yandex.Translator.ITranslationApiRequest.From(System.String)"/>
+        </member>
+        <member name="M:Yandex.Translator.ITranslationApiRequestExtensions.To(Yandex.Translator.ITranslationApiRequest,System.Globalization.CultureInfo)">
+            <summary>
+              <para>Specifies target language to which a text fragment should be translated.</para>
+            </summary>
+            <param name="request">Translation request instance.</param>
+            <param name="culture">Culture that contains a language to be used.</param>
+            <returns>Back reference to the provided translation <paramref name="request"/>.</returns>
+            <seealso cref="M:Yandex.Translator.ITranslationApiRequest.To(System.String)"/>
+        </member>
+        <member name="T:Yandex.IYandexApi">
+            <summary>
+              <para></para>
+            </summary>
+        </member>
+        <member name="T:Yandex.Yandex">
+            <summary>
+              <para>Entry point to access web services.</para>
+            </summary>
+        </member>
+        <member name="P:Yandex.Yandex.Api">
+            <summary>
+              <para>Configures instance of client translator to be used for making requests to Yandex.Translator web service.</para>
+            </summary>
+        </member>
+    </members>
+</doc>

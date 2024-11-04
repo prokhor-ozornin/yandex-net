@@ -1,0 +1,833 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Yandex.Tests</name>
+    </assembly>
+    <members>
+        <member name="T:Yandex.Tests.Detector.Core.DetectorExceptionTest">
+            <summary>
+              <para>Tests set for class <see cref="T:Yandex.Detector.DetectorException"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.Detector.Core.DetectorExceptionTest.Constructors">
+            <summary>
+              <para>Performs testing of class constructor(s).</para>
+            </summary>
+            <seealso cref="M:Yandex.Detector.DetectorException.#ctor(System.String,System.Exception)"/>
+        </member>
+        <member name="T:Yandex.Tests.Detector.Core.Implementation.ErrorTest">
+            <summary>
+              <para>Tests set for class <see cref="T:Yandex.Detector.Error"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.Detector.Core.Implementation.ErrorTest.Constructors">
+            <summary>
+              <para>Performs testing of class constructor(s).</para>
+            </summary>
+            <seealso cref="M:Yandex.Detector.Error.#ctor"/>
+            <seealso cref="M:Yandex.Detector.Error.#ctor(System.String)"/>
+        </member>
+        <member name="M:Yandex.Tests.Detector.Core.Implementation.ErrorTest.Text_Property">
+            <summary>
+              <para>Performs testing of <see cref="P:Yandex.Detector.Error.Text"/> property.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.Detector.Core.Implementation.ErrorTest.Equals_Methods">
+            <summary>
+              <para>Performs testing of following methods :</para>
+              <list type="bullet">
+                <item><description><see cref="M:Yandex.Detector.Error.Equals(Yandex.Detector.Error)"/></description></item>
+                <item><description><see cref="M:Yandex.Detector.Error.Equals(System.Object)"/></description></item>
+              </list>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.Detector.Core.Implementation.ErrorTest.GetHashCode_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Yandex.Detector.Error.GetHashCode"/> method.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.Detector.Core.Implementation.ErrorTest.ToString_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Yandex.Detector.Error.ToString"/> method.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.Detector.Core.Implementation.ErrorTest.Serialization">
+            <summary>
+              <para>Performs testing of serialization/deserialization process.</para>
+            </summary>
+        </member>
+        <member name="T:Yandex.Tests.Detector.Core.Implementation.JavaPlatformTest">
+            <summary>
+              <para>Tests set for class <see cref="T:Yandex.Detector.JavaPlatform"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.Detector.Core.Implementation.JavaPlatformTest.Constructors">
+            <summary>
+              <para>Performs testing of class constructor(s).</para>
+            </summary>
+            <seealso cref="M:Yandex.Detector.JavaPlatform.#ctor(System.Boolean,System.Boolean,System.String,Yandex.Detector.IResolution)"/>
+            <seealso cref="M:Yandex.Detector.JavaPlatform.#ctor(Yandex.Detector.JavaPlatform.Info)"/>
+            <seealso cref="M:Yandex.Detector.JavaPlatform.#ctor(System.Object)"/>
+        </member>
+        <member name="M:Yandex.Tests.Detector.Core.Implementation.JavaPlatformTest.Camera_Property">
+            <summary>
+              <para>Performs testing of <see cref="P:Yandex.Detector.JavaPlatform.Camera"/> property.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.Detector.Core.Implementation.JavaPlatformTest.FileSystem_Property">
+            <summary>
+              <para>Performs testing of <see cref="P:Yandex.Detector.JavaPlatform.FileSystem"/> property.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.Detector.Core.Implementation.JavaPlatformTest.Certificate_Property">
+            <summary>
+              <para>Performs testing of <see cref="P:Yandex.Detector.JavaPlatform.Certificate"/> property.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.Detector.Core.Implementation.JavaPlatformTest.Icon_Property">
+            <summary>
+              <para>Performs testing of <see cref="P:Yandex.Detector.JavaPlatform.Icon"/> property.</para>
+            </summary>
+        </member>
+        <member name="T:Yandex.Tests.Detector.Core.Implementation.JavaPlatformInfoTest">
+            <summary>
+              <para>Tests set for class <see cref="T:Yandex.Detector.JavaPlatform.Info"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.Detector.Core.Implementation.JavaPlatformInfoTest.Constructors">
+            <summary>
+              <para>Performs testing of class constructor(s).</para>
+            </summary>
+            <seealso cref="M:Yandex.Detector.JavaPlatform.Info.#ctor"/>
+        </member>
+        <member name="M:Yandex.Tests.Detector.Core.Implementation.JavaPlatformInfoTest.Camera_Property">
+            <summary>
+              <para>Performs testing of <see cref="P:Yandex.Detector.JavaPlatform.Info.Camera"/> property.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.Detector.Core.Implementation.JavaPlatformInfoTest.FileSystem_Property">
+            <summary>
+              <para>Performs testing of <see cref="P:Yandex.Detector.JavaPlatform.Info.FileSystem"/> property.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.Detector.Core.Implementation.JavaPlatformInfoTest.Certificate_Property">
+            <summary>
+              <para>Performs testing of <see cref="P:Yandex.Detector.JavaPlatform.Info.Certificate"/> property.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.Detector.Core.Implementation.JavaPlatformInfoTest.Icon_Property">
+            <summary>
+              <para>Performs testing of <see cref="P:Yandex.Detector.JavaPlatform.Info.Icon"/> property.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.Detector.Core.Implementation.JavaPlatformInfoTest.ToResult_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Yandex.Detector.JavaPlatform.Info.ToResult"/> method.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.Detector.Core.Implementation.JavaPlatformInfoTest.Serialization">
+            <summary>
+              <para>Performs testing of serialization/deserialization process.</para>
+            </summary>
+        </member>
+        <member name="T:Yandex.Tests.Detector.Core.Implementation.MobileDetectorTest">
+            <summary>
+              <para>Tests set for class <see cref="T:Yandex.Detector.MobileDetector"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.Detector.Core.Implementation.MobileDetectorTest.DetectAsync_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Yandex.Detector.MobileDetector.DetectAsync(System.Collections.Generic.IReadOnlyDictionary{System.String,System.Object},System.Threading.CancellationToken)"/> method.</para>
+            </summary>
+        </member>
+        <member name="T:Yandex.Tests.Detector.Core.Implementation.MobileDeviceTest">
+            <summary>
+              <para>Tests set for class <see cref="T:Yandex.Detector.MobileDevice"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.Detector.Core.Implementation.MobileDeviceTest.Constructors">
+            <summary>
+              <para>Performs testing of class constructor(s).</para>
+            </summary>
+            <seealso cref="M:Yandex.Detector.MobileDevice.#ctor(System.String,System.String,System.String,System.String,Yandex.Detector.IResolution,Yandex.Detector.IJavaPlatform)"/>
+            <seealso cref="M:Yandex.Detector.MobileDevice.#ctor(Yandex.Detector.MobileDevice.Info)"/>
+            <seealso cref="M:Yandex.Detector.MobileDevice.#ctor(System.Object)"/>
+        </member>
+        <member name="M:Yandex.Tests.Detector.Core.Implementation.MobileDeviceTest.Name_Property">
+            <summary>
+              <para>Performs testing of <see cref="P:Yandex.Detector.MobileDevice.Name"/> property.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.Detector.Core.Implementation.MobileDeviceTest.DeviceClass_Property">
+            <summary>
+              <para>Performs testing of <see cref="P:Yandex.Detector.MobileDevice.DeviceClass"/> property.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.Detector.Core.Implementation.MobileDeviceTest.Vendor_Property">
+            <summary>
+              <para>Performs testing of <see cref="P:Yandex.Detector.MobileDevice.Vendor"/> property.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.Detector.Core.Implementation.MobileDeviceTest.Description_Property">
+            <summary>
+              <para>Performs testing of <see cref="P:Yandex.Detector.MobileDevice.Description"/> property.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.Detector.Core.Implementation.MobileDeviceTest.Screen_Property">
+            <summary>
+              <para>Performs testing of <see cref="P:Yandex.Detector.MobileDevice.Screen"/> property.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.Detector.Core.Implementation.MobileDeviceTest.JavaPlatform_Property">
+            <summary>
+              <para>Performs testing of <see cref="P:Yandex.Detector.MobileDevice.JavaPlatform"/> property.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.Detector.Core.Implementation.MobileDeviceTest.Equals_Methods">
+            <summary>
+              <para>Performs testing of following methods :</para>
+              <list type="bullet">
+                <item><description><see cref="M:Yandex.Detector.MobileDevice.Equals(Yandex.Detector.IMobileDevice)"/></description></item>
+                <item><description><see cref="M:Yandex.Detector.MobileDevice.Equals(System.Object)"/></description></item>
+              </list>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.Detector.Core.Implementation.MobileDeviceTest.GetHashCode_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Yandex.Detector.MobileDevice.GetHashCode"/> method.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.Detector.Core.Implementation.MobileDeviceTest.ToString_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Yandex.Detector.MobileDevice.ToString"/> method.</para>
+            </summary>
+        </member>
+        <member name="T:Yandex.Tests.Detector.Core.Implementation.MobileDeviceInfoTest">
+            <summary>
+              <para>Tests set for class <see cref="T:Yandex.Detector.MobileDevice.Info"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.Detector.Core.Implementation.MobileDeviceInfoTest.Constructors">
+            <summary>
+              <para>Performs testing of class constructor(s).</para>
+            </summary>
+            <seealso cref="M:Yandex.Detector.MobileDevice.Info.#ctor"/>
+        </member>
+        <member name="M:Yandex.Tests.Detector.Core.Implementation.MobileDeviceInfoTest.Name_Property">
+            <summary>
+              <para>Performs testing of <see cref="P:Yandex.Detector.MobileDevice.Info.Name"/> property.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.Detector.Core.Implementation.MobileDeviceInfoTest.DeviceClass_Property">
+            <summary>
+              <para>Performs testing of <see cref="P:Yandex.Detector.MobileDevice.Info.DeviceClass"/> property.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.Detector.Core.Implementation.MobileDeviceInfoTest.Vendor_Property">
+            <summary>
+              <para>Performs testing of <see cref="P:Yandex.Detector.MobileDevice.Info.Vendor"/> property.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.Detector.Core.Implementation.MobileDeviceInfoTest.Description_Property">
+            <summary>
+              <para>Performs testing of <see cref="P:Yandex.Detector.MobileDevice.Info.Description"/> property.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.Detector.Core.Implementation.MobileDeviceInfoTest.ScreenWidth_Property">
+            <summary>
+              <para>Performs testing of <see cref="P:Yandex.Detector.MobileDevice.Info.ScreenWidth"/> property.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.Detector.Core.Implementation.MobileDeviceInfoTest.ScreenHeight_Property">
+            <summary>
+              <para>Performs testing of <see cref="P:Yandex.Detector.MobileDevice.Info.ScreenHeight"/> property.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.Detector.Core.Implementation.MobileDeviceInfoTest.JavaPlatform_Property">
+            <summary>
+              <para>Performs testing of <see cref="P:Yandex.Detector.MobileDevice.Info.JavaPlatform"/> property.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.Detector.Core.Implementation.MobileDeviceInfoTest.ToResult_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Yandex.Detector.MobileDevice.Info.ToResult"/> method.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.Detector.Core.Implementation.MobileDeviceInfoTest.Serialization">
+            <summary>
+              <para>Performs testing of serialization/deserialization process.</para>
+            </summary>
+        </member>
+        <member name="T:Yandex.Tests.Detector.Core.Implementation.ResolutionTest">
+            <summary>
+              <para>Tests set for class <see cref="T:Yandex.Detector.Resolution"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.Detector.Core.Implementation.ResolutionTest.Constructors">
+            <summary>
+              <para>Performs testing of class constructor(s).</para>
+            </summary>
+            <seealso cref="M:Yandex.Detector.Resolution.#ctor"/>
+        </member>
+        <member name="M:Yandex.Tests.Detector.Core.Implementation.ResolutionTest.Height_Property">
+            <summary>
+              <para>Performs testing of <see cref="P:Yandex.Detector.Resolution.Height"/> property.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.Detector.Core.Implementation.ResolutionTest.Width_Property">
+            <summary>
+              <para>Performs testing of <see cref="P:Yandex.Detector.Resolution.Width"/> property.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.Detector.Core.Implementation.ResolutionTest.ToString_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Yandex.Detector.Resolution.ToString"/> method.</para>
+            </summary>
+        </member>
+        <member name="T:Yandex.Tests.Detector.IMobileDetectorExtensionsTest">
+            <summary>
+              <para>Tests set for class <see cref="T:Yandex.Detector.IMobileDetectorExtensions"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.Detector.IMobileDetectorExtensionsTest.Detect_Methods">
+            <summary>
+              <para>Performs testing of following methods :</para>
+              <list type="bullet">
+                <item><description><see cref="M:Yandex.Detector.IMobileDetectorExtensions.Detect(Yandex.Detector.IMobileDetector,System.ValueTuple{System.String,System.Object}[])"/></description></item>
+                <item><description><see cref="M:Yandex.Detector.IMobileDetectorExtensions.Detect(Yandex.Detector.IMobileDetector,System.Action{Yandex.Detector.IDetectorRequest})"/></description></item>
+              </list>
+            </summary>
+        </member>
+        <member name="T:Yandex.Tests.Detector.IYandexApiExtensionsTest">
+            <summary>
+              <para>Tests set for class <see cref="T:Yandex.Detector.IYandexApiExtensions"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.Detector.IYandexApiExtensionsTest.Detector_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Yandex.Detector.IYandexApiExtensions.Detector(Yandex.IYandexApi)"/> method.</para>
+            </summary>
+        </member>
+        <member name="T:Yandex.Tests.Detector.Requests.IDetectorRequestExtensionsTest">
+            <summary>
+              <para>Tests set for class <see cref="T:Yandex.Detector.IDetectorRequestExtensions"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.Detector.Requests.IDetectorRequestExtensionsTest.OperaMini_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Yandex.Detector.IDetectorRequestExtensions.OperaMini(Yandex.Detector.IDetectorRequest,System.String)"/> method.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.Detector.Requests.IDetectorRequestExtensionsTest.Profile_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Yandex.Detector.IDetectorRequestExtensions.Profile(Yandex.Detector.IDetectorRequest,System.String)"/> method.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.Detector.Requests.IDetectorRequestExtensionsTest.UserAgent_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Yandex.Detector.IDetectorRequestExtensions.UserAgent(Yandex.Detector.IDetectorRequest,System.String)"/> method.</para>
+            </summary>
+        </member>
+        <member name="T:Yandex.Tests.Detector.Requests.Implementation.DetectorRequestTest">
+            <summary>
+              <para>Tests set for class <see cref="T:Yandex.Detector.DetectorRequest"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.Detector.Requests.Implementation.DetectorRequestTest.Constructors">
+            <summary>
+              <para>Performs testing of class constructor(s).</para>
+            </summary>
+            <seealso cref="M:Yandex.Detector.DetectorRequest.#ctor"/>
+        </member>
+        <member name="M:Yandex.Tests.Detector.Requests.Implementation.DetectorRequestTest.WithHeader_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Yandex.Detector.DetectorRequest.WithHeader(System.String,System.Object)"/> method.</para>
+            </summary>
+        </member>
+        <member name="T:Yandex.Tests.JsonExtensionsTest">
+            <summary>
+              <para>Tests set for class <see cref="T:Yandex.JsonExtensions"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.JsonExtensionsTest.SerializeAsJson_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Yandex.JsonExtensions.SerializeAsJson(System.Object,Newtonsoft.Json.JsonSerializerSettings)"/> method.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.JsonExtensionsTest.DeserializeAsJson_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Yandex.JsonExtensions.DeserializeAsJson``1(System.String,Newtonsoft.Json.JsonSerializerSettings)"/> method.</para>
+            </summary>
+        </member>
+        <member name="T:Yandex.Tests.JsonRestSerializerTest">
+            <summary>
+              <para>Tests set for class <see cref="T:Yandex.Translator.JsonRestSerializer"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.JsonRestSerializerTest.Serialize_Methods">
+            <summary>
+              <para>Performs testing of following methods :</para>
+              <list type="bullet">
+                <item><description><see cref="M:Yandex.Translator.JsonRestSerializer.Serialize(System.Object)"/></description></item>
+                <item><description><see cref="M:Yandex.Translator.JsonRestSerializer.Serialize(RestSharp.Parameter)"/></description></item>
+              </list>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.JsonRestSerializerTest.Deserialize_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Yandex.Translator.JsonRestSerializer.Deserialize``1(RestSharp.RestResponse)"/> method.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.JsonRestSerializerTest.Serializer_Property">
+            <summary>
+              <para>Performs testing of <see cref="P:Yandex.Translator.JsonRestSerializer.Serializer"/> property.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.JsonRestSerializerTest.Deserializer_Property">
+            <summary>
+              <para>Performs testing of <see cref="P:Yandex.Translator.JsonRestSerializer.Deserializer"/> property.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.JsonRestSerializerTest.DataFormat_Property">
+            <summary>
+              <para>Performs testing of <see cref="P:Yandex.Translator.JsonRestSerializer.DataFormat"/> property.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.JsonRestSerializerTest.ContentType_Property">
+            <summary>
+              <para>Performs testing of <see cref="P:Yandex.Translator.JsonRestSerializer.ContentType"/> property.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.JsonRestSerializerTest.AcceptedContentTypes_Property">
+            <summary>
+              <para>Performs testing of <see cref="P:Yandex.Translator.JsonRestSerializer.AcceptedContentTypes"/> property.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.JsonRestSerializerTest.SupportsContentType_Delegate">
+            <summary>
+              <para>Performs testing of <see cref="P:Yandex.Translator.JsonRestSerializer.SupportsContentType"/> delegate.</para>
+            </summary>
+        </member>
+        <member name="T:Yandex.Tests.Translator.IApiExtensionsTest">
+            <summary>
+              <para>Tests set for class <see cref="T:Yandex.Translator.IApiExtensions"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.Translator.IApiExtensionsTest.TranslateAsync_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Yandex.Translator.IApiExtensions.TranslateAsync(Yandex.Translator.IApi,System.Action{Yandex.Translator.ITranslationApiRequest},System.Threading.CancellationToken)"/> method.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.Translator.IApiExtensionsTest.Pairs_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Yandex.Translator.IApiExtensions.Pairs(Yandex.Translator.IApi)"/> method.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.Translator.IApiExtensionsTest.Detect_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Yandex.Translator.IApiExtensions.Detect(Yandex.Translator.IApi,System.String)"/> method.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.Translator.IApiExtensionsTest.Translate_Methods">
+            <summary>
+              <para>Performs testing of following methods :</para>
+              <list type="bullet">
+                <item><description><see cref="M:Yandex.Translator.IApiExtensions.Translate(Yandex.Translator.IApi,Yandex.Translator.ITranslationApiRequest)"/></description></item>
+                <item><description><see cref="M:Yandex.Translator.IApiExtensions.Translate(Yandex.Translator.IApi,System.Action{Yandex.Translator.ITranslationApiRequest})"/></description></item>
+              </list>
+            </summary>
+        </member>
+        <member name="T:Yandex.Tests.Translator.ApiConfiguratorTest">
+            <summary>
+              <para>Tests set for class <see cref="T:Yandex.Translator.ApiConfigurator"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.Translator.ApiConfiguratorTest.Constructors">
+            <summary>
+              <para>Performs testing of class constructor(s).</para>
+            </summary>
+            <seealso cref="M:Yandex.Translator.ApiConfigurator.#ctor"/>
+        </member>
+        <member name="M:Yandex.Tests.Translator.ApiConfiguratorTest.ApiKey_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Yandex.Translator.ApiConfigurator.ApiKey(System.String)"/> method.</para>
+            </summary>
+        </member>
+        <member name="T:Yandex.Tests.Translator.ApiTest">
+            <summary>
+              <para>Tests set for class <see cref="T:Yandex.Translator.Api"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.Translator.ApiTest.Constructors">
+            <summary>
+              <para>Performs testing of class constructor(s).</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.Translator.ApiTest.PairsAsync_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Yandex.Translator.IApi.PairsAsync(System.Threading.CancellationToken)"/> method.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.Translator.ApiTest.Detect_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Yandex.Translator.IApi.DetectAsync(System.String,System.Threading.CancellationToken)"/> method.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.Translator.ApiTest.TranslateAsync_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Yandex.Translator.IApi.TranslateAsync(Yandex.Translator.ITranslationApiRequest,System.Threading.CancellationToken)"/> method.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.Translator.ApiTest.Dispose_Method">
+            <summary>
+              <para>Performs testing of <see cref="!:IApi.Dispose()"/> method.</para>
+            </summary>
+        </member>
+        <member name="T:Yandex.Tests.Translator.DetectedLanguageResultTest">
+            <summary>
+              <para>Tests set for class <see cref="T:Yandex.Translator.DetectedLanguageResult"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.Translator.DetectedLanguageResultTest.Constructors">
+            <summary>
+              <para>Performs testing of class constructor(s).</para>
+            </summary>
+            <seealso cref="M:Yandex.Translator.DetectedLanguageResult.#ctor(System.Int32,System.String)"/>
+            <seealso cref="M:Yandex.Translator.DetectedLanguageResult.#ctor(Yandex.Translator.DetectedLanguageResult.Info)"/>
+            <seealso cref="M:Yandex.Translator.DetectedLanguageResult.#ctor(System.Object)"/>
+        </member>
+        <member name="M:Yandex.Tests.Translator.DetectedLanguageResultTest.Code_Property">
+            <summary>
+              <para>Performs testing of <see cref="P:Yandex.Translator.DetectedLanguageResult.Code"/> property.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.Translator.DetectedLanguageResultTest.Language_Property">
+            <summary>
+              <para>Performs testing of <see cref="P:Yandex.Translator.DetectedLanguageResult.Language"/> property.</para>
+            </summary>
+        </member>
+        <member name="T:Yandex.Tests.Translator.DetectedLanguageResultInfoTests">
+            <summary>
+              <para>Tests set for class <see cref="T:Yandex.Translator.DetectedLanguageResult.Info"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.Translator.DetectedLanguageResultInfoTests.Constructors">
+            <summary>
+              <para>Performs testing of class constructor(s).</para>
+            </summary>
+            <seealso cref="M:Yandex.Translator.DetectedLanguageResult.Info.#ctor"/>
+        </member>
+        <member name="M:Yandex.Tests.Translator.DetectedLanguageResultInfoTests.Code_Property">
+            <summary>
+              <para>Performs testing of <see cref="P:Yandex.Translator.DetectedLanguageResult.Info.Code"/> property.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.Translator.DetectedLanguageResultInfoTests.Language_Property">
+            <summary>
+              <para>Performs testing of <see cref="P:Yandex.Translator.DetectedLanguageResult.Info.Language"/> property.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.Translator.DetectedLanguageResultInfoTests.ToResult_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Yandex.Translator.DetectedLanguageResult.Info.ToResult"/> method.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.Translator.DetectedLanguageResultInfoTests.Serialization">
+            <summary>
+              <para>Performs testing of serialization/deserialization process.</para>
+            </summary>
+        </member>
+        <member name="T:Yandex.Tests.Translator.ErrorTest">
+            <summary>
+              <para>Tests set for class <see cref="T:Yandex.Translator.Error"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.Translator.ErrorTest.Constructors">
+            <summary>
+              <para>Performs testing of class constructor(s).</para>
+            </summary>
+            <seealso cref="M:Yandex.Translator.Error.#ctor"/>
+        </member>
+        <member name="M:Yandex.Tests.Translator.ErrorTest.Code_Property">
+            <summary>
+              <para>Performs testing of <see cref="P:Yandex.Translator.Error.Code"/> property.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.Translator.ErrorTest.Text_Property">
+            <summary>
+              <para>Performs testing of <see cref="P:Yandex.Translator.Error.Text"/> property.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.Translator.ErrorTest.CompareTo_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Yandex.Translator.Error.CompareTo(Yandex.Translator.IError)"/> method.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.Translator.ErrorTest.Equals_Methods">
+            <summary>
+              <para>Performs testing of following methods :</para>
+              <list type="bullet">
+                <item><description><see cref="M:Yandex.Translator.Error.Equals(Yandex.Translator.IError)"/></description></item>
+                <item><description><see cref="M:Yandex.Translator.Error.Equals(System.Object)"/></description></item>
+              </list>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.Translator.ErrorTest.GetHashCode_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Yandex.Translator.Error.GetHashCode"/> method.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.Translator.ErrorTest.ToString_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Yandex.Translator.Error.ToString"/> method.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.Translator.ErrorTest.Serialization">
+            <summary>
+              <para>Performs testing of serialization/deserialization process.</para>
+            </summary>
+        </member>
+        <member name="T:Yandex.Tests.Translator.TranslationPairTest">
+            <summary>
+              <para>Tests set for class <see cref="T:Yandex.Translator.TranslationPair"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.Translator.TranslationPairTest.Constructors">
+            <summary>
+              <para>Performs testing of class constructor(s).</para>
+            </summary>
+            <seealso cref="M:Yandex.Translator.TranslationPair.#ctor(System.String,System.String)"/>
+        </member>
+        <member name="M:Yandex.Tests.Translator.TranslationPairTest.ToString_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Yandex.Translator.TranslationPair.ToString"/> method.</para>
+            </summary>
+        </member>
+        <member name="T:Yandex.Tests.Translator.TranslationTest">
+            <summary>
+              <para>Tests set for class <see cref="T:Yandex.Translator.Translation"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.Translator.TranslationTest.Constructors">
+            <summary>
+              <para>Performs testing of class constructor(s).</para>
+            </summary>
+            <seealso cref="M:Yandex.Translator.Translation.#ctor(System.String,System.String,System.String)"/>
+        </member>
+        <member name="M:Yandex.Tests.Translator.TranslationTest.ToString_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Yandex.Translator.Translation.ToString"/> method.</para>
+            </summary>
+        </member>
+        <member name="T:Yandex.Tests.Translator.TranslationPairsResponseTests">
+            <summary>
+              <para>Tests set for class <see cref="T:Yandex.Translator.TranslationPairsResult"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.Translator.TranslationPairsResponseTests.Constructors">
+            <summary>
+              <para>Performs testing of class constructor(s).</para>
+            </summary>
+            <seealso cref="M:Yandex.Translator.TranslationPairsResult.#ctor(System.Collections.Generic.IEnumerable{System.String})"/>
+            <seealso cref="M:Yandex.Translator.TranslationPairsResult.#ctor(Yandex.Translator.TranslationPairsResult.Info)"/>
+            <seealso cref="M:Yandex.Translator.TranslationPairsResult.#ctor(System.Object)"/>
+        </member>
+        <member name="M:Yandex.Tests.Translator.TranslationPairsResponseTests.Pairs_Property">
+            <summary>
+              <para>Performs testing of <see cref="P:Yandex.Translator.TranslationPairsResult.Pairs"/> property.</para>
+            </summary>
+        </member>
+        <member name="T:Yandex.Tests.Translator.TranslationPairsResponseInfoTest">
+            <summary>
+              <para>Tests set for class <see cref="T:Yandex.Translator.TranslationPairsResult.Info"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.Translator.TranslationPairsResponseInfoTest.Constructors">
+            <summary>
+              <para>Performs testing of class constructor(s).</para>
+            </summary>
+            <seealso cref="M:Yandex.Translator.TranslationPairsResult.Info.#ctor"/>
+        </member>
+        <member name="M:Yandex.Tests.Translator.TranslationPairsResponseInfoTest.Pairs_Property">
+            <summary>
+              <para>Performs testing of <see cref="P:Yandex.Translator.TranslationPairsResult.Info.Pairs"/> property.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.Translator.TranslationPairsResponseInfoTest.ToResult_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Yandex.Translator.TranslationPairsResult.Info.ToResult"/> method.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.Translator.TranslationPairsResponseInfoTest.Serialization">
+            <summary>
+              <para>Performs testing of serialization/deserialization process.</para>
+            </summary>
+        </member>
+        <member name="T:Yandex.Tests.Translator.TranslationResultTest">
+            <summary>
+              <para>Tests set for class <see cref="T:Yandex.Translator.TranslationResult"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.Translator.TranslationResultTest.Constructors">
+            <summary>
+              <para>Performs testing of class constructor(s).</para>
+            </summary>
+            <seealso cref="M:Yandex.Translator.TranslationResult.#ctor(System.Int32,System.String,System.Collections.Generic.IEnumerable{System.String})"/>
+            <seealso cref="M:Yandex.Translator.TranslationResult.#ctor(Yandex.Translator.TranslationResult.Info)"/>
+            <seealso cref="M:Yandex.Translator.TranslationResult.#ctor(System.Object)"/>
+        </member>
+        <member name="M:Yandex.Tests.Translator.TranslationResultTest.Code_Property">
+            <summary>
+              <para>Performs testing of <see cref="P:Yandex.Translator.TranslationResult.Code"/> property.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.Translator.TranslationResultTest.Language_Property">
+            <summary>
+              <para>Performs testing of <see cref="P:Yandex.Translator.TranslationResult.Language"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.Translator.TranslationResultTest.Lines_Property">
+            <summary>
+              <para>Performs testing of <see cref="P:Yandex.Translator.TranslationResult.Lines"/> property.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.Translator.TranslationResultTest.ToString_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Yandex.Translator.TranslationResult.ToString"/> method.</para>
+            </summary>
+        </member>
+        <member name="T:Yandex.Tests.Translator.TranslationResultInfoTest">
+            <summary>
+              <para>Tests set for class <see cref="T:Yandex.Translator.TranslationResult.Info"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.Translator.TranslationResultInfoTest.Constructors">
+            <summary>
+              <para>Performs testing of class constructor(s).</para>
+            </summary>
+            <seealso cref="M:Yandex.Translator.TranslationResult.Info.#ctor"/>
+        </member>
+        <member name="M:Yandex.Tests.Translator.TranslationResultInfoTest.Code_Property">
+            <summary>
+              <para>Performs testing of <see cref="P:Yandex.Translator.TranslationResult.Info.Code"/> property.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.Translator.TranslationResultInfoTest.Language_Property">
+            <summary>
+              <para>Performs testing of <see cref="P:Yandex.Translator.TranslationResult.Info.Language"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.Translator.TranslationResultInfoTest.Lines_Property">
+            <summary>
+              <para>Performs testing of <see cref="P:Yandex.Translator.TranslationResult.Info.Lines"/> property.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.Translator.TranslationResultInfoTest.ToResult_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Yandex.Translator.TranslationResult.Info.ToResult"/> method.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.Translator.TranslationResultInfoTest.Serialization">
+            <summary>
+              <para>Performs testing of serialization/deserialization process.</para>
+            </summary>
+        </member>
+        <member name="T:Yandex.Tests.Translator.TranslatorExceptionTest">
+            <summary>
+              <para>Tests set for class <see cref="T:Yandex.Translator.TranslatorException"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.Translator.TranslatorExceptionTest.Constructors">
+            <summary>
+              <para>Performs testing of class constructor(s).</para>
+            </summary>
+            <seealso cref="M:Yandex.Translator.TranslatorException.#ctor(Yandex.Translator.IError,System.Exception)"/>
+        </member>
+        <member name="T:Yandex.Tests.Translator.ITranslatorExtensionsTest">
+            <summary>
+              <para>Tests set for class <see cref="T:Yandex.Translator.ITranslatorExtensions"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.Translator.ITranslatorExtensionsTest.Configure_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Yandex.Translator.ITranslatorExtensions.Configure(Yandex.Translator.ITranslator,System.Action{Yandex.Translator.IApiConfigurator})"/> method.</para>
+            </summary>
+        </member>
+        <member name="T:Yandex.Tests.Translator.IYandexApiExtensionsTest">
+            <summary>
+              <para>Tests set for class <see cref="T:Yandex.Translator.IYandexApiExtensions"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.Translator.IYandexApiExtensionsTest.Translator_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Yandex.Translator.IYandexApiExtensions.Translator(Yandex.IYandexApi)"/> method.</para>
+            </summary>
+        </member>
+        <member name="T:Yandex.Tests.Translator.TranslationApiRequestTest">
+            <summary>
+              <para>Tests set for class <see cref="T:Yandex.Translator.TranslationApiRequest"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.Translator.TranslationApiRequestTest.Constructors">
+            <summary>
+              <para>Performs testing of class constructor(s).</para>
+            </summary>
+            <seealso cref="M:Yandex.Translator.TranslationApiRequest.#ctor"/>
+        </member>
+        <member name="M:Yandex.Tests.Translator.TranslationApiRequestTest.Format_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Yandex.Translator.TranslationApiRequest.Format(System.String)"/> method.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.Translator.TranslationApiRequestTest.From_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Yandex.Translator.TranslationApiRequest.From(System.String)"/> method.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.Translator.TranslationApiRequestTest.To_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Yandex.Translator.TranslationApiRequest.To(System.String)"/> method.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.Translator.TranslationApiRequestTest.Text_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Yandex.Translator.TranslationApiRequest.Text(System.String)"/> method.</para>
+            </summary>
+        </member>
+        <member name="T:Yandex.Tests.Translator.ITranslationApiRequestExtensionsTest">
+            <summary>
+              <para>Tests set for class <see cref="T:Yandex.Translator.ITranslationApiRequestExtensions"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.Translator.ITranslationApiRequestExtensionsTest.AsHtml_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Yandex.Translator.ITranslationApiRequestExtensions.AsHtml(Yandex.Translator.ITranslationApiRequest)"/> method.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.Translator.ITranslationApiRequestExtensionsTest.AsText_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Yandex.Translator.ITranslationApiRequestExtensions.AsText(Yandex.Translator.ITranslationApiRequest)"/> method.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.Translator.ITranslationApiRequestExtensionsTest.From_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Yandex.Translator.ITranslationApiRequestExtensions.From(Yandex.Translator.ITranslationApiRequest,System.Globalization.CultureInfo)"/> method.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.Translator.ITranslationApiRequestExtensionsTest.To_Method">
+            <summary>
+              <para>Performs testing of <see cref="M:Yandex.Translator.ITranslationApiRequestExtensions.To(Yandex.Translator.ITranslationApiRequest,System.Globalization.CultureInfo)"/> method.</para>
+            </summary>
+        </member>
+        <member name="T:Yandex.Tests.YandexTest">
+            <summary>
+              <para>Tests set for class <see cref="T:Yandex.Yandex"/>.</para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.YandexTest.Api_Property">
+            <summary>
+              <para>Performs testing of <see cref="P:Yandex.Yandex.Api"/> property.</para>
+            </summary>
+        </member>
+    </members>
+</doc>
