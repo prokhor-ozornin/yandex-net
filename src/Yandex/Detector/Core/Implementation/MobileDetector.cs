@@ -4,7 +4,7 @@ namespace Yandex.Detector;
 
 internal sealed class MobileDetector : IMobileDetector
 {
-  private bool disposed;
+  private bool _disposed;
   
   private Uri EndpointUrl { get; } = "http://phd.yandex.net/detect/".ToUri();
   private HttpClient HttpClient { get; } = new();
@@ -56,13 +56,13 @@ internal sealed class MobileDetector : IMobileDetector
 
   private void Dispose(bool disposing)
   {
-    if (!disposing || disposed)
+    if (!disposing || _disposed)
     {
       return;
     }
 
     HttpClient.Dispose();
 
-    disposed = true;
+    _disposed = true;
   }
 }
