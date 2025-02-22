@@ -4,16 +4,16 @@ namespace Yandex.Translator;
 
 internal abstract class ApiRequest : IApiRequest
 {
-  private readonly Dictionary<string, object> parameters = new();
+  private readonly Dictionary<string, object> _parameters = new();
 
-  public IReadOnlyDictionary<string, object> Parameters => parameters;
+  public IReadOnlyDictionary<string, object> Parameters => _parameters;
 
   public IApiRequest WithParameter(string name, object value)
   {
     if (name is null) throw new ArgumentNullException(nameof(name));
     if (name.IsEmpty()) throw new ArgumentException(nameof(name));
 
-    parameters[name] = value;
+    _parameters[name] = value;
 
     return this;
   }

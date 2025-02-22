@@ -8,7 +8,7 @@ namespace Yandex.Translator;
 internal sealed class Api : IApi
 {
   private RestClient RestClient { get; } = new("https://translate.yandex.net/api/v1.5/tr.json".ToUri(), configureSerialization: config => config.UseSerializer<JsonRestSerializer>());
-  private bool _disposed;
+  private bool Disposed { get; set; }
 
   public Api(string key) => RestClient.AddDefaultParameter("key", key);
 
@@ -68,14 +68,14 @@ internal sealed class Api : IApi
 
   private void Dispose(bool disposing)
   {
-    if (!disposing || _disposed)
+    if (!disposing || Disposed)
     {
       return;
     }
 
     RestClient.Dispose();
 
-    _disposed = true;
+    Disposed = true;
   }
 
   private async Task<T> Request<T>(string resource, IReadOnlyDictionary<string, object> parameters = null, CancellationToken cancellation = default) where T : new()

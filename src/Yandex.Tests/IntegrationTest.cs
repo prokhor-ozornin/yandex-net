@@ -6,7 +6,7 @@ namespace Yandex.Tests;
 
 public class IntegrationTest<T> : ClassTest<T>
 {
-  protected IApi Api { get; } = Yandex.Api.Translator().Configure(configurator => configurator.ApiKey(ConfigurationManager.AppSettings["ApiKey"]));
+  protected IApi Api { get; } = null; //Yandex.Api.Translator().Configure(configurator => configurator.ApiKey(ConfigurationManager.AppSettings["ApiKey"]));
 
   public override void Dispose()
   {
