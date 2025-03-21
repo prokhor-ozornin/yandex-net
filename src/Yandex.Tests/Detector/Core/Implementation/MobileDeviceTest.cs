@@ -10,7 +10,7 @@ namespace Yandex.Tests.Detector.Core.Implementation;
 /// <summary>
 ///   <para>Tests set for class <see cref="MobileDevice"/>.</para>
 /// </summary>
-public sealed class MobileDeviceTest : ClassTest<MobileDevice>
+public sealed class MobileDeviceTest : UnitTest
 {
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -114,7 +114,7 @@ public sealed class MobileDeviceTest : ClassTest<MobileDevice>
   [Fact]
   public void Equals_Methods()
   {
-    TestEquality(nameof(MobileDevice.Name), "first", "second");
+    TestEquality<MobileDevice, string>(nameof(MobileDevice.Name), "first", "second");
   }
 
   /// <summary>
@@ -123,7 +123,7 @@ public sealed class MobileDeviceTest : ClassTest<MobileDevice>
   [Fact]
   public void GetHashCode_Method()
   {
-    TestHashCode(nameof(MobileDevice.Name), "first", "second");
+    TestHashCode<MobileDevice, string>(nameof(MobileDevice.Name), "first", "second");
   }
 
   /// <summary>
@@ -148,7 +148,7 @@ public sealed class MobileDeviceTest : ClassTest<MobileDevice>
 /// <summary>
 ///   <para>Tests set for class <see cref="MobileDevice.Info"/>.</para>
 /// </summary>
-public sealed class MobileDeviceInfoTest : ClassTest<MobileDevice.Info>
+public sealed class MobileDeviceInfoTest : UnitTest
 {
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>

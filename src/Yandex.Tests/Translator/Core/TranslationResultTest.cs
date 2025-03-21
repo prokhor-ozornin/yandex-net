@@ -12,7 +12,7 @@ namespace Yandex.Tests.Translator;
 /// <summary>
 ///   <para>Tests set for class <see cref="TranslationResult"/>.</para>
 /// </summary>
-public sealed class TranslationResultTest : ClassTest<TranslationResult>
+public sealed class TranslationResultTest : UnitTest
 {
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -97,7 +97,7 @@ public sealed class TranslationResultTest : ClassTest<TranslationResult>
 /// <summary>
 ///   <para>Tests set for class <see cref="TranslationResult.Info"/>.</para>
 /// </summary>
-public sealed class TranslationResultInfoTest : ClassTest<TranslationResult.Info>
+public sealed class TranslationResultInfoTest : UnitTest
 {
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>

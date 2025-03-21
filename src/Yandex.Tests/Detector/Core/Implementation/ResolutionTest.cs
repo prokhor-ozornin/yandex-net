@@ -9,7 +9,7 @@ namespace Yandex.Tests.Detector.Core.Implementation;
 /// <summary>
 ///   <para>Tests set for class <see cref="Resolution"/>.</para>
 /// </summary>
-public sealed class ResolutionTest : ClassTest<Resolution>
+public sealed class ResolutionTest : UnitTest
 {
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>

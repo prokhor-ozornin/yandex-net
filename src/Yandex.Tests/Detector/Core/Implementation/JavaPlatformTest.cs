@@ -11,7 +11,7 @@ namespace Yandex.Tests.Detector.Core.Implementation;
 /// <summary>
 ///   <para>Tests set for class <see cref="JavaPlatform"/>.</para>
 /// </summary>
-public sealed class JavaPlatformTest : ClassTest<JavaPlatform>
+public sealed class JavaPlatformTest : UnitTest
 {
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -83,7 +83,7 @@ public sealed class JavaPlatformTest : ClassTest<JavaPlatform>
 /// <summary>
 ///   <para>Tests set for class <see cref="JavaPlatform.Info"/>.</para>
 /// </summary>
-public sealed class JavaPlatformInfoTest : ClassTest<JavaPlatform.Info>
+public sealed class JavaPlatformInfoTest : UnitTest
 {
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>

@@ -10,7 +10,7 @@ namespace Yandex.Tests.Translator;
 /// <summary>
 ///   <para>Tests set for class <see cref="Error"/>.</para>
 /// </summary>
-public sealed class ErrorTest : ClassTest<Error>
+public sealed class ErrorTest : UnitTest
 {
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -54,7 +54,7 @@ public sealed class ErrorTest : ClassTest<Error>
   [Fact]
   public void CompareTo_Method()
   {
-    TestCompareTo(nameof(Error.Code), 1, 2);
+    TestCompareTo<Error, int>(nameof(Error.Code), 1, 2);
   }
 
   /// <summary>
@@ -67,7 +67,7 @@ public sealed class ErrorTest : ClassTest<Error>
   [Fact]
   public void Equals_Methods()
   {
-    TestEquality(nameof(Error.Code), 1, 2);
+    TestEquality<Error, int>(nameof(Error.Code), 1, 2);
   }
 
   /// <summary>
@@ -76,7 +76,7 @@ public sealed class ErrorTest : ClassTest<Error>
   [Fact]
   public void GetHashCode_Method()
   {
-    TestHashCode(nameof(Error.Code), 1, 2);
+    TestHashCode<Error, int>(nameof(Error.Code), 1, 2);
   }
 
   /// <summary>

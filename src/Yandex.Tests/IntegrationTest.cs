@@ -1,10 +1,9 @@
-﻿using System.Configuration;
-using Catharsis.Commons;
+﻿using Catharsis.Commons;
 using Yandex.Translator;
 
 namespace Yandex.Tests;
 
-public class IntegrationTest<T> : ClassTest<T>
+public class IntegrationTest : UnitTest
 {
   protected IApi Api { get; } = null; //Yandex.Api.Translator().Configure(configurator => configurator.ApiKey(ConfigurationManager.AppSettings["ApiKey"]));
 
@@ -13,8 +12,4 @@ public class IntegrationTest<T> : ClassTest<T>
     base.Dispose();
     Api.Dispose();
   }
-}
-
-public class IntegrationTest : IntegrationTest<object>
-{
 }
