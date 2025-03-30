@@ -1,4 +1,5 @@
 ﻿using Catharsis.Commons;
+using Catharsis.Extensions;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using Xunit;
@@ -28,7 +29,7 @@ public sealed class IDetectorRequestExtensionsTest : UnitTest
 
     return;
 
-    static void Validate(string version, IDetectorRequest request) => request.OperaMini(version).Should().BeSameAs(request).And.BeOfType<DetectorRequest>().Which.Headers.Should().Equal(new[] { new KeyValuePair<string, object>("x-operamini-phone-ua", version) });
+    static void Validate(string version, IDetectorRequest request) => request.OperaMini(version).Should().BeSameAs(request).And.BeOfType<DetectorRequest>().Which.Headers.ToValueTuple().Should().Equal(("x-operamini-phone-ua", version));
   }
 
   /// <summary>
@@ -68,6 +69,6 @@ public sealed class IDetectorRequestExtensionsTest : UnitTest
 
     return;
 
-    static void Validate(string userAgent, IDetectorRequest request) => request.UserAgent(userAgent).Should().BeSameAs(request).And.BeOfType<DetectorRequest>().Which.Headers.Should().Equal(new[] { new KeyValuePair<string, object>("user-agent", userAgent) });
+    static void Validate(string userAgent, IDetectorRequest request) => request.UserAgent(userAgent).Should().BeSameAs(request).And.BeOfType<DetectorRequest>().Which.Headers.ToValueTuple().Should().Equal(("user-agent", userAgent));
   }
 }
