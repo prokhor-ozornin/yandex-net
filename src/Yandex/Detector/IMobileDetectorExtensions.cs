@@ -49,7 +49,7 @@ public static class IMobileDetectorExtensions
   /// <param name="detector"></param>
   /// <param name="headers"></param>
   /// <returns></returns>
-  public static IMobileDevice Detect(this IMobileDetector detector, params (string Name, object Value)[] headers) => detector.DetectAsync(default, headers).Result;
+  public static IMobileDevice Detect(this IMobileDetector detector, params (string Name, object Value)[] headers) => detector.DetectAsync(CancellationToken.None, headers).Result;
 
   /// <summary>
   ///   <para></para>

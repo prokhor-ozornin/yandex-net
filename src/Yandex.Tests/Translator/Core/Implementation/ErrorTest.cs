@@ -22,7 +22,7 @@ public sealed class ErrorTest : UnitTest
     typeof(Error).Should().BeDerivedFrom<object>().And.Implement<IError>();
 
     var error = new Error();
-    error.Code.Should().Be(default);
+    error.Code.Should().Be(0);
     error.Text.Should().BeNull();
 
     error = new Error(int.MaxValue, "text");

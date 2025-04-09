@@ -29,11 +29,11 @@ public sealed class DetectedLanguageResultTest : UnitTest
     result.Language.Should().Be(Guid.Empty.ToString());
 
     result = new DetectedLanguageResult(new DetectedLanguageResult.Info());
-    result.Code.Should().Be(default);
+    result.Code.Should().Be(0);
     result.Language.Should().BeEmpty();
 
     result = new DetectedLanguageResult(new {});
-    result.Code.Should().Be(default);
+    result.Code.Should().Be(0);
     result.Language.Should().BeEmpty();
   }
 
@@ -101,7 +101,7 @@ public sealed class DetectedLanguageResultInfoTests
   {
     using (new AssertionScope())
     {
-      Validate(new DetectedLanguageResult(default, string.Empty), new DetectedLanguageResult.Info());
+      Validate(new DetectedLanguageResult(0, string.Empty), new DetectedLanguageResult.Info());
     }
 
     return;

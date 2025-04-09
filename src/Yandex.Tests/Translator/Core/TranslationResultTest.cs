@@ -31,12 +31,12 @@ public sealed class TranslationResultTest : UnitTest
     result.Lines.Should().BeEmpty();
 
     result = new TranslationResult(new TranslationResult.Info());
-    result.Code.Should().Be(default);
+    result.Code.Should().Be(0);
     result.Language.Should().BeEmpty();
     result.Lines.Should().BeEmpty();
 
     result = new TranslationResult(new {});
-    result.Code.Should().Be(default);
+    result.Code.Should().Be(0);
     result.Language.Should().BeEmpty();
     result.Lines.Should().BeEmpty();
   }
