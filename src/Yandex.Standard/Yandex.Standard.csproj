@@ -106,7 +106,7 @@
 
   <ItemGroup>
     <Reference Include="Catharsis.Extensions">
-      <HintPath>\\NAS\build\NET\Catharsis.Extensions\netstandard2.1\Catharsis.Extensions.dll</HintPath>
+      <HintPath>..\..\lib\netstandard2.1\Catharsis.Extensions.dll</HintPath>
     </Reference>
   </ItemGroup>
 

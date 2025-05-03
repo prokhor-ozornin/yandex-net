@@ -18,6 +18,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoFixture" Version="4.18.1" />
+    <PackageReference Include="AutoFixture.Xunit2" Version="4.18.1" />
     <PackageReference Include="FluentAssertions" Version="8.2.0" />
     <PackageReference Include="FluentAssertions.Json" Version="8.0.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.13.0" />
@@ -31,10 +33,10 @@
 
   <ItemGroup>
     <Reference Include="Catharsis.Commons">
-      <HintPath>\\NAS\build\NET\Catharsis.Commons\net9.0\Catharsis.Commons.dll</HintPath>
+      <HintPath>..\..\lib\net9.0\Catharsis.Commons.dll</HintPath>
     </Reference>
     <Reference Include="Catharsis.Extensions">
-      <HintPath>\\NAS\build\NET\Catharsis.Extensions\net9.0\Catharsis.Extensions.dll</HintPath>
+      <HintPath>..\..\lib\net9.0\Catharsis.Extensions.dll</HintPath>
     </Reference>
   </ItemGroup>
 
