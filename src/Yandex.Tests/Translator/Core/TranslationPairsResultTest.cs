@@ -1,5 +1,5 @@
-﻿using System.Runtime.Serialization;
-using Catharsis.Commons;
+﻿using AutoFixture;
+using System.Runtime.Serialization;
 using Catharsis.Extensions;
 using FluentAssertions;
 using FluentAssertions.Execution;
@@ -12,7 +12,7 @@ namespace Yandex.Tests.Translator;
 /// <summary>
 ///   <para>Tests set for class <see cref="TranslationPairsResult"/>.</para>
 /// </summary>
-public sealed class TranslationPairsResponseTests : UnitTest
+public sealed class TranslationPairsResponseTests : Test
 {
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -25,14 +25,23 @@ public sealed class TranslationPairsResponseTests : UnitTest
   {
     typeof(TranslationPairsResult).Should().BeDerivedFrom<object>();
 
-    var response = new TranslationPairsResult([]);
-    response.Pairs.Should().BeEmpty();
+    using (new AssertionScope())
+    {
+      var response = new TranslationPairsResult([]);
+      response.Pairs.Should().BeEmpty();
+    }
 
-    response = new TranslationPairsResult(new TranslationPairsResult.Info());
-    response.Pairs.Should().BeEmpty();
+    using (new AssertionScope())
+    {
+      var response = new TranslationPairsResult(new TranslationPairsResult.Info());
+      response.Pairs.Should().BeEmpty();
+    }
 
-    response = new TranslationPairsResult(new {});
-    response.Pairs.Should().BeEmpty();
+    using (new AssertionScope())
+    {
+      var response = new TranslationPairsResult(new { });
+      response.Pairs.Should().BeEmpty();
+    }
   }
 
   /// <summary>
@@ -55,7 +64,7 @@ public sealed class TranslationPairsResponseTests : UnitTest
 /// <summary>
 ///   <para>Tests set for class <see cref="TranslationPairsResult.Info"/>.</para>
 /// </summary>
-public sealed class TranslationPairsResponseInfoTest : UnitTest
+public sealed class TranslationPairsResponseInfoTest : Test
 {
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -66,8 +75,12 @@ public sealed class TranslationPairsResponseInfoTest : UnitTest
   {
     typeof(TranslationPairsResult.Info).Should().BeDerivedFrom<object>().And.Implement<IResultable<TranslationPairsResult>>().And.BeDecoratedWith<DataContractAttribute>();
 
-    var info = new TranslationPairsResult.Info();
-    info.Pairs.Should().BeNull();
+    using (new AssertionScope())
+    {
+      var info = new TranslationPairsResult.Info();
+      
+      info.Pairs.Should().BeNull();
+    }
   }
 
   /// <summary>
@@ -111,6 +124,7 @@ public sealed class TranslationPairsResponseInfoTest : UnitTest
     using (new AssertionScope())
     {
       Validate(new TranslationPairsResult.Info());
+      Validate(Fixture.Create<TranslationPairsResult.Info>());
     }
 
     return;

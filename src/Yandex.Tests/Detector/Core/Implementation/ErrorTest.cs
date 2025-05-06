@@ -1,4 +1,4 @@
-﻿using Catharsis.Commons;
+﻿using AutoFixture;
 using Catharsis.Extensions;
 using FluentAssertions;
 using FluentAssertions.Execution;
@@ -6,12 +6,12 @@ using FluentAssertions.Json;
 using Xunit;
 using Yandex.Detector;
 
-namespace Yandex.Tests.Detector.Core.Implementation;
+namespace Yandex.Tests.Detector;
 
 /// <summary>
 ///   <para>Tests set for class <see cref="Error"/>.</para>
 /// </summary>
-public sealed class ErrorTest : UnitTest
+public sealed class ErrorTest : Test
 {
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -23,11 +23,17 @@ public sealed class ErrorTest : UnitTest
   {
     typeof(Error).Should().BeDerivedFrom<object>().And.Implement<IError>();
 
-    var error = new Error();
-    error.Text.Should().BeNull();
+    using (new AssertionScope())
+    {
+      var error = new Error();
+      error.Text.Should().BeNull();
+    }
 
-    error = new Error("text");
-    error.Text.Should().Be("text");
+    using (new AssertionScope())
+    {
+      var error = new Error("text");
+      error.Text.Should().Be("text");
+    }
   }
 
   /// <summary>
@@ -88,6 +94,7 @@ public sealed class ErrorTest : UnitTest
     using (new AssertionScope())
     {
       Validate(new Error());
+      Validate(Fixture.Create<IError>());
     }
 
     return;

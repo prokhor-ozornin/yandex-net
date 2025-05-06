@@ -4,35 +4,35 @@
         <name>Yandex.Tests</name>
     </assembly>
     <members>
-        <member name="T:Yandex.Tests.Detector.Core.DetectorExceptionTest">
+        <member name="T:Yandex.Tests.Detector.DetectorExceptionTest">
             <summary>
               <para>Tests set for class <see cref="T:Yandex.Detector.DetectorException"/>.</para>
             </summary>
         </member>
-        <member name="M:Yandex.Tests.Detector.Core.DetectorExceptionTest.Constructors">
+        <member name="M:Yandex.Tests.Detector.DetectorExceptionTest.Constructors">
             <summary>
               <para>Performs testing of class constructor(s).</para>
             </summary>
             <seealso cref="M:Yandex.Detector.DetectorException.#ctor(System.String,System.Exception)"/>
         </member>
-        <member name="T:Yandex.Tests.Detector.Core.Implementation.ErrorTest">
+        <member name="T:Yandex.Tests.Detector.ErrorTest">
             <summary>
               <para>Tests set for class <see cref="T:Yandex.Detector.Error"/>.</para>
             </summary>
         </member>
-        <member name="M:Yandex.Tests.Detector.Core.Implementation.ErrorTest.Constructors">
+        <member name="M:Yandex.Tests.Detector.ErrorTest.Constructors">
             <summary>
               <para>Performs testing of class constructor(s).</para>
             </summary>
             <seealso cref="M:Yandex.Detector.Error.#ctor"/>
             <seealso cref="M:Yandex.Detector.Error.#ctor(System.String)"/>
         </member>
-        <member name="M:Yandex.Tests.Detector.Core.Implementation.ErrorTest.Text_Property">
+        <member name="M:Yandex.Tests.Detector.ErrorTest.Text_Property">
             <summary>
               <para>Performs testing of <see cref="P:Yandex.Detector.Error.Text"/> property.</para>
             </summary>
         </member>
-        <member name="M:Yandex.Tests.Detector.Core.Implementation.ErrorTest.Equals_Methods">
+        <member name="M:Yandex.Tests.Detector.ErrorTest.Equals_Methods">
             <summary>
               <para>Performs testing of following methods :</para>
               <list type="bullet">
@@ -41,27 +41,27 @@
               </list>
             </summary>
         </member>
-        <member name="M:Yandex.Tests.Detector.Core.Implementation.ErrorTest.GetHashCode_Method">
+        <member name="M:Yandex.Tests.Detector.ErrorTest.GetHashCode_Method">
             <summary>
               <para>Performs testing of <see cref="M:Yandex.Detector.Error.GetHashCode"/> method.</para>
             </summary>
         </member>
-        <member name="M:Yandex.Tests.Detector.Core.Implementation.ErrorTest.ToString_Method">
+        <member name="M:Yandex.Tests.Detector.ErrorTest.ToString_Method">
             <summary>
               <para>Performs testing of <see cref="M:Yandex.Detector.Error.ToString"/> method.</para>
             </summary>
         </member>
-        <member name="M:Yandex.Tests.Detector.Core.Implementation.ErrorTest.Serialization">
+        <member name="M:Yandex.Tests.Detector.ErrorTest.Serialization">
             <summary>
               <para>Performs testing of serialization/deserialization process.</para>
             </summary>
         </member>
-        <member name="T:Yandex.Tests.Detector.Core.Implementation.JavaPlatformTest">
+        <member name="T:Yandex.Tests.Detector.JavaPlatformTest">
             <summary>
               <para>Tests set for class <see cref="T:Yandex.Detector.JavaPlatform"/>.</para>
             </summary>
         </member>
-        <member name="M:Yandex.Tests.Detector.Core.Implementation.JavaPlatformTest.Constructors">
+        <member name="M:Yandex.Tests.Detector.JavaPlatformTest.Constructors">
             <summary>
               <para>Performs testing of class constructor(s).</para>
             </summary>
@@ -69,83 +69,83 @@
             <seealso cref="M:Yandex.Detector.JavaPlatform.#ctor(Yandex.Detector.JavaPlatform.Info)"/>
             <seealso cref="M:Yandex.Detector.JavaPlatform.#ctor(System.Object)"/>
         </member>
-        <member name="M:Yandex.Tests.Detector.Core.Implementation.JavaPlatformTest.Camera_Property">
+        <member name="M:Yandex.Tests.Detector.JavaPlatformTest.Camera_Property">
             <summary>
               <para>Performs testing of <see cref="P:Yandex.Detector.JavaPlatform.Camera"/> property.</para>
             </summary>
         </member>
-        <member name="M:Yandex.Tests.Detector.Core.Implementation.JavaPlatformTest.FileSystem_Property">
+        <member name="M:Yandex.Tests.Detector.JavaPlatformTest.FileSystem_Property">
             <summary>
               <para>Performs testing of <see cref="P:Yandex.Detector.JavaPlatform.FileSystem"/> property.</para>
             </summary>
         </member>
-        <member name="M:Yandex.Tests.Detector.Core.Implementation.JavaPlatformTest.Certificate_Property">
+        <member name="M:Yandex.Tests.Detector.JavaPlatformTest.Certificate_Property">
             <summary>
               <para>Performs testing of <see cref="P:Yandex.Detector.JavaPlatform.Certificate"/> property.</para>
             </summary>
         </member>
-        <member name="M:Yandex.Tests.Detector.Core.Implementation.JavaPlatformTest.Icon_Property">
+        <member name="M:Yandex.Tests.Detector.JavaPlatformTest.Icon_Property">
             <summary>
               <para>Performs testing of <see cref="P:Yandex.Detector.JavaPlatform.Icon"/> property.</para>
             </summary>
         </member>
-        <member name="T:Yandex.Tests.Detector.Core.Implementation.JavaPlatformInfoTest">
+        <member name="T:Yandex.Tests.Detector.JavaPlatformInfoTest">
             <summary>
               <para>Tests set for class <see cref="T:Yandex.Detector.JavaPlatform.Info"/>.</para>
             </summary>
         </member>
-        <member name="M:Yandex.Tests.Detector.Core.Implementation.JavaPlatformInfoTest.Constructors">
+        <member name="M:Yandex.Tests.Detector.JavaPlatformInfoTest.Constructors">
             <summary>
               <para>Performs testing of class constructor(s).</para>
             </summary>
             <seealso cref="M:Yandex.Detector.JavaPlatform.Info.#ctor"/>
         </member>
-        <member name="M:Yandex.Tests.Detector.Core.Implementation.JavaPlatformInfoTest.Camera_Property">
+        <member name="M:Yandex.Tests.Detector.JavaPlatformInfoTest.Camera_Property">
             <summary>
               <para>Performs testing of <see cref="P:Yandex.Detector.JavaPlatform.Info.Camera"/> property.</para>
             </summary>
         </member>
-        <member name="M:Yandex.Tests.Detector.Core.Implementation.JavaPlatformInfoTest.FileSystem_Property">
+        <member name="M:Yandex.Tests.Detector.JavaPlatformInfoTest.FileSystem_Property">
             <summary>
               <para>Performs testing of <see cref="P:Yandex.Detector.JavaPlatform.Info.FileSystem"/> property.</para>
             </summary>
         </member>
-        <member name="M:Yandex.Tests.Detector.Core.Implementation.JavaPlatformInfoTest.Certificate_Property">
+        <member name="M:Yandex.Tests.Detector.JavaPlatformInfoTest.Certificate_Property">
             <summary>
               <para>Performs testing of <see cref="P:Yandex.Detector.JavaPlatform.Info.Certificate"/> property.</para>
             </summary>
         </member>
-        <member name="M:Yandex.Tests.Detector.Core.Implementation.JavaPlatformInfoTest.Icon_Property">
+        <member name="M:Yandex.Tests.Detector.JavaPlatformInfoTest.Icon_Property">
             <summary>
               <para>Performs testing of <see cref="P:Yandex.Detector.JavaPlatform.Info.Icon"/> property.</para>
             </summary>
         </member>
-        <member name="M:Yandex.Tests.Detector.Core.Implementation.JavaPlatformInfoTest.ToResult_Method">
+        <member name="M:Yandex.Tests.Detector.JavaPlatformInfoTest.ToResult_Method">
             <summary>
               <para>Performs testing of <see cref="M:Yandex.Detector.JavaPlatform.Info.ToResult"/> method.</para>
             </summary>
         </member>
-        <member name="M:Yandex.Tests.Detector.Core.Implementation.JavaPlatformInfoTest.Serialization">
+        <member name="M:Yandex.Tests.Detector.JavaPlatformInfoTest.Serialization">
             <summary>
               <para>Performs testing of serialization/deserialization process.</para>
             </summary>
         </member>
-        <member name="T:Yandex.Tests.Detector.Core.Implementation.MobileDetectorTest">
+        <member name="T:Yandex.Tests.Detector.MobileDetectorTest">
             <summary>
               <para>Tests set for class <see cref="T:Yandex.Detector.MobileDetector"/>.</para>
             </summary>
         </member>
-        <member name="M:Yandex.Tests.Detector.Core.Implementation.MobileDetectorTest.DetectAsync_Method">
+        <member name="M:Yandex.Tests.Detector.MobileDetectorTest.DetectAsync_Method">
             <summary>
               <para>Performs testing of <see cref="M:Yandex.Detector.MobileDetector.DetectAsync(System.Collections.Generic.IReadOnlyDictionary{System.String,System.Object},System.Threading.CancellationToken)"/> method.</para>
             </summary>
         </member>
-        <member name="T:Yandex.Tests.Detector.Core.Implementation.MobileDeviceTest">
+        <member name="T:Yandex.Tests.Detector.MobileDeviceTest">
             <summary>
               <para>Tests set for class <see cref="T:Yandex.Detector.MobileDevice"/>.</para>
             </summary>
         </member>
-        <member name="M:Yandex.Tests.Detector.Core.Implementation.MobileDeviceTest.Constructors">
+        <member name="M:Yandex.Tests.Detector.MobileDeviceTest.Constructors">
             <summary>
               <para>Performs testing of class constructor(s).</para>
             </summary>
@@ -153,37 +153,37 @@
             <seealso cref="M:Yandex.Detector.MobileDevice.#ctor(Yandex.Detector.MobileDevice.Info)"/>
             <seealso cref="M:Yandex.Detector.MobileDevice.#ctor(System.Object)"/>
         </member>
-        <member name="M:Yandex.Tests.Detector.Core.Implementation.MobileDeviceTest.Name_Property">
+        <member name="M:Yandex.Tests.Detector.MobileDeviceTest.Name_Property">
             <summary>
               <para>Performs testing of <see cref="P:Yandex.Detector.MobileDevice.Name"/> property.</para>
             </summary>
         </member>
-        <member name="M:Yandex.Tests.Detector.Core.Implementation.MobileDeviceTest.DeviceClass_Property">
+        <member name="M:Yandex.Tests.Detector.MobileDeviceTest.DeviceClass_Property">
             <summary>
               <para>Performs testing of <see cref="P:Yandex.Detector.MobileDevice.DeviceClass"/> property.</para>
             </summary>
         </member>
-        <member name="M:Yandex.Tests.Detector.Core.Implementation.MobileDeviceTest.Vendor_Property">
+        <member name="M:Yandex.Tests.Detector.MobileDeviceTest.Vendor_Property">
             <summary>
               <para>Performs testing of <see cref="P:Yandex.Detector.MobileDevice.Vendor"/> property.</para>
             </summary>
         </member>
-        <member name="M:Yandex.Tests.Detector.Core.Implementation.MobileDeviceTest.Description_Property">
+        <member name="M:Yandex.Tests.Detector.MobileDeviceTest.Description_Property">
             <summary>
               <para>Performs testing of <see cref="P:Yandex.Detector.MobileDevice.Description"/> property.</para>
             </summary>
         </member>
-        <member name="M:Yandex.Tests.Detector.Core.Implementation.MobileDeviceTest.Screen_Property">
+        <member name="M:Yandex.Tests.Detector.MobileDeviceTest.Screen_Property">
             <summary>
               <para>Performs testing of <see cref="P:Yandex.Detector.MobileDevice.Screen"/> property.</para>
             </summary>
         </member>
-        <member name="M:Yandex.Tests.Detector.Core.Implementation.MobileDeviceTest.JavaPlatform_Property">
+        <member name="M:Yandex.Tests.Detector.MobileDeviceTest.JavaPlatform_Property">
             <summary>
               <para>Performs testing of <see cref="P:Yandex.Detector.MobileDevice.JavaPlatform"/> property.</para>
             </summary>
         </member>
-        <member name="M:Yandex.Tests.Detector.Core.Implementation.MobileDeviceTest.Equals_Methods">
+        <member name="M:Yandex.Tests.Detector.MobileDeviceTest.Equals_Methods">
             <summary>
               <para>Performs testing of following methods :</para>
               <list type="bullet">
@@ -192,94 +192,94 @@
               </list>
             </summary>
         </member>
-        <member name="M:Yandex.Tests.Detector.Core.Implementation.MobileDeviceTest.GetHashCode_Method">
+        <member name="M:Yandex.Tests.Detector.MobileDeviceTest.GetHashCode_Method">
             <summary>
               <para>Performs testing of <see cref="M:Yandex.Detector.MobileDevice.GetHashCode"/> method.</para>
             </summary>
         </member>
-        <member name="M:Yandex.Tests.Detector.Core.Implementation.MobileDeviceTest.ToString_Method">
+        <member name="M:Yandex.Tests.Detector.MobileDeviceTest.ToString_Method">
             <summary>
               <para>Performs testing of <see cref="M:Yandex.Detector.MobileDevice.ToString"/> method.</para>
             </summary>
         </member>
-        <member name="T:Yandex.Tests.Detector.Core.Implementation.MobileDeviceInfoTest">
+        <member name="T:Yandex.Tests.Detector.MobileDeviceInfoTest">
             <summary>
               <para>Tests set for class <see cref="T:Yandex.Detector.MobileDevice.Info"/>.</para>
             </summary>
         </member>
-        <member name="M:Yandex.Tests.Detector.Core.Implementation.MobileDeviceInfoTest.Constructors">
+        <member name="M:Yandex.Tests.Detector.MobileDeviceInfoTest.Constructors">
             <summary>
               <para>Performs testing of class constructor(s).</para>
             </summary>
             <seealso cref="M:Yandex.Detector.MobileDevice.Info.#ctor"/>
         </member>
-        <member name="M:Yandex.Tests.Detector.Core.Implementation.MobileDeviceInfoTest.Name_Property">
+        <member name="M:Yandex.Tests.Detector.MobileDeviceInfoTest.Name_Property">
             <summary>
               <para>Performs testing of <see cref="P:Yandex.Detector.MobileDevice.Info.Name"/> property.</para>
             </summary>
         </member>
-        <member name="M:Yandex.Tests.Detector.Core.Implementation.MobileDeviceInfoTest.DeviceClass_Property">
+        <member name="M:Yandex.Tests.Detector.MobileDeviceInfoTest.DeviceClass_Property">
             <summary>
               <para>Performs testing of <see cref="P:Yandex.Detector.MobileDevice.Info.DeviceClass"/> property.</para>
             </summary>
         </member>
-        <member name="M:Yandex.Tests.Detector.Core.Implementation.MobileDeviceInfoTest.Vendor_Property">
+        <member name="M:Yandex.Tests.Detector.MobileDeviceInfoTest.Vendor_Property">
             <summary>
               <para>Performs testing of <see cref="P:Yandex.Detector.MobileDevice.Info.Vendor"/> property.</para>
             </summary>
         </member>
-        <member name="M:Yandex.Tests.Detector.Core.Implementation.MobileDeviceInfoTest.Description_Property">
+        <member name="M:Yandex.Tests.Detector.MobileDeviceInfoTest.Description_Property">
             <summary>
               <para>Performs testing of <see cref="P:Yandex.Detector.MobileDevice.Info.Description"/> property.</para>
             </summary>
         </member>
-        <member name="M:Yandex.Tests.Detector.Core.Implementation.MobileDeviceInfoTest.ScreenWidth_Property">
+        <member name="M:Yandex.Tests.Detector.MobileDeviceInfoTest.ScreenWidth_Property">
             <summary>
               <para>Performs testing of <see cref="P:Yandex.Detector.MobileDevice.Info.ScreenWidth"/> property.</para>
             </summary>
         </member>
-        <member name="M:Yandex.Tests.Detector.Core.Implementation.MobileDeviceInfoTest.ScreenHeight_Property">
+        <member name="M:Yandex.Tests.Detector.MobileDeviceInfoTest.ScreenHeight_Property">
             <summary>
               <para>Performs testing of <see cref="P:Yandex.Detector.MobileDevice.Info.ScreenHeight"/> property.</para>
             </summary>
         </member>
-        <member name="M:Yandex.Tests.Detector.Core.Implementation.MobileDeviceInfoTest.JavaPlatform_Property">
+        <member name="M:Yandex.Tests.Detector.MobileDeviceInfoTest.JavaPlatform_Property">
             <summary>
               <para>Performs testing of <see cref="P:Yandex.Detector.MobileDevice.Info.JavaPlatform"/> property.</para>
             </summary>
         </member>
-        <member name="M:Yandex.Tests.Detector.Core.Implementation.MobileDeviceInfoTest.ToResult_Method">
+        <member name="M:Yandex.Tests.Detector.MobileDeviceInfoTest.ToResult_Method">
             <summary>
               <para>Performs testing of <see cref="M:Yandex.Detector.MobileDevice.Info.ToResult"/> method.</para>
             </summary>
         </member>
-        <member name="M:Yandex.Tests.Detector.Core.Implementation.MobileDeviceInfoTest.Serialization">
+        <member name="M:Yandex.Tests.Detector.MobileDeviceInfoTest.Serialization">
             <summary>
               <para>Performs testing of serialization/deserialization process.</para>
             </summary>
         </member>
-        <member name="T:Yandex.Tests.Detector.Core.Implementation.ResolutionTest">
+        <member name="T:Yandex.Tests.Detector.ResolutionTest">
             <summary>
               <para>Tests set for class <see cref="T:Yandex.Detector.Resolution"/>.</para>
             </summary>
         </member>
-        <member name="M:Yandex.Tests.Detector.Core.Implementation.ResolutionTest.Constructors">
+        <member name="M:Yandex.Tests.Detector.ResolutionTest.Constructors">
             <summary>
               <para>Performs testing of class constructor(s).</para>
             </summary>
             <seealso cref="M:Yandex.Detector.Resolution.#ctor"/>
         </member>
-        <member name="M:Yandex.Tests.Detector.Core.Implementation.ResolutionTest.Height_Property">
+        <member name="M:Yandex.Tests.Detector.ResolutionTest.Height_Property">
             <summary>
               <para>Performs testing of <see cref="P:Yandex.Detector.Resolution.Height"/> property.</para>
             </summary>
         </member>
-        <member name="M:Yandex.Tests.Detector.Core.Implementation.ResolutionTest.Width_Property">
+        <member name="M:Yandex.Tests.Detector.ResolutionTest.Width_Property">
             <summary>
               <para>Performs testing of <see cref="P:Yandex.Detector.Resolution.Width"/> property.</para>
             </summary>
         </member>
-        <member name="M:Yandex.Tests.Detector.Core.Implementation.ResolutionTest.ToString_Method">
+        <member name="M:Yandex.Tests.Detector.ResolutionTest.ToString_Method">
             <summary>
               <para>Performs testing of <see cref="M:Yandex.Detector.Resolution.ToString"/> method.</para>
             </summary>
@@ -308,38 +308,38 @@
               <para>Performs testing of <see cref="M:Yandex.Detector.IYandexApiExtensions.Detector(Yandex.IYandexApi)"/> method.</para>
             </summary>
         </member>
-        <member name="T:Yandex.Tests.Detector.Requests.IDetectorRequestExtensionsTest">
+        <member name="T:Yandex.Tests.Detector.IDetectorRequestExtensionsTest">
             <summary>
               <para>Tests set for class <see cref="T:Yandex.Detector.IDetectorRequestExtensions"/>.</para>
             </summary>
         </member>
-        <member name="M:Yandex.Tests.Detector.Requests.IDetectorRequestExtensionsTest.OperaMini_Method">
+        <member name="M:Yandex.Tests.Detector.IDetectorRequestExtensionsTest.OperaMini_Method">
             <summary>
               <para>Performs testing of <see cref="M:Yandex.Detector.IDetectorRequestExtensions.OperaMini(Yandex.Detector.IDetectorRequest,System.String)"/> method.</para>
             </summary>
         </member>
-        <member name="M:Yandex.Tests.Detector.Requests.IDetectorRequestExtensionsTest.Profile_Method">
+        <member name="M:Yandex.Tests.Detector.IDetectorRequestExtensionsTest.Profile_Method">
             <summary>
               <para>Performs testing of <see cref="M:Yandex.Detector.IDetectorRequestExtensions.Profile(Yandex.Detector.IDetectorRequest,System.String)"/> method.</para>
             </summary>
         </member>
-        <member name="M:Yandex.Tests.Detector.Requests.IDetectorRequestExtensionsTest.UserAgent_Method">
+        <member name="M:Yandex.Tests.Detector.IDetectorRequestExtensionsTest.UserAgent_Method">
             <summary>
               <para>Performs testing of <see cref="M:Yandex.Detector.IDetectorRequestExtensions.UserAgent(Yandex.Detector.IDetectorRequest,System.String)"/> method.</para>
             </summary>
         </member>
-        <member name="T:Yandex.Tests.Detector.Requests.Implementation.DetectorRequestTest">
+        <member name="T:Yandex.Tests.Detector.DetectorRequestTest">
             <summary>
               <para>Tests set for class <see cref="T:Yandex.Detector.DetectorRequest"/>.</para>
             </summary>
         </member>
-        <member name="M:Yandex.Tests.Detector.Requests.Implementation.DetectorRequestTest.Constructors">
+        <member name="M:Yandex.Tests.Detector.DetectorRequestTest.Constructors">
             <summary>
               <para>Performs testing of class constructor(s).</para>
             </summary>
             <seealso cref="M:Yandex.Detector.DetectorRequest.#ctor"/>
         </member>
-        <member name="M:Yandex.Tests.Detector.Requests.Implementation.DetectorRequestTest.WithHeader_Method">
+        <member name="M:Yandex.Tests.Detector.DetectorRequestTest.WithHeader_Method">
             <summary>
               <para>Performs testing of <see cref="M:Yandex.Detector.DetectorRequest.WithHeader(System.String,System.Object)"/> method.</para>
             </summary>
@@ -462,6 +462,7 @@
             <summary>
               <para>Performs testing of class constructor(s).</para>
             </summary>
+            <seealso cref="M:Yandex.Translator.Api.#ctor(System.String)"/>
         </member>
         <member name="M:Yandex.Tests.Translator.ApiTest.PairsAsync_Method">
             <summary>

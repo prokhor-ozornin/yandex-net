@@ -1,5 +1,5 @@
-﻿using System.Runtime.Serialization;
-using Catharsis.Commons;
+﻿using AutoFixture;
+using System.Runtime.Serialization;
 using Catharsis.Extensions;
 using FluentAssertions;
 using FluentAssertions.Execution;
@@ -7,12 +7,12 @@ using FluentAssertions.Json;
 using Xunit;
 using Yandex.Detector;
 
-namespace Yandex.Tests.Detector.Core.Implementation;
+namespace Yandex.Tests.Detector;
 
 /// <summary>
 ///   <para>Tests set for class <see cref="JavaPlatform"/>.</para>
 /// </summary>
-public sealed class JavaPlatformTest : UnitTest
+public sealed class JavaPlatformTest : Test
 {
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -25,23 +25,32 @@ public sealed class JavaPlatformTest : UnitTest
   {
     typeof(JavaPlatform).Should().BeDerivedFrom<object>().And.Implement<IJavaPlatform>();
 
-    var java = new JavaPlatform(true, true, "certificate", new Resolution {Width = short.MinValue, Height = short.MaxValue});
-    java.Camera.Should().BeTrue();
-    java.FileSystem.Should().BeTrue();
-    java.Certificate.Should().Be("certificate");
-    java.Icon.Should().Be(new Resolution {Width = short.MinValue, Height = short.MaxValue});
+    using (new AssertionScope())
+    {
+      var java = new JavaPlatform(true, true, "certificate", new Resolution { Width = short.MinValue, Height = short.MaxValue });
+      java.Camera.Should().BeTrue();
+      java.FileSystem.Should().BeTrue();
+      java.Certificate.Should().Be("certificate");
+      java.Icon.Should().Be(new Resolution { Width = short.MinValue, Height = short.MaxValue });
+    }
 
-    java = new JavaPlatform(new JavaPlatform.Info());
-    java.Camera.Should().BeFalse();
-    java.FileSystem.Should().BeFalse();
-    java.Certificate.Should().BeNull();
-    java.Icon.Should().BeNull();
+    using (new AssertionScope())
+    {
+      var java = new JavaPlatform(new JavaPlatform.Info());
+      java.Camera.Should().BeFalse();
+      java.FileSystem.Should().BeFalse();
+      java.Certificate.Should().BeNull();
+      java.Icon.Should().BeNull();
+    }
 
-    java = new JavaPlatform(new {});
-    java.Camera.Should().BeFalse();
-    java.FileSystem.Should().BeFalse();
-    java.Certificate.Should().BeNull();
-    java.Icon.Should().BeNull();
+    using (new AssertionScope())
+    {
+      var java = new JavaPlatform(new { });
+      java.Camera.Should().BeFalse();
+      java.FileSystem.Should().BeFalse();
+      java.Certificate.Should().BeNull();
+      java.Icon.Should().BeNull();
+    }
   }
 
   /// <summary>
@@ -84,7 +93,7 @@ public sealed class JavaPlatformTest : UnitTest
 /// <summary>
 ///   <para>Tests set for class <see cref="JavaPlatform.Info"/>.</para>
 /// </summary>
-public sealed class JavaPlatformInfoTest : UnitTest
+public sealed class JavaPlatformInfoTest : Test
 {
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -95,11 +104,15 @@ public sealed class JavaPlatformInfoTest : UnitTest
   {
     typeof(JavaPlatform.Info).Should().BeDerivedFrom<object>().And.Implement<IResultable<IJavaPlatform>>().And.BeDecoratedWith<DataContractAttribute>();
 
-    var info = new JavaPlatform.Info();
-    info.Camera.Should().BeNull();
-    info.FileSystem.Should().BeNull();
-    info.Certificate.Should().BeNull();
-    info.Icon.Should().BeNull();
+    using (new AssertionScope())
+    {
+      var info = new JavaPlatform.Info();
+
+      info.Camera.Should().BeNull();
+      info.FileSystem.Should().BeNull();
+      info.Certificate.Should().BeNull();
+      info.Icon.Should().BeNull();
+    }
   }
 
   /// <summary>
@@ -147,6 +160,7 @@ public sealed class JavaPlatformInfoTest : UnitTest
     using (new AssertionScope())
     {
       Validate(new JavaPlatform.Info());
+      Validate(Fixture.Create<JavaPlatform.Info>());
     }
 
     return;
@@ -174,6 +188,7 @@ public sealed class JavaPlatformInfoTest : UnitTest
     using (new AssertionScope())
     {
       Validate(new JavaPlatform.Info());
+      Validate(Fixture.Create<JavaPlatform.Info>());
     }
 
     return;

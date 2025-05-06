@@ -1,10 +1,10 @@
-﻿using Catharsis.Extensions;
+﻿using AutoFixture;
+using Catharsis.Extensions;
 using RestSharp;
 using RestSharp.Serializers;
 using FluentAssertions;
 using Xunit;
 using Yandex.Translator;
-using Catharsis.Commons;
 using FluentAssertions.Execution;
 
 namespace Yandex.Tests.Translator;
@@ -17,24 +17,29 @@ public sealed class ApiTest : IntegrationTest
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
   /// </summary>
+  /// <seealso cref="Api(string)"/>
   [Fact]
   public void Constructors()
   {
-    AssertionExtensions.Should(() => new Api(null)).ThrowExactly<ArgumentNullException>().WithParameterName("key");
-    AssertionExtensions.Should(() => new Api(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("key");
-
     typeof(Api).Should().BeDerivedFrom<object>().And.Implement<IApi>();
 
-    var api = new Api("apiKey");
-    api.GetPropertyValue<ISerializer>("JsonSerializer").Should().NotBeNull();
-    api.GetPropertyValue<IDeserializer>("JsonDeserializer").Should().NotBeNull();
+    using (new AssertionScope())
+    {
+      AssertionExtensions.Should(() => new Api(null)).ThrowExactly<ArgumentNullException>().WithParameterName("key");
+      AssertionExtensions.Should(() => new Api(string.Empty)).ThrowExactly<ArgumentException>().WithParameterName("key");
 
-    var client = api.GetFieldValue<RestClient>("restClient");
-    var key = client.DefaultParameters.FirstOrDefault(parameter => parameter.Name == "key");
-    key.Should().NotBeNull();
-    key.Value.Should().Be("apiKey");
 
-    throw new NotImplementedException();
+      var api = new Api("apiKey");
+      api.GetPropertyValue<ISerializer>("JsonSerializer").Should().NotBeNull();
+      api.GetPropertyValue<IDeserializer>("JsonDeserializer").Should().NotBeNull();
+
+      var client = api.GetFieldValue<RestClient>("restClient");
+      var key = client.DefaultParameters.FirstOrDefault(parameter => parameter.Name == "key");
+      key.Should().NotBeNull();
+      key.Value.Should().Be("apiKey");
+
+      throw new NotImplementedException();
+    }
   }
 
   /// <summary>
@@ -45,7 +50,7 @@ public sealed class ApiTest : IntegrationTest
   {
     using (new AssertionScope())
     {
-      AssertionExtensions.Should(() => Api.PairsAsync(Attributes.CancellationToken())).ThrowExactly<OperationCanceledException>();
+      AssertionExtensions.Should(() => Api.PairsAsync(Fixture.Create<CancellationToken>())).ThrowExactly<OperationCanceledException>();
 
       Validate([new TranslationPair("en", "ru"), new TranslationPair("ru", "en")], Api);
     }
@@ -65,7 +70,7 @@ public sealed class ApiTest : IntegrationTest
     {
       AssertionExtensions.Should(() => Api.DetectAsync(null)).ThrowExactlyAsync<ArgumentNullException>().Await();
       AssertionExtensions.Should(() => Api.DetectAsync(string.Empty)).ThrowExactlyAsync<ArgumentException>().Await();
-      AssertionExtensions.Should(() => Api.DetectAsync("text", Attributes.CancellationToken())).ThrowExactlyAsync<TaskCanceledException>().Await();
+      AssertionExtensions.Should(() => Api.DetectAsync("text", Fixture.Create<CancellationToken>())).ThrowExactlyAsync<TaskCanceledException>().Await();
 
       Validate("en", "Hello, world", Api);
       Validate("ru", "Привет, мир", Api);
@@ -85,7 +90,7 @@ public sealed class ApiTest : IntegrationTest
     using (new AssertionScope())
     {
       AssertionExtensions.Should(() => Api.TranslateAsync(null)).ThrowExactlyAsync<ArgumentNullException>().WithParameterName("request").Await();
-      AssertionExtensions.Should(() => Api.TranslateAsync(null, Attributes.CancellationToken())).ThrowExactlyAsync<OperationCanceledException>().Await();
+      AssertionExtensions.Should(() => Api.TranslateAsync(null, Fixture.Create<CancellationToken>())).ThrowExactlyAsync<OperationCanceledException>().Await();
 
       Validate(new Translation("ru", "en", "Hello world"), request => request.From("ru").To("en").Text("Привет, мир"), Api);
       Validate(new Translation("en", "ru", "Привет, мир"), request => request.From("en").To("ru").Text("Hello, world"), Api);

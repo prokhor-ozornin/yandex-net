@@ -1,16 +1,16 @@
-﻿using Catharsis.Commons;
+﻿using AutoFixture;
 using Catharsis.Extensions;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using Xunit;
 using Yandex.Detector;
 
-namespace Yandex.Tests.Detector.Requests;
+namespace Yandex.Tests.Detector;
 
 /// <summary>
 ///   <para>Tests set for class <see cref="IDetectorRequestExtensions"/>.</para>
 /// </summary>
-public sealed class IDetectorRequestExtensionsTest : UnitTest
+public sealed class IDetectorRequestExtensionsTest : Test
 {
   /// <summary>
   ///   <para>Performs testing of <see cref="IDetectorRequestExtensions.OperaMini(IDetectorRequest, string)"/> method.</para>
@@ -24,7 +24,7 @@ public sealed class IDetectorRequestExtensionsTest : UnitTest
       AssertionExtensions.Should(() => new DetectorRequest().OperaMini(null)).ThrowExactly<ArgumentNullException>().WithParameterName("version");
       AssertionExtensions.Should(() => new DetectorRequest().OperaMini(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("version");
 
-      Validate("1.0", new DetectorRequest());
+      Validate("1.0", Fixture.Create<IDetectorRequest>());
     }
 
     return;
@@ -44,7 +44,7 @@ public sealed class IDetectorRequestExtensionsTest : UnitTest
       AssertionExtensions.Should(() => new DetectorRequest().Profile(null)).ThrowExactly<ArgumentNullException>().WithParameterName("profile");
       AssertionExtensions.Should(() => new DetectorRequest().Profile(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("profile");
 
-      Validate("user", new DetectorRequest());
+      Validate("user", Fixture.Create<IDetectorRequest>());
     }
 
     return;
@@ -64,7 +64,7 @@ public sealed class IDetectorRequestExtensionsTest : UnitTest
       AssertionExtensions.Should(() => new DetectorRequest().UserAgent(null)).ThrowExactly<ArgumentNullException>().WithParameterName("userAgent");
       AssertionExtensions.Should(() => new DetectorRequest().UserAgent(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("userAgent");
 
-      Validate("Mozilla/Firefox", new DetectorRequest());
+      Validate("Mozilla/Firefox", Fixture.Create<IDetectorRequest>());
     }
 
     return;

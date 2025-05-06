@@ -1,4 +1,4 @@
-﻿using Catharsis.Commons;
+﻿using AutoFixture;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using Xunit;
@@ -9,7 +9,7 @@ namespace Yandex.Tests.Translator;
 /// <summary>
 ///   <para>Tests set for class <see cref="TranslationApiRequest"/>.</para>
 /// </summary>
-public sealed class TranslationApiRequestTest : UnitTest
+public sealed class TranslationApiRequestTest : Test
 {
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -20,8 +20,12 @@ public sealed class TranslationApiRequestTest : UnitTest
   {
     typeof(TranslationApiRequest).Should().BeDerivedFrom<ApiRequest>().And.Implement<ITranslationApiRequest>();
 
-    var request = new TranslationApiRequest();
-    request.Parameters.Should().BeEmpty();
+    using (new AssertionScope())
+    {
+      var request = new TranslationApiRequest();
+
+      request.Parameters.Should().BeEmpty();
+    }
   }
 
   /// <summary>
@@ -32,8 +36,8 @@ public sealed class TranslationApiRequestTest : UnitTest
   {
     using (new AssertionScope())
     {
-      Validate(null, new TranslationApiRequest());
-      Validate("html", new TranslationApiRequest());
+      Validate(null, Fixture.Create<ITranslationApiRequest>());
+      Validate("html", Fixture.Create<ITranslationApiRequest>());
     }
 
     return;
@@ -49,8 +53,8 @@ public sealed class TranslationApiRequestTest : UnitTest
   {
     using (new AssertionScope())
     {
-      Validate(null, new TranslationApiRequest());
-      Validate("en", new TranslationApiRequest());
+      Validate(null, Fixture.Create<ITranslationApiRequest>());
+      Validate("en", Fixture.Create<ITranslationApiRequest>());
     }
 
     return;
@@ -66,8 +70,8 @@ public sealed class TranslationApiRequestTest : UnitTest
   {
     using (new AssertionScope())
     {
-      Validate(null, new TranslationApiRequest());
-      Validate("en", new TranslationApiRequest());
+      Validate(null, Fixture.Create<ITranslationApiRequest>());
+      Validate("en", Fixture.Create<ITranslationApiRequest>());
     }
 
     return;
@@ -83,8 +87,8 @@ public sealed class TranslationApiRequestTest : UnitTest
   {
     using (new AssertionScope())
     {
-      Validate(null, new TranslationApiRequest());
-      Validate("text", new TranslationApiRequest());
+      Validate(null, Fixture.Create<ITranslationApiRequest>());
+      Validate("text", Fixture.Create<ITranslationApiRequest>());
     }
 
     return;

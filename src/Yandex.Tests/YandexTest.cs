@@ -1,5 +1,4 @@
-﻿using Catharsis.Commons;
-using FluentAssertions;
+﻿using FluentAssertions;
 using Xunit;
 
 namespace Yandex.Tests;
@@ -7,7 +6,7 @@ namespace Yandex.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="Yandex"/>.</para>
 /// </summary>
-public sealed class YandexTest : UnitTest
+public sealed class YandexTest : Test
 {
   /// <summary>
   ///   <para>Performs testing of <see cref="Yandex.Api"/> property.</para>

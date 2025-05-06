@@ -1,5 +1,4 @@
-﻿using Catharsis.Commons;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using Xunit;
@@ -9,7 +8,7 @@ namespace Yandex.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="JsonExtensions"/>.</para>
 /// </summary>
-public sealed class JsonExtensionsTest : UnitTest
+public sealed class JsonExtensionsTest : Test
 {
   /// <summary>
   ///   <para>Performs testing of <see cref="JsonExtensions.SerializeAsJson(object, JsonSerializerSettings)"/> method.</para>

@@ -1,4 +1,4 @@
-﻿using Catharsis.Commons;
+﻿using AutoFixture;
 using Catharsis.Extensions;
 using FluentAssertions;
 using FluentAssertions.Execution;
@@ -6,12 +6,12 @@ using FluentAssertions.Json;
 using Xunit;
 using Yandex.Detector;
 
-namespace Yandex.Tests.Detector.Core.Implementation;
+namespace Yandex.Tests.Detector;
 
 /// <summary>
 ///   <para>Tests set for class <see cref="MobileDevice"/>.</para>
 /// </summary>
-public sealed class MobileDeviceTest : UnitTest
+public sealed class MobileDeviceTest : Test
 {
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -24,29 +24,38 @@ public sealed class MobileDeviceTest : UnitTest
   {
     typeof(MobileDevice).Should().BeDerivedFrom<object>().And.Implement<IMobileDevice>();
 
-    var device = new MobileDevice("name", "deviceClass", "vendor", "description", new Resolution {Width = short.MinValue, Height = short.MaxValue});
-    device.Name.Should().Be("name");
-    device.DeviceClass.Should().Be("deviceClass");
-    device.Vendor.Should().Be("vendor");
-    device.Description.Should().Be("description");
-    device.Screen.Should().Be(new Resolution {Width = short.MinValue, Height = short.MaxValue});
-    device.JavaPlatform.Should().BeNull();
+    using (new AssertionScope())
+    {
+      var device = new MobileDevice("name", "deviceClass", "vendor", "description", new Resolution { Width = short.MinValue, Height = short.MaxValue });
+      device.Name.Should().Be("name");
+      device.DeviceClass.Should().Be("deviceClass");
+      device.Vendor.Should().Be("vendor");
+      device.Description.Should().Be("description");
+      device.Screen.Should().Be(new Resolution { Width = short.MinValue, Height = short.MaxValue });
+      device.JavaPlatform.Should().BeNull();
+    }
 
-    device = new MobileDevice(new MobileDevice.Info());
-    device.Name.Should().BeEmpty();
-    device.DeviceClass.Should().BeEmpty();
-    device.Vendor.Should().BeEmpty();
-    device.Description.Should().BeEmpty();
-    device.Screen.Should().Be(new Resolution());
-    device.JavaPlatform.Should().BeNull();
+    using (new AssertionScope())
+    {
+      var device = new MobileDevice(new MobileDevice.Info());
+      device.Name.Should().BeEmpty();
+      device.DeviceClass.Should().BeEmpty();
+      device.Vendor.Should().BeEmpty();
+      device.Description.Should().BeEmpty();
+      device.Screen.Should().Be(new Resolution());
+      device.JavaPlatform.Should().BeNull();
+    }
 
-    device = new MobileDevice(new {});
-    device.Name.Should().BeEmpty();
-    device.DeviceClass.Should().BeEmpty();
-    device.Vendor.Should().BeEmpty();
-    device.Description.Should().BeEmpty();
-    device.Screen.Should().Be(new Resolution());
-    device.JavaPlatform.Should().BeNull();
+    using (new AssertionScope())
+    {
+      var device = new MobileDevice(new { });
+      device.Name.Should().BeEmpty();
+      device.DeviceClass.Should().BeEmpty();
+      device.Vendor.Should().BeEmpty();
+      device.Description.Should().BeEmpty();
+      device.Screen.Should().Be(new Resolution());
+      device.JavaPlatform.Should().BeNull();
+    }
   }
 
   /// <summary>
@@ -149,7 +158,7 @@ public sealed class MobileDeviceTest : UnitTest
 /// <summary>
 ///   <para>Tests set for class <see cref="MobileDevice.Info"/>.</para>
 /// </summary>
-public sealed class MobileDeviceInfoTest : UnitTest
+public sealed class MobileDeviceInfoTest : Test
 {
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -160,14 +169,18 @@ public sealed class MobileDeviceInfoTest : UnitTest
   {
     typeof(MobileDevice.Info).Should().BeDerivedFrom<object>().And.Implement<IResultable<IMobileDevice>>();
 
-    var info = new MobileDevice.Info();
-    info.Name.Should().BeNull();
-    info.DeviceClass.Should().BeNull();
-    info.Vendor.Should().BeNull();
-    info.Description.Should().BeNull();
-    info.ScreenWidth.Should().BeNull();
-    info.ScreenHeight.Should().BeNull();
-    info.JavaPlatform.Should().BeNull();
+    using (new AssertionScope())
+    {
+      var info = new MobileDevice.Info();
+
+      info.Name.Should().BeNull();
+      info.DeviceClass.Should().BeNull();
+      info.Vendor.Should().BeNull();
+      info.Description.Should().BeNull();
+      info.ScreenWidth.Should().BeNull();
+      info.ScreenHeight.Should().BeNull();
+      info.JavaPlatform.Should().BeNull();
+    }
   }
 
   /// <summary>
@@ -279,6 +292,7 @@ public sealed class MobileDeviceInfoTest : UnitTest
     using (new AssertionScope())
     {
       Validate(new MobileDevice.Info());
+      Validate(Fixture.Create<MobileDevice.Info>());
     }
 
     return;

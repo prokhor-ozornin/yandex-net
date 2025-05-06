@@ -1,15 +1,14 @@
-﻿using Catharsis.Commons;
-using FluentAssertions;
+﻿using FluentAssertions;
 using FluentAssertions.Execution;
 using Xunit;
 using Yandex.Detector;
 
-namespace Yandex.Tests.Detector.Requests.Implementation;
+namespace Yandex.Tests.Detector;
 
 /// <summary>
 ///   <para>Tests set for class <see cref="DetectorRequest"/>.</para>
 /// </summary>
-public sealed class DetectorRequestTest : UnitTest
+public sealed class DetectorRequestTest : Test
 {
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -20,8 +19,12 @@ public sealed class DetectorRequestTest : UnitTest
   {
     typeof(DetectorRequest).Should().BeDerivedFrom<object>().And.Implement<IDetectorRequest>();
 
-    var builder = new DetectorRequest();
-    builder.Headers.Should().BeEmpty();
+    using (new AssertionScope())
+    {
+      var builder = new DetectorRequest();
+
+      builder.Headers.Should().BeEmpty();
+    }
   }
 
   /// <summary>

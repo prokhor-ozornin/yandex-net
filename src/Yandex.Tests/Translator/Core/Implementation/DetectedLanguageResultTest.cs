@@ -1,5 +1,5 @@
 ﻿using System.Runtime.Serialization;
-using Catharsis.Commons;
+using AutoFixture;
 using Catharsis.Extensions;
 using FluentAssertions;
 using FluentAssertions.Execution;
@@ -12,7 +12,7 @@ namespace Yandex.Tests.Translator;
 /// <summary>
 ///   <para>Tests set for class <see cref="DetectedLanguageResult"/>.</para>
 /// </summary>
-public sealed class DetectedLanguageResultTest : UnitTest
+public sealed class DetectedLanguageResultTest : Test
 {
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -25,17 +25,26 @@ public sealed class DetectedLanguageResultTest : UnitTest
   {
     typeof(DetectedLanguageResult).Should().BeDerivedFrom<object>();
 
-    var result = new DetectedLanguageResult(int.MaxValue, Guid.Empty.ToString());
-    result.Code.Should().Be(int.MaxValue);
-    result.Language.Should().Be(Guid.Empty.ToString());
+    using (new AssertionScope())
+    {
+      var result = new DetectedLanguageResult(int.MaxValue, Guid.Empty.ToString());
+      result.Code.Should().Be(int.MaxValue);
+      result.Language.Should().Be(Guid.Empty.ToString());
+    }
 
-    result = new DetectedLanguageResult(new DetectedLanguageResult.Info());
-    result.Code.Should().Be(0);
-    result.Language.Should().BeEmpty();
+    using (new AssertionScope())
+    {
+      var result = new DetectedLanguageResult(new DetectedLanguageResult.Info());
+      result.Code.Should().Be(0);
+      result.Language.Should().BeEmpty();
+    }
 
-    result = new DetectedLanguageResult(new {});
-    result.Code.Should().Be(0);
-    result.Language.Should().BeEmpty();
+    using (new AssertionScope())
+    {
+      var result = new DetectedLanguageResult(new { });
+      result.Code.Should().Be(0);
+      result.Language.Should().BeEmpty();
+    }
   }
 
   /// <summary>
@@ -60,7 +69,7 @@ public sealed class DetectedLanguageResultTest : UnitTest
 /// <summary>
 ///   <para>Tests set for class <see cref="DetectedLanguageResult.Info"/>.</para>
 /// </summary>
-public sealed class DetectedLanguageResultInfoTests
+public sealed class DetectedLanguageResultInfoTests : Test
 {
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -71,9 +80,13 @@ public sealed class DetectedLanguageResultInfoTests
   {
     typeof(DetectedLanguageResult.Info).Should().BeDerivedFrom<object>().And.Implement<IResultable<DetectedLanguageResult>>().And.BeDecoratedWith<DataContractAttribute>();
 
-    var info = new DetectedLanguageResult.Info();
-    info.Code.Should().BeNull();
-    info.Language.Should().BeNull();
+    using (new AssertionScope())
+    {
+      var info = new DetectedLanguageResult.Info();
+
+      info.Code.Should().BeNull();
+      info.Language.Should().BeNull();
+    }
   }
 
   /// <summary>
@@ -126,6 +139,7 @@ public sealed class DetectedLanguageResultInfoTests
     using (new AssertionScope())
     {
       Validate(new DetectedLanguageResult.Info());
+      Validate(Fixture.Create<DetectedLanguageResult.Info>());
     }
 
     return;

@@ -1,15 +1,14 @@
-﻿using Catharsis.Commons;
-using FluentAssertions;
+﻿using FluentAssertions;
 using FluentAssertions.Execution;
 using Xunit;
 using Yandex.Detector;
 
-namespace Yandex.Tests.Detector.Core.Implementation;
+namespace Yandex.Tests.Detector;
 
 /// <summary>
 ///   <para>Tests set for class <see cref="Resolution"/>.</para>
 /// </summary>
-public sealed class ResolutionTest : UnitTest
+public sealed class ResolutionTest : Test
 {
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -20,9 +19,13 @@ public sealed class ResolutionTest : UnitTest
   {
     typeof(Resolution).Should().BeDerivedFrom<object>().And.Implement<IResolution>();
 
-    var resolution = new Resolution();
-    resolution.Height.Should().Be(0);
-    resolution.Width.Should().Be(0);
+    using (new AssertionScope())
+    {
+      var resolution = new Resolution();
+
+      resolution.Height.Should().Be(0);
+      resolution.Width.Should().Be(0);
+    }
   }
 
   /// <summary>

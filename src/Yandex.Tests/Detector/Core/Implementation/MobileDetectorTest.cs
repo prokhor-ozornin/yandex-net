@@ -1,16 +1,16 @@
-﻿using Catharsis.Commons;
+﻿using AutoFixture;
 using Catharsis.Extensions;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using Xunit;
 using Yandex.Detector;
 
-namespace Yandex.Tests.Detector.Core.Implementation;
+namespace Yandex.Tests.Detector;
 
 /// <summary>
 ///   <para>Tests set for class <see cref="MobileDetector"/>.</para>
 /// </summary>
-public sealed class MobileDetectorTest : UnitTest
+public sealed class MobileDetectorTest : Test
 {
   private IMobileDetector Detector { get; } = Yandex.Api.Detector();
 
@@ -23,7 +23,7 @@ public sealed class MobileDetectorTest : UnitTest
     using (new AssertionScope())
     {
       AssertionExtensions.Should(() => Detector.DetectAsync(null)).ThrowExactlyAsync<ArgumentNullException>().WithParameterName("headers").Await();
-      AssertionExtensions.Should(() => Detector.DetectAsync(Attributes.CancellationToken())).ThrowExactlyAsync<OperationCanceledException>().Await();
+      AssertionExtensions.Should(() => Detector.DetectAsync(Fixture.Create<CancellationToken>())).ThrowExactlyAsync<OperationCanceledException>().Await();
 
       AssertionExtensions.Should(() => Detector.DetectAsync(new Dictionary<string, object>())).ThrowExactlyAsync<DetectorException>().Await().WithMessage("No HTTP headers were specified").Which.InnerException.Should().BeNull();
       AssertionExtensions.Should(() => Detector.DetectAsync(new Dictionary<string, object> {{"user-agent", "invalid"}})).ThrowExactlyAsync<DetectorException>().Await().WithMessage("Unknown user agent and wap profile").Which.InnerException.Should().BeNull();

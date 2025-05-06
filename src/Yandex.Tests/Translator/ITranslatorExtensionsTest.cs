@@ -1,5 +1,4 @@
-﻿using Catharsis.Commons;
-using FluentAssertions;
+﻿using FluentAssertions;
 using FluentAssertions.Execution;
 using Xunit;
 using Yandex.Translator;
@@ -9,7 +8,7 @@ namespace Yandex.Tests.Translator;
 /// <summary>
 ///   <para>Tests set for class <see cref="ITranslatorExtensions"/>.</para>
 /// </summary>
-public sealed class ITranslatorExtensionsTest : UnitTest
+public sealed class ITranslatorExtensionsTest : Test
 {
   /// <summary>
   ///   <para>Performs testing of <see cref="ITranslatorExtensions.Configure(ITranslator, Action{IApiConfigurator})"/> method.</para>

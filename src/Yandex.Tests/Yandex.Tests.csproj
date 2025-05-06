@@ -32,9 +32,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="Catharsis.Commons">
-      <HintPath>..\..\lib\net9.0\Catharsis.Commons.dll</HintPath>
-    </Reference>
     <Reference Include="Catharsis.Extensions">
       <HintPath>..\..\lib\net9.0\Catharsis.Extensions.dll</HintPath>
     </Reference>

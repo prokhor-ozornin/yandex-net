@@ -1,5 +1,5 @@
-﻿using System.Runtime.Serialization;
-using Catharsis.Commons;
+﻿using AutoFixture;
+using System.Runtime.Serialization;
 using Catharsis.Extensions;
 using FluentAssertions;
 using FluentAssertions.Execution;
@@ -12,7 +12,7 @@ namespace Yandex.Tests.Translator;
 /// <summary>
 ///   <para>Tests set for class <see cref="TranslationResult"/>.</para>
 /// </summary>
-public sealed class TranslationResultTest : UnitTest
+public sealed class TranslationResultTest : Test
 {
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -25,20 +25,29 @@ public sealed class TranslationResultTest : UnitTest
   {
     typeof(TranslationResult).Should().BeDerivedFrom<object>();
 
-    var result = new TranslationResult(int.MaxValue, "en", []);
-    result.Code.Should().Be(int.MaxValue);
-    result.Language.Should().Be("en");
-    result.Lines.Should().BeEmpty();
+    using (new AssertionScope())
+    {
+      var result = new TranslationResult(int.MaxValue, "en", []);
+      result.Code.Should().Be(int.MaxValue);
+      result.Language.Should().Be("en");
+      result.Lines.Should().BeEmpty();
+    }
 
-    result = new TranslationResult(new TranslationResult.Info());
-    result.Code.Should().Be(0);
-    result.Language.Should().BeEmpty();
-    result.Lines.Should().BeEmpty();
+    using (new AssertionScope())
+    {
+      var result = new TranslationResult(new TranslationResult.Info());
+      result.Code.Should().Be(0);
+      result.Language.Should().BeEmpty();
+      result.Lines.Should().BeEmpty();
+    }
 
-    result = new TranslationResult(new {});
-    result.Code.Should().Be(0);
-    result.Language.Should().BeEmpty();
-    result.Lines.Should().BeEmpty();
+    using (new AssertionScope())
+    {
+      var result = new TranslationResult(new { });
+      result.Code.Should().Be(0);
+      result.Language.Should().BeEmpty();
+      result.Lines.Should().BeEmpty();
+    }
   }
 
   /// <summary>
@@ -90,14 +99,14 @@ public sealed class TranslationResultTest : UnitTest
 
     return;
 
-    static void Validate(string value, object instance) => instance.ToString().Should().Be(value);
+    static void Validate(string value, TranslationResult instance) => instance.ToString().Should().Be(value);
   }
 }
 
 /// <summary>
 ///   <para>Tests set for class <see cref="TranslationResult.Info"/>.</para>
 /// </summary>
-public sealed class TranslationResultInfoTest : UnitTest
+public sealed class TranslationResultInfoTest : Test
 {
   /// <summary>
   ///   <para>Performs testing of class constructor(s).</para>
@@ -108,10 +117,14 @@ public sealed class TranslationResultInfoTest : UnitTest
   {
     typeof(TranslationResult.Info).Should().BeDerivedFrom<object>().And.Implement<IResultable<TranslationResult>>().And.BeDecoratedWith<DataContractAttribute>();
 
-    var info = new TranslationResult.Info();
-    info.Code.Should().BeNull();
-    info.Language.Should().BeNull();
-    info.Lines.Should().BeNull();
+    using (new AssertionScope())
+    {
+      var info = new TranslationResult.Info();
+
+      info.Code.Should().BeNull();
+      info.Language.Should().BeNull();
+      info.Lines.Should().BeNull();
+    }
   }
 
   /// <summary>
@@ -175,6 +188,7 @@ public sealed class TranslationResultInfoTest : UnitTest
     using (new AssertionScope())
     {
       Validate(new TranslationResult.Info());
+      Validate(Fixture.Create<TranslationResult.Info>());
     }
 
     return;

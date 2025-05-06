@@ -1,5 +1,5 @@
-﻿using System.Globalization;
-using Catharsis.Commons;
+﻿using AutoFixture;
+using System.Globalization;
 using Catharsis.Extensions;
 using FluentAssertions;
 using FluentAssertions.Execution;
@@ -11,7 +11,7 @@ namespace Yandex.Tests.Translator;
 /// <summary>
 ///   <para>Tests set for class <see cref="ITranslationApiRequestExtensions"/>.</para>
 /// </summary>
-public sealed class ITranslationApiRequestExtensionsTest : UnitTest
+public sealed class ITranslationApiRequestExtensionsTest : Test
 {
   /// <summary>
   ///   <para>Performs testing of <see cref="ITranslationApiRequestExtensions.AsHtml(ITranslationApiRequest)"/> method.</para>
@@ -23,7 +23,7 @@ public sealed class ITranslationApiRequestExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => ITranslationApiRequestExtensions.AsHtml(null)).ThrowExactly<ArgumentNullException>().WithParameterName("request");
 
-      Validate(new TranslationApiRequest());
+      Validate(Fixture.Create<ITranslationApiRequest>());
     }
 
     return;
@@ -41,7 +41,7 @@ public sealed class ITranslationApiRequestExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => ITranslationApiRequestExtensions.AsText(null)).ThrowExactly<ArgumentNullException>().WithParameterName("request");
 
-      Validate(new TranslationApiRequest());
+      Validate(Fixture.Create<ITranslationApiRequest>());
     }
 
     return;
@@ -59,8 +59,8 @@ public sealed class ITranslationApiRequestExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => ITranslationApiRequestExtensions.From(null, CultureInfo.InvariantCulture)).ThrowExactly<ArgumentNullException>().WithParameterName("request");
 
-      Validate(null, new TranslationApiRequest());
-      CultureInfo.GetCultures(CultureTypes.AllCultures).ForEach(culture => Validate(culture, new TranslationApiRequest()));
+      Validate(null, Fixture.Create<ITranslationApiRequest>());
+      CultureInfo.GetCultures(CultureTypes.AllCultures).ForEach(culture => Validate(culture, Fixture.Create<ITranslationApiRequest>()));
     }
     
     return;
@@ -78,8 +78,8 @@ public sealed class ITranslationApiRequestExtensionsTest : UnitTest
     {
       AssertionExtensions.Should(() => ITranslationApiRequestExtensions.To(null, CultureInfo.InvariantCulture)).ThrowExactly<ArgumentNullException>().WithParameterName("request");
 
-      Validate(null, new TranslationApiRequest());
-      CultureInfo.GetCultures(CultureTypes.AllCultures).ForEach(culture => Validate(culture, new TranslationApiRequest()));
+      Validate(null, Fixture.Create<ITranslationApiRequest>());
+      CultureInfo.GetCultures(CultureTypes.AllCultures).ForEach(culture => Validate(culture, Fixture.Create<ITranslationApiRequest>()));
     }
 
     return;

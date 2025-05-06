@@ -1,5 +1,4 @@
-﻿using Catharsis.Commons;
-using FluentAssertions;
+﻿using FluentAssertions;
 using FluentAssertions.Execution;
 using Xunit;
 using Yandex.Detector;
@@ -9,7 +8,7 @@ namespace Yandex.Tests.Detector;
 /// <summary>
 ///   <para>Tests set for class <see cref="IMobileDetectorExtensions"/>.</para>
 /// </summary>
-public sealed class IMobileDetectorExtensionsTest : UnitTest
+public sealed class IMobileDetectorExtensionsTest : Test
 {
   /// <summary>
   ///   <para>Performs testing of following methods :</para>
