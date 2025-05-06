@@ -2,6 +2,12 @@
 using Catharsis.Extensions;
 using FluentAssertions;
 using Newtonsoft.Json;
+using Yandex.Detector;
+using Yandex.Translator;
+using ErrorDetector = Yandex.Detector.Error;
+using ErrorTranslator = Yandex.Translator.Error;
+using IErrorDetector = Yandex.Detector.IError;
+using IErrorTranslator = Yandex.Translator.IError;
 
 namespace Yandex.Tests;
 
@@ -11,7 +17,17 @@ public class Test : IDisposable
 
   protected Test()
   {
+    Fixture
+      .TypeRelay<IErrorDetector, ErrorDetector>()
+      .TypeRelay<IDetectorRequest, DetectorRequest>()
+
+      .TypeRelay<IApiConfigurator, ApiConfigurator>()
+      .TypeRelay<ITranslationApiRequest, TranslationApiRequest>()
+      .TypeRelay<IErrorTranslator, ErrorTranslator>();
+      ;
+
     Fixture.Customize<CancellationToken>(token => token.FromFactory<CancellationToken>(_ => new CancellationToken(true)));
+    
     JsonConvert.DefaultSettings = () => new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.Auto };
   }
 
