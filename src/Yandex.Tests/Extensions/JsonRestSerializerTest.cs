@@ -21,7 +21,7 @@ public sealed class JsonRestSerializerTest : Test
   {
     using (new AssertionScope())
     {
-      static void Validate()
+      static void Test()
       {
 
       }
@@ -29,7 +29,7 @@ public sealed class JsonRestSerializerTest : Test
 
     using (new AssertionScope())
     {
-      static void Validate()
+      static void Test()
       {
 
       }
@@ -52,7 +52,7 @@ public sealed class JsonRestSerializerTest : Test
 
     return;
 
-    static void Validate()
+    static void Test()
     {
 
     }
@@ -72,7 +72,7 @@ public sealed class JsonRestSerializerTest : Test
 
     return;
 
-    static void Validate()
+    static void Test()
     {
 
     }
@@ -92,7 +92,7 @@ public sealed class JsonRestSerializerTest : Test
 
     return;
 
-    static void Validate()
+    static void Test()
     {
 
     }
@@ -112,7 +112,7 @@ public sealed class JsonRestSerializerTest : Test
 
     return;
 
-    static void Validate()
+    static void Test()
     {
 
     }
@@ -132,7 +132,7 @@ public sealed class JsonRestSerializerTest : Test
 
     return;
 
-    static void Validate()
+    static void Test()
     {
 
     }
@@ -152,7 +152,7 @@ public sealed class JsonRestSerializerTest : Test
 
     return;
 
-    static void Validate()
+    static void Test()
     {
 
     }
@@ -172,7 +172,7 @@ public sealed class JsonRestSerializerTest : Test
 
     return;
 
-    static void Validate()
+    static void Test()
     {
 
     }

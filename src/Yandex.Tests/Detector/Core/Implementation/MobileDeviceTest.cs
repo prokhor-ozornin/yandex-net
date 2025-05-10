@@ -144,14 +144,14 @@ public sealed class MobileDeviceTest : Test
   {
     using (new AssertionScope())
     {
-      Validate(string.Empty, new MobileDevice(new {}));
-      Validate(string.Empty, new MobileDevice(new { Name = string.Empty }));
-      Validate("name", new MobileDevice(new { Name = "name" }));
+      Test(string.Empty, new MobileDevice(new {}));
+      Test(string.Empty, new MobileDevice(new { Name = string.Empty }));
+      Test("name", new MobileDevice(new { Name = "name" }));
     }
 
     return;
 
-    static void Validate(string value, object instance) => instance.ToString().Should().Be(value);
+    static void Test(string value, object instance) => instance.ToString().Should().Be(value);
   }
 }
 
@@ -267,7 +267,7 @@ public sealed class MobileDeviceInfoTest : Test
 
     return;
 
-    static void Validate(MobileDevice.Info info)
+    static void Test(MobileDevice.Info info)
     {
       var result = info.ToResult();
 
@@ -291,12 +291,12 @@ public sealed class MobileDeviceInfoTest : Test
   {
     using (new AssertionScope())
     {
-      Validate(new MobileDevice.Info());
-      Validate(Fixture.Create<MobileDevice.Info>());
+      Test(new MobileDevice.Info());
+      Test(Fixture.Create<MobileDevice.Info>());
     }
 
     return;
 
-    static void Validate(IResultable<IMobileDevice> instance) => instance.To<object>().Should().BeDataContractSerializable().And.BeXmlSerializable().And.BeJsonSerializable();
+    static void Test(IResultable<IMobileDevice> instance) => instance.To<object>().Should().BeDataContractSerializable().And.BeXmlSerializable().And.BeJsonSerializable();
   }
 }

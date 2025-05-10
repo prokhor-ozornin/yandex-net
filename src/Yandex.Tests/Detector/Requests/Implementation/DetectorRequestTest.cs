@@ -38,11 +38,11 @@ public sealed class DetectorRequestTest : Test
       AssertionExtensions.Should(() => new DetectorRequest().WithHeader(null, "value")).ThrowExactly<ArgumentNullException>().WithParameterName("name");
       AssertionExtensions.Should(() => new DetectorRequest().WithHeader(string.Empty, "value")).ThrowExactly<ArgumentException>().WithMessage("name");
 
-      Validate("id", Guid.NewGuid(), new DetectorRequest());
+      Test("id", Guid.NewGuid(), new DetectorRequest());
     }
 
     return;
 
-    static void Validate(string name, object value, IDetectorRequest request) => request.WithHeader(name, value).Should().BeSameAs(request).And.BeOfType<DetectorRequest>().Which.Headers[name].Should().Be(value);
+    static void Test(string name, object value, IDetectorRequest request) => request.WithHeader(name, value).Should().BeSameAs(request).And.BeOfType<DetectorRequest>().Which.Headers[name].Should().Be(value);
   }
 }

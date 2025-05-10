@@ -40,11 +40,11 @@ public sealed class TranslationPairTest : Test
   {
     using (new AssertionScope())
     {
-      Validate("en-ru", new TranslationPair("en", "ru"));
+      Test("en-ru", new TranslationPair("en", "ru"));
     }
 
     return;
 
-    static void Validate(string value, object instance) => instance.ToString().Should().Be(value);
+    static void Test(string value, object instance) => instance.ToString().Should().Be(value);
   }
 }

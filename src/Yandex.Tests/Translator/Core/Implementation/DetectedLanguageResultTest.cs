@@ -115,12 +115,12 @@ public sealed class DetectedLanguageResultInfoTests : Test
   {
     using (new AssertionScope())
     {
-      Validate(new DetectedLanguageResult(0, string.Empty), new DetectedLanguageResult.Info());
+      Test(new DetectedLanguageResult(0, string.Empty), new DetectedLanguageResult.Info());
     }
 
     return;
 
-    static void Validate(DetectedLanguageResult result, DetectedLanguageResult.Info info)
+    static void Test(DetectedLanguageResult result, DetectedLanguageResult.Info info)
     {
       var languageResult = info.ToResult();
 
@@ -138,12 +138,12 @@ public sealed class DetectedLanguageResultInfoTests : Test
   {
     using (new AssertionScope())
     {
-      Validate(new DetectedLanguageResult.Info());
-      Validate(Fixture.Create<DetectedLanguageResult.Info>());
+      Test(new DetectedLanguageResult.Info());
+      Test(Fixture.Create<DetectedLanguageResult.Info>());
     }
 
     return;
 
-    static void Validate(IResultable<DetectedLanguageResult> instance) => instance.To<object>().Should().BeDataContractSerializable().And.BeXmlSerializable().And.BeJsonSerializable();
+    static void Test(IResultable<DetectedLanguageResult> instance) => instance.To<object>().Should().BeDataContractSerializable().And.BeXmlSerializable().And.BeJsonSerializable();
   }
 }

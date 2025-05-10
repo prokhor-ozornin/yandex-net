@@ -66,7 +66,7 @@ public sealed class MobileDetectorTest : Test
 
     return;
 
-    static void Validate()
+    static void Test()
     {
 
     }

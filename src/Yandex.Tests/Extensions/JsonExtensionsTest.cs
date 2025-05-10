@@ -25,7 +25,7 @@ public sealed class JsonExtensionsTest : Test
 
     return;
 
-    static void Validate()
+    static void Test()
     {
 
     }
@@ -46,7 +46,7 @@ public sealed class JsonExtensionsTest : Test
 
     return;
 
-    static void Validate()
+    static void Test()
     {
 
     }

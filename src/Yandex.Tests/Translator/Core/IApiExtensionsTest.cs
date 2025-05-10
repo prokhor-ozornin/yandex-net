@@ -24,12 +24,12 @@ public sealed class IApiExtensionsTest : IntegrationTest
       AssertionExtensions.Should(() => IApiExtensions.TranslateAsync(Api, null)).ThrowExactlyAsync<ArgumentNullException>().WithParameterName("action").Await();
       AssertionExtensions.Should(() => Api.TranslateAsync(_ => { }, Fixture.Create<CancellationToken>())).ThrowExactlyAsync<OperationCanceledException>().Await();
 
-      Validate(new Translation("ru", "en", "Hello world"), request => request.From("ru").To("en").Text("Привет, мир"), Api);
+      Test(new Translation("ru", "en", "Hello world"), request => request.From("ru").To("en").Text("Привет, мир"), Api);
     }
 
     return;
 
-    static void Validate(ITranslation result, Action<ITranslationApiRequest> request, IApi api)
+    static void Test(ITranslation result, Action<ITranslationApiRequest> request, IApi api)
     {
       var task = api.TranslateAsync(request);
       task.Should().BeAssignableTo<Task<ITranslation>>();
@@ -52,12 +52,12 @@ public sealed class IApiExtensionsTest : IntegrationTest
     {
       AssertionExtensions.Should(() => IApiExtensions.Pairs(null)).ThrowExactly<ArgumentNullException>().WithParameterName("api");
 
-      Validate([new TranslationPair("en", "ru"), new TranslationPair("ru", "en")], Api);
+      Test([new TranslationPair("en", "ru"), new TranslationPair("ru", "en")], Api);
     }
 
     return;
 
-    static void Validate(IEnumerable<ITranslationPair> result, IApi api) => api.Pairs().Should().BeOfType<List<ITranslationPair>>().And.IntersectWith(result);
+    static void Test(IEnumerable<ITranslationPair> result, IApi api) => api.Pairs().Should().BeOfType<List<ITranslationPair>>().And.IntersectWith(result);
   }
 
   /// <summary>
@@ -71,13 +71,13 @@ public sealed class IApiExtensionsTest : IntegrationTest
       AssertionExtensions.Should(() => IApiExtensions.Detect(null, string.Empty)).ThrowExactly<ArgumentNullException>().WithParameterName("api");
       AssertionExtensions.Should(() => Api.Detect(null)).ThrowExactly<ArgumentNullException>().WithParameterName("text");
 
-      Validate("en", "Hello, world", Api);
-      Validate("ru", "Привет, мир", Api);
+      Test("en", "Hello, world", Api);
+      Test("ru", "Привет, мир", Api);
     }
 
     return;
 
-    static void Validate(string result, string text, IApi api) => api.Detect(text).Should().BeOfType<string>().And.Be(result);
+    static void Test(string result, string text, IApi api) => api.Detect(text).Should().BeOfType<string>().And.Be(result);
   }
 
   /// <summary>
@@ -95,9 +95,9 @@ public sealed class IApiExtensionsTest : IntegrationTest
       AssertionExtensions.Should(() => IApiExtensions.Translate(null, new TranslationApiRequest())).ThrowExactly<ArgumentNullException>().WithParameterName("api");
       AssertionExtensions.Should(() => Api.Translate((ITranslationApiRequest) null)).ThrowExactly<ArgumentNullException>().WithParameterName("request");
 
-      Validate(new Translation("ru", "en", "Hello world"), new TranslationApiRequest().From("ru").To("en").Text("Привет, мир"), Api);
+      Test(new Translation("ru", "en", "Hello world"), new TranslationApiRequest().From("ru").To("en").Text("Привет, мир"), Api);
 
-      static void Validate(ITranslation result, ITranslationApiRequest request, IApi api)
+      static void Test(ITranslation result, ITranslationApiRequest request, IApi api)
       {
         var translation = api.Translate(request);
 
@@ -113,9 +113,9 @@ public sealed class IApiExtensionsTest : IntegrationTest
       AssertionExtensions.Should(() => IApiExtensions.Translate(null, _ => {})).ThrowExactly<ArgumentNullException>().WithParameterName("api");
       AssertionExtensions.Should(() => Api.Translate((Action<ITranslationApiRequest>) null)).ThrowExactly<ArgumentNullException>().WithParameterName("action");
 
-      Validate(new Translation("ru", "en", "Hello world"), request => request.From("ru").To("en").Text("Привет, мир"), Api);
+      Test(new Translation("ru", "en", "Hello world"), request => request.From("ru").To("en").Text("Привет, мир"), Api);
 
-      static void Validate(ITranslation result, Action<ITranslationApiRequest> request, IApi api)
+      static void Test(ITranslation result, Action<ITranslationApiRequest> request, IApi api)
       {
         var translation = api.Translate(request);
 

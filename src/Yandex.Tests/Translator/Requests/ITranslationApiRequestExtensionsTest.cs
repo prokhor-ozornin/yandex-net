@@ -23,12 +23,12 @@ public sealed class ITranslationApiRequestExtensionsTest : Test
     {
       AssertionExtensions.Should(() => ITranslationApiRequestExtensions.AsHtml(null)).ThrowExactly<ArgumentNullException>().WithParameterName("request");
 
-      Validate(Fixture.Create<ITranslationApiRequest>());
+      Test(Fixture.Create<ITranslationApiRequest>());
     }
 
     return;
 
-    static void Validate(ITranslationApiRequest request) => request.AsHtml().Should().BeSameAs(request).And.BeOfType<TranslationApiRequest>().Which.Parameters["format"].Should().Be("html");
+    static void Test(ITranslationApiRequest request) => request.AsHtml().Should().BeSameAs(request).And.BeOfType<TranslationApiRequest>().Which.Parameters["format"].Should().Be("html");
   }
 
   /// <summary>
@@ -41,12 +41,12 @@ public sealed class ITranslationApiRequestExtensionsTest : Test
     {
       AssertionExtensions.Should(() => ITranslationApiRequestExtensions.AsText(null)).ThrowExactly<ArgumentNullException>().WithParameterName("request");
 
-      Validate(Fixture.Create<ITranslationApiRequest>());
+      Test(Fixture.Create<ITranslationApiRequest>());
     }
 
     return;
 
-    static void Validate(ITranslationApiRequest request) => request.AsText().Should().BeSameAs(request).And.BeOfType<TranslationApiRequest>().Which.Parameters["format"].Should().Be("plain");
+    static void Test(ITranslationApiRequest request) => request.AsText().Should().BeSameAs(request).And.BeOfType<TranslationApiRequest>().Which.Parameters["format"].Should().Be("plain");
   }
 
   /// <summary>
@@ -59,13 +59,13 @@ public sealed class ITranslationApiRequestExtensionsTest : Test
     {
       AssertionExtensions.Should(() => ITranslationApiRequestExtensions.From(null, CultureInfo.InvariantCulture)).ThrowExactly<ArgumentNullException>().WithParameterName("request");
 
-      Validate(null, Fixture.Create<ITranslationApiRequest>());
-      CultureInfo.GetCultures(CultureTypes.AllCultures).ForEach(culture => Validate(culture, Fixture.Create<ITranslationApiRequest>()));
+      Test(null, Fixture.Create<ITranslationApiRequest>());
+      CultureInfo.GetCultures(CultureTypes.AllCultures).ForEach(culture => Test(culture, Fixture.Create<ITranslationApiRequest>()));
     }
     
     return;
 
-    static void Validate(CultureInfo culture, ITranslationApiRequest request) => request.From(culture).Should().BeSameAs(request).And.BeOfType<TranslationApiRequest>().Which.Parameters["lang"].Should().Be(culture?.TwoLetterISOLanguageName);
+    static void Test(CultureInfo culture, ITranslationApiRequest request) => request.From(culture).Should().BeSameAs(request).And.BeOfType<TranslationApiRequest>().Which.Parameters["lang"].Should().Be(culture?.TwoLetterISOLanguageName);
   }
 
   /// <summary>
@@ -78,12 +78,12 @@ public sealed class ITranslationApiRequestExtensionsTest : Test
     {
       AssertionExtensions.Should(() => ITranslationApiRequestExtensions.To(null, CultureInfo.InvariantCulture)).ThrowExactly<ArgumentNullException>().WithParameterName("request");
 
-      Validate(null, Fixture.Create<ITranslationApiRequest>());
-      CultureInfo.GetCultures(CultureTypes.AllCultures).ForEach(culture => Validate(culture, Fixture.Create<ITranslationApiRequest>()));
+      Test(null, Fixture.Create<ITranslationApiRequest>());
+      CultureInfo.GetCultures(CultureTypes.AllCultures).ForEach(culture => Test(culture, Fixture.Create<ITranslationApiRequest>()));
     }
 
     return;
 
-    static void Validate(CultureInfo culture, ITranslationApiRequest request) => request.To(culture).Should().BeSameAs(request).And.BeOfType<TranslationApiRequest>().Which.Parameters["lang"].Should().Be(culture?.TwoLetterISOLanguageName);
+    static void Test(CultureInfo culture, ITranslationApiRequest request) => request.To(culture).Should().BeSameAs(request).And.BeOfType<TranslationApiRequest>().Which.Parameters["lang"].Should().Be(culture?.TwoLetterISOLanguageName);
   }
 }

@@ -21,11 +21,11 @@ public sealed class ITranslatorExtensionsTest : Test
       AssertionExtensions.Should(() => ITranslatorExtensions.Configure(null, _ => { })).ThrowExactly<ArgumentNullException>().WithParameterName("translator");
       AssertionExtensions.Should(() => ITranslatorExtensions.Configure(Yandex.Api.Translator(), null)).ThrowExactly<ArgumentNullException>().WithParameterName("action");
 
-      Validate(configurator => configurator.ApiKey("key"), Yandex.Api.Translator());
+      Test(configurator => configurator.ApiKey("key"), Yandex.Api.Translator());
     }
 
     return;
 
-    static void Validate(Action<IApiConfigurator> configurator, ITranslator translator) => translator.Configure(configurator).Should().BeOfType<Api>().And.NotBeSameAs(configurator);
+    static void Test(Action<IApiConfigurator> configurator, ITranslator translator) => translator.Configure(configurator).Should().BeOfType<Api>().And.NotBeSameAs(configurator);
   }
 }

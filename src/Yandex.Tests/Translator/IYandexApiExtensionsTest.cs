@@ -20,11 +20,11 @@ public sealed class IYandexApiExtensionsTest : Test
     {
       AssertionExtensions.Should(() => IYandexApiExtensions.Translator(null)).ThrowExactly<ArgumentNullException>().WithParameterName("api");
 
-      Validate(Yandex.Api);
+      Test(Yandex.Api);
     }
 
     return;
 
-    static void Validate(IYandexApi api) => api.Translator().Should().BeOfType<global::Yandex.Translator.Translator>().And.NotBeSameAs(api.Translator());
+    static void Test(IYandexApi api) => api.Translator().Should().BeOfType<global::Yandex.Translator.Translator>().And.NotBeSameAs(api.Translator());
   }
 }

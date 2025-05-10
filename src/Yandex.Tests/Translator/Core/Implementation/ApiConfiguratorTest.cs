@@ -36,12 +36,12 @@ public sealed class ApiConfiguratorTest : Test
   {
     using (new AssertionScope())
     {
-      Validate("apiKey", new ApiConfigurator());
-      Validate(Fixture.Create<string>(), Fixture.Create<IApiConfigurator>());
+      Test("apiKey", new ApiConfigurator());
+      Test(Fixture.Create<string>(), Fixture.Create<IApiConfigurator>());
     }
 
     return;
 
-    static void Validate(string key, IApiConfigurator configurator) => configurator.ApiKey(key).Should().BeSameAs(configurator).And.BeOfType<ApiConfigurator>().Which.ApiKeyValue.Should().Be(key);
+    static void Test(string key, IApiConfigurator configurator) => configurator.ApiKey(key).Should().BeSameAs(configurator).And.BeOfType<ApiConfigurator>().Which.ApiKeyValue.Should().Be(key);
   }
 }

@@ -92,14 +92,14 @@ public sealed class TranslationResultTest : Test
   {
     using (new AssertionScope())
     {
-      Validate(string.Empty, new TranslationResult(new { }));
-      Validate(string.Empty, new TranslationResult(new { Lines = new List<string>() }));
-      Validate("firstsecond", new TranslationResult(new { Lines = new List<string> { "first", "second" } }));
+      Test(string.Empty, new TranslationResult(new { }));
+      Test(string.Empty, new TranslationResult(new { Lines = new List<string>() }));
+      Test("firstsecond", new TranslationResult(new { Lines = new List<string> { "first", "second" } }));
     }
 
     return;
 
-    static void Validate(string value, TranslationResult instance) => instance.ToString().Should().Be(value);
+    static void Test(string value, TranslationResult instance) => instance.ToString().Should().Be(value);
   }
 }
 
@@ -163,12 +163,12 @@ public sealed class TranslationResultInfoTest : Test
   {
     using (new AssertionScope())
     {
-      Validate(new TranslationResult(0, string.Empty, []), new TranslationResult.Info());
+      Test(new TranslationResult(0, string.Empty, []), new TranslationResult.Info());
     }
 
     return;
 
-    static void Validate(TranslationResult result, TranslationResult.Info info)
+    static void Test(TranslationResult result, TranslationResult.Info info)
     {
       var translationResult = info.ToResult();
 
@@ -187,12 +187,12 @@ public sealed class TranslationResultInfoTest : Test
   {
     using (new AssertionScope())
     {
-      Validate(new TranslationResult.Info());
-      Validate(Fixture.Create<TranslationResult.Info>());
+      Test(new TranslationResult.Info());
+      Test(Fixture.Create<TranslationResult.Info>());
     }
 
     return;
 
-    static void Validate(IResultable<TranslationResult> instance) => instance.To<object>().Should().BeDataContractSerializable().And.BeXmlSerializable().And.BeJsonSerializable();
+    static void Test(IResultable<TranslationResult> instance) => instance.To<object>().Should().BeDataContractSerializable().And.BeXmlSerializable().And.BeJsonSerializable();
   }
 }

@@ -54,12 +54,12 @@ public sealed class ResolutionTest : Test
   {
     using (new AssertionScope())
     {
-      Validate("0x0", new Resolution());
-      Validate($"{short.MinValue}x{short.MaxValue}", new Resolution { Width = short.MinValue, Height = short.MaxValue });
+      Test("0x0", new Resolution());
+      Test($"{short.MinValue}x{short.MaxValue}", new Resolution { Width = short.MinValue, Height = short.MaxValue });
     }
 
     return;
 
-    static void Validate(string result, object instance) => instance.ToString().Should().Be(result);
+    static void Test(string result, object instance) => instance.ToString().Should().Be(result);
   }
 }

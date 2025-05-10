@@ -38,7 +38,7 @@ public sealed class IMobileDetectorExtensionsTest : Test
 
     return;
 
-    static void Validate(IMobileDevice device)
+    static void Test(IMobileDevice device)
     {
       device.Description.Should().Be("Java MIDP2 (small)");
       device.DeviceClass.Should().Be("midp2ss");

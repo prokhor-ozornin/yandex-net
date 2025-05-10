@@ -159,13 +159,13 @@ public sealed class JavaPlatformInfoTest : Test
   {
     using (new AssertionScope())
     {
-      Validate(new JavaPlatform.Info());
-      Validate(Fixture.Create<JavaPlatform.Info>());
+      Test(new JavaPlatform.Info());
+      Test(Fixture.Create<JavaPlatform.Info>());
     }
 
     return;
 
-    static void Validate(JavaPlatform.Info info)
+    static void Test(JavaPlatform.Info info)
     {
       var result = info.ToResult();
 
@@ -187,12 +187,12 @@ public sealed class JavaPlatformInfoTest : Test
   {
     using (new AssertionScope())
     {
-      Validate(new JavaPlatform.Info());
-      Validate(Fixture.Create<JavaPlatform.Info>());
+      Test(new JavaPlatform.Info());
+      Test(Fixture.Create<JavaPlatform.Info>());
     }
 
     return;
 
-    static void Validate(IResultable<IJavaPlatform> instance) => instance.To<object>().Should().BeDataContractSerializable().And.BeXmlSerializable().And.BeJsonSerializable();
+    static void Test(IResultable<IJavaPlatform> instance) => instance.To<object>().Should().BeDataContractSerializable().And.BeXmlSerializable().And.BeJsonSerializable();
   }
 }

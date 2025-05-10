@@ -75,14 +75,14 @@ public sealed class ErrorTest : Test
   {
     using (new AssertionScope())
     {
-      Validate(string.Empty, new Error());
-      Validate(string.Empty, new Error(string.Empty));
-      Validate("text", new Error("text"));
+      Test(string.Empty, new Error());
+      Test(string.Empty, new Error(string.Empty));
+      Test("text", new Error("text"));
     }
 
     return;
 
-    static void Validate(string value, object instance) => instance.ToString().Should().Be(value);
+    static void Test(string value, object instance) => instance.ToString().Should().Be(value);
   }
 
   /// <summary>
@@ -93,12 +93,12 @@ public sealed class ErrorTest : Test
   {
     using (new AssertionScope())
     {
-      Validate(new Error());
-      Validate(Fixture.Create<IError>());
+      Test(new Error());
+      Test(Fixture.Create<IError>());
     }
 
     return;
 
-    static void Validate(IError instance) => instance.To<object>().Should().BeDataContractSerializable().And.BeXmlSerializable().And.BeJsonSerializable();
+    static void Test(IError instance) => instance.To<object>().Should().BeDataContractSerializable().And.BeXmlSerializable().And.BeJsonSerializable();
   }
 }

@@ -101,12 +101,12 @@ public sealed class TranslationPairsResponseInfoTest : Test
   {
     using (new AssertionScope())
     {
-      Validate(new TranslationPairsResult([]), new TranslationPairsResult.Info());
+      Test(new TranslationPairsResult([]), new TranslationPairsResult.Info());
     }
 
     return;
 
-    static void Validate(TranslationPairsResult result, TranslationPairsResult.Info info)
+    static void Test(TranslationPairsResult result, TranslationPairsResult.Info info)
     {
       var pairsResult = info.ToResult();
 
@@ -123,12 +123,12 @@ public sealed class TranslationPairsResponseInfoTest : Test
   {
     using (new AssertionScope())
     {
-      Validate(new TranslationPairsResult.Info());
-      Validate(Fixture.Create<TranslationPairsResult.Info>());
+      Test(new TranslationPairsResult.Info());
+      Test(Fixture.Create<TranslationPairsResult.Info>());
     }
 
     return;
 
-    static void Validate(IResultable<TranslationPairsResult> instance) => instance.To<object>().Should().BeDataContractSerializable().And.BeXmlSerializable().And.BeJsonSerializable();
+    static void Test(IResultable<TranslationPairsResult> instance) => instance.To<object>().Should().BeDataContractSerializable().And.BeXmlSerializable().And.BeJsonSerializable();
   }
 }

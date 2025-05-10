@@ -52,12 +52,12 @@ public sealed class ApiTest : IntegrationTest
     {
       AssertionExtensions.Should(() => Api.PairsAsync(Fixture.Create<CancellationToken>())).ThrowExactly<OperationCanceledException>();
 
-      Validate([new TranslationPair("en", "ru"), new TranslationPair("ru", "en")], Api);
+      Test([new TranslationPair("en", "ru"), new TranslationPair("ru", "en")], Api);
     }
 
     return;
 
-    static void Validate(IEnumerable<ITranslationPair> result, IApi api) => api.PairsAsync().ToArray().Should().IntersectWith(result);
+    static void Test(IEnumerable<ITranslationPair> result, IApi api) => api.PairsAsync().ToArray().Should().IntersectWith(result);
   }
 
   /// <summary>
@@ -72,13 +72,13 @@ public sealed class ApiTest : IntegrationTest
       AssertionExtensions.Should(() => Api.DetectAsync(string.Empty)).ThrowExactlyAsync<ArgumentException>().Await();
       AssertionExtensions.Should(() => Api.DetectAsync("text", Fixture.Create<CancellationToken>())).ThrowExactlyAsync<TaskCanceledException>().Await();
 
-      Validate("en", "Hello, world", Api);
-      Validate("ru", "Привет, мир", Api);
+      Test("en", "Hello, world", Api);
+      Test("ru", "Привет, мир", Api);
     }
 
     return;
 
-    static void Validate(string result, string text, IApi api) => api.Detect(text).Should().BeOfType<string>().And.Be(result);
+    static void Test(string result, string text, IApi api) => api.Detect(text).Should().BeOfType<string>().And.Be(result);
   }
 
   /// <summary>
@@ -92,13 +92,13 @@ public sealed class ApiTest : IntegrationTest
       AssertionExtensions.Should(() => Api.TranslateAsync(null)).ThrowExactlyAsync<ArgumentNullException>().WithParameterName("request").Await();
       AssertionExtensions.Should(() => Api.TranslateAsync(null, Fixture.Create<CancellationToken>())).ThrowExactlyAsync<OperationCanceledException>().Await();
 
-      Validate(new Translation("ru", "en", "Hello world"), request => request.From("ru").To("en").Text("Привет, мир"), Api);
-      Validate(new Translation("en", "ru", "Привет, мир"), request => request.From("en").To("ru").Text("Hello, world"), Api);
+      Test(new Translation("ru", "en", "Hello world"), request => request.From("ru").To("en").Text("Привет, мир"), Api);
+      Test(new Translation("en", "ru", "Привет, мир"), request => request.From("en").To("ru").Text("Hello, world"), Api);
     }
 
     return;
 
-    static void Validate(ITranslation result, Action<ITranslationApiRequest> request, IApi api)
+    static void Test(ITranslation result, Action<ITranslationApiRequest> request, IApi api)
     {
       var task = api.TranslateAsync(request);
       task.Should().BeAssignableTo<Task<ITranslation>>();
@@ -119,12 +119,12 @@ public sealed class ApiTest : IntegrationTest
   {
     using (new AssertionScope())
     {
-      Validate(Api);
+      Test(Api);
     }
 
     return;
 
-    static void Validate(IDisposable disposable)
+    static void Test(IDisposable disposable)
     {
       disposable.Dispose();
 

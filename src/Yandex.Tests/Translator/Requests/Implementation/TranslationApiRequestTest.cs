@@ -36,13 +36,13 @@ public sealed class TranslationApiRequestTest : Test
   {
     using (new AssertionScope())
     {
-      Validate(null, Fixture.Create<ITranslationApiRequest>());
-      Validate("html", Fixture.Create<ITranslationApiRequest>());
+      Test(null, Fixture.Create<ITranslationApiRequest>());
+      Test("html", Fixture.Create<ITranslationApiRequest>());
     }
 
     return;
 
-    static void Validate(string format, ITranslationApiRequest request) => request.Format(format).Should().BeSameAs(request).And.BeOfType<TranslationApiRequest>().Which.Parameters["format"].Should().Be(format);
+    static void Test(string format, ITranslationApiRequest request) => request.Format(format).Should().BeSameAs(request).And.BeOfType<TranslationApiRequest>().Which.Parameters["format"].Should().Be(format);
   }
 
   /// <summary>
@@ -53,13 +53,13 @@ public sealed class TranslationApiRequestTest : Test
   {
     using (new AssertionScope())
     {
-      Validate(null, Fixture.Create<ITranslationApiRequest>());
-      Validate("en", Fixture.Create<ITranslationApiRequest>());
+      Test(null, Fixture.Create<ITranslationApiRequest>());
+      Test("en", Fixture.Create<ITranslationApiRequest>());
     }
 
     return;
 
-    static void Validate(string language, ITranslationApiRequest request) => request.From(language).Should().BeSameAs(request).And.BeOfType<TranslationApiRequest>().Which.Parameters["lang"].Should().Be(language);
+    static void Test(string language, ITranslationApiRequest request) => request.From(language).Should().BeSameAs(request).And.BeOfType<TranslationApiRequest>().Which.Parameters["lang"].Should().Be(language);
   }
 
   /// <summary>
@@ -70,13 +70,13 @@ public sealed class TranslationApiRequestTest : Test
   {
     using (new AssertionScope())
     {
-      Validate(null, Fixture.Create<ITranslationApiRequest>());
-      Validate("en", Fixture.Create<ITranslationApiRequest>());
+      Test(null, Fixture.Create<ITranslationApiRequest>());
+      Test("en", Fixture.Create<ITranslationApiRequest>());
     }
 
     return;
 
-    static void Validate(string language, ITranslationApiRequest request) => request.To(language).Should().BeSameAs(request).And.BeOfType<TranslationApiRequest>().Which.Parameters["lang"].Should().Be(language);
+    static void Test(string language, ITranslationApiRequest request) => request.To(language).Should().BeSameAs(request).And.BeOfType<TranslationApiRequest>().Which.Parameters["lang"].Should().Be(language);
   }
 
   /// <summary>
@@ -87,12 +87,12 @@ public sealed class TranslationApiRequestTest : Test
   {
     using (new AssertionScope())
     {
-      Validate(null, Fixture.Create<ITranslationApiRequest>());
-      Validate("text", Fixture.Create<ITranslationApiRequest>());
+      Test(null, Fixture.Create<ITranslationApiRequest>());
+      Test("text", Fixture.Create<ITranslationApiRequest>());
     }
 
     return;
 
-    static void Validate(string text, ITranslationApiRequest request) => request.Text(text).Should().BeSameAs(request).And.BeOfType<TranslationApiRequest>().Which.Parameters["text"].Should().Be(text);
+    static void Test(string text, ITranslationApiRequest request) => request.Text(text).Should().BeSameAs(request).And.BeOfType<TranslationApiRequest>().Which.Parameters["text"].Should().Be(text);
   }
 }

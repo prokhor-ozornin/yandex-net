@@ -42,11 +42,11 @@ public sealed class TranslationTest : Test
   {
     using (new AssertionScope())
     {
-      Validate("text", new Translation("en", "ru", "text"));
+      Test("text", new Translation("en", "ru", "text"));
     }
 
     return;
 
-    static void Validate(string value, object instance) => instance.ToString().Should().Be(value);
+    static void Test(string value, object instance) => instance.ToString().Should().Be(value);
   }
 }
