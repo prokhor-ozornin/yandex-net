@@ -18,12 +18,12 @@ public class Test : IDisposable
   protected Test()
   {
     Fixture
-      .TypeRelay<IErrorDetector, ErrorDetector>()
-      .TypeRelay<IDetectorRequest, DetectorRequest>()
+      .Map<IErrorDetector, ErrorDetector>()
+      .Map<IDetectorRequest, DetectorRequest>()
 
-      .TypeRelay<IApiConfigurator, ApiConfigurator>()
-      .TypeRelay<ITranslationApiRequest, TranslationApiRequest>()
-      .TypeRelay<IErrorTranslator, ErrorTranslator>();
+      .Map<IApiConfigurator, ApiConfigurator>()
+      .Map<ITranslationApiRequest, TranslationApiRequest>()
+      .Map<IErrorTranslator, ErrorTranslator>();
       ;
 
     Fixture.Customize<CancellationToken>(token => token.FromFactory<CancellationToken>(_ => new CancellationToken(true)));

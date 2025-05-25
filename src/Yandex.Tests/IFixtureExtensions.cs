@@ -5,7 +5,7 @@ namespace Yandex.Tests;
 
 public static class IFixtureExtensions
 {
-  public static IFixture TypeRelay(this IFixture fixture, Type from, Type to)
+  public static IFixture Map(this IFixture fixture, Type from, Type to)
   {
     if (fixture is null) throw new ArgumentNullException(nameof(fixture));
     if (from is null) throw new ArgumentNullException(nameof(from));
@@ -16,5 +16,5 @@ public static class IFixtureExtensions
     return fixture;
   }
 
-  public static IFixture TypeRelay<TFrom, TTo>(this IFixture fixture) => fixture.TypeRelay(typeof(TFrom), typeof(TTo));
+  public static IFixture Map<TFrom, TTo>(this IFixture fixture) => fixture.Map(typeof(TFrom), typeof(TTo));
 }
