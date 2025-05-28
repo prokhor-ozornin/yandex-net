@@ -1,6 +1,6 @@
-﻿using AutoFixture;
-using System.Runtime.Serialization;
+﻿using System.Runtime.Serialization;
 using Catharsis.Extensions;
+using Catharsis.Fixture;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using FluentAssertions.Json;
@@ -160,7 +160,7 @@ public sealed class JavaPlatformInfoTest : Test
     using (new AssertionScope())
     {
       Test(new JavaPlatform.Info());
-      Test(Fixture.Create<JavaPlatform.Info>());
+      Test(Fixture<JavaPlatform.Info>.Create());
     }
 
     return;
@@ -188,7 +188,7 @@ public sealed class JavaPlatformInfoTest : Test
     using (new AssertionScope())
     {
       Test(new JavaPlatform.Info());
-      Test(Fixture.Create<JavaPlatform.Info>());
+      Test(Fixture<JavaPlatform.Info>.Create());
     }
 
     return;

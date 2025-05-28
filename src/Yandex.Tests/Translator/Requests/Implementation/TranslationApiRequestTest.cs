@@ -1,4 +1,4 @@
-﻿using AutoFixture;
+﻿using Catharsis.Fixture;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using Xunit;
@@ -36,8 +36,8 @@ public sealed class TranslationApiRequestTest : Test
   {
     using (new AssertionScope())
     {
-      Test(null, Fixture.Create<ITranslationApiRequest>());
-      Test("html", Fixture.Create<ITranslationApiRequest>());
+      Test(null, Fixture<ITranslationApiRequest>.Create());
+      Test("html", Fixture<ITranslationApiRequest>.Create());
     }
 
     return;
@@ -53,8 +53,8 @@ public sealed class TranslationApiRequestTest : Test
   {
     using (new AssertionScope())
     {
-      Test(null, Fixture.Create<ITranslationApiRequest>());
-      Test("en", Fixture.Create<ITranslationApiRequest>());
+      Test(null, Fixture<ITranslationApiRequest>.Create());
+      Test("en", Fixture<ITranslationApiRequest>.Create());
     }
 
     return;
@@ -70,8 +70,8 @@ public sealed class TranslationApiRequestTest : Test
   {
     using (new AssertionScope())
     {
-      Test(null, Fixture.Create<ITranslationApiRequest>());
-      Test("en", Fixture.Create<ITranslationApiRequest>());
+      Test(null, Fixture<ITranslationApiRequest>.Create());
+      Test("en", Fixture<ITranslationApiRequest>.Create());
     }
 
     return;
@@ -87,8 +87,8 @@ public sealed class TranslationApiRequestTest : Test
   {
     using (new AssertionScope())
     {
-      Test(null, Fixture.Create<ITranslationApiRequest>());
-      Test("text", Fixture.Create<ITranslationApiRequest>());
+      Test(null, Fixture<ITranslationApiRequest>.Create());
+      Test("text", Fixture<ITranslationApiRequest>.Create());
     }
 
     return;

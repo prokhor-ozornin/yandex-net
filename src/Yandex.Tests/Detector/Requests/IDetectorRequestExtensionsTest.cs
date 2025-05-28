@@ -1,5 +1,5 @@
-﻿using AutoFixture;
-using Catharsis.Extensions;
+﻿using Catharsis.Extensions;
+using Catharsis.Fixture;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using Xunit;
@@ -24,7 +24,7 @@ public sealed class IDetectorRequestExtensionsTest : Test
       AssertionExtensions.Should(() => new DetectorRequest().OperaMini(null)).ThrowExactly<ArgumentNullException>().WithParameterName("version");
       AssertionExtensions.Should(() => new DetectorRequest().OperaMini(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("version");
 
-      Test("1.0", Fixture.Create<IDetectorRequest>());
+      Test("1.0", Fixture<IDetectorRequest>.Create());
     }
 
     return;
@@ -44,7 +44,7 @@ public sealed class IDetectorRequestExtensionsTest : Test
       AssertionExtensions.Should(() => new DetectorRequest().Profile(null)).ThrowExactly<ArgumentNullException>().WithParameterName("profile");
       AssertionExtensions.Should(() => new DetectorRequest().Profile(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("profile");
 
-      Test("user", Fixture.Create<IDetectorRequest>());
+      Test("user", Fixture<IDetectorRequest>.Create());
     }
 
     return;
@@ -64,7 +64,7 @@ public sealed class IDetectorRequestExtensionsTest : Test
       AssertionExtensions.Should(() => new DetectorRequest().UserAgent(null)).ThrowExactly<ArgumentNullException>().WithParameterName("userAgent");
       AssertionExtensions.Should(() => new DetectorRequest().UserAgent(string.Empty)).ThrowExactly<ArgumentException>().WithMessage("userAgent");
 
-      Test("Mozilla/Firefox", Fixture.Create<IDetectorRequest>());
+      Test("Mozilla/Firefox", Fixture<IDetectorRequest>.Create());
     }
 
     return;

@@ -1,6 +1,6 @@
-﻿using AutoFixture;
-using System.Globalization;
+﻿using System.Globalization;
 using Catharsis.Extensions;
+using Catharsis.Fixture;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using Xunit;
@@ -23,7 +23,7 @@ public sealed class ITranslationApiRequestExtensionsTest : Test
     {
       AssertionExtensions.Should(() => ITranslationApiRequestExtensions.AsHtml(null)).ThrowExactly<ArgumentNullException>().WithParameterName("request");
 
-      Test(Fixture.Create<ITranslationApiRequest>());
+      Test(Fixture<ITranslationApiRequest>.Create());
     }
 
     return;
@@ -41,7 +41,7 @@ public sealed class ITranslationApiRequestExtensionsTest : Test
     {
       AssertionExtensions.Should(() => ITranslationApiRequestExtensions.AsText(null)).ThrowExactly<ArgumentNullException>().WithParameterName("request");
 
-      Test(Fixture.Create<ITranslationApiRequest>());
+      Test(Fixture<ITranslationApiRequest>.Create());
     }
 
     return;
@@ -59,8 +59,8 @@ public sealed class ITranslationApiRequestExtensionsTest : Test
     {
       AssertionExtensions.Should(() => ITranslationApiRequestExtensions.From(null, CultureInfo.InvariantCulture)).ThrowExactly<ArgumentNullException>().WithParameterName("request");
 
-      Test(null, Fixture.Create<ITranslationApiRequest>());
-      CultureInfo.GetCultures(CultureTypes.AllCultures).ForEach(culture => Test(culture, Fixture.Create<ITranslationApiRequest>()));
+      Test(null, Fixture<ITranslationApiRequest>.Create());
+      CultureInfo.GetCultures(CultureTypes.AllCultures).ForEach(culture => Test(culture, Fixture<ITranslationApiRequest>.Create()));
     }
     
     return;
@@ -78,8 +78,8 @@ public sealed class ITranslationApiRequestExtensionsTest : Test
     {
       AssertionExtensions.Should(() => ITranslationApiRequestExtensions.To(null, CultureInfo.InvariantCulture)).ThrowExactly<ArgumentNullException>().WithParameterName("request");
 
-      Test(null, Fixture.Create<ITranslationApiRequest>());
-      CultureInfo.GetCultures(CultureTypes.AllCultures).ForEach(culture => Test(culture, Fixture.Create<ITranslationApiRequest>()));
+      Test(null, Fixture<ITranslationApiRequest>.Create());
+      CultureInfo.GetCultures(CultureTypes.AllCultures).ForEach(culture => Test(culture, Fixture<ITranslationApiRequest>.Create()));
     }
 
     return;

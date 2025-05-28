@@ -1,6 +1,6 @@
-﻿using AutoFixture;
-using System.Runtime.Serialization;
+﻿using System.Runtime.Serialization;
 using Catharsis.Extensions;
+using Catharsis.Fixture;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using FluentAssertions.Json;
@@ -188,7 +188,7 @@ public sealed class TranslationResultInfoTest : Test
     using (new AssertionScope())
     {
       Test(new TranslationResult.Info());
-      Test(Fixture.Create<TranslationResult.Info>());
+      Test(Fixture<TranslationResult.Info>.Create());
     }
 
     return;

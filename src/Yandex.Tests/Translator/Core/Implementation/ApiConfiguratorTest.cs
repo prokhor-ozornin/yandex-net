@@ -1,4 +1,4 @@
-﻿using AutoFixture;
+﻿using Catharsis.Fixture;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using Xunit;
@@ -37,7 +37,7 @@ public sealed class ApiConfiguratorTest : Test
     using (new AssertionScope())
     {
       Test("apiKey", new ApiConfigurator());
-      Test(Fixture.Create<string>(), Fixture.Create<IApiConfigurator>());
+      Test(Fixture<string>.Create(), Fixture<IApiConfigurator>.Create());
     }
 
     return;

@@ -1,5 +1,5 @@
-﻿using AutoFixture;
-using Catharsis.Extensions;
+﻿using Catharsis.Extensions;
+using Catharsis.Fixture;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using Xunit;
@@ -23,7 +23,7 @@ public sealed class MobileDetectorTest : Test
     using (new AssertionScope())
     {
       AssertionExtensions.Should(() => Detector.DetectAsync(null)).ThrowExactlyAsync<ArgumentNullException>().WithParameterName("headers").Await();
-      AssertionExtensions.Should(() => Detector.DetectAsync(Fixture.Create<CancellationToken>())).ThrowExactlyAsync<OperationCanceledException>().Await();
+      AssertionExtensions.Should(() => Detector.DetectAsync(Fixture<CancellationToken>.Create())).ThrowExactlyAsync<OperationCanceledException>().Await();
 
       AssertionExtensions.Should(() => Detector.DetectAsync(new Dictionary<string, object>())).ThrowExactlyAsync<DetectorException>().Await().WithMessage("No HTTP headers were specified").Which.InnerException.Should().BeNull();
       AssertionExtensions.Should(() => Detector.DetectAsync(new Dictionary<string, object> {{"user-agent", "invalid"}})).ThrowExactlyAsync<DetectorException>().Await().WithMessage("Unknown user agent and wap profile").Which.InnerException.Should().BeNull();

@@ -1,5 +1,5 @@
-﻿using AutoFixture;
-using Catharsis.Extensions;
+﻿using Catharsis.Extensions;
+using Catharsis.Fixture;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using FluentAssertions.Json;
@@ -94,7 +94,7 @@ public sealed class ErrorTest : Test
     using (new AssertionScope())
     {
       Test(new Error());
-      Test(Fixture.Create<IError>());
+      Test(Fixture<IError>.Create());
     }
 
     return;

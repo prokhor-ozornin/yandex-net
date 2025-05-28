@@ -1,5 +1,5 @@
-﻿using AutoFixture;
-using Catharsis.Extensions;
+﻿using Catharsis.Extensions;
+using Catharsis.Fixture;
 using RestSharp;
 using RestSharp.Serializers;
 using FluentAssertions;
@@ -50,7 +50,7 @@ public sealed class ApiTest : IntegrationTest
   {
     using (new AssertionScope())
     {
-      AssertionExtensions.Should(() => Api.PairsAsync(Fixture.Create<CancellationToken>())).ThrowExactly<OperationCanceledException>();
+      AssertionExtensions.Should(() => Api.PairsAsync(Fixture<CancellationToken>.Create())).ThrowExactly<OperationCanceledException>();
 
       Test([new TranslationPair("en", "ru"), new TranslationPair("ru", "en")], Api);
     }
@@ -70,7 +70,7 @@ public sealed class ApiTest : IntegrationTest
     {
       AssertionExtensions.Should(() => Api.DetectAsync(null)).ThrowExactlyAsync<ArgumentNullException>().Await();
       AssertionExtensions.Should(() => Api.DetectAsync(string.Empty)).ThrowExactlyAsync<ArgumentException>().Await();
-      AssertionExtensions.Should(() => Api.DetectAsync("text", Fixture.Create<CancellationToken>())).ThrowExactlyAsync<TaskCanceledException>().Await();
+      AssertionExtensions.Should(() => Api.DetectAsync("text", Fixture<CancellationToken>.Create())).ThrowExactlyAsync<TaskCanceledException>().Await();
 
       Test("en", "Hello, world", Api);
       Test("ru", "Привет, мир", Api);
@@ -90,7 +90,7 @@ public sealed class ApiTest : IntegrationTest
     using (new AssertionScope())
     {
       AssertionExtensions.Should(() => Api.TranslateAsync(null)).ThrowExactlyAsync<ArgumentNullException>().WithParameterName("request").Await();
-      AssertionExtensions.Should(() => Api.TranslateAsync(null, Fixture.Create<CancellationToken>())).ThrowExactlyAsync<OperationCanceledException>().Await();
+      AssertionExtensions.Should(() => Api.TranslateAsync(null, Fixture<CancellationToken>.Create())).ThrowExactlyAsync<OperationCanceledException>().Await();
 
       Test(new Translation("ru", "en", "Hello world"), request => request.From("ru").To("en").Text("Привет, мир"), Api);
       Test(new Translation("en", "ru", "Привет, мир"), request => request.From("en").To("ru").Text("Hello, world"), Api);

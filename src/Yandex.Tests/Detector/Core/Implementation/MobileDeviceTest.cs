@@ -1,5 +1,5 @@
-﻿using AutoFixture;
-using Catharsis.Extensions;
+﻿using Catharsis.Extensions;
+using Catharsis.Fixture;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using FluentAssertions.Json;
@@ -292,7 +292,7 @@ public sealed class MobileDeviceInfoTest : Test
     using (new AssertionScope())
     {
       Test(new MobileDevice.Info());
-      Test(Fixture.Create<MobileDevice.Info>());
+      Test(Fixture<MobileDevice.Info>.Create());
     }
 
     return;

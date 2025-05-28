@@ -1,5 +1,5 @@
-﻿using AutoFixture;
-using Catharsis.Extensions;
+﻿using Catharsis.Extensions;
+using Catharsis.Fixture;
 using FluentAssertions;
 using Newtonsoft.Json;
 using Yandex.Detector;
@@ -13,20 +13,17 @@ namespace Yandex.Tests;
 
 public class Test : IDisposable
 {
-  protected IFixture Fixture { get; } = new Fixture();
-
   protected Test()
   {
-    Fixture
+    Fixture.Current.Configuration
       .Map<IErrorDetector, ErrorDetector>()
       .Map<IDetectorRequest, DetectorRequest>()
 
       .Map<IApiConfigurator, ApiConfigurator>()
       .Map<ITranslationApiRequest, TranslationApiRequest>()
       .Map<IErrorTranslator, ErrorTranslator>();
-      ;
 
-    Fixture.Customize<CancellationToken>(token => token.FromFactory<CancellationToken>(_ => new CancellationToken(true)));
+    Fixture.Current.Configuration.Constructor<CancellationToken>(() => new CancellationToken(true));
     
     JsonConvert.DefaultSettings = () => new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.Auto };
   }

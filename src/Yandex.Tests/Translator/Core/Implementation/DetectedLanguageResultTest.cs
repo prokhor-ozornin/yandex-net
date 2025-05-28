@@ -1,6 +1,6 @@
 ﻿using System.Runtime.Serialization;
-using AutoFixture;
 using Catharsis.Extensions;
+using Catharsis.Fixture;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using FluentAssertions.Json;
@@ -139,7 +139,7 @@ public sealed class DetectedLanguageResultInfoTests : Test
     using (new AssertionScope())
     {
       Test(new DetectedLanguageResult.Info());
-      Test(Fixture.Create<DetectedLanguageResult.Info>());
+      Test(Fixture<DetectedLanguageResult.Info>.Create());
     }
 
     return;
