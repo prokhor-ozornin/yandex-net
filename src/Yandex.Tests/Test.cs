@@ -15,17 +15,17 @@ public class Test : IDisposable
 {
   protected Test()
   {
-    Fixture.Current.Configuration
-      .Map<IErrorDetector, ErrorDetector>()
-      .Map<IDetectorRequest, DetectorRequest>()
-
-      .Map<IApiConfigurator, ApiConfigurator>()
-      .Map<ITranslationApiRequest, TranslationApiRequest>()
-      .Map<IErrorTranslator, ErrorTranslator>();
-
-    Fixture.Current.Configuration.Constructor<CancellationToken>(() => new CancellationToken(true));
-    
     JsonConvert.DefaultSettings = () => new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.Auto };
+
+    Fixture.Current.Configuration
+           .Map<IErrorDetector, ErrorDetector>()
+           .Map<IDetectorRequest, DetectorRequest>()
+
+           .Map<IApiConfigurator, ApiConfigurator>()
+           .Map<ITranslationApiRequest, TranslationApiRequest>()
+           .Map<IErrorTranslator, ErrorTranslator>()
+           
+           .Type<CancellationToken>(x => x.Constructor(() => new CancellationToken(true)));
   }
 
   public virtual void Dispose()
