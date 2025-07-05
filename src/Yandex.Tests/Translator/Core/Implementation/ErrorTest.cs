@@ -41,28 +41,19 @@ public sealed class ErrorTest : Test
   ///   <para>Performs testing of <see cref="Error.Code"/> property.</para>
   /// </summary>
   [Fact]
-  public void Code_Property()
-  {
-    new Error { Code = int.MaxValue }.Code.Should().Be(int.MaxValue);
-  }
+  public void Code_Property() => new Error { Code = int.MaxValue }.Code.Should().Be(int.MaxValue);
 
   /// <summary>
   ///   <para>Performs testing of <see cref="Error.Text"/> property.</para>
   /// </summary>
   [Fact]
-  public void Text_Property()
-  {
-    new Error { Text = "text" }.Text.Should().Be("text");
-  }
+  public void Text_Property() => new Error { Text = "text" }.Text.Should().Be("text");
 
   /// <summary>
   ///   <para>Performs testing of <see cref="Error.CompareTo(IError)"/> method.</para>
   /// </summary>
   [Fact]
-  public void CompareTo_Method()
-  {
-    TestCompareTo<Error, int>(nameof(Error.Code), 1, 2);
-  }
+  public void CompareTo_Method() => TestCompareTo<Error, int>(nameof(Error.Code), 1, 2);
 
   /// <summary>
   ///   <para>Performs testing of following methods :</para>
@@ -72,19 +63,13 @@ public sealed class ErrorTest : Test
   ///   </list>
   /// </summary>
   [Fact]
-  public void Equals_Methods()
-  {
-    TestEquality<Error, int>(nameof(Error.Code), 1, 2);
-  }
+  public void Equals_Methods() => TestEquality<Error, int>(nameof(Error.Code), 1, 2);
 
   /// <summary>
   ///   <para>Performs testing of <see cref="Error.GetHashCode()"/> method.</para>
   /// </summary>
   [Fact]
-  public void GetHashCode_Method()
-  {
-    TestHashCode<Error, int>(nameof(Error.Code), 1, 2);
-  }
+  public void GetHashCode_Method() => TestHashCode<Error, int>(nameof(Error.Code), 1, 2);
 
   /// <summary>
   ///   <para>Performs testing of <see cref="Error.ToString()"/> method.</para>

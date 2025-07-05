@@ -32,19 +32,13 @@ public sealed class ResolutionTest : Test
   ///   <para>Performs testing of <see cref="Resolution.Height"/> property.</para>
   /// </summary>
   [Fact]
-  public void Height_Property()
-  {
-    new Resolution { Height = short.MaxValue }.Height.Should().Be(short.MaxValue);
-  }
+  public void Height_Property() => new Resolution { Height = short.MaxValue }.Height.Should().Be(short.MaxValue);
 
   /// <summary>
   ///   <para>Performs testing of <see cref="Resolution.Width"/> property.</para>
   /// </summary>
   [Fact]
-  public void Width_Property()
-  {
-    new Resolution { Width = short.MaxValue }.Width.Should().Be(short.MaxValue);
-  }
+  public void Width_Property() => new Resolution { Width = short.MaxValue }.Width.Should().Be(short.MaxValue);
 
   /// <summary>
   ///   <para>Performs testing of <see cref="Resolution.ToString()"/> method.</para>

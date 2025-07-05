@@ -57,37 +57,25 @@ public sealed class JavaPlatformTest : Test
   ///   <para>Performs testing of <see cref="JavaPlatform.Camera"/> property.</para>
   /// </summary>
   [Fact]
-  public void Camera_Property()
-  {
-    new JavaPlatform(new { Camera = (byte) 1 }).Camera.Should().BeTrue();
-  }
+  public void Camera_Property() => new JavaPlatform(new { Camera = (byte) 1 }).Camera.Should().BeTrue();
 
   /// <summary>
   ///   <para>Performs testing of <see cref="JavaPlatform.FileSystem"/> property.</para>
   /// </summary>
   [Fact]
-  public void FileSystem_Property()
-  {
-    new JavaPlatform(new { FileSystem = (byte) 1 }).FileSystem.Should().BeTrue();
-  }
+  public void FileSystem_Property() => new JavaPlatform(new { FileSystem = (byte) 1 }).FileSystem.Should().BeTrue();
 
   /// <summary>
   ///   <para>Performs testing of <see cref="JavaPlatform.Certificate"/> property.</para>
   /// </summary>
   [Fact]
-  public void Certificate_Property()
-  {
-    new JavaPlatform(new { Certificate = "certificate" }).Certificate.Should().Be("certificate");
-  }
+  public void Certificate_Property() => new JavaPlatform(new { Certificate = "certificate" }).Certificate.Should().Be("certificate");
 
   /// <summary>
   ///   <para>Performs testing of <see cref="JavaPlatform.Icon"/> property.</para>
   /// </summary>
   [Fact]
-  public void Icon_Property()
-  {
-    new JavaPlatform(new { Icon = "32x32" }).Icon.ToString().Should().Be("32x32");
-  }
+  public void Icon_Property() => new JavaPlatform(new { Icon = "32x32" }).Icon.ToString().Should().Be("32x32");
 }
 
 /// <summary>
@@ -119,37 +107,25 @@ public sealed class JavaPlatformInfoTest : Test
   ///   <para>Performs testing of <see cref="JavaPlatform.Info.Camera"/> property.</para>
   /// </summary>
   [Fact]
-  public void Camera_Property()
-  {
-    new JavaPlatform.Info { Camera = byte.MaxValue }.Camera.Should().Be(byte.MaxValue);
-  }
+  public void Camera_Property() => new JavaPlatform.Info { Camera = byte.MaxValue }.Camera.Should().Be(byte.MaxValue);
 
   /// <summary>
   ///   <para>Performs testing of <see cref="JavaPlatform.Info.FileSystem"/> property.</para>
   /// </summary>
   [Fact]
-  public void FileSystem_Property()
-  {
-    new JavaPlatform.Info { FileSystem = byte.MaxValue }.FileSystem.Should().Be(byte.MaxValue);
-  }
+  public void FileSystem_Property() => new JavaPlatform.Info { FileSystem = byte.MaxValue }.FileSystem.Should().Be(byte.MaxValue);
 
   /// <summary>
   ///   <para>Performs testing of <see cref="JavaPlatform.Info.Certificate"/> property.</para>
   /// </summary>
   [Fact]
-  public void Certificate_Property()
-  {
-    new JavaPlatform.Info { Certificate = Guid.Empty.ToString() }.Certificate.Should().Be(Guid.Empty.ToString());
-  }
+  public void Certificate_Property() => new JavaPlatform.Info { Certificate = Guid.Empty.ToString() }.Certificate.Should().Be(Guid.Empty.ToString());
 
   /// <summary>
   ///   <para>Performs testing of <see cref="JavaPlatform.Info.Icon"/> property.</para>
   /// </summary>
   [Fact]
-  public void Icon_Property()
-  {
-    new JavaPlatform.Info { Icon = Guid.Empty.ToString() }.Icon.Should().Be(Guid.Empty.ToString());
-  }
+  public void Icon_Property() => new JavaPlatform.Info { Icon = Guid.Empty.ToString() }.Icon.Should().Be(Guid.Empty.ToString());
 
   /// <summary>
   ///   <para>Performs testing of <see cref="JavaPlatform.Info.ToResult()"/> method.</para>

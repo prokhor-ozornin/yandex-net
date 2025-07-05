@@ -54,19 +54,13 @@ public sealed class TranslationResultTest : Test
   ///   <para>Performs testing of <see cref="TranslationResult.Code"/> property.</para>
   /// </summary>
   [Fact]
-  public void Code_Property()
-  {
-    new TranslationResult(new { Code = int.MaxValue }).Code.Should().Be(int.MaxValue);
-  }
+  public void Code_Property() => new TranslationResult(new { Code = int.MaxValue }).Code.Should().Be(int.MaxValue);
 
   /// <summary>
   ///   <para>Performs testing of <see cref="TranslationResult.Language"/>.</para>
   /// </summary>
   [Fact]
-  public void Language_Property()
-  {
-    new TranslationResult(new { Language = "en" }).Language.Should().Be("en");
-  }
+  public void Language_Property() => new TranslationResult(new { Language = "en" }).Language.Should().Be("en");
 
   /// <summary>
   ///   <para>Performs testing of <see cref="TranslationResult.Lines"/> property.</para>
@@ -131,29 +125,19 @@ public sealed class TranslationResultInfoTest : Test
   ///   <para>Performs testing of <see cref="TranslationResult.Info.Code"/> property.</para>
   /// </summary>
   [Fact]
-  public void Code_Property()
-  {
-    new TranslationResult.Info { Code = int.MaxValue }.Code.Should().Be(int.MaxValue);
-  }
+  public void Code_Property() => new TranslationResult.Info { Code = int.MaxValue }.Code.Should().Be(int.MaxValue);
 
   /// <summary>
   ///   <para>Performs testing of <see cref="TranslationResult.Info.Language"/>.</para>
   /// </summary>
   [Fact]
-  public void Language_Property()
-  {
-    new TranslationResult.Info { Language = "en" }.Language.Should().Be("en");
-  }
+  public void Language_Property() => new TranslationResult.Info { Language = "en" }.Language.Should().Be("en");
 
   /// <summary>
   ///   <para>Performs testing of <see cref="TranslationResult.Info.Lines"/> property.</para>
   /// </summary>
   [Fact]
-  public void Lines_Property()
-  {
-    var lines = new List<string>();
-    new TranslationResult.Info { Lines = lines }.Lines.Should().BeSameAs(lines);
-  }
+  public void Lines_Property() => new List<string>().With(lines => new TranslationResult.Info { Lines = lines }.Lines.Should().BeSameAs(lines));
 
   /// <summary>
   ///   <para>Performs testing of <see cref="TranslationResult.Info.ToResult()"/> method.</para>

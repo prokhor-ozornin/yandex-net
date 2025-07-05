@@ -87,11 +87,7 @@ public sealed class TranslationPairsResponseInfoTest : Test
   ///   <para>Performs testing of <see cref="TranslationPairsResult.Info.Pairs"/> property.</para>
   /// </summary>
   [Fact]
-  public void Pairs_Property()
-  {
-    var pairs = new List<string>();
-    new TranslationPairsResult.Info { Pairs = pairs }.Pairs.Should().BeSameAs(pairs);
-  }
+  public void Pairs_Property() => new List<string>().With(pairs => new TranslationPairsResult.Info { Pairs = pairs }.Pairs.Should().BeSameAs(pairs));
 
   /// <summary>
   ///   <para>Performs testing of <see cref="TranslationPairsResult.Info.ToResult()"/> method.</para>

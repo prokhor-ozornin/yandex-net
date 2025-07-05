@@ -40,10 +40,7 @@ public sealed class ErrorTest : Test
   ///   <para>Performs testing of <see cref="Error.Text"/> property.</para>
   /// </summary>
   [Fact]
-  public void Text_Property()
-  {
-    new Error { Text = "text" }.Text.Should().Be("text");
-  }
+  public void Text_Property() => new Error { Text = "text" }.Text.Should().Be("text");
 
   /// <summary>
   ///   <para>Performs testing of following methods :</para>
@@ -53,19 +50,13 @@ public sealed class ErrorTest : Test
   ///   </list>
   /// </summary>
   [Fact]
-  public void Equals_Methods()
-  {
-    TestEquality<Error, string>(nameof(Error.Text), "first", "second");
-  }
+  public void Equals_Methods() => TestEquality<Error, string>(nameof(Error.Text), "first", "second");
 
   /// <summary>
   ///   <para>Performs testing of <see cref="Error.GetHashCode()"/> method.</para>
   /// </summary>
   [Fact]
-  public void GetHashCode_Method()
-  {
-    TestHashCode<Error, string>(nameof(Error.Text), "first", "second");
-  }
+  public void GetHashCode_Method() => TestHashCode<Error, string>(nameof(Error.Text), "first", "second");
 
   /// <summary>
   ///   <para>Performs testing of <see cref="Error.ToString()"/> method.</para>

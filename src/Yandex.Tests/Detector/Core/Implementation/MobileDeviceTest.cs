@@ -62,57 +62,37 @@ public sealed class MobileDeviceTest : Test
   ///   <para>Performs testing of <see cref="MobileDevice.Name"/> property.</para>
   /// </summary>
   [Fact]
-  public void Name_Property()
-  {
-    new MobileDevice(new { Name = "name" }).Name.Should().Be("name");
-  }
+  public void Name_Property() => new MobileDevice(new { Name = "name" }).Name.Should().Be("name");
 
   /// <summary>
   ///   <para>Performs testing of <see cref="MobileDevice.DeviceClass"/> property.</para>
   /// </summary>
   [Fact]
-  public void DeviceClass_Property()
-  {
-    new MobileDevice(new { DeviceClass = "deviceClass" }).DeviceClass.Should().Be("deviceClass");
-  }
+  public void DeviceClass_Property() => new MobileDevice(new { DeviceClass = "deviceClass" }).DeviceClass.Should().Be("deviceClass");
 
   /// <summary>
   ///   <para>Performs testing of <see cref="MobileDevice.Vendor"/> property.</para>
   /// </summary>
   [Fact]
-  public void Vendor_Property()
-  {
-    new MobileDevice(new { Vendor = "vendor" }).Vendor.Should().Be("vendor");
-  }
+  public void Vendor_Property() => new MobileDevice(new { Vendor = "vendor" }).Vendor.Should().Be("vendor");
 
   /// <summary>
   ///   <para>Performs testing of <see cref="MobileDevice.Description"/> property.</para>
   /// </summary>
   [Fact]
-  public void Description_Property()
-  {
-    new MobileDevice(new { Description = "description" }).Description.Should().Be("description");
-  }
+  public void Description_Property() => new MobileDevice(new { Description = "description" }).Description.Should().Be("description");
 
   /// <summary>
   ///   <para>Performs testing of <see cref="MobileDevice.Screen"/> property.</para>
   /// </summary>
   [Fact]
-  public void Screen_Property()
-  {
-    var screen = new Resolution();
-    new MobileDevice(new { Screen = "screen" }).Screen.Should().BeSameAs(screen);
-  }
+  public void Screen_Property() => new Resolution().With(screen => new MobileDevice(new { Screen = "screen" }).Screen.Should().BeSameAs(screen));
 
   /// <summary>
   ///   <para>Performs testing of <see cref="MobileDevice.JavaPlatform"/> property.</para>
   /// </summary>
   [Fact]
-  public void JavaPlatform_Property()
-  {
-    var javaPlatform = new JavaPlatform(new { });
-    new MobileDevice(new { JavaPlatform = javaPlatform }.JavaPlatform).Should().BeSameAs(javaPlatform);
-  }
+  public void JavaPlatform_Property() => new JavaPlatform(new { }).With(platform => new MobileDevice(new { JavaPlatform = platform }.JavaPlatform).Should().BeSameAs(platform));
 
   /// <summary>
   ///   <para>Performs testing of following methods :</para>
@@ -122,19 +102,13 @@ public sealed class MobileDeviceTest : Test
   ///   </list>
   /// </summary>
   [Fact]
-  public void Equals_Methods()
-  {
-    TestEquality<MobileDevice, string>(nameof(MobileDevice.Name), "first", "second");
-  }
+  public void Equals_Methods() => TestEquality<MobileDevice, string>(nameof(MobileDevice.Name), "first", "second");
 
   /// <summary>
   ///   <para>Performs testing of <see cref="MobileDevice.GetHashCode()"/> method.</para>
   /// </summary>
   [Fact]
-  public void GetHashCode_Method()
-  {
-    TestHashCode<MobileDevice, string>(nameof(MobileDevice.Name), "first", "second");
-  }
+  public void GetHashCode_Method() => TestHashCode<MobileDevice, string>(nameof(MobileDevice.Name), "first", "second");
 
   /// <summary>
   ///   <para>Performs testing of <see cref="MobileDevice.ToString()"/> method.</para>
@@ -187,65 +161,43 @@ public sealed class MobileDeviceInfoTest : Test
   ///   <para>Performs testing of <see cref="MobileDevice.Info.Name"/> property.</para>
   /// </summary>
   [Fact]
-  public void Name_Property()
-  {
-    new MobileDevice.Info { Name = "name" }.Name.Should().Be("name");
-  }
+  public void Name_Property() => new MobileDevice.Info { Name = "name" }.Name.Should().Be("name");
 
   /// <summary>
   ///   <para>Performs testing of <see cref="MobileDevice.Info.DeviceClass"/> property.</para>
   /// </summary>
   [Fact]
-  public void DeviceClass_Property()
-  {
-    new MobileDevice.Info { DeviceClass = "deviceClass" }.DeviceClass.Should().Be("deviceClass");
-  }
+  public void DeviceClass_Property() => new MobileDevice.Info { DeviceClass = "deviceClass" }.DeviceClass.Should().Be("deviceClass");
 
   /// <summary>
   ///   <para>Performs testing of <see cref="MobileDevice.Info.Vendor"/> property.</para>
   /// </summary>
   [Fact]
-  public void Vendor_Property()
-  {
-    new MobileDevice.Info { Vendor = "vendor" }.Vendor.Should().Be("vendor");
-  }
+  public void Vendor_Property() => new MobileDevice.Info { Vendor = "vendor" }.Vendor.Should().Be("vendor");
 
   /// <summary>
   ///   <para>Performs testing of <see cref="MobileDevice.Info.Description"/> property.</para>
   /// </summary>
   [Fact]
-  public void Description_Property()
-  {
-    new MobileDevice.Info { Description = "description" }.Description.Should().Be("description");
-  }
+  public void Description_Property() => new MobileDevice.Info { Description = "description" }.Description.Should().Be("description");
 
   /// <summary>
   ///   <para>Performs testing of <see cref="MobileDevice.Info.ScreenWidth"/> property.</para>
   /// </summary>
   [Fact]
-  public void ScreenWidth_Property()
-  {
-    new MobileDevice.Info { ScreenWidth = short.MaxValue }.ScreenWidth.Should().Be(short.MaxValue);
-  }
+  public void ScreenWidth_Property() => new MobileDevice.Info { ScreenWidth = short.MaxValue }.ScreenWidth.Should().Be(short.MaxValue);
 
   /// <summary>
   ///   <para>Performs testing of <see cref="MobileDevice.Info.ScreenHeight"/> property.</para>
   /// </summary>
   [Fact]
-  public void ScreenHeight_Property()
-  {
-    new MobileDevice.Info { ScreenHeight = short.MaxValue }.ScreenHeight.Should().Be(short.MaxValue);
-  }
+  public void ScreenHeight_Property() => new MobileDevice.Info { ScreenHeight = short.MaxValue }.ScreenHeight.Should().Be(short.MaxValue);
 
   /// <summary>
   ///   <para>Performs testing of <see cref="MobileDevice.Info.JavaPlatform"/> property.</para>
   /// </summary>
   [Fact]
-  public void JavaPlatform_Property()
-  {
-    var javaPlatform = new JavaPlatform(new { });
-    new MobileDevice.Info { JavaPlatform = javaPlatform }.JavaPlatform.Should().BeSameAs(javaPlatform);
-  }
+  public void JavaPlatform_Property() => new JavaPlatform(new { }).With(platform => new MobileDevice.Info { JavaPlatform = platform }.JavaPlatform.Should().BeSameAs(platform));
 
   /// <summary>
   ///   <para>Performs testing of <see cref="MobileDevice.Info.ToResult()"/> method.</para>

@@ -12,8 +12,5 @@ public sealed class YandexTest : Test
   ///   <para>Performs testing of <see cref="Yandex.Api"/> property.</para>
   /// </summary>
   [Fact]
-  public void Api_Property()
-  {
-    Yandex.Api.Should().NotBeNull().And.BeSameAs(Yandex.Api);
-  }
+  public void Api_Property() => Yandex.Api.Should().NotBeNull().And.BeSameAs(Yandex.Api);
 }

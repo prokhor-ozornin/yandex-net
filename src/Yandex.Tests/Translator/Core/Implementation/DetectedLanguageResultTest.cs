@@ -51,19 +51,13 @@ public sealed class DetectedLanguageResultTest : Test
   ///   <para>Performs testing of <see cref="DetectedLanguageResult.Code"/> property.</para>
   /// </summary>
   [Fact]
-  public void Code_Property()
-  {
-    new DetectedLanguageResult(new { Code = int.MaxValue }).Code.Should().Be(int.MaxValue);
-  }
+  public void Code_Property() => new DetectedLanguageResult(new { Code = int.MaxValue }).Code.Should().Be(int.MaxValue);
 
   /// <summary>
   ///   <para>Performs testing of <see cref="DetectedLanguageResult.Language"/> property.</para>
   /// </summary>
   [Fact]
-  public void Language_Property()
-  {
-    new DetectedLanguageResult(new { Language = "en" }).Language.Should().Be("en");
-  }
+  public void Language_Property() => new DetectedLanguageResult(new { Language = "en" }).Language.Should().Be("en");
 }
 
 /// <summary>
@@ -93,19 +87,13 @@ public sealed class DetectedLanguageResultInfoTests : Test
   ///   <para>Performs testing of <see cref="DetectedLanguageResult.Info.Code"/> property.</para>
   /// </summary>
   [Fact]
-  public void Code_Property()
-  {
-    new DetectedLanguageResult.Info { Code = int.MaxValue }.Code.Should().Be(int.MaxValue);
-  }
+  public void Code_Property() => new DetectedLanguageResult.Info { Code = int.MaxValue }.Code.Should().Be(int.MaxValue);
 
   /// <summary>
   ///   <para>Performs testing of <see cref="DetectedLanguageResult.Info.Language"/> property.</para>
   /// </summary>
   [Fact]
-  public void Language_Property()
-  {
-    new DetectedLanguageResult.Info { Language = "en" }.Language.Should().Be("en");
-  }
+  public void Language_Property() => new DetectedLanguageResult.Info { Language = "en" }.Language.Should().Be("en");
 
   /// <summary>
   ///   <para>Performs testing of <see cref="DetectedLanguageResult.Info.ToResult()"/> method.</para>
