@@ -529,6 +529,7 @@
             <param name="cancellation"></param>
             <param name="headers"></param>
             <returns></returns>
+            <exception cref="T:System.ArgumentNullException">If either <paramref name="detector"/> or <paramref name="headers"/> is <see langword="null"/>.</exception>
         </member>
         <member name="M:Yandex.Detector.IMobileDetectorExtensions.DetectAsync(Yandex.Detector.IMobileDetector,System.Action{Yandex.Detector.IDetectorRequest},System.Threading.CancellationToken)">
             <summary>
@@ -547,6 +548,7 @@
             <param name="detector"></param>
             <param name="headers"></param>
             <returns></returns>
+            <exception cref="T:System.ArgumentNullException">If <paramref name="detector"/> is <see langword="null"/>.</exception>
         </member>
         <member name="M:Yandex.Detector.IMobileDetectorExtensions.Detect(Yandex.Detector.IMobileDetector,System.Action{Yandex.Detector.IDetectorRequest})">
             <summary>
@@ -555,6 +557,7 @@
             <param name="detector"></param>
             <param name="action"></param>
             <returns></returns>
+            <exception cref="T:System.ArgumentNullException">If either <paramref name="detector"/> or <paramref name="action"/> is <see langword="null"/>.</exception>
         </member>
         <member name="T:Yandex.Detector.IYandexApiExtensions">
             <summary>
@@ -568,6 +571,7 @@
             </summary>
             <param name="api"></param>
             <returns></returns>
+            <exception cref="T:System.ArgumentNullException">If <paramref name="api"/> is <see langword="null"/>.</exception>
         </member>
         <member name="T:Yandex.Detector.IDetectorRequest">
             <summary>
@@ -750,6 +754,7 @@
             <param name="cancellation"></param>
             <returns><see cref="T:Yandex.Translator.ITranslation"/> instance that represents result of text's translation.</returns>
             <exception cref="T:Yandex.Translator.TranslatorException">If error occurs during the processing of web request, or if given text cannot be translated by web service.</exception>
+            <exception cref="T:System.ArgumentNullException">If either <paramref name="api"/> or <paramref name="action"/> is <see langword="null"/>.</exception>
             <seealso cref="!:http://api.yandex.ru/translate/doc/dg/reference/translate.xml"/>
         </member>
         <member name="M:Yandex.Translator.IApiExtensions.Pairs(Yandex.Translator.IApi)">
@@ -758,6 +763,7 @@
             </summary>
             <param name="api"></param>
             <returns></returns>
+            <exception cref="T:System.ArgumentNullException">If <paramref name="api"/> is <see langword="null"/>.</exception>
         </member>
         <member name="M:Yandex.Translator.IApiExtensions.Detect(Yandex.Translator.IApi,System.String)">
             <summary>
@@ -766,6 +772,8 @@
             <param name="api"></param>
             <param name="text"></param>
             <returns></returns>
+            <exception cref="T:System.ArgumentNullException">If either <paramref name="api"/> or <paramref name="text"/> is <see langword="null"/>.</exception>
+            <exception cref="T:System.ArgumentException">If <paramref name="text"/> is invalid string.</exception>
         </member>
         <member name="M:Yandex.Translator.IApiExtensions.Translate(Yandex.Translator.IApi,Yandex.Translator.ITranslationApiRequest)">
             <summary>
@@ -774,6 +782,7 @@
             <param name="api"></param>
             <param name="request"></param>
             <returns></returns>
+            <exception cref="T:System.ArgumentNullException">If either <paramref name="api"/> or <paramref name="request"/> is <see langword="null"/>.</exception>
         </member>
         <member name="M:Yandex.Translator.IApiExtensions.Translate(Yandex.Translator.IApi,System.Action{Yandex.Translator.ITranslationApiRequest})">
             <summary>
@@ -782,6 +791,7 @@
             <param name="api"></param>
             <param name="action"></param>
             <returns></returns>
+            <exception cref="T:System.ArgumentNullException">If either <paramref name="api"/> or <paramref name="action"/> is <see langword="null"/>.</exception>
         </member>
         <member name="T:Yandex.Translator.IError">
             <summary>
@@ -1057,6 +1067,7 @@
             <param name="translator"></param>
             <param name="action"></param>
             <returns></returns>
+            <exception cref="T:System.ArgumentNullException">If either <paramref name="translator"/> or <paramref name="action"/> is <see langword="null"/>.</exception>
         </member>
         <member name="T:Yandex.Translator.IYandexApiExtensions">
             <summary>
@@ -1070,6 +1081,7 @@
             </summary>
             <param name="api"></param>
             <returns></returns>
+            <exception cref="T:System.ArgumentNullException">If <paramref name="api"/> is <see langword="null"/>.</exception>
         </member>
         <member name="T:Yandex.Translator.IApiRequest">
             <summary>

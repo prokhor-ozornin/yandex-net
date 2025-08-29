@@ -12,6 +12,7 @@ public static class ITranslatorExtensions
   /// <param name="translator"></param>
   /// <param name="action"></param>
   /// <returns></returns>
+  /// <exception cref="ArgumentNullException">If either <paramref name="translator"/> or <paramref name="action"/> is <see langword="null"/>.</exception>
   public static IApi Configure(this ITranslator translator, Action<IApiConfigurator> action)
   {
     if (translator is null) throw new ArgumentNullException(nameof(translator));

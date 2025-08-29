@@ -16,6 +16,7 @@ public static class IApiExtensions
   /// <param name="cancellation"></param>
   /// <returns><see cref="ITranslation"/> instance that represents result of text's translation.</returns>
   /// <exception cref="TranslatorException">If error occurs during the processing of web request, or if given text cannot be translated by web service.</exception>
+  /// <exception cref="ArgumentNullException">If either <paramref name="api"/> or <paramref name="action"/> is <see langword="null"/>.</exception>
   /// <seealso cref="http://api.yandex.ru/translate/doc/dg/reference/translate.xml"/>
   public static Task<ITranslation> TranslateAsync(this IApi api, Action<ITranslationApiRequest> action, CancellationToken cancellation = default)
   {
@@ -34,6 +35,7 @@ public static class IApiExtensions
   /// </summary>
   /// <param name="api"></param>
   /// <returns></returns>
+  /// <exception cref="ArgumentNullException">If <paramref name="api"/> is <see langword="null"/>.</exception>
   public static IEnumerable<ITranslationPair> Pairs(this IApi api) => api is not null ? api.PairsAsync().ToListAsync().Result : throw new ArgumentNullException(nameof(api));
 
   /// <summary>
@@ -42,6 +44,8 @@ public static class IApiExtensions
   /// <param name="api"></param>
   /// <param name="text"></param>
   /// <returns></returns>
+  /// <exception cref="ArgumentNullException">If either <paramref name="api"/> or <paramref name="text"/> is <see langword="null"/>.</exception>
+  /// <exception cref="ArgumentException">If <paramref name="text"/> is invalid string.</exception>
   public static string Detect(this IApi api, string text)
   {
     if (api is null) throw new ArgumentNullException(nameof(api));
@@ -57,6 +61,7 @@ public static class IApiExtensions
   /// <param name="api"></param>
   /// <param name="request"></param>
   /// <returns></returns>
+  /// <exception cref="ArgumentNullException">If either <paramref name="api"/> or <paramref name="request"/> is <see langword="null"/>.</exception>
   public static ITranslation Translate(this IApi api, ITranslationApiRequest request)
   {
     if (api is null) throw new ArgumentNullException(nameof(api));
@@ -71,5 +76,6 @@ public static class IApiExtensions
   /// <param name="api"></param>
   /// <param name="action"></param>
   /// <returns></returns>
+  /// <exception cref="ArgumentNullException">If either <paramref name="api"/> or <paramref name="action"/> is <see langword="null"/>.</exception>
   public static ITranslation Translate(this IApi api, Action<ITranslationApiRequest> action) => api.TranslateAsync(action).Result;
 }

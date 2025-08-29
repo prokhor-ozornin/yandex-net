@@ -15,6 +15,7 @@ public static class IMobileDetectorExtensions
   /// <param name="cancellation"></param>
   /// <param name="headers"></param>
   /// <returns></returns>
+  /// <exception cref="ArgumentNullException">If either <paramref name="detector"/> or <paramref name="headers"/> is <see langword="null"/>.</exception>
   public static Task<IMobileDevice> DetectAsync(this IMobileDetector detector, CancellationToken cancellation = default, params (string Name, object Value)[] headers)
   {
     if (detector is null) throw new ArgumentNullException(nameof(detector));
@@ -49,6 +50,7 @@ public static class IMobileDetectorExtensions
   /// <param name="detector"></param>
   /// <param name="headers"></param>
   /// <returns></returns>
+  /// <exception cref="ArgumentNullException">If <paramref name="detector"/> is <see langword="null"/>.</exception>
   public static IMobileDevice Detect(this IMobileDetector detector, params (string Name, object Value)[] headers) => detector.DetectAsync(CancellationToken.None, headers).Result;
 
   /// <summary>
@@ -57,5 +59,6 @@ public static class IMobileDetectorExtensions
   /// <param name="detector"></param>
   /// <param name="action"></param>
   /// <returns></returns>
+  /// <exception cref="ArgumentNullException">If either <paramref name="detector"/> or <paramref name="action"/> is <see langword="null"/>.</exception>
   public static IMobileDevice Detect(this IMobileDetector detector, Action<IDetectorRequest> action) => detector.DetectAsync(action).Result;
 }
