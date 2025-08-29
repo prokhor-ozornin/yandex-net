@@ -50,6 +50,7 @@ public sealed record JavaPlatform : IJavaPlatform
   ///   <para></para>
   /// </summary>
   /// <param name="info"></param>
+  /// <exception cref="ArgumentNullException">If <paramref name="info"/> is <see langword="null"/>.</exception>
   public JavaPlatform(Info info)
   {
     Camera = info.Camera > 0;
@@ -62,6 +63,7 @@ public sealed record JavaPlatform : IJavaPlatform
   ///   <para></para>
   /// </summary>
   /// <param name="info"></param>
+  /// <exception cref="ArgumentNullException">If <paramref name="info"/> is <see langword="null"/>.</exception>
   public JavaPlatform(object info) : this(new Info().SetState(info))
   {
   }

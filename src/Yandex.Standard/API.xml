@@ -158,12 +158,14 @@
               <para></para>
             </summary>
             <param name="info"></param>
+            <exception cref="T:System.ArgumentNullException">If <paramref name="info"/> is <see langword="null"/>.</exception>
         </member>
         <member name="M:Yandex.Detector.JavaPlatform.#ctor(System.Object)">
             <summary>
               <para></para>
             </summary>
             <param name="info"></param>
+            <exception cref="T:System.ArgumentNullException">If <paramref name="info"/> is <see langword="null"/>.</exception>
         </member>
         <member name="T:Yandex.Detector.JavaPlatform.Info">
             <summary>
@@ -835,12 +837,14 @@
               <para></para>
             </summary>
             <param name="info"></param>
+            <exception cref="T:System.ArgumentNullException">If <paramref name="info"/> is <see langword="null"/>.</exception>
         </member>
         <member name="M:Yandex.Translator.DetectedLanguageResult.#ctor(System.Object)">
             <summary>
               <para></para>
             </summary>
             <param name="info"></param>
+            <exception cref="T:System.ArgumentNullException">If <paramref name="info"/> is <see langword="null"/>.</exception>
         </member>
         <member name="T:Yandex.Translator.DetectedLanguageResult.Info">
             <summary>
@@ -930,12 +934,14 @@
               <para></para>
             </summary>
             <param name="info"></param>
+            <exception cref="T:System.ArgumentNullException">If <paramref name="info"/> is <see langword="null"/>.</exception>
         </member>
         <member name="M:Yandex.Translator.TranslationPairsResult.#ctor(System.Object)">
             <summary>
               <para></para>
             </summary>
             <param name="info"></param>
+            <exception cref="T:System.ArgumentNullException">If <paramref name="info"/> is <see langword="null"/>.</exception>
         </member>
         <member name="T:Yandex.Translator.TranslationPairsResult.Info">
             <summary>
@@ -986,12 +992,14 @@
               <para></para>
             </summary>
             <param name="info"></param>
+            <exception cref="T:System.ArgumentNullException">If <paramref name="info"/> is <see langword="null"/>.</exception>
         </member>
         <member name="M:Yandex.Translator.TranslationResult.#ctor(System.Object)">
             <summary>
               <para></para>
             </summary>
             <param name="info"></param>
+            <exception cref="T:System.ArgumentNullException">If <paramref name="info"/> is <see langword="null"/>.</exception>
         </member>
         <member name="M:Yandex.Translator.TranslationResult.ToString">
             <summary>

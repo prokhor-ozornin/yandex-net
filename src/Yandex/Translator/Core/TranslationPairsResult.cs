@@ -23,12 +23,14 @@ public sealed class TranslationPairsResult
   ///   <para></para>
   /// </summary>
   /// <param name="info"></param>
+  /// <exception cref="ArgumentNullException">If <paramref name="info"/> is <see langword="null"/>.</exception>
   public TranslationPairsResult(Info info) => Pairs = info.Pairs ?? [];
 
   /// <summary>
   ///   <para></para>
   /// </summary>
   /// <param name="info"></param>
+  /// <exception cref="ArgumentNullException">If <paramref name="info"/> is <see langword="null"/>.</exception>
   public TranslationPairsResult(object info) : this(new Info().SetState(info)) {}
 
   /// <summary>

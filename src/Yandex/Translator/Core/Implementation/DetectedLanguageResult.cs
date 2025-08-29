@@ -33,6 +33,7 @@ public sealed class DetectedLanguageResult
   ///   <para></para>
   /// </summary>
   /// <param name="info"></param>
+  /// <exception cref="ArgumentNullException">If <paramref name="info"/> is <see langword="null"/>.</exception>
   public DetectedLanguageResult(Info info)
   {
     Code = info.Code.GetValueOrDefault(0);
@@ -43,6 +44,7 @@ public sealed class DetectedLanguageResult
   ///   <para></para>
   /// </summary>
   /// <param name="info"></param>
+  /// <exception cref="ArgumentNullException">If <paramref name="info"/> is <see langword="null"/>.</exception>
   public DetectedLanguageResult(object info) : this(new Info().SetState(info)) {}
 
   /// <summary>

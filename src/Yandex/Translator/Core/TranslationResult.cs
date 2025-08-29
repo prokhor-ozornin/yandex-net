@@ -40,6 +40,7 @@ public sealed class TranslationResult
   ///   <para></para>
   /// </summary>
   /// <param name="info"></param>
+  /// <exception cref="ArgumentNullException">If <paramref name="info"/> is <see langword="null"/>.</exception>
   public TranslationResult(Info info)
   {
     Code = info.Code ?? 0;
@@ -51,6 +52,7 @@ public sealed class TranslationResult
   ///   <para></para>
   /// </summary>
   /// <param name="info"></param>
+  /// <exception cref="ArgumentNullException">If <paramref name="info"/> is <see langword="null"/>.</exception>
   public TranslationResult(object info) : this(new Info().SetState(info)) {}
 
   /// <summary>
