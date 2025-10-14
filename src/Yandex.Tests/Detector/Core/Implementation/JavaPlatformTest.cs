@@ -12,6 +12,7 @@ namespace Yandex.Tests.Detector;
 /// <summary>
 ///   <para>Tests set for class <see cref="JavaPlatform"/>.</para>
 /// </summary>
+/// <seealso cref="JavaPlatform"/>
 public sealed class JavaPlatformTest : Test
 {
   /// <summary>

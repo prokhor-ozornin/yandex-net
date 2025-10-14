@@ -10,6 +10,7 @@ namespace Yandex.Tests.Detector;
 /// <summary>
 ///   <para>Tests set for class <see cref="MobileDetector"/>.</para>
 /// </summary>
+/// <seealso cref="MobileDetector"/>
 public sealed class MobileDetectorTest : Test
 {
   private IMobileDetector Detector { get; } = Yandex.Api.Detector();

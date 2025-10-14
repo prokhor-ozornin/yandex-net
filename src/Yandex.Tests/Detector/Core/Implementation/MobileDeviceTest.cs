@@ -11,6 +11,7 @@ namespace Yandex.Tests.Detector;
 /// <summary>
 ///   <para>Tests set for class <see cref="MobileDevice"/>.</para>
 /// </summary>
+/// <seealso cref="MobileDevice"/>
 public sealed class MobileDeviceTest : Test
 {
   /// <summary>

@@ -8,6 +8,7 @@ namespace Yandex.Tests.Detector;
 /// <summary>
 ///   <para>Tests set for class <see cref="IMobileDetectorExtensions"/>.</para>
 /// </summary>
+/// <seealso cref="IMobileDetectorExtensions"/>
 public sealed class IMobileDetectorExtensionsTest : Test
 {
   /// <summary>

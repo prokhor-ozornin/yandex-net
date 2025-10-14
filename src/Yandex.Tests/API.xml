@@ -8,6 +8,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Yandex.Detector.DetectorException"/>.</para>
             </summary>
+            <seealso cref="T:Yandex.Detector.DetectorException"/>
         </member>
         <member name="M:Yandex.Tests.Detector.DetectorExceptionTest.Constructors">
             <summary>
@@ -19,6 +20,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Yandex.Detector.Error"/>.</para>
             </summary>
+            <seealso cref="T:Yandex.Detector.Error"/>
         </member>
         <member name="M:Yandex.Tests.Detector.ErrorTest.Constructors">
             <summary>
@@ -60,6 +62,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Yandex.Detector.JavaPlatform"/>.</para>
             </summary>
+            <seealso cref="T:Yandex.Detector.JavaPlatform"/>
         </member>
         <member name="M:Yandex.Tests.Detector.JavaPlatformTest.Constructors">
             <summary>
@@ -134,6 +137,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Yandex.Detector.MobileDetector"/>.</para>
             </summary>
+            <seealso cref="T:Yandex.Detector.MobileDetector"/>
         </member>
         <member name="M:Yandex.Tests.Detector.MobileDetectorTest.DetectAsync_Method">
             <summary>
@@ -144,6 +148,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Yandex.Detector.MobileDevice"/>.</para>
             </summary>
+            <seealso cref="T:Yandex.Detector.MobileDevice"/>
         </member>
         <member name="M:Yandex.Tests.Detector.MobileDeviceTest.Constructors">
             <summary>
@@ -262,6 +267,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Yandex.Detector.Resolution"/>.</para>
             </summary>
+            <seealso cref="T:Yandex.Detector.Resolution"/>
         </member>
         <member name="M:Yandex.Tests.Detector.ResolutionTest.Constructors">
             <summary>
@@ -288,6 +294,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Yandex.Detector.IMobileDetectorExtensions"/>.</para>
             </summary>
+            <seealso cref="T:Yandex.Detector.IMobileDetectorExtensions"/>
         </member>
         <member name="M:Yandex.Tests.Detector.IMobileDetectorExtensionsTest.Detect_Methods">
             <summary>
@@ -302,6 +309,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Yandex.Detector.IYandexApiExtensions"/>.</para>
             </summary>
+            <seealso cref="T:Yandex.Detector.IYandexApiExtensions"/>
         </member>
         <member name="M:Yandex.Tests.Detector.IYandexApiExtensionsTest.Detector_Method">
             <summary>
@@ -312,6 +320,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Yandex.Detector.IDetectorRequestExtensions"/>.</para>
             </summary>
+            <seealso cref="T:Yandex.Detector.IDetectorRequestExtensions"/>
         </member>
         <member name="M:Yandex.Tests.Detector.IDetectorRequestExtensionsTest.OperaMini_Method">
             <summary>
@@ -332,6 +341,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Yandex.Detector.DetectorRequest"/>.</para>
             </summary>
+            <seealso cref="T:Yandex.Detector.DetectorRequest"/>
         </member>
         <member name="M:Yandex.Tests.Detector.DetectorRequestTest.Constructors">
             <summary>
@@ -348,6 +358,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Yandex.JsonExtensions"/>.</para>
             </summary>
+            <seealso cref="T:Yandex.JsonExtensions"/>
         </member>
         <member name="M:Yandex.Tests.JsonExtensionsTest.SerializeAsJson_Method">
             <summary>
@@ -363,6 +374,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Yandex.Translator.JsonRestSerializer"/>.</para>
             </summary>
+            <seealso cref="T:Yandex.Translator.JsonRestSerializer"/>
         </member>
         <member name="M:Yandex.Tests.JsonRestSerializerTest.Serialize_Methods">
             <summary>
@@ -412,6 +424,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Yandex.Translator.IApiExtensions"/>.</para>
             </summary>
+            <seealso cref="T:Yandex.Translator.IApiExtensions"/>
         </member>
         <member name="M:Yandex.Tests.Translator.IApiExtensionsTest.TranslateAsync_Method">
             <summary>
@@ -441,6 +454,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Yandex.Translator.ApiConfigurator"/>.</para>
             </summary>
+            <seealso cref="T:Yandex.Translator.ApiConfigurator"/>
         </member>
         <member name="M:Yandex.Tests.Translator.ApiConfiguratorTest.Constructors">
             <summary>
@@ -457,6 +471,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Yandex.Translator.Api"/>.</para>
             </summary>
+            <seealso cref="T:Yandex.Translator.Api"/>
         </member>
         <member name="M:Yandex.Tests.Translator.ApiTest.Constructors">
             <summary>
@@ -488,6 +503,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Yandex.Translator.DetectedLanguageResult"/>.</para>
             </summary>
+            <seealso cref="T:Yandex.Translator.DetectedLanguageResult"/>
         </member>
         <member name="M:Yandex.Tests.Translator.DetectedLanguageResultTest.Constructors">
             <summary>
@@ -542,6 +558,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Yandex.Translator.Error"/>.</para>
             </summary>
+            <seealso cref="T:Yandex.Translator.Error"/>
         </member>
         <member name="M:Yandex.Tests.Translator.ErrorTest.Constructors">
             <summary>
@@ -592,6 +609,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Yandex.Translator.TranslationPair"/>.</para>
             </summary>
+            <seealso cref="T:Yandex.Translator.TranslationPair"/>
         </member>
         <member name="M:Yandex.Tests.Translator.TranslationPairTest.Constructors">
             <summary>
@@ -608,6 +626,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Yandex.Translator.Translation"/>.</para>
             </summary>
+            <seealso cref="T:Yandex.Translator.Translation"/>
         </member>
         <member name="M:Yandex.Tests.Translator.TranslationTest.Constructors">
             <summary>
@@ -624,6 +643,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Yandex.Translator.TranslationPairsResult"/>.</para>
             </summary>
+            <seealso cref="T:Yandex.Translator.TranslationPairsResult"/>
         </member>
         <member name="M:Yandex.Tests.Translator.TranslationPairsResponseTests.Constructors">
             <summary>
@@ -668,6 +688,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Yandex.Translator.TranslationResult"/>.</para>
             </summary>
+            <seealso cref="T:Yandex.Translator.TranslationResult"/>
         </member>
         <member name="M:Yandex.Tests.Translator.TranslationResultTest.Constructors">
             <summary>
@@ -737,6 +758,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Yandex.Translator.TranslatorException"/>.</para>
             </summary>
+            <seealso cref="T:Yandex.Translator.TranslatorException"/>
         </member>
         <member name="M:Yandex.Tests.Translator.TranslatorExceptionTest.Constructors">
             <summary>
@@ -748,6 +770,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Yandex.Translator.ITranslatorExtensions"/>.</para>
             </summary>
+            <seealso cref="T:Yandex.Translator.ITranslatorExtensions"/>
         </member>
         <member name="M:Yandex.Tests.Translator.ITranslatorExtensionsTest.Configure_Method">
             <summary>
@@ -758,6 +781,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Yandex.Translator.IYandexApiExtensions"/>.</para>
             </summary>
+            <seealso cref="T:Yandex.Translator.IYandexApiExtensions"/>
         </member>
         <member name="M:Yandex.Tests.Translator.IYandexApiExtensionsTest.Translator_Method">
             <summary>
@@ -768,6 +792,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Yandex.Translator.TranslationApiRequest"/>.</para>
             </summary>
+            <seealso cref="T:Yandex.Translator.TranslationApiRequest"/>
         </member>
         <member name="M:Yandex.Tests.Translator.TranslationApiRequestTest.Constructors">
             <summary>
@@ -799,6 +824,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Yandex.Translator.ITranslationApiRequestExtensions"/>.</para>
             </summary>
+            <seealso cref="T:Yandex.Translator.ITranslationApiRequestExtensions"/>
         </member>
         <member name="M:Yandex.Tests.Translator.ITranslationApiRequestExtensionsTest.AsHtml_Method">
             <summary>
@@ -824,6 +850,7 @@
             <summary>
               <para>Tests set for class <see cref="T:Yandex.Yandex"/>.</para>
             </summary>
+            <seealso cref="T:Yandex.Yandex"/>
         </member>
         <member name="M:Yandex.Tests.YandexTest.Api_Property">
             <summary>

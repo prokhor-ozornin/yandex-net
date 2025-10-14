@@ -6,6 +6,7 @@ namespace Yandex.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="Yandex"/>.</para>
 /// </summary>
+/// <seealso cref="Yandex"/>
 public sealed class YandexTest : Test
 {
   /// <summary>

@@ -10,6 +10,7 @@ namespace Yandex.Tests.Detector;
 /// <summary>
 ///   <para>Tests set for class <see cref="IDetectorRequestExtensions"/>.</para>
 /// </summary>
+/// <seealso cref="IDetectorRequestExtensions"/>
 public sealed class IDetectorRequestExtensionsTest : Test
 {
   /// <summary>

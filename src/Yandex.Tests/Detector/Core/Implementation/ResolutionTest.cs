@@ -8,6 +8,7 @@ namespace Yandex.Tests.Detector;
 /// <summary>
 ///   <para>Tests set for class <see cref="Resolution"/>.</para>
 /// </summary>
+/// <seealso cref="Resolution"/>
 public sealed class ResolutionTest : Test
 {
   /// <summary>

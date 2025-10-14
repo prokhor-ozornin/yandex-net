@@ -8,6 +8,7 @@ namespace Yandex.Tests.Translator;
 /// <summary>
 ///   <para>Tests set for class <see cref="IYandexApiExtensions"/>.</para>
 /// </summary>
+/// <seealso cref="IYandexApiExtensions"/>
 public sealed class IYandexApiExtensionsTest : Test
 {
   /// <summary>

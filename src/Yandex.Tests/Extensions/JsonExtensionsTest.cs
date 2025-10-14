@@ -8,6 +8,7 @@ namespace Yandex.Tests;
 /// <summary>
 ///   <para>Tests set for class <see cref="JsonExtensions"/>.</para>
 /// </summary>
+/// <seealso cref="JsonExtensions"/>
 public sealed class JsonExtensionsTest : Test
 {
   /// <summary>

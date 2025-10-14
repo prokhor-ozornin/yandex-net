@@ -8,6 +8,7 @@ namespace Yandex.Tests.Translator;
 /// <summary>
 ///   <para>Tests set for class <see cref="TranslatorException"/>.</para>
 /// </summary>
+/// <seealso cref="TranslatorException"/>
 public sealed class TranslatorExceptionTest : Test
 {
   /// <summary>

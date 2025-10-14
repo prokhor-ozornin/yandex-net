@@ -11,6 +11,7 @@ namespace Yandex.Tests.Translator;
 /// <summary>
 ///   <para>Tests set for class <see cref="ITranslationApiRequestExtensions"/>.</para>
 /// </summary>
+/// <seealso cref="ITranslationApiRequestExtensions"/>
 public sealed class ITranslationApiRequestExtensionsTest : Test
 {
   /// <summary>

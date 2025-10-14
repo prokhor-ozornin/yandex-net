@@ -8,6 +8,7 @@ namespace Yandex.Tests.Detector;
 /// <summary>
 ///   <para>Tests set for class <see cref="DetectorException"/>.</para>
 /// </summary>
+/// <seealso cref="DetectorException"/>
 public sealed class DetectorExceptionTest : Test
 {
   /// <summary>

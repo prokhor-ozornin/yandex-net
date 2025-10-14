@@ -12,6 +12,7 @@ namespace Yandex.Tests.Translator;
 /// <summary>
 ///   <para>Tests set for class <see cref="TranslationResult"/>.</para>
 /// </summary>
+/// <seealso cref="TranslationResult"/>
 public sealed class TranslationResultTest : Test
 {
   /// <summary>
