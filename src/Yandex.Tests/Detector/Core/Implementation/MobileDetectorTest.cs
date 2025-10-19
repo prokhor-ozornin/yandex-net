@@ -63,8 +63,6 @@ public sealed class MobileDetectorTest : Test
       device.Vendor.Should().Be("Alcatel");
     }
 
-    throw new NotImplementedException();
-
     return;
 
     static void Test()

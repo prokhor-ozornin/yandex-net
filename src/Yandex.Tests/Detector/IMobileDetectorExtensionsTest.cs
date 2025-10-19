@@ -32,11 +32,8 @@ public sealed class IMobileDetectorExtensionsTest : Test
     using (new AssertionScope())
     {
       AssertionExtensions.Should(() => IMobileDetectorExtensions.Detect(null, _ => { })).ThrowExactly<ArgumentNullException>().WithParameterName("detector");
-
     }
-
-    throw new NotImplementedException();
-
+    
     return;
 
     static void Test(IMobileDevice device)

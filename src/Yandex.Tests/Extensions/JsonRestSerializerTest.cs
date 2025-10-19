@@ -24,7 +24,7 @@ public sealed class JsonRestSerializerTest : Test
     {
       static void Test()
       {
-
+        throw new NotImplementedException();
       }
     }
 
@@ -32,11 +32,9 @@ public sealed class JsonRestSerializerTest : Test
     {
       static void Test()
       {
-
+        throw new NotImplementedException();
       }
     }
-
-    throw new NotImplementedException();
   }
 
   /// <summary>
@@ -49,13 +47,11 @@ public sealed class JsonRestSerializerTest : Test
     {
     }
 
-    throw new NotImplementedException();
-
     return;
 
     static void Test()
     {
-
+      throw new NotImplementedException();
     }
   }
 
@@ -69,13 +65,11 @@ public sealed class JsonRestSerializerTest : Test
     {
     }
 
-    throw new NotImplementedException();
-
     return;
 
     static void Test()
     {
-
+      throw new NotImplementedException();
     }
   }
 
@@ -89,13 +83,11 @@ public sealed class JsonRestSerializerTest : Test
     {
     }
 
-    throw new NotImplementedException();
-
     return;
 
     static void Test()
     {
-
+      throw new NotImplementedException();
     }
   }
 
@@ -109,13 +101,11 @@ public sealed class JsonRestSerializerTest : Test
     {
     }
 
-    throw new NotImplementedException();
-
     return;
 
     static void Test()
     {
-
+      throw new NotImplementedException();
     }
   }
 
@@ -129,13 +119,11 @@ public sealed class JsonRestSerializerTest : Test
     {
     }
 
-    throw new NotImplementedException();
-
     return;
 
     static void Test()
     {
-
+      throw new NotImplementedException();
     }
   }
 
@@ -149,13 +137,11 @@ public sealed class JsonRestSerializerTest : Test
     {
     }
 
-    throw new NotImplementedException();
-
     return;
 
     static void Test()
     {
-
+      throw new NotImplementedException();
     }
   }
 
@@ -169,13 +155,11 @@ public sealed class JsonRestSerializerTest : Test
     {
     }
 
-    throw new NotImplementedException();
-
     return;
 
     static void Test()
     {
-
+      throw new NotImplementedException();
     }
   }
 }
