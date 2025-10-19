@@ -10,7 +10,7 @@ public interface IApi : IDisposable
   /// </summary>
   /// <param name="cancellation"></param>
   /// <returns>Collection of supported language pairs (directions).</returns>
-  /// <seealso cref="http://api.yandex.ru/translate/doc/dg/reference/getLangs.xml"/>
+  /// <seealso href="http://api.yandex.ru/translate/doc/dg/reference/getLangs.xml"/>
   IAsyncEnumerable<ITranslationPair> PairsAsync(CancellationToken cancellation = default);
 
   /// <summary>
@@ -20,7 +20,7 @@ public interface IApi : IDisposable
   /// <param name="cancellation"></param>
   /// <returns>Language of the provided text fragment.</returns>
   /// <exception cref="TranslatorException">If error occurs during the processing of web request, or if language of given text fragment cannot be reliably determined.</exception>
-  /// <seealso cref="http://api.yandex.ru/translate/doc/dg/reference/detect.xml"/>
+  /// <seealso href="http://api.yandex.ru/translate/doc/dg/reference/detect.xml"/>
   Task<string> DetectAsync(string text, CancellationToken cancellation = default);
 
   /// <summary>
@@ -30,6 +30,6 @@ public interface IApi : IDisposable
   /// <param name="cancellation"></param>
   /// <returns><see cref="ITranslation"/> instance that represents result of text's translation.</returns>
   /// <exception cref="TranslatorException">If error occurs during the processing of web request, or if given text cannot be translated by web service.</exception>
-  /// <seealso cref="http://api.yandex.ru/translate/doc/dg/reference/translate.xml"/>
+  /// <seealso href="http://api.yandex.ru/translate/doc/dg/reference/translate.xml"/>
   Task<ITranslation> TranslateAsync(ITranslationApiRequest request, CancellationToken cancellation = default);
 }

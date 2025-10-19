@@ -3,7 +3,7 @@
 /// <summary>
 ///   <para>Entry point for Yandex.Detector web service's access.</para>
 /// </summary>
-/// <seealso cref="http://api.yandex.ru/detector"/>
+/// <seealso href="http://api.yandex.ru/detector"/>
 public static class IYandexApiExtensions
 {
   /// <summary>

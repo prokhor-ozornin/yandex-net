@@ -17,7 +17,7 @@ public static class IApiExtensions
   /// <returns><see cref="ITranslation"/> instance that represents result of text's translation.</returns>
   /// <exception cref="TranslatorException">If error occurs during the processing of web request, or if given text cannot be translated by web service.</exception>
   /// <exception cref="ArgumentNullException">If either <paramref name="api"/> or <paramref name="action"/> is <see langword="null"/>.</exception>
-  /// <seealso cref="http://api.yandex.ru/translate/doc/dg/reference/translate.xml"/>
+  /// <seealso href="http://api.yandex.ru/translate/doc/dg/reference/translate.xml"/>
   public static Task<ITranslation> TranslateAsync(this IApi api, Action<ITranslationApiRequest> action, CancellationToken cancellation = default)
   {
     if (api is null) throw new ArgumentNullException(nameof(api));

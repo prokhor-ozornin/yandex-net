@@ -3,7 +3,7 @@
 /// <summary>
 ///   <para>Entry point to access Yandex.Translator web service.</para>
 /// </summary>
-/// <seealso cref="http://api.yandex.ru/translate"/>
+/// <seealso href="http://api.yandex.ru/translate"/>
 public static class IYandexApiExtensions
 {
   /// <summary>

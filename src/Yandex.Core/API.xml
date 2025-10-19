@@ -565,7 +565,7 @@
             <summary>
               <para>Entry point for Yandex.Detector web service's access.</para>
             </summary>
-            <seealso cref="!:http://api.yandex.ru/detector"/>
+            <seealso href="http://api.yandex.ru/detector"/>
         </member>
         <member name="M:Yandex.Detector.IYandexApiExtensions.Detector(Yandex.IYandexApi)">
             <summary>
@@ -702,7 +702,7 @@
             </summary>
             <param name="cancellation"></param>
             <returns>Collection of supported language pairs (directions).</returns>
-            <seealso cref="!:http://api.yandex.ru/translate/doc/dg/reference/getLangs.xml"/>
+            <seealso href="http://api.yandex.ru/translate/doc/dg/reference/getLangs.xml"/>
         </member>
         <member name="M:Yandex.Translator.IApi.DetectAsync(System.String,System.Threading.CancellationToken)">
             <summary>
@@ -712,7 +712,7 @@
             <param name="cancellation"></param>
             <returns>Language of the provided text fragment.</returns>
             <exception cref="T:Yandex.Translator.TranslatorException">If error occurs during the processing of web request, or if language of given text fragment cannot be reliably determined.</exception>
-            <seealso cref="!:http://api.yandex.ru/translate/doc/dg/reference/detect.xml"/>
+            <seealso href="http://api.yandex.ru/translate/doc/dg/reference/detect.xml"/>
         </member>
         <member name="M:Yandex.Translator.IApi.TranslateAsync(Yandex.Translator.ITranslationApiRequest,System.Threading.CancellationToken)">
             <summary>
@@ -722,7 +722,7 @@
             <param name="cancellation"></param>
             <returns><see cref="T:Yandex.Translator.ITranslation"/> instance that represents result of text's translation.</returns>
             <exception cref="T:Yandex.Translator.TranslatorException">If error occurs during the processing of web request, or if given text cannot be translated by web service.</exception>
-            <seealso cref="!:http://api.yandex.ru/translate/doc/dg/reference/translate.xml"/>
+            <seealso href="http://api.yandex.ru/translate/doc/dg/reference/translate.xml"/>
         </member>
         <member name="T:Yandex.Translator.IApiConfigurator">
             <summary>
@@ -757,7 +757,7 @@
             <returns><see cref="T:Yandex.Translator.ITranslation"/> instance that represents result of text's translation.</returns>
             <exception cref="T:Yandex.Translator.TranslatorException">If error occurs during the processing of web request, or if given text cannot be translated by web service.</exception>
             <exception cref="T:System.ArgumentNullException">If either <paramref name="api"/> or <paramref name="action"/> is <see langword="null"/>.</exception>
-            <seealso cref="!:http://api.yandex.ru/translate/doc/dg/reference/translate.xml"/>
+            <seealso href="http://api.yandex.ru/translate/doc/dg/reference/translate.xml"/>
         </member>
         <member name="M:Yandex.Translator.IApiExtensions.Pairs(Yandex.Translator.IApi)">
             <summary>
@@ -862,6 +862,66 @@
             </summary>
         </member>
         <member name="M:Yandex.Translator.DetectedLanguageResult.Info.ToResult">
+            <summary>
+              <para></para>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Yandex.Translator.Error">
+            <summary>
+              <para></para>
+            </summary>
+        </member>
+        <member name="P:Yandex.Translator.Error.Code">
+            <summary>
+              <para></para>
+            </summary>
+        </member>
+        <member name="P:Yandex.Translator.Error.Text">
+            <summary>
+              <para></para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Translator.Error.#ctor">
+            <summary>
+              <para></para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Translator.Error.#ctor(System.Int32,System.String)">
+            <summary>
+              <para></para>
+            </summary>
+            <param name="code"></param>
+            <param name="text"></param>
+        </member>
+        <member name="M:Yandex.Translator.Error.CompareTo(Yandex.Translator.IError)">
+            <summary>
+              <para></para>
+            </summary>
+            <param name="other"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Yandex.Translator.Error.Equals(Yandex.Translator.IError)">
+            <summary>
+              <para></para>
+            </summary>
+            <param name="other"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Yandex.Translator.Error.Equals(System.Object)">
+            <summary>
+              <para></para>
+            </summary>
+            <param name="other"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Yandex.Translator.Error.GetHashCode">
+            <summary>
+              <para></para>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Yandex.Translator.Error.ToString">
             <summary>
               <para></para>
             </summary>
@@ -1081,7 +1141,7 @@
             <summary>
               <para>Entry point to access Yandex.Translator web service.</para>
             </summary>
-            <seealso cref="!:http://api.yandex.ru/translate"/>
+            <seealso href="http://api.yandex.ru/translate"/>
         </member>
         <member name="M:Yandex.Translator.IYandexApiExtensions.Translator(Yandex.IYandexApi)">
             <summary>

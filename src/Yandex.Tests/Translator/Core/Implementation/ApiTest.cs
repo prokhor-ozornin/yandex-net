@@ -44,7 +44,7 @@ public sealed class ApiTest : IntegrationTest
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="IApi.PairsAsync(CancellationToken)"/> method.</para>
+  ///   <para>Performs testing of <see cref="Api.PairsAsync(CancellationToken)"/> method.</para>
   /// </summary>
   [Fact]
   public void PairsAsync_Method()
@@ -62,7 +62,7 @@ public sealed class ApiTest : IntegrationTest
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="IApi.DetectAsync"/> method.</para>
+  ///   <para>Performs testing of <see cref="Api.DetectAsync"/> method.</para>
   /// </summary>
   [Fact]
   public void Detect_Method()
@@ -83,7 +83,7 @@ public sealed class ApiTest : IntegrationTest
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="IApi.TranslateAsync(ITranslationApiRequest, CancellationToken)"/> method.</para>
+  ///   <para>Performs testing of <see cref="Api.TranslateAsync(ITranslationApiRequest, CancellationToken)"/> method.</para>
   /// </summary>
   [Fact]
   public void TranslateAsync_Method()
@@ -113,7 +113,7 @@ public sealed class ApiTest : IntegrationTest
   }
 
   /// <summary>
-  ///   <para>Performs testing of <see cref="IApi.Dispose()"/> method.</para>
+  ///   <para>Performs testing of <see cref="Api.Dispose()"/> method.</para>
   /// </summary>
   [Fact]
   public void Dispose_Method()

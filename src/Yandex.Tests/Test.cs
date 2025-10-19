@@ -11,8 +11,14 @@ using IErrorTranslator = Yandex.Translator.IError;
 
 namespace Yandex.Tests;
 
+/// <summary>
+///   <para></para>
+/// </summary>
 public class Test : IDisposable
 {
+  /// <summary>
+  ///   <para></para>
+  /// </summary>
   protected Test()
   {
     JsonConvert.DefaultSettings = () => new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.Auto };
@@ -28,10 +34,22 @@ public class Test : IDisposable
            .Type<CancellationToken>(x => x.Constructor(() => new CancellationToken(true)));
   }
 
+  /// <summary>
+  ///   <para></para>
+  /// </summary>
   public virtual void Dispose()
   {
   }
 
+  /// <summary>
+  ///   <para></para>
+  /// </summary>
+  /// <param name="property"></param>
+  /// <param name="lower"></param>
+  /// <param name="greater"></param>
+  /// <param name="constructor"></param>
+  /// <typeparam name="TClass"></typeparam>
+  /// <typeparam name="TProperty"></typeparam>
   protected void TestCompareTo<TClass, TProperty>(string property, TProperty lower, TProperty greater, Func<TClass> constructor = null)
   {
     constructor ??= () => typeof(TClass).Instance<TClass>();
@@ -47,6 +65,15 @@ public class Test : IDisposable
     first.CompareTo(second).Should().BeLessThan(0);
   }
 
+  /// <summary>
+  ///   <para></para>
+  /// </summary>
+  /// <param name="property"></param>
+  /// <param name="oldValue"></param>
+  /// <param name="newValue"></param>
+  /// <param name="constructor"></param>
+  /// <typeparam name="TClass"></typeparam>
+  /// <typeparam name="TProperty"></typeparam>
   protected void TestEquality<TClass, TProperty>(string property, TProperty oldValue, TProperty newValue, Func<TClass> constructor = null)
   {
     constructor ??= () => typeof(TClass).Instance<TClass>();
@@ -61,6 +88,15 @@ public class Test : IDisposable
     constructor().SetPropertyValue(property, oldValue).Equals(constructor().SetPropertyValue(property, newValue)).Should().BeFalse();
   }
 
+  /// <summary>
+  ///   <para></para>
+  /// </summary>
+  /// <param name="property"></param>
+  /// <param name="oldValue"></param>
+  /// <param name="newValue"></param>
+  /// <param name="constructor"></param>
+  /// <typeparam name="TClass"></typeparam>
+  /// <typeparam name="TProperty"></typeparam>
   protected void TestHashCode<TClass, TProperty>(string property, TProperty oldValue, TProperty newValue, Func<TClass> constructor = null)
   {
     constructor ??= () => typeof(TClass).Instance<TClass>();

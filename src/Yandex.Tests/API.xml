@@ -420,6 +420,69 @@
               <para>Performs testing of <see cref="P:Yandex.Translator.JsonRestSerializer.SupportsContentType"/> delegate.</para>
             </summary>
         </member>
+        <member name="T:Yandex.Tests.IntegrationTest">
+            <summary>
+              <para></para>
+            </summary>
+        </member>
+        <member name="P:Yandex.Tests.IntegrationTest.Api">
+            <summary>
+              <para></para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.IntegrationTest.Dispose">
+            <summary>
+              <para></para>
+            </summary>
+        </member>
+        <member name="T:Yandex.Tests.Test">
+            <summary>
+              <para></para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.Test.#ctor">
+            <summary>
+              <para></para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.Test.Dispose">
+            <summary>
+              <para></para>
+            </summary>
+        </member>
+        <member name="M:Yandex.Tests.Test.TestCompareTo``2(System.String,``1,``1,System.Func{``0})">
+            <summary>
+              <para></para>
+            </summary>
+            <param name="property"></param>
+            <param name="lower"></param>
+            <param name="greater"></param>
+            <param name="constructor"></param>
+            <typeparam name="TClass"></typeparam>
+            <typeparam name="TProperty"></typeparam>
+        </member>
+        <member name="M:Yandex.Tests.Test.TestEquality``2(System.String,``1,``1,System.Func{``0})">
+            <summary>
+              <para></para>
+            </summary>
+            <param name="property"></param>
+            <param name="oldValue"></param>
+            <param name="newValue"></param>
+            <param name="constructor"></param>
+            <typeparam name="TClass"></typeparam>
+            <typeparam name="TProperty"></typeparam>
+        </member>
+        <member name="M:Yandex.Tests.Test.TestHashCode``2(System.String,``1,``1,System.Func{``0})">
+            <summary>
+              <para></para>
+            </summary>
+            <param name="property"></param>
+            <param name="oldValue"></param>
+            <param name="newValue"></param>
+            <param name="constructor"></param>
+            <typeparam name="TClass"></typeparam>
+            <typeparam name="TProperty"></typeparam>
+        </member>
         <member name="T:Yandex.Tests.Translator.IApiExtensionsTest">
             <summary>
               <para>Tests set for class <see cref="T:Yandex.Translator.IApiExtensions"/>.</para>
@@ -481,22 +544,22 @@
         </member>
         <member name="M:Yandex.Tests.Translator.ApiTest.PairsAsync_Method">
             <summary>
-              <para>Performs testing of <see cref="M:Yandex.Translator.IApi.PairsAsync(System.Threading.CancellationToken)"/> method.</para>
+              <para>Performs testing of <see cref="M:Yandex.Translator.Api.PairsAsync(System.Threading.CancellationToken)"/> method.</para>
             </summary>
         </member>
         <member name="M:Yandex.Tests.Translator.ApiTest.Detect_Method">
             <summary>
-              <para>Performs testing of <see cref="M:Yandex.Translator.IApi.DetectAsync(System.String,System.Threading.CancellationToken)"/> method.</para>
+              <para>Performs testing of <see cref="M:Yandex.Translator.Api.DetectAsync(System.String,System.Threading.CancellationToken)"/> method.</para>
             </summary>
         </member>
         <member name="M:Yandex.Tests.Translator.ApiTest.TranslateAsync_Method">
             <summary>
-              <para>Performs testing of <see cref="M:Yandex.Translator.IApi.TranslateAsync(Yandex.Translator.ITranslationApiRequest,System.Threading.CancellationToken)"/> method.</para>
+              <para>Performs testing of <see cref="M:Yandex.Translator.Api.TranslateAsync(Yandex.Translator.ITranslationApiRequest,System.Threading.CancellationToken)"/> method.</para>
             </summary>
         </member>
         <member name="M:Yandex.Tests.Translator.ApiTest.Dispose_Method">
             <summary>
-              <para>Performs testing of <see cref="!:IApi.Dispose()"/> method.</para>
+              <para>Performs testing of <see cref="M:Yandex.Translator.Api.Dispose"/> method.</para>
             </summary>
         </member>
         <member name="T:Yandex.Tests.Translator.DetectedLanguageResultTest">
