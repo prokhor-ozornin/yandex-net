@@ -31,10 +31,10 @@
 
   <ItemGroup>
     <Reference Include="Catharsis.Extensions">
-      <HintPath>..\..\lib\net9.0\Catharsis.Extensions.dll</HintPath>
+      <HintPath>..\..\lib\net10.0\Catharsis.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="Catharsis.Fixture">
-      <HintPath>..\..\lib\net9.0\Catharsis.Fixture.dll</HintPath>
+      <HintPath>..\..\lib\net10.0\Catharsis.Fixture.dll</HintPath>
     </Reference>
   </ItemGroup>
 
