@@ -524,39 +524,50 @@
             <seealso cref="T:Yandex.Detector.IMobileDetector"/>
         </member>
         <member name="M:Yandex.Detector.IMobileDetectorExtensions.DetectAsync(Yandex.Detector.IMobileDetector,System.Threading.CancellationToken,System.ValueTuple{System.String,System.Object}[])">
+            <inheritdoc cref="M:Yandex.Detector.IMobileDetectorExtensions.&lt;G&gt;$0A690C62F9C610DCBF69EB3F9D12A9C8.DetectAsync(System.Threading.CancellationToken,System.ValueTuple{System.String,System.Object}[])"/>
+        </member>
+        <member name="M:Yandex.Detector.IMobileDetectorExtensions.DetectAsync(Yandex.Detector.IMobileDetector,System.Action{Yandex.Detector.IDetectorRequest},System.Threading.CancellationToken)">
+            <inheritdoc cref="M:Yandex.Detector.IMobileDetectorExtensions.&lt;G&gt;$0A690C62F9C610DCBF69EB3F9D12A9C8.DetectAsync(System.Action{Yandex.Detector.IDetectorRequest},System.Threading.CancellationToken)"/>
+        </member>
+        <member name="M:Yandex.Detector.IMobileDetectorExtensions.Detect(Yandex.Detector.IMobileDetector,System.ValueTuple{System.String,System.Object}[])">
+            <inheritdoc cref="M:Yandex.Detector.IMobileDetectorExtensions.&lt;G&gt;$0A690C62F9C610DCBF69EB3F9D12A9C8.Detect(System.ValueTuple{System.String,System.Object}[])"/>
+        </member>
+        <member name="M:Yandex.Detector.IMobileDetectorExtensions.Detect(Yandex.Detector.IMobileDetector,System.Action{Yandex.Detector.IDetectorRequest})">
+            <inheritdoc cref="M:Yandex.Detector.IMobileDetectorExtensions.&lt;G&gt;$0A690C62F9C610DCBF69EB3F9D12A9C8.Detect(System.Action{Yandex.Detector.IDetectorRequest})"/>
+        </member>
+        <member name="T:Yandex.Detector.IMobileDetectorExtensions.&lt;G&gt;$0A690C62F9C610DCBF69EB3F9D12A9C8.&lt;M&gt;$190BB5531D8056BE08BB07FF16E90C8E">
+            <param name="detector"></param>
+        </member>
+        <member name="M:Yandex.Detector.IMobileDetectorExtensions.&lt;G&gt;$0A690C62F9C610DCBF69EB3F9D12A9C8.DetectAsync(System.Threading.CancellationToken,System.ValueTuple{System.String,System.Object}[])">
             <summary>
               <para></para>
             </summary>
-            <param name="detector"></param>
             <param name="cancellation"></param>
             <param name="headers"></param>
             <returns></returns>
             <exception cref="T:System.ArgumentNullException">If either <paramref name="detector"/> or <paramref name="headers"/> is <see langword="null"/>.</exception>
         </member>
-        <member name="M:Yandex.Detector.IMobileDetectorExtensions.DetectAsync(Yandex.Detector.IMobileDetector,System.Action{Yandex.Detector.IDetectorRequest},System.Threading.CancellationToken)">
+        <member name="M:Yandex.Detector.IMobileDetectorExtensions.&lt;G&gt;$0A690C62F9C610DCBF69EB3F9D12A9C8.DetectAsync(System.Action{Yandex.Detector.IDetectorRequest},System.Threading.CancellationToken)">
             <summary>
               <para>Performs request to Yandex.Detector web service and determines capabilities of mobile client device.</para>
             </summary>
-            <param name="detector">Instance of client for Yandex.Detector web service.</param>
             <param name="action">Delegate that performs configuration of mobile device's HTTP headers to be send with request.</param>
             <param name="cancellation"></param>
             <returns>Instance of <see cref="T:Yandex.Detector.IMobileDevice"/> object, describing capabilities of identified mobile device.</returns>
             <exception cref="T:Yandex.Detector.DetectorException">If there was error either during the request to Yandex.Detector web service, or mobile device cannot be identified based on a set of provided HTTP headers.</exception>
         </member>
-        <member name="M:Yandex.Detector.IMobileDetectorExtensions.Detect(Yandex.Detector.IMobileDetector,System.ValueTuple{System.String,System.Object}[])">
+        <member name="M:Yandex.Detector.IMobileDetectorExtensions.&lt;G&gt;$0A690C62F9C610DCBF69EB3F9D12A9C8.Detect(System.ValueTuple{System.String,System.Object}[])">
             <summary>
               <para></para>
             </summary>
-            <param name="detector"></param>
             <param name="headers"></param>
             <returns></returns>
             <exception cref="T:System.ArgumentNullException">If <paramref name="detector"/> is <see langword="null"/>.</exception>
         </member>
-        <member name="M:Yandex.Detector.IMobileDetectorExtensions.Detect(Yandex.Detector.IMobileDetector,System.Action{Yandex.Detector.IDetectorRequest})">
+        <member name="M:Yandex.Detector.IMobileDetectorExtensions.&lt;G&gt;$0A690C62F9C610DCBF69EB3F9D12A9C8.Detect(System.Action{Yandex.Detector.IDetectorRequest})">
             <summary>
               <para></para>
             </summary>
-            <param name="detector"></param>
             <param name="action"></param>
             <returns></returns>
             <exception cref="T:System.ArgumentNullException">If either <paramref name="detector"/> or <paramref name="action"/> is <see langword="null"/>.</exception>
@@ -600,29 +611,38 @@
             <seealso cref="T:Yandex.Detector.IDetectorRequest"/>
         </member>
         <member name="M:Yandex.Detector.IDetectorRequestExtensions.OperaMini(Yandex.Detector.IDetectorRequest,System.String)">
+            <inheritdoc cref="M:Yandex.Detector.IDetectorRequestExtensions.&lt;G&gt;$B25138EC8B31E738C771E68D475B0B5F.OperaMini(System.String)"/>
+        </member>
+        <member name="M:Yandex.Detector.IDetectorRequestExtensions.Profile(Yandex.Detector.IDetectorRequest,System.String)">
+            <inheritdoc cref="M:Yandex.Detector.IDetectorRequestExtensions.&lt;G&gt;$B25138EC8B31E738C771E68D475B0B5F.Profile(System.String)"/>
+        </member>
+        <member name="M:Yandex.Detector.IDetectorRequestExtensions.UserAgent(Yandex.Detector.IDetectorRequest,System.String)">
+            <inheritdoc cref="M:Yandex.Detector.IDetectorRequestExtensions.&lt;G&gt;$B25138EC8B31E738C771E68D475B0B5F.UserAgent(System.String)"/>
+        </member>
+        <member name="T:Yandex.Detector.IDetectorRequestExtensions.&lt;G&gt;$B25138EC8B31E738C771E68D475B0B5F.&lt;M&gt;$115235640BF61162EABE676F44A7EE78">
+            <param name="request">Instance of request to Yandex.Detector service.</param>
+        </member>
+        <member name="M:Yandex.Detector.IDetectorRequestExtensions.&lt;G&gt;$B25138EC8B31E738C771E68D475B0B5F.OperaMini(System.String)">
             <summary>
               <para>Adds new header for HTTP request that identifies target mobile device as having an Opera Mini browser installed.</para>
             </summary>
-            <param name="request">Instance of request to Yandex.Detector service.</param>
             <param name="version">Version of installed Opera Mini.</param>
             <returns>Back reference to the provided <paramref name="request"/> instance.</returns>
             <seealso cref="M:Yandex.Detector.IDetectorRequest.WithHeader(System.String,System.Object)"/>
         </member>
-        <member name="M:Yandex.Detector.IDetectorRequestExtensions.Profile(Yandex.Detector.IDetectorRequest,System.String)">
+        <member name="M:Yandex.Detector.IDetectorRequestExtensions.&lt;G&gt;$B25138EC8B31E738C771E68D475B0B5F.Profile(System.String)">
             <summary>
               <para>Adds set of headers for HTTP request that indicates a mobile profile of the target device.</para>
               <para>The following HTTP headers are set : "profile", "wap-profile", "x-wap-profile".</para>
             </summary>
-            <param name="request">Instance of request to Yandex.Detector service.</param>
             <param name="profile">Value of HTTP mobile profile headers.</param>
             <returns>Back reference to the provided <paramref name="request"/> instance.</returns>
             <seealso cref="M:Yandex.Detector.IDetectorRequest.WithHeader(System.String,System.Object)"/>
         </member>
-        <member name="M:Yandex.Detector.IDetectorRequestExtensions.UserAgent(Yandex.Detector.IDetectorRequest,System.String)">
+        <member name="M:Yandex.Detector.IDetectorRequestExtensions.&lt;G&gt;$B25138EC8B31E738C771E68D475B0B5F.UserAgent(System.String)">
             <summary>
               <para>Adds new "user-agent" header for HTTP request that identifies a target mobile device.</para>
             </summary>
-            <param name="request">Instance of request to Yandex.Detector service.</param>
             <param name="userAgent">Value of User-agent header.</param>
             <returns>Back reference to the provided <paramref name="request"/> instance.</returns>
             <seealso cref="M:Yandex.Detector.IDetectorRequest.WithHeader(System.String,System.Object)"/>
@@ -748,10 +768,27 @@
             <seealso cref="T:Yandex.Translator.IApi"/>
         </member>
         <member name="M:Yandex.Translator.IApiExtensions.TranslateAsync(Yandex.Translator.IApi,System.Action{Yandex.Translator.ITranslationApiRequest},System.Threading.CancellationToken)">
+            <inheritdoc cref="M:Yandex.Translator.IApiExtensions.&lt;G&gt;$5406477B97F14F92791D86288C10ED90.TranslateAsync(System.Action{Yandex.Translator.ITranslationApiRequest},System.Threading.CancellationToken)"/>
+        </member>
+        <member name="M:Yandex.Translator.IApiExtensions.Pairs(Yandex.Translator.IApi)">
+            <inheritdoc cref="M:Yandex.Translator.IApiExtensions.&lt;G&gt;$5406477B97F14F92791D86288C10ED90.Pairs"/>
+        </member>
+        <member name="M:Yandex.Translator.IApiExtensions.Detect(Yandex.Translator.IApi,System.String)">
+            <inheritdoc cref="M:Yandex.Translator.IApiExtensions.&lt;G&gt;$5406477B97F14F92791D86288C10ED90.Detect(System.String)"/>
+        </member>
+        <member name="M:Yandex.Translator.IApiExtensions.Translate(Yandex.Translator.IApi,Yandex.Translator.ITranslationApiRequest)">
+            <inheritdoc cref="M:Yandex.Translator.IApiExtensions.&lt;G&gt;$5406477B97F14F92791D86288C10ED90.Translate(Yandex.Translator.ITranslationApiRequest)"/>
+        </member>
+        <member name="M:Yandex.Translator.IApiExtensions.Translate(Yandex.Translator.IApi,System.Action{Yandex.Translator.ITranslationApiRequest})">
+            <inheritdoc cref="M:Yandex.Translator.IApiExtensions.&lt;G&gt;$5406477B97F14F92791D86288C10ED90.Translate(System.Action{Yandex.Translator.ITranslationApiRequest})"/>
+        </member>
+        <member name="T:Yandex.Translator.IApiExtensions.&lt;G&gt;$5406477B97F14F92791D86288C10ED90.&lt;M&gt;$46966A8AF63546F974CE17A22004FC3B">
+            <param name="api">Translator instance to be used.</param>
+        </member>
+        <member name="M:Yandex.Translator.IApiExtensions.&lt;G&gt;$5406477B97F14F92791D86288C10ED90.TranslateAsync(System.Action{Yandex.Translator.ITranslationApiRequest},System.Threading.CancellationToken)">
             <summary>
               <para>Makes a translation request to Yandex.Translator web service.</para>
             </summary>
-            <param name="api">Translator instance to be used.</param>
             <param name="action">Delegate that specifies text for translation, source/target languages and addional options.</param>
             <param name="cancellation"></param>
             <returns><see cref="T:Yandex.Translator.ITranslation"/> instance that represents result of text's translation.</returns>
@@ -759,38 +796,34 @@
             <exception cref="T:System.ArgumentNullException">If either <paramref name="api"/> or <paramref name="action"/> is <see langword="null"/>.</exception>
             <seealso href="http://api.yandex.ru/translate/doc/dg/reference/translate.xml"/>
         </member>
-        <member name="M:Yandex.Translator.IApiExtensions.Pairs(Yandex.Translator.IApi)">
+        <member name="M:Yandex.Translator.IApiExtensions.&lt;G&gt;$5406477B97F14F92791D86288C10ED90.Pairs">
             <summary>
               <para></para>
             </summary>
-            <param name="api"></param>
             <returns></returns>
             <exception cref="T:System.ArgumentNullException">If <paramref name="api"/> is <see langword="null"/>.</exception>
         </member>
-        <member name="M:Yandex.Translator.IApiExtensions.Detect(Yandex.Translator.IApi,System.String)">
+        <member name="M:Yandex.Translator.IApiExtensions.&lt;G&gt;$5406477B97F14F92791D86288C10ED90.Detect(System.String)">
             <summary>
               <para></para>
             </summary>
-            <param name="api"></param>
             <param name="text"></param>
             <returns></returns>
             <exception cref="T:System.ArgumentNullException">If either <paramref name="api"/> or <paramref name="text"/> is <see langword="null"/>.</exception>
             <exception cref="T:System.ArgumentException">If <paramref name="text"/> is invalid string.</exception>
         </member>
-        <member name="M:Yandex.Translator.IApiExtensions.Translate(Yandex.Translator.IApi,Yandex.Translator.ITranslationApiRequest)">
+        <member name="M:Yandex.Translator.IApiExtensions.&lt;G&gt;$5406477B97F14F92791D86288C10ED90.Translate(Yandex.Translator.ITranslationApiRequest)">
             <summary>
               <para></para>
             </summary>
-            <param name="api"></param>
             <param name="request"></param>
             <returns></returns>
             <exception cref="T:System.ArgumentNullException">If either <paramref name="api"/> or <paramref name="request"/> is <see langword="null"/>.</exception>
         </member>
-        <member name="M:Yandex.Translator.IApiExtensions.Translate(Yandex.Translator.IApi,System.Action{Yandex.Translator.ITranslationApiRequest})">
+        <member name="M:Yandex.Translator.IApiExtensions.&lt;G&gt;$5406477B97F14F92791D86288C10ED90.Translate(System.Action{Yandex.Translator.ITranslationApiRequest})">
             <summary>
               <para></para>
             </summary>
-            <param name="api"></param>
             <param name="action"></param>
             <returns></returns>
             <exception cref="T:System.ArgumentNullException">If either <paramref name="api"/> or <paramref name="action"/> is <see langword="null"/>.</exception>
@@ -1209,35 +1242,46 @@
             <seealso cref="T:Yandex.Translator.ITranslationApiRequest"/>
         </member>
         <member name="M:Yandex.Translator.ITranslationApiRequestExtensions.AsHtml(Yandex.Translator.ITranslationApiRequest)">
+            <inheritdoc cref="M:Yandex.Translator.ITranslationApiRequestExtensions.&lt;G&gt;$49BF3623E994BC290406699A94F672D3.AsHtml"/>
+        </member>
+        <member name="M:Yandex.Translator.ITranslationApiRequestExtensions.AsText(Yandex.Translator.ITranslationApiRequest)">
+            <inheritdoc cref="M:Yandex.Translator.ITranslationApiRequestExtensions.&lt;G&gt;$49BF3623E994BC290406699A94F672D3.AsText"/>
+        </member>
+        <member name="M:Yandex.Translator.ITranslationApiRequestExtensions.From(Yandex.Translator.ITranslationApiRequest,System.Globalization.CultureInfo)">
+            <inheritdoc cref="M:Yandex.Translator.ITranslationApiRequestExtensions.&lt;G&gt;$49BF3623E994BC290406699A94F672D3.From(System.Globalization.CultureInfo)"/>
+        </member>
+        <member name="M:Yandex.Translator.ITranslationApiRequestExtensions.To(Yandex.Translator.ITranslationApiRequest,System.Globalization.CultureInfo)">
+            <inheritdoc cref="M:Yandex.Translator.ITranslationApiRequestExtensions.&lt;G&gt;$49BF3623E994BC290406699A94F672D3.To(System.Globalization.CultureInfo)"/>
+        </member>
+        <member name="T:Yandex.Translator.ITranslationApiRequestExtensions.&lt;G&gt;$49BF3623E994BC290406699A94F672D3.&lt;M&gt;$3A4991E7AB48B23D40CF0A73B3018055">
+            <param name="request">Translation request instance.</param>
+        </member>
+        <member name="M:Yandex.Translator.ITranslationApiRequestExtensions.&lt;G&gt;$49BF3623E994BC290406699A94F672D3.AsHtml">
             <summary>
               <para>Specifies that translatable text fragment is in HTML format.</para>
             </summary>
-            <param name="request">Translation request instance.</param>
             <returns>Back reference to the provided translation <paramref name="request"/>.</returns>
             <seealso cref="M:Yandex.Translator.ITranslationApiRequest.Format(System.String)"/>
         </member>
-        <member name="M:Yandex.Translator.ITranslationApiRequestExtensions.AsText(Yandex.Translator.ITranslationApiRequest)">
+        <member name="M:Yandex.Translator.ITranslationApiRequestExtensions.&lt;G&gt;$49BF3623E994BC290406699A94F672D3.AsText">
             <summary>
               <para>Specifies that translatable text fragment is in plain text format.</para>
             </summary>
-            <param name="request">Translation request instance.</param>
             <returns>Back reference to the provided translation <paramref name="request"/>.</returns>
             <seealso cref="M:Yandex.Translator.ITranslationApiRequest.Format(System.String)"/>
         </member>
-        <member name="M:Yandex.Translator.ITranslationApiRequestExtensions.From(Yandex.Translator.ITranslationApiRequest,System.Globalization.CultureInfo)">
+        <member name="M:Yandex.Translator.ITranslationApiRequestExtensions.&lt;G&gt;$49BF3623E994BC290406699A94F672D3.From(System.Globalization.CultureInfo)">
             <summary>
               <para>Specifies source language from which a text fragment should be translated.</para>
             </summary>
-            <param name="request">Translation request instance.</param>
             <param name="culture">Culture that contains a language to be used.</param>
             <returns>Back reference to the provided translation <paramref name="request"/>.</returns>
             <seealso cref="M:Yandex.Translator.ITranslationApiRequest.From(System.String)"/>
         </member>
-        <member name="M:Yandex.Translator.ITranslationApiRequestExtensions.To(Yandex.Translator.ITranslationApiRequest,System.Globalization.CultureInfo)">
+        <member name="M:Yandex.Translator.ITranslationApiRequestExtensions.&lt;G&gt;$49BF3623E994BC290406699A94F672D3.To(System.Globalization.CultureInfo)">
             <summary>
               <para>Specifies target language to which a text fragment should be translated.</para>
             </summary>
-            <param name="request">Translation request instance.</param>
             <param name="culture">Culture that contains a language to be used.</param>
             <returns>Back reference to the provided translation <paramref name="request"/>.</returns>
             <seealso cref="M:Yandex.Translator.ITranslationApiRequest.To(System.String)"/>
