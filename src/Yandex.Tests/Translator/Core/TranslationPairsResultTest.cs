@@ -126,6 +126,6 @@ public sealed class TranslationPairsResponseInfoTest : Test
 
     return;
 
-    static void Test(IResultable<TranslationPairsResult> instance) => instance.To<object>().Should().BeDataContractSerializable().And.BeXmlSerializable().And.BeJsonSerializable();
+    static void Test(IResultable<TranslationPairsResult> result) => result.To<object>().Should().BeDataContractSerializable().And.BeXmlSerializable().And.BeJsonSerializable();
   }
 }

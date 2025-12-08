@@ -48,6 +48,6 @@ public sealed class TranslationTest : Test
 
     return;
 
-    static void Test(string value, object instance) => instance.ToString().Should().Be(value);
+    static void Test(string value, Translation translation) => translation.ToString().Should().Be(value);
   }
 }

@@ -133,6 +133,6 @@ public sealed class DetectedLanguageResultInfoTests : Test
 
     return;
 
-    static void Test(IResultable<DetectedLanguageResult> instance) => instance.To<object>().Should().BeDataContractSerializable().And.BeXmlSerializable().And.BeJsonSerializable();
+    static void Test(IResultable<DetectedLanguageResult> result) => result.To<object>().Should().BeDataContractSerializable().And.BeXmlSerializable().And.BeJsonSerializable();
   }
 }

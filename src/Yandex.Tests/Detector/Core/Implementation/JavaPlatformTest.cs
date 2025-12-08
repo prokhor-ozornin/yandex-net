@@ -170,6 +170,6 @@ public sealed class JavaPlatformInfoTest : Test
 
     return;
 
-    static void Test(IResultable<IJavaPlatform> instance) => instance.To<object>().Should().BeDataContractSerializable().And.BeXmlSerializable().And.BeJsonSerializable();
+    static void Test(IResultable<IJavaPlatform> platform) => platform.To<object>().Should().BeDataContractSerializable().And.BeXmlSerializable().And.BeJsonSerializable();
   }
 }

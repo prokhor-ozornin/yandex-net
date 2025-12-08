@@ -46,6 +46,6 @@ public sealed class TranslationPairTest : Test
 
     return;
 
-    static void Test(string value, object instance) => instance.ToString().Should().Be(value);
+    static void Test(string value, TranslationPair pair) => pair.ToString().Should().Be(value);
   }
 }

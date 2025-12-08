@@ -94,7 +94,7 @@ public sealed class TranslationResultTest : Test
 
     return;
 
-    static void Test(string value, TranslationResult instance) => instance.ToString().Should().Be(value);
+    static void Test(string value, TranslationResult result) => result.ToString().Should().Be(value);
   }
 }
 
@@ -178,6 +178,6 @@ public sealed class TranslationResultInfoTest : Test
 
     return;
 
-    static void Test(IResultable<TranslationResult> instance) => instance.To<object>().Should().BeDataContractSerializable().And.BeXmlSerializable().And.BeJsonSerializable();
+    static void Test(IResultable<TranslationResult> result) => result.To<object>().Should().BeDataContractSerializable().And.BeXmlSerializable().And.BeJsonSerializable();
   }
 }

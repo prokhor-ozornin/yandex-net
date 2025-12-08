@@ -126,7 +126,7 @@ public sealed class MobileDeviceTest : Test
 
     return;
 
-    static void Test(string value, object instance) => instance.ToString().Should().Be(value);
+    static void Test(string value, MobileDevice device) => device.ToString().Should().Be(value);
   }
 }
 
@@ -250,6 +250,6 @@ public sealed class MobileDeviceInfoTest : Test
 
     return;
 
-    static void Test(IResultable<IMobileDevice> instance) => instance.To<object>().Should().BeDataContractSerializable().And.BeXmlSerializable().And.BeJsonSerializable();
+    static void Test(IResultable<IMobileDevice> device) => device.To<object>().Should().BeDataContractSerializable().And.BeXmlSerializable().And.BeJsonSerializable();
   }
 }

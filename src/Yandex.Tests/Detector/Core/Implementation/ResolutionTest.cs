@@ -55,6 +55,6 @@ public sealed class ResolutionTest : Test
 
     return;
 
-    static void Test(string result, object instance) => instance.ToString().Should().Be(result);
+    static void Test(string result, Resolution resolution) => resolution.ToString().Should().Be(result);
   }
 }
