@@ -1,6 +1,6 @@
-﻿using Newtonsoft.Json;
-using FluentAssertions;
+﻿using FluentAssertions;
 using FluentAssertions.Execution;
+using Newtonsoft.Json;
 using Xunit;
 
 namespace Yandex.Tests;

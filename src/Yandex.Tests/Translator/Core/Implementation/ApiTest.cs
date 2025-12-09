@@ -1,11 +1,11 @@
 ﻿using Catharsis.Extensions;
 using Catharsis.Fixture;
+using FluentAssertions;
+using FluentAssertions.Execution;
 using RestSharp;
 using RestSharp.Serializers;
-using FluentAssertions;
 using Xunit;
 using Yandex.Translator;
-using FluentAssertions.Execution;
 
 namespace Yandex.Tests.Translator;
 
