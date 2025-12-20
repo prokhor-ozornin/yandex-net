@@ -6,22 +6,25 @@
 /// <seealso cref="ITranslator"/>
 public static class ITranslatorExtensions
 {
-  /// <summary>
-  ///   <para></para>
-  /// </summary>
   /// <param name="translator"></param>
-  /// <param name="action"></param>
-  /// <returns></returns>
-  /// <exception cref="ArgumentNullException">If either <paramref name="translator"/> or <paramref name="action"/> is <see langword="null"/>.</exception>
-  public static IApi Configure(this ITranslator translator, Action<IApiConfigurator> action)
+  extension(ITranslator translator)
   {
-    if (translator is null) throw new ArgumentNullException(nameof(translator));
-    if (action is null) throw new ArgumentNullException(nameof(action));
+    /// <summary>
+    ///   <para></para>
+    /// </summary>
+    /// <param name="action"></param>
+    /// <returns></returns>
+    /// <exception cref="ArgumentNullException">If either <paramref name="translator"/> or <paramref name="action"/> is <see langword="null"/>.</exception>
+    public IApi Configure(Action<IApiConfigurator> action)
+    {
+      if (translator is null) throw new ArgumentNullException(nameof(translator));
+      if (action is null) throw new ArgumentNullException(nameof(action));
 
-    var configurator = new ApiConfigurator();
+      var configurator = new ApiConfigurator();
 
-    action(configurator);
+      action(configurator);
 
-    return translator.Configure(configurator);
+      return translator.Configure(configurator);
+    }
   }
 }

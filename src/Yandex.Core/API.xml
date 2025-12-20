@@ -653,13 +653,7 @@
             </summary>
         </member>
         <member name="M:Yandex.JsonExtensions.SerializeAsJson(System.Object,Newtonsoft.Json.JsonSerializerSettings)">
-            <summary>
-              <para>Serializes specified object into JSON string.</para>
-            </summary>
-            <param name="instance">Target object to be serialized.</param>
-            <param name="settings">Serialization settings. If not specified, default settings set will be used.</param>
-            <returns>JSON serialized version of <paramref name="instance"/> instance.</returns>
-            <seealso cref="T:Newtonsoft.Json.JsonConvert"/>
+            <inheritdoc cref="M:Yandex.JsonExtensions.&lt;G&gt;$C43E2675C7BBF9284AF22FB8A9BF0280.SerializeAsJson(Newtonsoft.Json.JsonSerializerSettings)"/>
         </member>
         <member name="M:Yandex.JsonExtensions.DeserializeAsJson``1(System.String,Newtonsoft.Json.JsonSerializerSettings)">
             <summary>
@@ -669,6 +663,17 @@
             <param name="json">Serialized JSON object of type <typeparamref name="T"/>.</param>
             <param name="settings">Deserialization settings. If not specified, default settings set will be used.</param>
             <returns>Instance of <typeparamref name="T"/> type, deserialized from <paramref name="json"/> string.</returns>
+            <seealso cref="T:Newtonsoft.Json.JsonConvert"/>
+        </member>
+        <member name="T:Yandex.JsonExtensions.&lt;G&gt;$C43E2675C7BBF9284AF22FB8A9BF0280.&lt;M&gt;$4EDAB0A22F864492AAC1EF10E77DAAE8">
+            <param name="instance">Target object to be serialized.</param>
+        </member>
+        <member name="M:Yandex.JsonExtensions.&lt;G&gt;$C43E2675C7BBF9284AF22FB8A9BF0280.SerializeAsJson(Newtonsoft.Json.JsonSerializerSettings)">
+            <summary>
+              <para>Serializes specified object into JSON string.</para>
+            </summary>
+            <param name="settings">Serialization settings. If not specified, default settings set will be used.</param>
+            <returns>JSON serialized version of <paramref name="instance"/> instance.</returns>
             <seealso cref="T:Newtonsoft.Json.JsonConvert"/>
         </member>
         <member name="T:Yandex.Translator.ErrorType">
@@ -1162,10 +1167,15 @@
             <seealso cref="T:Yandex.Translator.ITranslator"/>
         </member>
         <member name="M:Yandex.Translator.ITranslatorExtensions.Configure(Yandex.Translator.ITranslator,System.Action{Yandex.Translator.IApiConfigurator})">
+            <inheritdoc cref="M:Yandex.Translator.ITranslatorExtensions.&lt;G&gt;$57569695C9899F8E22BB2661AD2C54BF.Configure(System.Action{Yandex.Translator.IApiConfigurator})"/>
+        </member>
+        <member name="T:Yandex.Translator.ITranslatorExtensions.&lt;G&gt;$57569695C9899F8E22BB2661AD2C54BF.&lt;M&gt;$795AA84D113B1B255E1F20F70765C7E3">
+            <param name="translator"></param>
+        </member>
+        <member name="M:Yandex.Translator.ITranslatorExtensions.&lt;G&gt;$57569695C9899F8E22BB2661AD2C54BF.Configure(System.Action{Yandex.Translator.IApiConfigurator})">
             <summary>
               <para></para>
             </summary>
-            <param name="translator"></param>
             <param name="action"></param>
             <returns></returns>
             <exception cref="T:System.ArgumentNullException">If either <paramref name="translator"/> or <paramref name="action"/> is <see langword="null"/>.</exception>
@@ -1177,10 +1187,15 @@
             <seealso href="http://api.yandex.ru/translate"/>
         </member>
         <member name="M:Yandex.Translator.IYandexApiExtensions.Translator(Yandex.IYandexApi)">
+            <inheritdoc cref="M:Yandex.Translator.IYandexApiExtensions.&lt;G&gt;$A0BDE5BA762271CCA2EF498434644B09.Translator"/>
+        </member>
+        <member name="T:Yandex.Translator.IYandexApiExtensions.&lt;G&gt;$A0BDE5BA762271CCA2EF498434644B09.&lt;M&gt;$43D2C3F74BCA27E3A09F7341DB9CAAE6">
+            <param name="api"></param>
+        </member>
+        <member name="M:Yandex.Translator.IYandexApiExtensions.&lt;G&gt;$A0BDE5BA762271CCA2EF498434644B09.Translator">
             <summary>
               <para>Configures instance of client translator to be used for making requests to Yandex.Translator web service.</para>
             </summary>
-            <param name="api"></param>
             <returns></returns>
             <exception cref="T:System.ArgumentNullException">If <paramref name="api"/> is <see langword="null"/>.</exception>
         </member>

@@ -8,21 +8,24 @@ namespace Yandex;
 /// </summary>
 public static class JsonExtensions
 {
-  /// <summary>
-  ///   <para>Serializes specified object into JSON string.</para>
-  /// </summary>
   /// <param name="instance">Target object to be serialized.</param>
-  /// <param name="settings">Serialization settings. If not specified, default settings set will be used.</param>
-  /// <returns>JSON serialized version of <paramref name="instance"/> instance.</returns>
-  /// <seealso cref="JsonConvert"/>
-  public static string SerializeAsJson(this object instance, JsonSerializerSettings settings = null) =>
-    JsonConvert.SerializeObject(instance, settings ?? new JsonSerializerSettings
-    {
-      ConstructorHandling = ConstructorHandling.AllowNonPublicDefaultConstructor,
-      DateTimeZoneHandling = DateTimeZoneHandling.RoundtripKind,
-      NullValueHandling = NullValueHandling.Ignore,
-      ObjectCreationHandling = ObjectCreationHandling.Auto
-    });
+  extension(object instance)
+  {
+    /// <summary>
+    ///   <para>Serializes specified object into JSON string.</para>
+    /// </summary>
+    /// <param name="settings">Serialization settings. If not specified, default settings set will be used.</param>
+    /// <returns>JSON serialized version of <paramref name="instance"/> instance.</returns>
+    /// <seealso cref="JsonConvert"/>
+    public string SerializeAsJson(JsonSerializerSettings settings = null) =>
+      JsonConvert.SerializeObject(instance, settings ?? new JsonSerializerSettings
+      {
+        ConstructorHandling = ConstructorHandling.AllowNonPublicDefaultConstructor,
+        DateTimeZoneHandling = DateTimeZoneHandling.RoundtripKind,
+        NullValueHandling = NullValueHandling.Ignore,
+        ObjectCreationHandling = ObjectCreationHandling.Auto
+      });
+  }
 
   /// <summary>
   ///   <para>Deserializes object from JSON string.</para>

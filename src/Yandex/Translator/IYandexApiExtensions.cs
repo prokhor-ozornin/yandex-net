@@ -6,11 +6,14 @@
 /// <seealso href="http://api.yandex.ru/translate"/>
 public static class IYandexApiExtensions
 {
-  /// <summary>
-  ///   <para>Configures instance of client translator to be used for making requests to Yandex.Translator web service.</para>
-  /// </summary>
   /// <param name="api"></param>
-  /// <returns></returns>
-  /// <exception cref="ArgumentNullException">If <paramref name="api"/> is <see langword="null"/>.</exception>
-  public static ITranslator Translator(this IYandexApi api) => api is not null ? new Translator() : throw new ArgumentNullException(nameof(api));
+  extension(IYandexApi api)
+  {
+    /// <summary>
+    ///   <para>Configures instance of client translator to be used for making requests to Yandex.Translator web service.</para>
+    /// </summary>
+    /// <returns></returns>
+    /// <exception cref="ArgumentNullException">If <paramref name="api"/> is <see langword="null"/>.</exception>
+    public ITranslator Translator() => api is not null ? new Translator() : throw new ArgumentNullException(nameof(api));
+  }
 }
