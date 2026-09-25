@@ -7,9 +7,9 @@ internal sealed record Translation : ITranslation
   public Translation(string fromLanguage, string toLanguage, string text)
   {
     if (fromLanguage is null) throw new ArgumentNullException(nameof(fromLanguage));
-    if (fromLanguage.IsEmpty()) throw new ArgumentException(nameof(fromLanguage));
+    if (fromLanguage.IsEmpty) throw new ArgumentException(nameof(fromLanguage));
     if (toLanguage is null) throw new ArgumentNullException(nameof(toLanguage));
-    if (toLanguage.IsEmpty()) throw new ArgumentException(nameof(toLanguage));
+    if (toLanguage.IsEmpty) throw new ArgumentException(nameof(toLanguage));
     if (text is null) throw new ArgumentNullException(nameof(text));
 
     FromLanguage = fromLanguage;

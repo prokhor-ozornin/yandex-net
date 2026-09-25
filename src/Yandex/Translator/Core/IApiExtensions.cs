@@ -50,7 +50,7 @@ public static class IApiExtensions
     {
       if (api is null) throw new ArgumentNullException(nameof(api));
       if (text is null) throw new ArgumentNullException(nameof(text));
-      if (text.IsEmpty()) throw new ArgumentException(nameof(text));
+      if (text.IsEmpty) throw new ArgumentException(nameof(text));
 
       return api.DetectAsync(text).Result;
     }

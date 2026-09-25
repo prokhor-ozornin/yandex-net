@@ -21,7 +21,7 @@ public static class IDetectorRequestExtensions
     {
       if (request is null) throw new ArgumentNullException(nameof(request));
       if (version is null) throw new ArgumentNullException(nameof(version));
-      if (version.IsEmpty()) throw new ArgumentException(nameof(version));
+      if (version.IsEmpty) throw new ArgumentException(nameof(version));
 
       return request.WithHeader("x-operamini-phone-ua", version);
     }
@@ -37,7 +37,7 @@ public static class IDetectorRequestExtensions
     {
       if (request is null) throw new ArgumentNullException(nameof(request));
       if (profile is null) throw new ArgumentNullException(nameof(profile));
-      if (profile.IsEmpty()) throw new ArgumentException(nameof(profile));
+      if (profile.IsEmpty) throw new ArgumentException(nameof(profile));
 
       return request.WithHeader("profile", profile).WithHeader("wap-profile", profile).WithHeader("x-wap-profile", profile);
     }
@@ -52,7 +52,7 @@ public static class IDetectorRequestExtensions
     {
       if (request is null) throw new ArgumentNullException(nameof(request));
       if (userAgent is null) throw new ArgumentNullException(nameof(userAgent));
-      if (userAgent.IsEmpty()) throw new ArgumentException(nameof(userAgent));
+      if (userAgent.IsEmpty) throw new ArgumentException(nameof(userAgent));
 
       return request.WithHeader("user-agent", userAgent);
     }

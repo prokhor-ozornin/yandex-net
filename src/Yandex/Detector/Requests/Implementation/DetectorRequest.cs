@@ -11,7 +11,7 @@ internal sealed class DetectorRequest : IDetectorRequest
   public IDetectorRequest WithHeader(string name, object value)
   {
     if (name is null) throw new ArgumentNullException(nameof(name));
-    if (name.IsEmpty()) throw new ArgumentException(nameof(name));
+    if (name.IsEmpty) throw new ArgumentException(nameof(name));
 
     _headers[name] = value;
     

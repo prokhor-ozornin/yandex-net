@@ -25,11 +25,11 @@ internal sealed class Api : IApi
   public async Task<string> DetectAsync(string text, CancellationToken cancellation = default)
   {
     if (text is null) throw new ArgumentNullException(nameof(text));
-    if (text.IsEmpty()) throw new ArgumentException(nameof(text));
+    if (text.IsEmpty) throw new ArgumentException(nameof(text));
 
     var result = (await Request<DetectedLanguageResult.Info>("detect", new Dictionary<string, object> {{"text", text}}, cancellation).ConfigureAwait(false)).ToResult();
 
-    if (result.Code != (int) HttpStatusCode.OK || result.Language.IsUnset())
+    if (result.Code != (int) HttpStatusCode.OK || result.Language.IsUnset)
     {
       throw new TranslatorException(new Error(result.Code, "Cannot determine source language for text"));
     }
@@ -45,7 +45,7 @@ internal sealed class Api : IApi
 
     var translation = result.ToString();
 
-    if (result.Code != (int) HttpStatusCode.OK || result.Language.IsUnset() || translation.IsUnset())
+    if (result.Code != (int) HttpStatusCode.OK || result.Language.IsUnset || translation.IsUnset)
     {
       throw new TranslatorException(new Error(result.Code, "Text translation failed"));
     }
@@ -81,7 +81,7 @@ internal sealed class Api : IApi
   private async Task<T> Request<T>(string resource, IReadOnlyDictionary<string, object> parameters = null, CancellationToken cancellation = default) where T : new()
   {
     if (resource is null) throw new ArgumentNullException(nameof(resource));
-    if (resource.IsEmpty()) throw new ArgumentException(nameof(resource));
+    if (resource.IsEmpty) throw new ArgumentException(nameof(resource));
 
     var request = new RestRequest(resource)
     {
@@ -114,7 +114,7 @@ internal sealed class Api : IApi
     {
     }
 
-    if (error is not null && !error.Text.IsUnset())
+    if (error is not null && !error.Text.IsUnset)
     {
       throw new TranslatorException(error);
     }
