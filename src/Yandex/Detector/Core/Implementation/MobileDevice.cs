@@ -88,14 +88,14 @@ public sealed class MobileDevice : IMobileDevice
   ///   <para>Determines whether two <see cref="IMobileDevice"/> instances are equal.</para>
   /// </summary>
   /// <param name="other">The instance to compare with the current one.</param>
-  /// <returns><c>true</c> if specified instance is equal to the current, <c>false</c> otherwise.</returns>
+  /// <returns><see langword="true"/> if specified instance is equal to the current, <see langword="false"/> otherwise.</returns>
   public bool Equals(IMobileDevice other) => this.Equality(other, nameof(Name));
 
   /// <summary>
   ///   <para>Determines whether the specified <see cref="object"/> is equal to the current <see cref="object"/>.</para>
   /// </summary>
   /// <param name="other">The object to compare with the current object.</param>
-  /// <returns><c>true</c> if the specified object is equal to the current object, <c>false</c>.</returns>
+  /// <returns><see langword="true"/> if the specified object is equal to the current object, <see langword="false"/>.</returns>
   public override bool Equals(object other) => Equals(other as IMobileDevice);
 
   /// <summary>
@@ -109,6 +109,22 @@ public sealed class MobileDevice : IMobileDevice
   /// </summary>
   /// <returns>A string that represents the current <see cref="MobileDevice"/>.</returns>
   public override string ToString() => Name;
+
+  /// <summary>
+  ///   <para>Logical equality operator for two objects.</para>
+  /// </summary>
+  /// <param name="left">The left operand.</param>
+  /// <param name="right">The right operand.</param>
+  /// <returns><see langword="true"/> in case of logical equality of <paramref name="left"/> and <paramref name="right"/> objects, <see langword="false"/> otherwise.</returns>
+  public static bool operator ==(MobileDevice left, MobileDevice right) => Equals(left, right);
+
+  /// <summary>
+  ///   <para>Logical inequality operator for two objects.</para>
+  /// </summary>
+  /// <param name="left">The left operand.</param>
+  /// <param name="right">The right operand.</param>
+  /// <returns><see langword="true"/> in case of logical inequality of <paramref name="left"/> and <paramref name="right"/> objects, <see langword="false"/> otherwise.</returns>
+  public static bool operator !=(MobileDevice left, MobileDevice right) => !Equals(left, right);
 
   /// <summary>
   ///   <para></para>

@@ -261,14 +261,14 @@
               <para>Determines whether two <see cref="T:Yandex.Detector.IMobileDevice"/> instances are equal.</para>
             </summary>
             <param name="other">The instance to compare with the current one.</param>
-            <returns><c>true</c> if specified instance is equal to the current, <c>false</c> otherwise.</returns>
+            <returns><see langword="true"/> if specified instance is equal to the current, <see langword="false"/> otherwise.</returns>
         </member>
         <member name="M:Yandex.Detector.MobileDevice.Equals(System.Object)">
             <summary>
               <para>Determines whether the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>.</para>
             </summary>
             <param name="other">The object to compare with the current object.</param>
-            <returns><c>true</c> if the specified object is equal to the current object, <c>false</c>.</returns>
+            <returns><see langword="true"/> if the specified object is equal to the current object, <see langword="false"/>.</returns>
         </member>
         <member name="M:Yandex.Detector.MobileDevice.GetHashCode">
             <summary>
@@ -281,6 +281,22 @@
               <para>Returns a <see cref="T:System.String"/> that represents the current <see cref="T:Yandex.Detector.MobileDevice"/> instance.</para>
             </summary>
             <returns>A string that represents the current <see cref="T:Yandex.Detector.MobileDevice"/>.</returns>
+        </member>
+        <member name="M:Yandex.Detector.MobileDevice.op_Equality(Yandex.Detector.MobileDevice,Yandex.Detector.MobileDevice)">
+            <summary>
+              <para>Logical equality operator for two objects.</para>
+            </summary>
+            <param name="left">The left operand.</param>
+            <param name="right">The right operand.</param>
+            <returns><see langword="true"/> in case of logical equality of <paramref name="left"/> and <paramref name="right"/> objects, <see langword="false"/> otherwise.</returns>
+        </member>
+        <member name="M:Yandex.Detector.MobileDevice.op_Inequality(Yandex.Detector.MobileDevice,Yandex.Detector.MobileDevice)">
+            <summary>
+              <para>Logical inequality operator for two objects.</para>
+            </summary>
+            <param name="left">The left operand.</param>
+            <param name="right">The right operand.</param>
+            <returns><see langword="true"/> in case of logical inequality of <paramref name="left"/> and <paramref name="right"/> objects, <see langword="false"/> otherwise.</returns>
         </member>
         <member name="T:Yandex.Detector.MobileDevice.Info">
             <summary>
@@ -964,6 +980,22 @@
               <para></para>
             </summary>
             <returns></returns>
+        </member>
+        <member name="M:Yandex.Translator.Error.op_Equality(Yandex.Translator.Error,Yandex.Translator.Error)">
+            <summary>
+              <para>Logical equality operator for two objects.</para>
+            </summary>
+            <param name="left">The left operand.</param>
+            <param name="right">The right operand.</param>
+            <returns><see langword="true"/> in case of logical equality of <paramref name="left"/> and <paramref name="right"/> objects, <see langword="false"/> otherwise.</returns>
+        </member>
+        <member name="M:Yandex.Translator.Error.op_Inequality(Yandex.Translator.Error,Yandex.Translator.Error)">
+            <summary>
+              <para>Logical inequality operator for two objects.</para>
+            </summary>
+            <param name="left">The left operand.</param>
+            <param name="right">The right operand.</param>
+            <returns><see langword="true"/> in case of logical inequality of <paramref name="left"/> and <paramref name="right"/> objects, <see langword="false"/> otherwise.</returns>
         </member>
         <member name="T:Yandex.Translator.IResultable`1">
             <summary>

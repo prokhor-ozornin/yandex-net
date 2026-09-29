@@ -71,4 +71,20 @@ public sealed class Error : IError
   /// </summary>
   /// <returns></returns>
   public override string ToString() => Text ?? string.Empty;
+  
+  /// <summary>
+  ///   <para>Logical equality operator for two objects.</para>
+  /// </summary>
+  /// <param name="left">The left operand.</param>
+  /// <param name="right">The right operand.</param>
+  /// <returns><see langword="true"/> in case of logical equality of <paramref name="left"/> and <paramref name="right"/> objects, <see langword="false"/> otherwise.</returns>
+  public static bool operator ==(Error left, Error right) => Equals(left, right);
+
+  /// <summary>
+  ///   <para>Logical inequality operator for two objects.</para>
+  /// </summary>
+  /// <param name="left">The left operand.</param>
+  /// <param name="right">The right operand.</param>
+  /// <returns><see langword="true"/> in case of logical inequality of <paramref name="left"/> and <paramref name="right"/> objects, <see langword="false"/> otherwise.</returns>
+  public static bool operator !=(Error left, Error right) => !Equals(left, right);
 }
